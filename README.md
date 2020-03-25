@@ -4,3 +4,4 @@
 
 ## Table of Content
 - [Basic Web Automation](./firstAutomation/firstWebAutomation.md)
+- [Automation with TestNG](./firstTestNG/firstWebTestNG.md)

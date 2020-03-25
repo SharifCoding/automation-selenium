@@ -7,8 +7,8 @@ public class firstTest {
 
     public static void main(String[] args) {
         // instantiation driver object
-		WebDriver driver = new SafariDriver();
-		// URL, expected/actual titles are specified as parameters
+        WebDriver driver = new SafariDriver();
+        // URL, expected/actual titles are specified as parameters
         String baseUrl = "http://www.google.co.uk/";
         String expectedTitle = "Google";
         String actualTitle = "";

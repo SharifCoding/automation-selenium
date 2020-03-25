@@ -2,6 +2,8 @@
 
 [<img src="https://img.shields.io/badge/-Selenium-brightgreen">](https://www.selenium.dev/) [<img src="https://img.shields.io/badge/-Maven-orangered">](hhttps://maven.apache.org/) [<img src="https://img.shields.io/badge/-Eclipse_IDE-orange">](https://www.eclipse.org/) [<img src="https://img.shields.io/badge/-Java-darkred">](https://www.java.com/en/)
 
+## Basic Web Automation
+
 ### Reference
 - [First Selenium Webdriver Script: JAVA Code Example](https://www.guru99.com/first-webdriver-script.html)
 
@@ -26,8 +28,8 @@ public class firstTest {
 
     public static void main(String[] args) {
         // instantiation driver object
-		WebDriver driver = new SafariDriver();
-		// URL, expected/actual titles are specified as parameters
+        WebDriver driver = new SafariDriver();
+        // URL, expected/actual titles are specified as parameters
         String baseUrl = "http://www.google.co.uk/";
         String expectedTitle = "Google";
         String actualTitle = "";
