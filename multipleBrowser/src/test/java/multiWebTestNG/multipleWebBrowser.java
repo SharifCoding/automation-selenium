@@ -16,7 +16,6 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 
 public class multipleWebBrowser {
-
 	private WebDriver driver;
 	private String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
 
@@ -26,11 +25,11 @@ public class multipleWebBrowser {
     	System.out.println("Welcome to selenium test automation");
 		// value of the browserChoice parameter used to instantiate the corresponding driver class of Selenium WebDriver
 		if (mBrowser.equalsIgnoreCase("Chrome")) {
-		  	// setting the driver executable
-		    System.setProperty("webdriver.chrome.driver", myPath + "multipleBrowser/src/main/resources/chromedriver");   
-		    // Initiating your Google Chrome web driver
-		    driver = new ChromeDriver();
-		    System.out.println("Browser Status: Initiating Google Chrome webdriver; chromedriver");       
+			// setting the driver executable
+			System.setProperty("webdriver.chrome.driver", myPath + "multipleBrowser/src/main/resources/chromedriver");   
+			// Initiating your Google Chrome web driver
+			driver = new ChromeDriver();
+			System.out.println("Browser Status: Initiating Google Chrome webdriver; chromedriver");       
 		}
 		else if (mBrowser.equalsIgnoreCase("Firefox")) {
 			// setting the driver executable
@@ -40,16 +39,16 @@ public class multipleWebBrowser {
 			System.out.println("Browser Status: Initiating Mozilla Firefox webdriver; geckodriver");
 		}
 		else if (mBrowser.equalsIgnoreCase("Edge")) {
-		  	// setting the driver executable
-		    System.setProperty("webdriver.edge.driver", myPath + "multipleBrowser/src/main/resources/msedgedriver");
-		    // Initiating your Microsoft Edge web driver
-		    driver = new EdgeDriver();
-	  		System.out.println("Browser Status: Initiating Edge webdriver; msedgedriver");
+			// setting the driver executable
+			System.setProperty("webdriver.edge.driver", myPath + "multipleBrowser/src/main/resources/msedgedriver");
+			// Initiating your Microsoft Edge web driver
+			driver = new EdgeDriver();
+			System.out.println("Browser Status: Initiating Edge webdriver; msedgedriver");
 		}
 		else if (mBrowser.equalsIgnoreCase("Safari")) {
-		    // Initiating your Apple Safari web driver
-		    driver = new SafariDriver();
-	  		System.out.println("Browser Status: Initiating Safari webdriver; SafariDriver");
+			// Initiating your Apple Safari web driver
+			driver = new SafariDriver();
+			System.out.println("Browser Status: Initiating Safari webdriver; SafariDriver");
 		}
 		else {
 			throw new IllegalArgumentException("Invalid browser value! Please input valid parameters for 'jsonBrowserChoice'");
@@ -68,7 +67,7 @@ public class multipleWebBrowser {
 
 	@Test
 	public void verifySearchButton() {
-	  	// open browser with desired URL
+		// open browser with desired URL
 	    driver.get("http://www.google.com");
 	    // strings are constant; their values cannot be changed after they are created
 	    String search_text = "Google Search";

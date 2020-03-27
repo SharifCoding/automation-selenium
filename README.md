@@ -6,3 +6,4 @@
 - [Basic Web Automation](./firstAutomation/README.md)
 - [Automation with TestNG](./firstTestNG/README.md)
 - [TestNG and multiple WebDriver support](./multipleBrowser/README.md)
+- [Automation with JSON parameters](./simpleJSON/README.md)
