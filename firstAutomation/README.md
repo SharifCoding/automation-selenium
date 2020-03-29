@@ -3,6 +3,7 @@
 [<img src="https://img.shields.io/badge/-Selenium-brightgreen">](https://www.selenium.dev/) [<img src="https://img.shields.io/badge/-Maven-orangered">](hhttps://maven.apache.org/) [<img src="https://img.shields.io/badge/-Eclipse_IDE-orange">](https://www.eclipse.org/) [<img src="https://img.shields.io/badge/-Java-darkred">](https://www.java.com/en/)
 
 ## Basic Web Automation
+Basic understanding of how a Selenium test is written in Eclipse and the meaning of each and every line.
 
 ### Reference
 - [First Selenium Webdriver Script: JAVA Code Example](https://www.guru99.com/first-webdriver-script.html)
