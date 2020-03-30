@@ -1,0 +1,11 @@
+[
+  {
+    "testData":{
+      "_testNGFile":"webTestNG.xml",
+      "_commentBrowserChoice": "Please input value; Chrome, Firefox, or Edge",
+      "jsonBrowserChoice":"Firefox",
+	  "jsonURL":"https://www.google.com",
+	  "jsonSearchString":"google"
+    }
+  }
+]

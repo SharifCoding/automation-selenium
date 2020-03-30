@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>seleniumTestNG</groupId>
+  <artifactId>allureReporting</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+ <properties>
+  <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+  <selenium.version>3.141.59</selenium.version>
+  <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+  <testng.version>7.1.0</testng.version>
+  <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+  <json-simple.version>1.1.1</json-simple.version>
+  <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+  <slf4j-simple.version>1.7.30</slf4j-simple.version>
+ 	<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+  <allure-testng.version>2.13.2</allure-testng.version>
+	<!-- https://mvnrepository.com/artifact/com.github.automatedowl/allure-environment-writer -->
+  <allure-environment-writer.version>1.0.0</allure-environment-writer.version>
+ </properties>
+ <dependencies>
+  <dependency>
+   <groupId>org.seleniumhq.selenium</groupId>
+   <artifactId>selenium-java</artifactId>
+   <version>${selenium.version}</version>
+  </dependency>
+  <dependency>
+   <groupId>org.testng</groupId>
+   <artifactId>testng</artifactId>
+   <version>${testng.version}</version>
+   <scope>test</scope>
+  </dependency>
+  <dependency>
+	<groupId>com.googlecode.json-simple</groupId>
+	<artifactId>json-simple</artifactId>
+	<version>${json-simple.version}</version>
+  </dependency>
+	<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+		<version>${slf4j-simple.version}</version>
+    <scope>test</scope>
+	</dependency>
+	<dependency>
+    <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-testng</artifactId>
+    <version>${allure-testng.version}</version>
+	</dependency>
+	<dependency>
+    <groupId>com.github.automatedowl</groupId>
+    <artifactId>allure-environment-writer</artifactId>
+    <version>${allure-environment-writer.version}</version>
+  </dependency>
+ </dependencies>
+</project>

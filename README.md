@@ -12,3 +12,4 @@
 - [TestNG and multiple WebDriver support](./multipleBrowser/README.md)
 - [Automation with JSON parameters](./simpleJSON/README.md)
 - [Adding Page Object Model](./firstPageObject/README.md)
+- [Adding Allure Reporting to Automation](./allureReporting/README.md)
