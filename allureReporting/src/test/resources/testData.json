@@ -1,11 +1,18 @@
 [
   {
-    "testData":{
+    "testDataOne":{
       "_testNGFile":"webTestNG.xml",
-      "_commentBrowserChoice": "Please input value; Chrome, Firefox, or Edge",
-      "jsonBrowserChoice":"Firefox",
-	  "jsonURL":"https://www.google.com",
-	  "jsonSearchString":"google"
+      "_commentBrowserChoice": "Please input value; Chrome, Firefox, Edge, or Safari",
+      "jsonBrowserChoice":"Edge",
+	  	"jsonURL":"https://www.google.com",
+	  	"jsonSearchString":"google"
+    },
+    "testDataTwo":{
+      "_testNGFile":"webTestNG.xml",
+      "_commentBrowserChoice": "Please input value; Chrome, Firefox, Edge, or Safari",
+      "jsonBrowserChoice":"Safari",
+	  	"jsonURL":"https://www.google.com",
+	  	"jsonSearchString":"google"
     }
   }
 ]

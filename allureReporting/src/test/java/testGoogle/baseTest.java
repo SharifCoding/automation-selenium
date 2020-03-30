@@ -16,6 +16,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.google.common.collect.ImmutableMap;
 import mainGoogle.basePage;
@@ -25,13 +26,16 @@ class baseTest {
 	public static WebDriver browser;
     public static String mPlatform = "";
   
+    @Parameters ("JSONArray")
 	@BeforeSuite
-	public void setUp() throws IOException, ParseException, InterruptedException {
+	public void setUp(String JSONArray) throws IOException, ParseException, InterruptedException {
 		// get current date and time
 		basePage.getDateAndTime();
+		// add chosen JSON array to variable
+		basePage.mJSONArray = JSONArray;
 		// initiating read write JSON functionality
 		basePage.readWriteJSON();
-		System.out.println("Welcome to selenium test automation");
+		System.out.println("Welcome to Selenium test automation");
 		// value of the browserChoice parameter used to instantiate the corresponding driver class of Selenium WebDriver
 		if (basePage.mBrowser.equalsIgnoreCase("Chrome")) {
 		  	// setting the driver executable
@@ -60,7 +64,7 @@ class baseTest {
 			System.out.println("Browser Status: Initiating Safari webdriver; SafariDriver");
 		}
 		else {
-			throw new IllegalArgumentException("Invalid browser value! Please input valid parameters for 'jsonBrowserChoice'");
+			throw new IllegalArgumentException("Invalid browser value! Please input valid parameter in JSON array \"" + JSONArray + "\"");
 		}
 		// specifies the amount of time the driver should wait when searching for an element if it is not immediately present. 
 		browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

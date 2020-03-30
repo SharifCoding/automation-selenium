@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class basePage {
        
     public static WebDriver browser;
+    public static String mJSONArray = "";
     public static String mBrowser = "";
     public static String mURL = "";
     public static String mSearchString = "";
@@ -37,7 +38,7 @@ public class basePage {
     	{
     		JSONObject patrons = (JSONObject) patronInfo.get(i);
     		//This prints every block - one json object
-    		JSONObject patron = (JSONObject) patrons.get("testData");
+    		JSONObject patron = (JSONObject) patrons.get(mJSONArray);
     		//This prints each data in the block
     		mBrowser = (String) patron.get("jsonBrowserChoice");
     		mURL = (String) patron.get("jsonURL");
