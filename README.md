@@ -13,3 +13,6 @@
 - [Automation with JSON parameters](./simpleJSON/README.md)
 - [Adding Page Object Model](./firstPageObject/README.md)
 - [Adding Allure Reporting to Automation](./allureReporting/README.md)
+
+## Personal Project
+- [Personal Github Pages Automation](./githubPageTest/README.md)

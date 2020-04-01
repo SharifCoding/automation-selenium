@@ -1,0 +1,16 @@
+[
+  {
+    "testDataOne":{
+      "_testNGFile":"testng.xml",
+      "_commentBrowserChoice": "Please input value; Chrome, Firefox, Edge, or Safari",
+      "jsonBrowserChoice":"Edge",
+	  	"jsonURL":"https://sharifcoding.github.io/"
+    },
+    "testDataTwo":{
+      "_testNGFile":"testng.xml",
+      "_commentBrowserChoice": "Please input value; Chrome, Firefox, Edge, or Safari",
+      "jsonBrowserChoice":"Safari",
+	  	"jsonURL":"https://sharifcoding.github.io/"
+    }
+  }
+]
