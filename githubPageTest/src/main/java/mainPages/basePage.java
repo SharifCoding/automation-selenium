@@ -9,6 +9,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
  
@@ -55,5 +56,13 @@ public class basePage {
     public static void waitForElement(By id, int time) {
     	// Wait so that the app loads completely BEFORE starting with element identification
     	new WebDriverWait(browser, 30).until(ExpectedConditions.elementToBeClickable(id));
+    }
+    
+    public static void scrollToElement(By id) {
+    	// use the org.openqa.selenium.interactions.Actions class to move to an element.
+  	  	Actions actions = new Actions(browser);
+  	  	actions.moveToElement(browser.findElement(id));
+  	  	actions.perform();
+  	  	waitForElement(id, 10);
     }
 }

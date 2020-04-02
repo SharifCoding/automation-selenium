@@ -13,6 +13,10 @@ public class myGithubPage extends basePage{
   By GithubButton = By.id("githubButton");
   By BloggerButton = By.id("bloggerButton");
   By EmailMeButton = By.id("emailMeButton");
+  By ProjectsContainer = By.className("project");
+  By AboutMeContainer = By.className("aboutme");
+  By ExperienceContainer = By.className("experience");
+  By CopyrightContainer = By.className("footer");
     
   //*********Web Page Class Constructor*********
   public myGithubPage(WebDriver browser) {
@@ -42,27 +46,64 @@ public class myGithubPage extends basePage{
   @Step ("Github pages includes Github action button.")
   public void github_button_shown() {
   	// locating an element by CSS ID
-  	WebElement searchButton = browser.findElement(GithubButton);
+  	WebElement githubButton = browser.findElement(GithubButton);
+  	String githubTxt = githubButton.getText();
   	// assertTrue(boolean condition) Asserts that a condition is true
-  	Assert.assertTrue(searchButton.isDisplayed());
+  	Assert.assertTrue(githubButton.isDisplayed());
+  	// assertEquals that two Strings are equal
+    Assert.assertEquals(githubTxt, "Github", "Test Status: getText assertion failed!");
 	System.out.println("Test Status: Github Button is present");
   }
 	
   @Step ("Github pages includes Blogger action button.")
   public void blogger_button_shown() {
   	// locating an element by CSS ID
-  	WebElement luckyButton = browser.findElement(BloggerButton);
+  	WebElement bloggerButton = browser.findElement(BloggerButton);
+  	String bloggerTxt = bloggerButton.getText();
   	// assertTrue(boolean condition) Asserts that a condition is true
-  	Assert.assertTrue(luckyButton.isDisplayed());
+  	Assert.assertTrue(bloggerButton.isDisplayed());
+  	// assertEquals that two Strings are equal
+    Assert.assertEquals(bloggerTxt, "Blogger", "Test Status: getText assertion failed!");
 	System.out.println("Test Status: Blogger Button is present");
   }
   
   @Step ("Github pages includes Email Me action button.")
   public void email_me_button_shown() {
   	// locating an element by CSS ID
-  	WebElement luckyButton = browser.findElement(EmailMeButton);
+  	WebElement emailButton = browser.findElement(EmailMeButton);
+  	String emailTxt = emailButton.getText();
   	// assertTrue(boolean condition) Asserts that a condition is true
-  	Assert.assertTrue(luckyButton.isDisplayed());
+  	Assert.assertTrue(emailButton.isDisplayed());
+  	// assertEquals that two Strings are equal
+    Assert.assertEquals(emailTxt, "Email Me", "Test Status: getText assertion failed!");
 	System.out.println("Test Status: Email Me Button is present");
+  }
+
+  @Step ("Scroll to the Projects section.")
+  public void scroll_to_projects_container() {
+	// call action methods and scroll to element
+	scrollToElement(ProjectsContainer);
+	System.out.println("Test Status: Scroll to Projects Container");
+  }
+  
+  @Step ("Scroll to the About Me section.")
+  public void scroll_to_about_me_container() {
+	// call action methods and scroll to element
+	scrollToElement(AboutMeContainer);
+	System.out.println("Test Status: Scroll to About Me Container");
+  }
+  
+  @Step ("Scroll to the Experience section.")
+  public void scroll_to_experince_container() {
+	// call action methods and scroll to element
+	scrollToElement(ExperienceContainer);
+	System.out.println("Test Status: Scroll to Experience Container");
+  }
+  
+  @Step ("Scroll to the Copyright section.")
+  public void scroll_to_copyright_container() {
+	// call action methods and scroll to element
+	scrollToElement(CopyrightContainer);
+	System.out.println("Test Status: Scroll to Copyright Container");
   }
 }

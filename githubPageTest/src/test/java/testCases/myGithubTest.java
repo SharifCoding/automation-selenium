@@ -25,5 +25,9 @@ public class myGithubTest extends baseTest{
 		myGithubTest.github_button_shown();
 		myGithubTest.blogger_button_shown();
 		myGithubTest.email_me_button_shown();
+		myGithubTest.scroll_to_projects_container();
+		myGithubTest.scroll_to_about_me_container();
+		myGithubTest.scroll_to_experince_container();
+		myGithubTest.scroll_to_copyright_container();
     }
 }

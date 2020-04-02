@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -70,8 +69,8 @@ class baseTest {
 		// specifies the amount of time the driver should wait when searching for an element if it is not immediately present. 
 		browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		// modify browser size in Selenium so it matches a specific resolution
-		browser.manage().window().setSize(new Dimension(1280, 800));
-		System.out.println("Browser Status: Resolution 1280, 800");
+		browser.manage().window().maximize();
+		// browser.manage().window().setSize(new Dimension(1280, 800));
 		// initiating Allure Reporting - get browser name, version and OS details:-
 	    Capabilities cap = ((RemoteWebDriver) browser).getCapabilities();
 	    String browserName = cap.getBrowserName().toLowerCase();
@@ -105,7 +104,7 @@ class baseTest {
 				System.out.println("Allure Status: Do not close CMD while reporting is active");
 			}
 			else if (mPlatform.equals("MAC")) {
-				Runtime.getRuntime().exec("open /bin/bash");
+				// Runtime.getRuntime().exec("open /bin/bash");
 				System.out.println("Allure Status: Execute from terminal \"allure serve allure-results " + basePage.myPath + "\"");
 			}
 			else {
