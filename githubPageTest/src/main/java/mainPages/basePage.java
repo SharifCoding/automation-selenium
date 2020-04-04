@@ -2,7 +2,9 @@ package mainPages;
  
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -19,7 +21,7 @@ public class basePage {
     public static String mJSONArray = "";
     public static String mBrowser = "";
     public static String mURL = "";
-    public static String mSearchString = "";
+    public static String mDate = "";
 	public static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/githubPageTest/";
  
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
@@ -43,14 +45,32 @@ public class basePage {
     		//This prints each data in the block
     		mBrowser = (String) patron.get("jsonBrowserChoice");
     		mURL = (String) patron.get("jsonURL");
-    		mSearchString = (String) patron.get("jsonSearchString");
+    		mDate = (String) patron.get("jsonDate");
     	}
     	System.out.println("JSONParser: Ready");
     }
       
-    public static void getDateAndTime() {
-      	Timestamp stamp = new Timestamp(System.currentTimeMillis());
-    	System.out.println(stamp);
+    public static void getDateAndTime(String mDateInput) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		System.out.println("getDateAndTime: " + dateFormat.format(new Date()));
+		if (mDateInput.equalsIgnoreCase("dd")) {
+			SimpleDateFormat dateFormatDay = new SimpleDateFormat("dd");
+			mDate = dateFormatDay.format(new Date());
+			System.out.println("getDateAndTime: " + mDate);
+		}
+		else if (mDateInput.equalsIgnoreCase("MM")) {
+			SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MM");
+			mDate = dateFormatMonth.format(new Date());
+			System.out.println("getDateAndTime: " + mDate);
+		}
+		else if (mDateInput.equalsIgnoreCase("yyyy")) {
+			SimpleDateFormat dateFormatYear = new SimpleDateFormat("yyyy");
+			mDate = dateFormatYear.format(new Date());
+			System.out.println("getDateAndTime: " + mDate);
+		}
+		else {
+			throw new IllegalArgumentException("getDateAndTime: invalid value");
+		}
     }
       
     public static void waitForElement(By id, int time) {
@@ -60,9 +80,15 @@ public class basePage {
     
     public static void scrollToElement(By id) {
     	// use the org.openqa.selenium.interactions.Actions class to move to an element.
-  	  	Actions actions = new Actions(browser);
-  	  	actions.moveToElement(browser.findElement(id));
-  	  	actions.perform();
-  	  	waitForElement(id, 10);
+    	Actions actions = new Actions(browser);
+    	actions.moveToElement(browser.findElement(id));
+    	actions.perform();
+    }
+    
+    public static void hoverOverElement(By id) throws InterruptedException {
+    	Actions hover = new Actions(browser);
+    	hover.moveToElement(browser.findElement(id));
+    	hover.build().perform();
+        Thread.sleep(1000);
     }
 }

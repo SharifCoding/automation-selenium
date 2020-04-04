@@ -14,7 +14,7 @@ public class myGithubTest extends baseTest{
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Github Pages")
 	@Description ("The Github Pages is loaded.")
-    public void myGithubPageIsLoaded () {
+    public void myGithubPageIsLoaded () throws InterruptedException {
  
         //*************PAGE INSTANTIATIONS*************
 		myGithubPage myGithubTest = new myGithubPage(browser);
@@ -25,9 +25,11 @@ public class myGithubTest extends baseTest{
 		myGithubTest.github_button_shown();
 		myGithubTest.blogger_button_shown();
 		myGithubTest.email_me_button_shown();
-		myGithubTest.scroll_to_projects_container();
+		myGithubTest.homer_over_each_projects();
 		myGithubTest.scroll_to_about_me_container();
+		myGithubTest.grab_title_tag_from_each_image();
 		myGithubTest.scroll_to_experince_container();
 		myGithubTest.scroll_to_copyright_container();
+		myGithubTest.validate_copyright_date();
     }
 }

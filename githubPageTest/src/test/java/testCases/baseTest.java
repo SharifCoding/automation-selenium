@@ -29,12 +29,12 @@ class baseTest {
     @Parameters ("JSONArray")
 	@BeforeSuite
 	public void setUp(String JSONArray) throws IOException, ParseException, InterruptedException {
-		// get current date and time
-		basePage.getDateAndTime();
 		// add chosen JSON array to variable
 		basePage.mJSONArray = JSONArray;
 		// initiating read write JSON functionality
 		basePage.readWriteJSON();
+		// get current date and time
+		basePage.getDateAndTime(basePage.mDate);
 		System.out.println("Welcome to Selenium test automation");
 		// value of the browserChoice parameter used to instantiate the corresponding driver class of Selenium WebDriver
 		if (basePage.mBrowser.equalsIgnoreCase("Chrome")) {
@@ -70,7 +70,6 @@ class baseTest {
 		browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		// modify browser size in Selenium so it matches a specific resolution
 		browser.manage().window().maximize();
-		// browser.manage().window().setSize(new Dimension(1280, 800));
 		// initiating Allure Reporting - get browser name, version and OS details:-
 	    Capabilities cap = ((RemoteWebDriver) browser).getCapabilities();
 	    String browserName = cap.getBrowserName().toLowerCase();
@@ -104,7 +103,7 @@ class baseTest {
 				System.out.println("Allure Status: Do not close CMD while reporting is active");
 			}
 			else if (mPlatform.equals("MAC")) {
-				// Runtime.getRuntime().exec("open /bin/bash");
+				Runtime.getRuntime().exec("open /bin/bash");
 				System.out.println("Allure Status: Execute from terminal \"allure serve allure-results " + basePage.myPath + "\"");
 			}
 			else {
