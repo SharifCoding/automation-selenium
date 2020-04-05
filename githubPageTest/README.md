@@ -8,6 +8,52 @@ Github has a feature called Github Pages, which makes it easy and free for you t
 ### Reference
 - [Github Pages](https://pages.github.com/)
 
+<details>
+<summary>WebDriver Array</summary>
+<p>
+
+#### Before 
+
+```java
+@Step ("Hover over each Projects.")
+public void homer_over_each_projects() throws InterruptedException {
+    ...
+    scrollToElement(ProjectOne);
+    hoverOverElement(ProjectOne);
+    System.out.println("Test Status: Hover to project: nasa-image-search");
+    scrollToElement(ProjectTwo);
+    hoverOverElement(ProjectTwo);
+    System.out.println("Test Status: Hover to project: react-roman-numerals");
+    scrollToElement(ProjectThree);
+    hoverOverElement(ProjectThree);
+    System.out.println("Test Status: Hover to project: react-bootstrap-oxford");
+    ...
+}
+```
+
+#### After 
+
+```java
+@Step ("Hover over each Projects.")
+public void homer_over_each_projects() throws InterruptedException {
+    ...
+    WebElement array [] = {
+        browser.findElement(ProjectOne),
+        browser.findElement(ProjectTwo),
+        browser.findElement(ProjectThree),
+        ...
+    };
+    for(int i = 0; i <= array.length-1; i++)
+    {
+        hoverOverElement(array[i]);
+        System.out.println("Test Status: Hover to project: " + array[i].getText());
+    }
+}
+```
+
+</p>
+</details>
+
 ### Running the Test
 To run the test;
 - download webdriver and note the path, provide the path on the java test file and save.

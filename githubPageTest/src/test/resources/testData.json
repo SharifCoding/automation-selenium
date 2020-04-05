@@ -12,8 +12,9 @@
       "_testNGFile":"testng.xml",
       "_commentBrowserChoice": "Please input value; Chrome, Firefox, Edge, or Safari",
       "jsonBrowserChoice":"Safari",
+      "jsonURL":"https://sharifcoding.github.io/",
       "_commentDate": "Please input value; dd/MM/yyyy, yyyy, MM, or dd",
-	  	"jsonURL":"yyyy"
+	  	"jsonDate":"yyyy"
     }
   }
 ]

@@ -11,6 +11,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -85,9 +86,9 @@ public class basePage {
     	actions.perform();
     }
     
-    public static void hoverOverElement(By id) throws InterruptedException {
+    public static void hoverOverElement(WebElement arrayID) throws InterruptedException {
     	Actions hover = new Actions(browser);
-    	hover.moveToElement(browser.findElement(id));
+    	hover.moveToElement(arrayID);
     	hover.build().perform();
         Thread.sleep(1000);
     }

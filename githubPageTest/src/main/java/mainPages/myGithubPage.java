@@ -1,5 +1,5 @@
 package mainPages;
- 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,8 +24,8 @@ public class myGithubPage extends basePage{
   By SeleniumPNG = By.xpath("//img[@alt='selenium']");
   By ProtractorPNG = By.xpath("//img[@alt='protractor']");
   By JavascriptPNG = By.xpath("//img[@alt='javascript']");
-  By HTMLPNG = By.xpath("//img[@alt='HTML5']");
-  By CSSPNG = By.xpath("//img[@alt='CSS']");
+  By HTMLPNG = By.xpath("//img[@alt='html5']");
+  By CSSPNG = By.xpath("//img[@alt='css3']");
   By ExperienceContainer = By.className("experience");
   By CopyrightContainer = By.className("footer");
     
@@ -95,30 +95,20 @@ public class myGithubPage extends basePage{
 	// call action methods and scroll to element
 	scrollToElement(ProjectsContainer);
 	System.out.println("Test Status: Scroll to Projects Container");
-	// call action methods and hover to element
-	scrollToElement(ProjectOne);
-	hoverOverElement(ProjectOne);
-	System.out.println("Test Status: Hover to project: nasa-image-search");
-	// call action methods and hover to element
-	scrollToElement(ProjectTwo);
-	hoverOverElement(ProjectTwo);
-	System.out.println("Test Status: Hover to project: react-roman-numerals");
-	// call action methods and hover to element
-	scrollToElement(ProjectThree);
-	hoverOverElement(ProjectThree);
-	System.out.println("Test Status: Hover to project: react-bootstrap-oxford");
-	// call action methods and hover to element
-	scrollToElement(ProjectFour);
-	hoverOverElement(ProjectFour);
-	System.out.println("Test Status: Hover to project: weather-react-axios");
-	// call action methods and hover to element
-	scrollToElement(ProjectFive);
-	hoverOverElement(ProjectFive);
-	System.out.println("Test Status: Hover to project: cruiseship-domain-model");
-	// call action methods and hover to element
-	scrollToElement(ProjectSix);
-	hoverOverElement(ProjectSix);
-	System.out.println("Test Status: Hover to project: html-bootstrap-manchester");
+    // assign all web elements into list
+    WebElement array [] = {
+		browser.findElement(ProjectOne),
+		browser.findElement(ProjectTwo),
+		browser.findElement(ProjectThree),
+		browser.findElement(ProjectFour),
+		browser.findElement(ProjectFive),
+		browser.findElement(ProjectSix)
+    };
+    for(int i = 0; i <= array.length-1; i++)
+    {
+    	hoverOverElement(array[i]);
+    	System.out.println("Test Status: Hover to project: " + array[i].getText());
+    }
   }
   
   @Step ("Scroll to the About Me section.")
@@ -130,9 +120,20 @@ public class myGithubPage extends basePage{
   
   @Step ("Grab title tag from each image.")
   public void grab_title_tag_from_each_image() {
-	WebElement element = browser.findElement(SeleniumPNG);
-	String title = element.getAttribute("title");
-	System.out.println(title);
+    // assign all web elements into list
+    WebElement array [] = {
+		browser.findElement(SeleniumPNG),
+		browser.findElement(ProtractorPNG),
+		browser.findElement(JavascriptPNG),
+		browser.findElement(HTMLPNG),
+		browser.findElement(CSSPNG),
+    };
+    for(int i = 0; i <= array.length-1; i++)
+    {
+    	WebElement element = array[i];
+    	String titleTag = element.getAttribute("title");
+    	System.out.println("Test Status: <img title=\"" + titleTag + "\">");
+    }
 	System.out.println("Test Status: Title tag displayed for each image");
   }
   
