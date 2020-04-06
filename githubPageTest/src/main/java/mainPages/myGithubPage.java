@@ -10,10 +10,13 @@ public class myGithubPage extends basePage{
  
   //*********Web Elements*********
   By GithubBody = By.id("myGithubPages");
+  By HeaderButtons = By.xpath("//*[@id='headerButtons']//a");
   By GithubButton = By.id("githubButton");
   By BloggerButton = By.id("bloggerButton");
   By EmailMeButton = By.id("emailMeButton");
   By ProjectsContainer = By.className("project");
+  By PersonalProject = By.xpath("//*[@id='personalProjectButtons']//li//a");
+  By ClassProject = By.xpath("//*[@id='classProjectButtons']//li//a");
   By ProjectOne = By.id("projectOne");
   By ProjectTwo = By.id("projectTwo");
   By ProjectThree = By.id("projectThree");
@@ -21,11 +24,7 @@ public class myGithubPage extends basePage{
   By ProjectFive = By.id("projectFive");
   By ProjectSix = By.id("projectSix");
   By AboutMeContainer = By.className("aboutme");
-  By SeleniumPNG = By.xpath("//img[@alt='selenium']");
-  By ProtractorPNG = By.xpath("//img[@alt='protractor']");
-  By JavascriptPNG = By.xpath("//img[@alt='javascript']");
-  By HTMLPNG = By.xpath("//img[@alt='html5']");
-  By CSSPNG = By.xpath("//img[@alt='css3']");
+  By GridrightIcons = By.xpath("//*[@id='gridrightIcons']//img");
   By ExperienceContainer = By.className("experience");
   By CopyrightContainer = By.className("footer");
     
@@ -90,8 +89,16 @@ public class myGithubPage extends basePage{
 	System.out.println("Test Status: Email Me Button is present");
   }
   
+  @Step ("Verify Github, Blogger, and Email Me action buttons.")
+  public void verify_header_action_buttons() {
+    // Call function to catch all web elements into list and verify with provided attribute
+	checkListAttribute(HeaderButtons, "href");
+	System.out.println("Test Status: Action buttons verified");
+	array_list.forEach(t -> System.out.println("Test Status: <a href=\"" + t + "\">"));
+  }
+  
   @Step ("Hover over each Projects.")
-  public void homer_over_each_projects() throws InterruptedException {
+  public void hover_over_each_projects() throws InterruptedException {
 	// call action methods and scroll to element
 	scrollToElement(ProjectsContainer);
 	System.out.println("Test Status: Scroll to Projects Container");
@@ -111,6 +118,22 @@ public class myGithubPage extends basePage{
     }
   }
   
+  @Step ("Hover over each Personal Projects.")
+  public void verify_personal_projects() throws InterruptedException {
+    // Call function to catch all web elements into list and verify with provided attribute
+	checkListAttribute(PersonalProject, "href");
+	System.out.println("Test Status: Personal project URLs verified");
+	array_list.forEach(t -> System.out.println("Test Status: <a href=\"" + t + "\">"));
+  }
+  
+  @Step ("Hover over each Class Projects.")
+  public void verify_class_projects() throws InterruptedException {
+    // Call function to catch all web elements into list and verify with provided attribute
+	checkListAttribute(ClassProject, "href");
+	System.out.println("Test Status: Class project URLs verified");
+	array_list.forEach(t -> System.out.println("Test Status: <a href=\"" + t + "\">"));
+  }
+  
   @Step ("Scroll to the About Me section.")
   public void scroll_to_about_me_container() {
 	// call action methods and scroll to element
@@ -120,21 +143,11 @@ public class myGithubPage extends basePage{
   
   @Step ("Grab title tag from each image.")
   public void grab_title_tag_from_each_image() {
-    // assign all web elements into list
-    WebElement array [] = {
-		browser.findElement(SeleniumPNG),
-		browser.findElement(ProtractorPNG),
-		browser.findElement(JavascriptPNG),
-		browser.findElement(HTMLPNG),
-		browser.findElement(CSSPNG),
-    };
-    for(int i = 0; i <= array.length-1; i++)
-    {
-    	WebElement element = array[i];
-    	String titleTag = element.getAttribute("title");
-    	System.out.println("Test Status: <img title=\"" + titleTag + "\">");
-    }
-	System.out.println("Test Status: Title tag displayed for each image");
+    // Call function to catch all web elements into list and verify with provided attribute
+	checkListAttribute(GridrightIcons, "src");
+	checkListAttribute(GridrightIcons, "title");
+	System.out.println("Test Status: Title tags displayed verified");
+	array_list.forEach(t -> System.out.println("Test Status: <img title=\"" + t + "\">"));
   }
   
   @Step ("Scroll to the Experience section.")
@@ -155,7 +168,6 @@ public class myGithubPage extends basePage{
   public void validate_copyright_date() {
 	// call action methods and scroll to element
 	String Txt = browser.findElement(CopyrightContainer).getText();
-	System.out.println(Txt);
 	// assertEquals that two Strings are equal
 	Assert.assertEquals(Txt, "Copyright © " + mDate + ", SharifCoding", "Test Status: getText assertion failed!");
 	System.out.println("Test Status: Validated the Copyright date");

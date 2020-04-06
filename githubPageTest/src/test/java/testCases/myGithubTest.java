@@ -25,7 +25,10 @@ public class myGithubTest extends baseTest{
 		myGithubTest.github_button_shown();
 		myGithubTest.blogger_button_shown();
 		myGithubTest.email_me_button_shown();
-		myGithubTest.homer_over_each_projects();
+		myGithubTest.verify_header_action_buttons();
+		myGithubTest.hover_over_each_projects();
+		myGithubTest.verify_personal_projects();
+		myGithubTest.verify_class_projects();
 		myGithubTest.scroll_to_about_me_container();
 		myGithubTest.grab_title_tag_from_each_image();
 		myGithubTest.scroll_to_experince_container();
