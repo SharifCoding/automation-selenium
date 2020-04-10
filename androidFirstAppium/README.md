@@ -1,6 +1,6 @@
 # automation-selenium
 
-[<img src="https://img.shields.io/badge/-Selenium-brightgreen">](https://www.selenium.dev/) [<img src="https://img.shields.io/badge/-Maven-orangered">](hhttps://maven.apache.org/) [<img src="https://img.shields.io/badge/-Eclipse_IDE-orange">](https://www.eclipse.org/) [<img src="https://img.shields.io/badge/-Java-darkred">](https://www.java.com/en/) [<img src="https://img.shields.io/badge/-TestNG-sandybrown">](https://testng.org/doc/index.html) [<img src="https://img.shields.io/badge/-Appium-blue">](https://appium.io/)
+[<img src="https://img.shields.io/badge/-Selenium-brightgreen">](https://www.selenium.dev/) [<img src="https://img.shields.io/badge/-Maven-orangered">](hhttps://maven.apache.org/) [<img src="https://img.shields.io/badge/-Eclipse_IDE-orange">](https://www.eclipse.org/) [<img src="https://img.shields.io/badge/-Java-darkred">](https://www.java.com/en/) [<img src="https://img.shields.io/badge/-TestNG-sandybrown">](https://testng.org/doc/index.html) [<img src="https://img.shields.io/badge/-Appium-blue">](https://appium.io/) [<img src="https://img.shields.io/badge/-Android-red">](https://www.android.com/intl/en_uk/)
 
 ## First Android Appium Automation
 With Appium, you would need to write automation test scripts that interact with the screens and controls (buttons, text boxes etc) in your mobile app and perform actions on them. We would use Java to write these automation scripts.
@@ -27,6 +27,7 @@ With Appium, you would need to write automation test scripts that interact with 
 ### Running the Test
 To run the test;
 - download webdriver and note the path, provide the path via Appium GUI.
+- launch either Android Emulator or Android Device depending on setup.
 - right click the __testNG.xml__ file, and then select __Run As > TestNG Suite__.
 
 ### Automating Android Emulator
