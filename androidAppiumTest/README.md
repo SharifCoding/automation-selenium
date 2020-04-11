@@ -17,7 +17,7 @@ To run the test;
 - launch either Android Emulator or Android Device depending on setup.
 - right click the __testNG.xml__ file, and then select __Run As > TestNG Suite__.
 
-### Allure Rport for Appium Test
+### Allure Report for Appium Test
 <img src="appiumAllureReport.jpg">
 
 #### [Return: Automation Selenium README](../README.md)

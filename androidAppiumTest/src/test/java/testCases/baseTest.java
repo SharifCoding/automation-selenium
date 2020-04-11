@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
@@ -16,7 +17,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class baseTest
 {
-	public static AndroidDriver<?> mobiledriver;
+	public static AndroidDriver<WebElement> mobiledriver;
 
 	@BeforeTest
 	public void beforeTest( ) throws MalformedURLException {
@@ -57,8 +58,8 @@ public class baseTest
 			mobiledriver.close();
 			// closing the WebDriver
 			mobiledriver.quit();
-			System.out.println("Browser Status: Closing web driver");
+			System.out.println("Test Status: Closing web driver");
 		} catch (Exception e) { }	
-		System.out.println("Allure Status: Execute from terminal \"allure serve allure-results\"");
+		System.out.println("Allure Report: Execute \"allure serve allure-results\" from terminal");
 	}
 }
