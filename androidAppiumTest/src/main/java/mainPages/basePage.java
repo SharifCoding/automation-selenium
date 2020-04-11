@@ -1,5 +1,7 @@
 package mainPages;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,6 +12,7 @@ import io.appium.java_client.android.AndroidDriver;
 public class basePage {
        
 	public static AndroidDriver<WebElement> mobiledriver;
+    static List<String> array_list = new ArrayList<>();
     public static String mURL = "http://appium.io/";
 	
     public static void waitForElement(By id, int time) {
@@ -21,5 +24,12 @@ public class basePage {
     	// use the org.openqa.selenium.interactions.Actions class to move to an element.
     	Actions actions = new Actions(mobiledriver);
     	actions.moveToElement(mobiledriver.findElement(id)).perform();
+    }
+    
+    public static void hoverOverElement(WebElement arrayID) throws InterruptedException {
+    	// use the org.openqa.selenium.interactions.Actions class to move to an element.
+    	Actions hover = new Actions(mobiledriver);
+    	hover.moveToElement(arrayID).build().perform();
+        Thread.sleep(500);
     }
 }

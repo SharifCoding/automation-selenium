@@ -3,7 +3,6 @@ package mainPages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
  
@@ -14,12 +13,17 @@ public class appiumHomeUIPage extends basePage{
   By AppiumNavbar = By.className("navbar-brand");
   By HamburgerIcon = By.className("navbar-toggle");
   By HamburgerMenu = By.id("bs-example-navbar-collapse-1");
-  By ProjectOne = By.id("projectOne");
-  By ProjectTwo = By.id("projectTwo");
-  By ProjectThree = By.id("projectThree");
-  By ProjectFour = By.id("projectFour");
-  By ProjectFive = By.id("projectFive");
-  By ProjectSix = By.id("projectSix");
+  By DropdownHome = By.xpath("//*[contains(text(), 'Home')]");
+  By DropdownIntroduction = By.xpath("//*[contains(text(), 'Introduction')]");
+  By DropdownGetStarted = By.xpath("//*[contains(text(), 'Get started')]");
+  By DropdownHistory = By.xpath("//*[contains(text(), 'History')]");
+  By DropdownGetInvolved = By.xpath("//*[contains(text(), 'Get Involved!')]");
+  By DropdownDocumentation = By.xpath("//*[contains(text(), 'Documentation')]");
+  By DropdownBooksResources = By.xpath("//*[contains(text(), 'Books & Resources')]");
+  By IntroducingAppium = By.id("introducing-appium");
+  By WatchVideosButton = By.xpath("//*[contains(text(), 'Watch the Videos')]");
+  By ShowDemoVideo = By.id("show-demo-video");
+  By EasySetupProcess = By.xpath("//*[contains(text(), 'Easy setup process, run a test now.')]");
     
   //*********Web Page Class Constructor*********
   public appiumHomeUIPage(AndroidDriver<WebElement> mobiledriver) {
@@ -37,25 +41,42 @@ public class appiumHomeUIPage extends basePage{
   	System.out.println("Test Status: appium menu is shown");
   }
 
-  @Step ("Verify hamburger menu.")
-  public void click_on_hamburger_icon_and_verify() {
+  @Step ("Expand hamburger menu.")
+  public void click_on_hamburger_icon_to_expand() {
 	// Wait so that the app loads completely before starting with element identification
 	waitForElement(HamburgerIcon, 30);
 	//Find element by Class Name
 	mobiledriver.findElement(HamburgerIcon).click();
 	// Wait so that the app loads completely before starting with element identification
 	waitForElement(HamburgerMenu, 30);
-	//Find element by Class Name
-	mobiledriver.findElement(By.xpath("//*[contains(text(), 'Home')]"));
-	mobiledriver.findElement(By.xpath("//*[contains(text(), 'Introduction')]"));
-	mobiledriver.findElement(By.xpath("//*[contains(text(), 'Get started')]"));
-	mobiledriver.findElement(By.xpath("//*[contains(text(), 'History')]"));
-	mobiledriver.findElement(By.xpath("//*[contains(text(), 'Get Involved!')]"));
-	mobiledriver.findElement(By.xpath("//*[contains(text(), 'Documentation')]"));
-	mobiledriver.findElement(By.xpath("//*[contains(text(), 'Books & Resources')]"));
-	//Find element by Class Name
+  	System.out.println("Test Status: appium hamburger menu is expanded");
+  }
+  
+  @Step ("Verify hamburger menu.")
+  public void hover_over_each_hamburger_menu_option() throws InterruptedException {
+    // assign all web elements into list
+    WebElement array [] = {
+		mobiledriver.findElement(DropdownHome),
+		mobiledriver.findElement(DropdownIntroduction),
+		mobiledriver.findElement(DropdownGetStarted),
+		mobiledriver.findElement(DropdownHistory),
+		mobiledriver.findElement(DropdownGetInvolved),
+		mobiledriver.findElement(DropdownDocumentation),
+		mobiledriver.findElement(DropdownBooksResources),
+    };
+    for(int i = 0; i <= array.length-1; i++)
+    {
+    	// hover over each element in array
+    	hoverOverElement(array[i]);
+    	System.out.println("Test Status: hoverOverElement.getText \"" + array[i].getText() + "\"");
+    }    
+  }
+  
+  @Step ("Close hamburger menu.")
+  public void click_on_hamburger_icon_to_close() {
+	// find element by Class Name
 	mobiledriver.findElement(HamburgerIcon).click();
-  	System.out.println("Test Status: appium hamburger icon is verified");
+  	System.out.println("Test Status: appium hamburger menu is closed");
   }
   
   @Step ("Check the Appium download button is shown.")
@@ -67,5 +88,26 @@ public class appiumHomeUIPage extends basePage{
   	Assert.assertTrue(actualString.contains("Download Appium"));
   	// assertTrue(boolean condition) Asserts that a condition is true
   	System.out.println("Test Status: button \"" + actualString + "\" is shown");
+  }
+  
+  @Step ("Scroll to introducing appium.")
+  public void scroll_to_introducing_appium() {
+	// Wait so that the app loads completely before starting with element identification
+	scrollToElement(IntroducingAppium);
+  	System.out.println("Test Status: Scrolled to h1 Introducing Appium");
+  }
+  
+  @Step ("Scroll to watch the videos.")
+  public void scroll_to_watch_the_videos() {
+	// Wait so that the app loads completely before starting with element identification
+	scrollToElement(ShowDemoVideo);
+  	System.out.println("Test Status: Scrolled to h2 Watch the Videos");
+  }
+  
+  @Step ("Scroll to Appium easy setup process.")
+  public void scroll_to_appium_setup() {
+	// Wait so that the app loads completely before starting with element identification
+	scrollToElement(EasySetupProcess);
+  	System.out.println("Test Status: Scrolled to h1 Easy Setup Process");
   }
 }
