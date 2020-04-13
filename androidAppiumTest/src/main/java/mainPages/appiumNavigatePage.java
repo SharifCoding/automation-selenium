@@ -1,8 +1,5 @@
 package mainPages;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -68,19 +65,10 @@ public class appiumNavigatePage extends basePage{
 	//Find element by Class Name
 	mobiledriver.findElement(WatchVideosButton).click();
   	System.out.println("Test Status: Clicked on Watch Videos");
-    // To catch all web elements into list
-    List<WebElement> myList=mobiledriver.findElements(DemoVideoElements);
-    // myList contains all the web elements
-    // To get all elements href into array list
-    List<String> all_elements_attribute=new ArrayList<>();
-    for(int i=0; i<myList.size(); i++){
-        // Loading href of each element in to array all_elements_href
-    	all_elements_attribute.add(myList.get(i).getAttribute("src"));
-        // Asserts that an object isn't null. If it is, an AssertionError is thrown.
-        Assert.assertNotNull(myList.get(i).getAttribute("src"));
-    }
-    all_elements_attribute.forEach(t -> System.out.println("Test Status: <iframe src=\"" + t + "\">"));
-  	System.out.println("Test Status: Demo videos verified");
+    // Call function to catch all web elements into list and verify with provided attribute
+	checkListAttribute(DemoVideoElements, "src");
+	System.out.println("Test Status: Personal project URLs verified");
+	array_list.forEach(t -> System.out.println("Test Status: <iframe src=\"" + t + "\">"));
   }
   
   @Step ("Scroll to Appium easy setup process.")
