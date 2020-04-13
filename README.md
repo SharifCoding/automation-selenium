@@ -14,7 +14,7 @@
 - [Adding Page Object Model](./firstPageObject/README.md)
 - [Adding Allure Reporting to Automation](./allureReporting/README.md)
 
-## Personal Project
+## Personal Projects
 - [Personal Github Pages Automation](./githubPageTest/README.md)
 - [First Android Appium Automation](./androidFirstAppium/README.md)
 - [Android Appium Web Automation](./androidAppiumTest/README.md)
