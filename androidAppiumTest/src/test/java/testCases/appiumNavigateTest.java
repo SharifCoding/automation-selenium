@@ -22,7 +22,10 @@ public class appiumNavigateTest extends baseTest{
         //*************PAGE METHODS********************
 		appiumNavigateTest.appium_menu_toolbar_is_shown();
 		appiumNavigateTest.scroll_to_introducing_appium();
+		appiumNavigateTest.verify_marketing_byline();
 		appiumNavigateTest.scroll_to_watch_the_videos();
+		appiumNavigateTest.verify_demo_videos();
 		appiumNavigateTest.scroll_to_appium_setup();
+		appiumNavigateTest.verify_appium_setup();
     }
 }
