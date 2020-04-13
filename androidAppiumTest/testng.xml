@@ -6,6 +6,7 @@
       <class name="testCases.baseTest"/>
       <class name="testCases.appiumHomeTest"/>
       <class name="testCases.appiumHomeUITest"/>
+      <class name="testCases.appiumNavigateTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

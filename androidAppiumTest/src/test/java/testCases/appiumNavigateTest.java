@@ -6,24 +6,23 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import mainPages.appiumHomeUIPage;
+import mainPages.appiumNavigatePage;
  
-public class appiumHomeUITest extends baseTest{
+public class appiumNavigateTest extends baseTest{
 	
 	@Test (priority = 0)
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Appium Home Page")
-	@Description ("The Appium Home UI are loaded.")
+	@Description ("Navigate the Appium Home page.")
     public void appiumHomeUILoaded () throws InterruptedException {
  
         //*************PAGE INSTANTIATIONS*************
-		appiumHomeUIPage appiumHomeUITest = new appiumHomeUIPage(mobiledriver);
+		appiumNavigatePage appiumNavigateTest = new appiumNavigatePage(mobiledriver);
  
         //*************PAGE METHODS********************
-		appiumHomeUITest.appium_menu_toolbar_is_shown();
-		appiumHomeUITest.click_on_hamburger_icon_to_expand();
-		appiumHomeUITest.hover_over_each_hamburger_menu_option();
-		appiumHomeUITest.click_on_hamburger_icon_to_close();
-		appiumHomeUITest.appium_download_button_is_shown();
+		appiumNavigateTest.appium_menu_toolbar_is_shown();
+		appiumNavigateTest.scroll_to_introducing_appium();
+		appiumNavigateTest.scroll_to_watch_the_videos();
+		appiumNavigateTest.scroll_to_appium_setup();
     }
 }
