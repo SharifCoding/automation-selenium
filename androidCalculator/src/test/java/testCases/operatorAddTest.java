@@ -6,25 +6,26 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import mainPages.calculatorUIPage;
+import mainPages.operatorAddPage;
  
-public class calculatorUITest extends baseTest{
+public class operatorAddTest extends baseTest{
 	
 	@Test (priority = 0)
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Google Android Calculator")
 	@Description ("The google android calculator is launched.")
-    public void googleCalculatorIsLoaded () {
+    public void googleCalculatorOperatorAdd () {
  
         //*************PAGE INSTANTIATIONS*************
-		calculatorUIPage androidCalculatorTest = new calculatorUIPage(mobiledriver);
+		operatorAddPage operatorAddTest = new operatorAddPage(mobiledriver);
  
         //*************PAGE METHODS********************
-		androidCalculatorTest.beforeTest();
-		androidCalculatorTest.calculator_toolbar_is_shown();
-		androidCalculatorTest.calculator_display_is_shown();
-		androidCalculatorTest.calculator_number_pad_is_shown();
-		androidCalculatorTest.calculator_operator_is_shown();
-		androidCalculatorTest.afterTest();
+		operatorAddTest.beforeTest();
+		operatorAddTest.input_first_value();
+		operatorAddTest.tap_on_operator_add();
+		operatorAddTest.input_second_value();
+		operatorAddTest.tap_on_equal_button();
+		operatorAddTest.verify_total_value();
+		operatorAddTest.afterTest();
     }
 }

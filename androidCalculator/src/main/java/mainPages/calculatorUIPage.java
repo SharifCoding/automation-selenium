@@ -12,6 +12,7 @@ import io.qameta.allure.Step;
 public class calculatorUIPage extends basePage{
 	
   //*********Web Elements*********
+  By CalculatorToolbar = By.id("com.google.android.calculator:id/toolbar");
   By CalculatorDisplay = By.id("com.google.android.calculator:id/display");
   By CalculatorPadNumeric = By.id("com.google.android.calculator:id/pad_numeric");
   By CalculatorPadOperator = By.id("com.google.android.calculator:id/pad_operator");
@@ -22,6 +23,13 @@ public class calculatorUIPage extends basePage{
   }
 
   //*********Page Methods*********	
+  @Step ("Toolbar triggered on launch for the Google Calculator.")
+  public void calculator_toolbar_is_shown() {
+	MobileElement toolbar = mobiledriver.findElement(CalculatorToolbar);
+  	Assert.assertTrue(toolbar.isDisplayed());
+    System.out.println("Test Status: calculator toolbar is shown");
+  }
+  
   @Step ("Check the Google Calculator display is shown.")
   public void calculator_display_is_shown() {
 	MobileElement display = mobiledriver.findElement(CalculatorDisplay);
@@ -46,13 +54,10 @@ public class calculatorUIPage extends basePage{
   @Step ("Android calculator UI test is loaded.")
   @BeforeTest
   public void beforeTest() {
-	mobiledriver.resetApp();
-    System.out.println("App Status: Data storage cleared");
-    System.out.println("App Status: Relaunch");
 	System.out.println("Test Case: android calculator UI test loaded");
   }
 
-  @Step ("Android calculator test completed.")
+  @Step ("Android calculator UI test completed.")
   @AfterTest
   public void afterTest() {
     System.out.println("Test Case: android calculator UI test completed");

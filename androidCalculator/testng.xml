@@ -5,6 +5,7 @@
     <classes>
       <class name="testCases.baseTest"/>
       <class name="testCases.calculatorUITest"/>
+      <class name="testCases.operatorAddTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

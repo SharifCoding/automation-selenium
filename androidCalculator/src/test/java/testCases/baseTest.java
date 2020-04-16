@@ -70,8 +70,8 @@ public class baseTest
 			mobiledriver.closeApp();
 			// closing the WebDriver
 			mobiledriver.quit();
-			System.out.println("Test Status: Closing web driver");
+			System.out.println("Test Status: closing web driver");
 		} catch (Exception e) { }	
-		System.out.println("Allure Report: Execute \"allure serve allure-results\" from terminal");
+		System.out.println("Allure Report: execute \"allure serve allure-results\" from terminal");
 	}
 }
