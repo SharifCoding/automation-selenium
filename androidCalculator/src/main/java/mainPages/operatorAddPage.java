@@ -23,7 +23,8 @@ public class operatorAddPage extends basePage{
   	Assert.assertTrue(first_input.isDisplayed());
   	first_input.click();
 	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
-    //Assert.assertTrue(get_formula.getText().contains(mAddSumOne));
+	String expected_value = Long.toString(mAddSumOne);
+    Assert.assertEquals(get_formula.getText(), expected_value, "Test Status: getText assertion failed!");
     System.out.println("Test Status: input first value: " + get_formula.getText());
   }
   
@@ -41,7 +42,8 @@ public class operatorAddPage extends basePage{
   	Assert.assertTrue(second_input.isDisplayed());
   	second_input.click();
   	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
-    //Assert.assertTrue(get_formula.getText().contains(mAddSumTwo));
+	String expected_value = Long.toString(mAddSumTwo);
+    Assert.assertTrue(get_formula.getText().contains(expected_value));
     System.out.println("Test Status: input second value: " + get_formula.getText());
   }
   
@@ -56,8 +58,9 @@ public class operatorAddPage extends basePage{
   @Step ("Compare the actual result with the expected result.")
   public void verify_total_value() {
 	MobileElement get_formula = mobiledriver.findElement(DisplayResultFinal);
-    System.out.println("Test Status: " + mAddSumOne + " + " + mAddSumTwo + " = " + mAddEqual);
-    Assert.assertEquals(get_formula.getText(), mAddEqual, "Test Status: getText assertion failed!");
+    System.out.println("Test Status: " + mAddSumOne + " + " + mAddSumTwo + " = " + (mAddSumOne + mAddSumTwo));
+	String expected_value = Long.toString(mAddSumOne + mAddSumTwo);
+    Assert.assertEquals(get_formula.getText(), expected_value, "Test Status: getText assertion failed!");
     System.out.println("Test Status: total value verified");
   }
   

@@ -3,8 +3,7 @@
     "testData":{
       "_testNGFile":"testng.xml",
 		  "addSumOne":3,
-		  "addSumTwo":6,
-		  "addEqual":9
+		  "addSumTwo":6
     }
   }
 ]
