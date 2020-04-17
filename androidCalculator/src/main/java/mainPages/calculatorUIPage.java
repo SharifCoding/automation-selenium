@@ -1,6 +1,5 @@
 package mainPages;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -10,12 +9,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
  
 public class calculatorUIPage extends basePage{
-	
-  //*********Web Elements*********
-  By CalculatorToolbar = By.id("com.google.android.calculator:id/toolbar");
-  By CalculatorDisplay = By.id("com.google.android.calculator:id/display");
-  By CalculatorPadNumeric = By.id("com.google.android.calculator:id/pad_numeric");
-  By CalculatorPadOperator = By.id("com.google.android.calculator:id/pad_operator");
     
   //*********Web Page Class Constructor*********
   public calculatorUIPage(AndroidDriver<MobileElement> mobiledriver) {

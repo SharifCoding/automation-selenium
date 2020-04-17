@@ -2,8 +2,9 @@
   {
     "testData":{
       "_testNGFile":"testng.xml",
-		  "addSumOne":"5",
-		  "addSumTwo":"8"
+		  "addSumOne":3,
+		  "addSumTwo":6,
+		  "addEqual":9
     }
   }
 ]

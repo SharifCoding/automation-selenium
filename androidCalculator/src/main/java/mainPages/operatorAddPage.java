@@ -10,24 +10,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
  
 public class operatorAddPage extends basePage{
-	
-  //*********Web Elements*********
-  By OperatorAddButton = By.id("com.google.android.calculator:id/op_add");
-  By EqualButton = By.id("com.google.android.calculator:id/eq");
-  By DisplayFormula = By.id("com.google.android.calculator:id/formula");
-  By DisplayResultFinal = By.id("com.google.android.calculator:id/result_final");
-  
-  //*********Web Elements*********
-  By DigitOneButton = By.id("com.google.android.calculator:id/digit_1");
-  By DigitTwoButton = By.id("com.google.android.calculator:id/digit_2");
-  By DigitThreeButton = By.id("com.google.android.calculator:id/digit_3");
-  By DigitFourButton = By.id("com.google.android.calculator:id/digit_4");
-  By DigitFiveButton = By.id("com.google.android.calculator:id/digit_5");
-  By DigitSixButton = By.id("com.google.android.calculator:id/digit_6");
-  By DigitSevenButton = By.id("com.google.android.calculator:id/digit_7");
-  By DigitEightButton = By.id("com.google.android.calculator:id/digit_8");
-  By DigitNineButton = By.id("com.google.android.calculator:id/digit_9");
-  By DigitZeroButton = By.id("com.google.android.calculator:id/digit_0");
     
   //*********Web Page Class Constructor*********
   public operatorAddPage(AndroidDriver<MobileElement> mobiledriver) {
@@ -35,29 +17,31 @@ public class operatorAddPage extends basePage{
   }
 
   //*********Page Methods*********	
-  @Step ("Tap and check on the Google Calculator number three button.")
+  @Step ("Input and check on first value on the Google Calculator number display.")
   public void input_first_value() {
-	MobileElement digit_three = mobiledriver.findElement(DigitThreeButton);
-  	Assert.assertTrue(digit_three.isDisplayed());
-  	digit_three.click();
+	MobileElement first_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + mAddSumOne));
+  	Assert.assertTrue(first_input.isDisplayed());
+  	first_input.click();
 	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
+    //Assert.assertTrue(get_formula.getText().contains(mAddSumOne));
     System.out.println("Test Status: input first value: " + get_formula.getText());
   }
   
   @Step ("Check and tap on the Google Calculator operator add button.")
   public void tap_on_operator_add() {
-	MobileElement operator_add = mobiledriver.findElement(OperatorAddButton);
+	MobileElement operator_add = mobiledriver.findElement(OperatorPlusButton);
   	Assert.assertTrue(operator_add.isDisplayed());
   	operator_add.click();
     System.out.println("Test Status: tap on operator add");
   }
   
-  @Step ("Check and tap on the Google Calculator number six button.")
+  @Step ("Input and check on second value on the Google Calculator number display.")
   public void input_second_value() {
-	MobileElement digit_six = mobiledriver.findElement(DigitSixButton);
-  	Assert.assertTrue(digit_six.isDisplayed());
-  	digit_six.click();
+	MobileElement second_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + mAddSumTwo));
+  	Assert.assertTrue(second_input.isDisplayed());
+  	second_input.click();
   	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
+    //Assert.assertTrue(get_formula.getText().contains(mAddSumTwo));
     System.out.println("Test Status: input second value: " + get_formula.getText());
   }
   
@@ -69,10 +53,12 @@ public class operatorAddPage extends basePage{
     System.out.println("Test Status: tap on equal button");
   }
   
-  @Step ("Check and tap on the Google Calculator operator equal button.")
+  @Step ("Compare the actual result with the expected result.")
   public void verify_total_value() {
 	MobileElement get_formula = mobiledriver.findElement(DisplayResultFinal);
-    System.out.println("Test Status: value one + value two = " + get_formula.getText());
+    System.out.println("Test Status: " + mAddSumOne + " + " + mAddSumTwo + " = " + mAddEqual);
+    Assert.assertEquals(get_formula.getText(), mAddEqual, "Test Status: getText assertion failed!");
+    System.out.println("Test Status: total value verified");
   }
   
   @Step ("Android calculator operator add test is loaded.")

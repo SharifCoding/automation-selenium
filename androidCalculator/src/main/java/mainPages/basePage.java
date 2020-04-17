@@ -17,11 +17,28 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
  
 public class basePage {
+	
+	//*********Container Mobile Elements*********
+	By CalculatorToolbar = By.id("com.google.android.calculator:id/toolbar");
+	By CalculatorDisplay = By.id("com.google.android.calculator:id/display");
+	By CalculatorPadNumeric = By.id("com.google.android.calculator:id/pad_numeric");
+	By CalculatorPadOperator = By.id("com.google.android.calculator:id/pad_operator");
+	
+	//*********Operator Mobile Elements*********
+	By OperatorPlusButton = By.id("com.google.android.calculator:id/op_add");
+	By OperatorMinusButton = By.id("com.google.android.calculator:id/op_sub");
+	By OperatorMultiplyButton = By.id("com.google.android.calculator:id/op_mul");
+	By OperatorDivideButton = By.id("com.google.android.calculator:id/op_div");
+	By DecimalPointButton = By.id("com.google.android.calculator:id/dec_point");
+	By EqualButton = By.id("com.google.android.calculator:id/eq");
+	By DisplayFormula = By.id("com.google.android.calculator:id/formula");
+	By DisplayResultFinal = By.id("com.google.android.calculator:id/result_final");
        
 	public static AndroidDriver<MobileElement> mobiledriver;
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
-	public static String mAddSumOne = "";
-	public static String mAddSumTwo = "";
+	public static Long mAddSumOne;
+	public static Long mAddSumTwo;
+	public static Long mAddEqual;
 	
     public static void waitForElement(By id, int time) {
     	new WebDriverWait(mobiledriver, 30).until(ExpectedConditions.elementToBeClickable(id));
@@ -39,7 +56,6 @@ public class basePage {
     }
     
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
-    	// https://dzone.com/articles/selenium-data-parameterization-using-json
     	System.out.println("JSONParser: Initiating...");
       	// Read Data From JSON file
       	JSONParser jsonParser = new JSONParser();
@@ -57,8 +73,10 @@ public class basePage {
     		//This prints every block - one json object
     		JSONObject data = (JSONObject) dataBlock.get("testData");
     		//This prints each data in the block
-    		mAddSumOne = (String) data.get("addSumOne");
-    		mAddSumOne = (String) data.get("addSumTwo");
+    		mAddSumOne = (Long) data.get("addSumOne");
+    		mAddSumTwo = (Long) data.get("addSumTwo");
+    		mAddEqual = mAddSumOne + mAddSumTwo;
+    		//mAddEqual = (String) data.get("addEqual");
     	}
     	System.out.println("JSONParser: Ready");
     }
