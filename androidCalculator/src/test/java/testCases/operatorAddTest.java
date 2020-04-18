@@ -13,7 +13,7 @@ public class operatorAddTest extends baseTest{
 	@Test (priority = 0)
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Google Android Calculator")
-	@Description ("The google android calculator is launched.")
+	@Description ("Calculating two vaules using addition.")
     public void googleCalculatorOperatorAdd () {
  
         //*************PAGE INSTANTIATIONS*************

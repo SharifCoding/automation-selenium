@@ -38,14 +38,11 @@ public class basePage {
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
 	public static Long mAddSumOne;
 	public static Long mAddSumTwo;
+	public static Long mSubtractSumOne;
+	public static Long mSubtractSumTwo;
 	
     public static void waitForElement(By id, int time) {
     	new WebDriverWait(mobiledriver, 30).until(ExpectedConditions.elementToBeClickable(id));
-    }
-    
-    public static void scrollToElement(By id) {
-    	Actions actions = new Actions(mobiledriver);
-    	actions.moveToElement(mobiledriver.findElement(id)).perform();
     }
     
     public static void hoverOverElement(WebElement arrayID) throws InterruptedException {
@@ -67,6 +64,8 @@ public class basePage {
     		JSONObject data = (JSONObject) dataBlock.get("testData");
     		mAddSumOne = (Long) data.get("addSumOne");
     		mAddSumTwo = (Long) data.get("addSumTwo");
+    		mSubtractSumOne = (Long) data.get("subtractSumOne");
+    		mSubtractSumTwo = (Long) data.get("subtractSumTwo");
     	}
     	System.out.println("JSONParser: Ready");
     }
