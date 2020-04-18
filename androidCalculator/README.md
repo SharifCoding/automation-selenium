@@ -17,6 +17,6 @@ To run the test;
 - install Google Calculator .apk to either Android Emulator or Android Device.
 - right click the __testNG.xml__ file, and then select __Run As > TestNG Suite__.
 
-<img src="https://lh3.googleusercontent.com/2DL23t8ZjdO8vCHrSAv2d1Tg6u6MgoS4DdY5noQUxan6iXhJO2-tITKNwk0eRz4uqA=w1440-h620-rw">
+<img src="android_calculator.gif">
 
 #### [Return: Automation Selenium README](../README.md)
