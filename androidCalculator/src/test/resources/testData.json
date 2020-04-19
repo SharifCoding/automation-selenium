@@ -5,7 +5,9 @@
 		  "addSumOne":3,
 		  "addSumTwo":6,
 		  "subtractSumOne":8,
-		  "subtractSumTwo":4
+		  "subtractSumTwo":4,
+		  "multiplySumOne":2,
+		  "multiplySumTwo":7
     }
   }
 ]

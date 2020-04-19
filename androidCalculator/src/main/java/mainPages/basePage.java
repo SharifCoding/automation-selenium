@@ -40,6 +40,12 @@ public class basePage {
 	public static Long mAddSumTwo;
 	public static Long mSubtractSumOne;
 	public static Long mSubtractSumTwo;
+	public static Long mMultiplySumOne;
+	public static Long mMultiplySumTwo;
+	Integer mAddRandomOne = randomInteger(9);
+	Integer mAddRandomTwo = randomInteger(9);
+	Integer mSubtractRandomOne = randomInteger(9);
+	Integer mSubtractRandomTwo = randomInteger(9);
 	
     public static void waitForElement(By id, int time) {
     	new WebDriverWait(mobiledriver, 30).until(ExpectedConditions.elementToBeClickable(id));
@@ -50,6 +56,10 @@ public class basePage {
     	hover.moveToElement(arrayID).build().perform();
         Thread.sleep(500);
     }
+    
+    public static int randomInteger(int max) {
+    	return (int) (Math.floor(Math.random() * max) + 1);
+	}
     
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
     	System.out.println("JSONParser: Initiating...");
@@ -66,6 +76,8 @@ public class basePage {
     		mAddSumTwo = (Long) data.get("addSumTwo");
     		mSubtractSumOne = (Long) data.get("subtractSumOne");
     		mSubtractSumTwo = (Long) data.get("subtractSumTwo");
+    		mMultiplySumTwo = (Long) data.get("multiplySumOne");
+    		mMultiplySumTwo = (Long) data.get("multiplySumTwo");
     	}
     	System.out.println("JSONParser: Ready");
     }
