@@ -18,4 +18,4 @@
 - [Personal Github Pages Automation](./githubPageTest/README.md)
 - [First Android Appium Automation](./androidFirstAppium/README.md)
 - [Android Appium Web Automation](./androidAppiumTest/README.md)
-- [Android Google Calcultor Automation](./androidCalculator/README.md)
+- [Google Calcultor App Automation](./androidCalculator/README.md)

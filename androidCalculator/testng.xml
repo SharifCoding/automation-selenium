@@ -9,6 +9,7 @@
       <class name="testCases.operatorRandomAddTest"/>
       <class name="testCases.operatorSubtractTest"/>
       <class name="testCases.operatorRandomSubtractTest"/>
+      <class name="testCases.operatorMultiplyTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

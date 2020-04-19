@@ -25,35 +25,28 @@ public class baseTest
 	@BeforeSuite
 	public void setUp( ) throws InterruptedException, IOException, ParseException {
 		System.out.println("Welcome to Appium mobile automation");
-    	// call the simple JSON functionality
 		basePage.readWriteJSON();
-		//Set the Desired Capabilities
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("deviceName", "Nexus_5_API_29");
-		caps.setCapability("udid", "emulator-5554"); //Give Device ID of your mobile phone
+		caps.setCapability("udid", "emulator-5554");
 		caps.setCapability("platformName", "Android");
 		caps.setCapability("platformVersion", "10.0");
 		caps.setCapability("appPackage", "com.google.android.calculator");
 		caps.setCapability("appActivity", "com.android.calculator2.Calculator");
 		caps.setCapability("noReset", "true");
 		caps.setCapability("newCommandTimeout", 2000);
-		// Instantiate Appium Driver
 		try {
 			mobiledriver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
-			// Checking if an application is installed
 			String appId="com.google.android.calculator";
 			System.out.println("isAppInstalled: " + mobiledriver.isAppInstalled(appId));
 		} catch (MalformedURLException e) {
 			System.out.println(e.getMessage());
 		}
-		// An implicit wait to find an element or elements (if) they are not immediately available
 		mobiledriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		// initiating Allure Reporting - get browser name, version and OS details:-
 	    Capabilities cap = ((RemoteWebDriver) mobiledriver).getCapabilities();
 	    String browserName = cap.getBrowserName().toLowerCase();
 	    String os = cap.getPlatform().toString();
 	    String browserVersion = cap.getVersion().toString();
-		// Java library which allows to write environment.xml file into allure-results directory
 		allureEnvironmentWriter(
 	        ImmutableMap.<String, String>builder()
 	        .put("Browser Name", browserName)
@@ -66,9 +59,7 @@ public class baseTest
 	@AfterSuite
 	public void tearDown( ) {
 		try {
-			// closing the app
 			mobiledriver.closeApp();
-			// closing the WebDriver
 			mobiledriver.quit();
 			System.out.println("Test Status: closing web driver");
 		} catch (Exception e) { }	

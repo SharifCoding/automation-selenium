@@ -76,7 +76,7 @@ public class basePage {
     		mAddSumTwo = (Long) data.get("addSumTwo");
     		mSubtractSumOne = (Long) data.get("subtractSumOne");
     		mSubtractSumTwo = (Long) data.get("subtractSumTwo");
-    		mMultiplySumTwo = (Long) data.get("multiplySumOne");
+    		mMultiplySumOne = (Long) data.get("multiplySumOne");
     		mMultiplySumTwo = (Long) data.get("multiplySumTwo");
     	}
     	System.out.println("JSONParser: Ready");
