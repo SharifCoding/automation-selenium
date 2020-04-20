@@ -24,15 +24,20 @@ public class basePage {
 	By CalculatorPadNumeric = By.id("com.google.android.calculator:id/pad_numeric");
 	By CalculatorPadOperator = By.id("com.google.android.calculator:id/pad_operator");
 	
-	//*********Operator Mobile Elements*********
+	//*********Display Mobile Elements*********
+	By DisplayFormula = By.id("com.google.android.calculator:id/formula");
+	By DisplayResultFinal = By.id("com.google.android.calculator:id/result_final");
+	By DisplaySymbolic = By.id("com.google.android.calculator:id/symbolic");
+	
+	//*********Pad Operator Mobile Elements*********
+	By DeleteButton = By.id("com.google.android.calculator:id/del");
+	By ClearButton = By.id("com.google.android.calculator:id/clr");
 	By OperatorPlusButton = By.id("com.google.android.calculator:id/op_add");
 	By OperatorMinusButton = By.id("com.google.android.calculator:id/op_sub");
 	By OperatorMultiplyButton = By.id("com.google.android.calculator:id/op_mul");
 	By OperatorDivideButton = By.id("com.google.android.calculator:id/op_div");
 	By DecimalPointButton = By.id("com.google.android.calculator:id/dec_point");
 	By EqualButton = By.id("com.google.android.calculator:id/eq");
-	By DisplayFormula = By.id("com.google.android.calculator:id/formula");
-	By DisplayResultFinal = By.id("com.google.android.calculator:id/result_final");
        
 	public static AndroidDriver<MobileElement> mobiledriver;
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
@@ -42,10 +47,12 @@ public class basePage {
 	public static Long mSubtractSumTwo;
 	public static Long mMultiplySumOne;
 	public static Long mMultiplySumTwo;
-	Integer mAddRandomOne = randomInteger(9);
-	Integer mAddRandomTwo = randomInteger(9);
-	Integer mSubtractRandomOne = randomInteger(9);
-	Integer mSubtractRandomTwo = randomInteger(9);
+	public static Long mDivideSumOne;
+	public static Long mDivideSumTwo;
+	Integer mAddRandomOne = randomInteger(0, 9);
+	Integer mAddRandomTwo = randomInteger(0, 9);
+	Integer mSubtractRandomOne = randomInteger(5, 9);
+	Integer mSubtractRandomTwo = randomInteger(0, 5);
 	
     public static void waitForElement(By id, int time) {
     	new WebDriverWait(mobiledriver, 30).until(ExpectedConditions.elementToBeClickable(id));
@@ -57,9 +64,15 @@ public class basePage {
         Thread.sleep(500);
     }
     
-    public static int randomInteger(int max) {
-    	return (int) (Math.floor(Math.random() * max) + 1);
+    public static int randomInteger(int min, int max) {
+    	return min + (int)(Math.random() * ((max - min) + 1));
 	}
+    
+    static double convertDouble(Long longValue){
+        double valueTwo = (double)longValue;
+        System.out.println(valueTwo);
+        return valueTwo;
+    }
     
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
     	System.out.println("JSONParser: Initiating...");
@@ -78,6 +91,8 @@ public class basePage {
     		mSubtractSumTwo = (Long) data.get("subtractSumTwo");
     		mMultiplySumOne = (Long) data.get("multiplySumOne");
     		mMultiplySumTwo = (Long) data.get("multiplySumTwo");
+    		mDivideSumOne = (Long) data.get("divideSumOne");
+    		mDivideSumTwo = (Long) data.get("divideSumTwo");
     	}
     	System.out.println("JSONParser: Ready");
     }

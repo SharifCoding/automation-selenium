@@ -7,7 +7,9 @@
 		  "subtractSumOne":8,
 		  "subtractSumTwo":4,
 		  "multiplySumOne":2,
-		  "multiplySumTwo":7
+		  "multiplySumTwo":7,
+		  "divideSumOne":5,
+		  "divideSumTwo":9
     }
   }
 ]

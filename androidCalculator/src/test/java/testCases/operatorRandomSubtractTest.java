@@ -25,7 +25,7 @@ public class operatorRandomSubtractTest extends baseTest{
 		operatorRandomSubtractTest.tap_on_operator_minus();
 		operatorRandomSubtractTest.input_second_random_value();
 		operatorRandomSubtractTest.tap_on_equal_button();
-		//operatorRandomSubtractTest.verify_total_value();
+		operatorRandomSubtractTest.verify_total_value();
 		operatorRandomSubtractTest.afterTest();
     }
 }
