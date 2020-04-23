@@ -55,6 +55,8 @@ public class basePage {
 	Integer mSubtractRandomTwo = randomInteger(0, 5);
 	Integer mMultiplyRandomOne = randomInteger(0, 9);
 	Integer mMultiplyRandomTwo = randomInteger(0, 9);
+	Integer mDivideRandomOne = randomInteger(0, 5);
+	Integer mDivideRandomTwo = randomInteger(5, 9);
 	
     public static void waitForElement(By id, int time) {
     	new WebDriverWait(mobiledriver, 30).until(ExpectedConditions.elementToBeClickable(id));
@@ -70,11 +72,16 @@ public class basePage {
     	return min + (int)(Math.random() * ((max - min) + 1));
 	}
     
-    static double convertDouble(Long longValue){
-        double valueTwo = (double)longValue;
-        System.out.println(valueTwo);
-        return valueTwo;
-    }
+    public static long[] floorAndRemainder(long a, long b) {
+    	long floor = a / b;
+    	if ((a < 0 ^ b < 0) && a % b != 0) {
+    		floor--;
+    	}
+    	long remainder = Math.abs(a - floor * b);
+    	return new long[] {
+    			floor, remainder
+    	};
+	}
     
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
     	System.out.println("JSONParser: Initiating...");

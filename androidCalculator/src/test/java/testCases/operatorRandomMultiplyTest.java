@@ -14,7 +14,7 @@ public class operatorRandomMultiplyTest extends baseTest{
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Google Android Calculator")
 	@Description ("Calculating two random vaules using multiplication.")
-    public void googleCalculatorOperatorRandomSubtract () {
+    public void googleCalculatorOperatorRandomMultiply () {
  
         //*************PAGE INSTANTIATIONS*************
 		operatorRandomMultiplyPage operatorRandomMultiplyTest = new operatorRandomMultiplyPage(mobiledriver);

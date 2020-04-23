@@ -12,6 +12,7 @@
       <class name="testCases.operatorMultiplyTest"/>
       <class name="testCases.operatorRandomMultiplyTest"/>
       <class name="testCases.operatorDivideTest"/>
+      <class name="testCases.operatorRandomDivideTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
