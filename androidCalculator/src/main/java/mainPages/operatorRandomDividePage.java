@@ -66,17 +66,7 @@ public class operatorRandomDividePage extends basePage{
   
   @Step ("Compare the actual result with the symbolic result.")
   public void verify_total_value_two() {
-    // Double convert to Fraction - https://stackoverflow.com/questions/35031139/double-convert-to-fraction
-    double doubleVal = mDivideRandomOne.doubleValue() / mDivideRandomTwo.doubleValue();
-    double negligibleRatio = 0.01;
-	String expected_symbolic;
-    for(int i=1;;i++){
-    	double tem = doubleVal/(1D/i);
-        if(Math.abs(tem-Math.round(tem))<negligibleRatio){
-        	expected_symbolic = Math.round(tem)+"⁄"+i;
-            break;
-        }
-    }
+	String expected_symbolic = doubleConvertToFraction(mDivideRandomOne.doubleValue() / mDivideRandomTwo.doubleValue());
 	MobileElement get_symbolic = mobiledriver.findElement(DisplaySymbolic);
   	Assert.assertTrue(get_symbolic.isDisplayed());
     Assert.assertEquals(get_symbolic.getText(), expected_symbolic, "Test Status: getText assertion failed!");

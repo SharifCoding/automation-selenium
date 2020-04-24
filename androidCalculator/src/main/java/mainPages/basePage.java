@@ -55,9 +55,9 @@ public class basePage {
 	Integer mSubtractRandomTwo = randomInteger(0, 5);
 	Integer mMultiplyRandomOne = randomInteger(0, 9);
 	Integer mMultiplyRandomTwo = randomInteger(0, 9);
-	Integer mDivideRandomOne = randomInteger(0, 5);
+	Integer mDivideRandomOne = randomInteger(1, 5);
 	Integer mDivideRandomTwo = randomInteger(5, 9);
-	
+
     public static void waitForElement(By id, int time) {
     	new WebDriverWait(mobiledriver, 30).until(ExpectedConditions.elementToBeClickable(id));
     }
@@ -72,15 +72,15 @@ public class basePage {
     	return min + (int)(Math.random() * ((max - min) + 1));
 	}
     
-    public static long[] floorAndRemainder(long a, long b) {
-    	long floor = a / b;
-    	if ((a < 0 ^ b < 0) && a % b != 0) {
-    		floor--;
-    	}
-    	long remainder = Math.abs(a - floor * b);
-    	return new long[] {
-    			floor, remainder
-    	};
+    // Double convert to Fraction - https://stackoverflow.com/questions/35031139/double-convert-to-fraction
+    public static String doubleConvertToFraction(double doubleVal) {
+        double negligibleRatio = 0.01;
+        for(int i=1; ; i++){
+        	double tem = doubleVal / (1D / i);
+            if(Math.abs(tem - Math.round(tem)) < negligibleRatio){
+            	return Math.round(tem)+"⁄"+i;
+            }
+        }
 	}
     
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
@@ -90,7 +90,7 @@ public class basePage {
       	Object obj = jsonParser.parse(reader);
       	JSONArray dataInfo = (JSONArray) obj;
       	System.out.println("JSONParser: entire json --> " + dataInfo);
-    	for(int i=0;i<dataInfo.size();i++) 
+    	for(int i=0 ; i < dataInfo.size(); i++) 
     	{
     		JSONObject dataBlock = (JSONObject) dataInfo.get(i);
     		JSONObject data = (JSONObject) dataBlock.get("testData");
