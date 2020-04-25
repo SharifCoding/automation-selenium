@@ -4,15 +4,8 @@
   <test thread-count="5" name="Android_Calcutor_Test">
     <classes>
       <class name="testCases.baseTest"/>
-      <class name="testCases.calculatorUITest"/>
-      <class name="testCases.operatorAddTest"/>
-      <class name="testCases.operatorRandomAddTest"/>
-      <class name="testCases.operatorSubtractTest"/>
-      <class name="testCases.operatorRandomSubtractTest"/>
-      <class name="testCases.operatorMultiplyTest"/>
-      <class name="testCases.operatorRandomMultiplyTest"/>
-      <class name="testCases.operatorDivideTest"/>
-      <class name="testCases.operatorRandomDivideTest"/>
+      <class name="testCases.calculatorMainOperatorsTest"/>
+      <class name="testCases.calculatorRandomNumbersTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

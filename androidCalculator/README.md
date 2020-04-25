@@ -9,6 +9,8 @@ Use Android mobile phone's default installed Calculator app to run Appium softwa
 - appPackage: Package name for the calculator app is com.android.calculator2.
 - appActivity: Activity name for the calculator app is com.android.calculator2.Calculator.
 
+<img src="android_calculator.gif">
+
 ### Reference
 - [Google: Android Calculator](https://play.google.com/store/apps/details?id=com.google.android.calculator&hl=en_GB)
 
@@ -17,6 +19,7 @@ To run the test;
 - install Google Calculator .apk to either Android Emulator or Android Device.
 - right click the __testNG.xml__ file, and then select __Run As > TestNG Suite__.
 
-<img src="android_calculator.gif">
+### Allure Report for Calculator Test
+<img src="androidCalculatorReport.jpg">
 
 #### [Return: Automation Selenium README](../README.md)
