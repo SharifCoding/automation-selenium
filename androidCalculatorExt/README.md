@@ -17,4 +17,17 @@ To run the test;
 - install Google Calculator .apk to either Android Emulator or Android Device.
 - right click the __testNG.xml__ file, and then select __Run As > TestNG Suite__.
 
+### Note
+Following error message <b>may</b> appear when attempting to open the calculator advanced menu:
+```json
+org.openqa.selenium.InvalidArgumentException: Coordinate [x=1080.0, y=888.0] is outside of element rect: [0,0][1080,1776]
+```
+Please adjust the <b>x</b> and <b>y</b> position depending on you android device.
+```java
+Dimension size = mobiledriver.manage().window().getSize();
+int xOffset_pad_advanced = (int) (size.getWidth() * 0.95);
+int yOffset_pad_advanced = (int) (size.getHeight() * 0.65);
+new TouchAction<>(mobiledriver).tap(PointOption.point(xOffset_pad_advanced, yOffset_pad_advanced)).perform();
+```
+
 #### [Return: Automation Selenium README](../README.md)

@@ -95,10 +95,10 @@ public class calculatorUIPage extends basePage{
   	Assert.assertTrue(pad_basic.isDisplayed());
     System.out.println("Test Status: pad basic is active");
     Dimension size = mobiledriver.manage().window().getSize();
-    int point_to_tap_height = (int) (size.getHeight() * 0.65);
-    int point_to_tap_width = (int) (size.getWidth() * 0.95);
-    new TouchAction<>(mobiledriver).tap(PointOption.point(point_to_tap_width, point_to_tap_height)).perform();
-    System.out.println("Test Status: xOffset: '" + point_to_tap_width + "' yOffset: '" + point_to_tap_height +"'");
+    int xOffset_pad_advanced = (int) (size.getWidth() * 0.95);
+    int yOffset_pad_advanced = (int) (size.getHeight() * 0.65);
+    new TouchAction<>(mobiledriver).tap(PointOption.point(xOffset_pad_advanced, yOffset_pad_advanced)).perform();
+    System.out.println("Test Status: xOffset: '" + xOffset_pad_advanced + "' yOffset: '" + yOffset_pad_advanced +"'");
 	MobileElement pad_advanced = mobiledriver.findElement(CalculatorPadAdvanced);
   	Assert.assertTrue(pad_advanced.isDisplayed());
     System.out.println("Test Status: pad advanced is active");
