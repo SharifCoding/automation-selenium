@@ -18,12 +18,22 @@ import io.appium.java_client.android.AndroidDriver;
  
 public class basePage {
 	
+	public static AndroidDriver<MobileElement> mobiledriver;
+	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
+	Integer mDigitNumber = 0;
+	public static Long mSubtractSumOne;
+	public static Long mSubtractSumTwo;
+	public static Long mDivideSumOne;
+	public static Long mDivideSumTwo;
+	
 	//*********Container Mobile Elements*********
 	By CalculatorToolbar = By.id("com.google.android.calculator:id/toolbar");
 	By CalculatorDisplay = By.id("com.google.android.calculator:id/display");
+	By CalculatorPadBasic = By.id("com.google.android.calculator:id/pad_basic");
 	By CalculatorPadNumeric = By.id("com.google.android.calculator:id/pad_numeric");
 	By CalculatorPadOperator = By.id("com.google.android.calculator:id/pad_operator");
-	
+	By CalculatorPadAdvanced = By.id("com.google.android.calculator:id/pad_advanced");
+
 	//*********Display Mobile Elements*********
 	By DisplayFormula = By.id("com.google.android.calculator:id/formula");
 	By DisplayResultFinal = By.id("com.google.android.calculator:id/result_final");
@@ -38,6 +48,7 @@ public class basePage {
 	By OperatorDivideButton = By.id("com.google.android.calculator:id/op_div");
 	By DecimalPointButton = By.id("com.google.android.calculator:id/dec_point");
 	By EqualButton = By.id("com.google.android.calculator:id/eq");
+	By DigitButtons = By.id("com.google.android.calculator:id/digit_" + Integer.toString(mDigitNumber));
 	
 	//*********More Options Elements*********
 	By MoreOptionsButton = By.xpath("//android.widget.ImageView[@content-desc=\"More options\"]");
@@ -45,13 +56,6 @@ public class basePage {
 	By OptionChooseTheme = By.xpath("//android.widget.TextView[@text=\"Choose theme\"]");
 	By OptionSendFeedback = By.xpath("//android.widget.TextView[@text=\"Send feedback\"]");
 	By OptionHelp = By.xpath("//android.widget.TextView[@text=\"Help\"]");
-       
-	public static AndroidDriver<MobileElement> mobiledriver;
-	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
-	public static Long mSubtractSumOne;
-	public static Long mSubtractSumTwo;
-	public static Long mDivideSumOne;
-	public static Long mDivideSumTwo;
 
     public static void waitForElement(By id, int time) {
     	new WebDriverWait(mobiledriver, 30).until(ExpectedConditions.elementToBeClickable(id));
@@ -67,7 +71,6 @@ public class basePage {
     	return min + (int)(Math.random() * ((max - min) + 1));
 	}
     
-    // Double convert to Fraction - https://stackoverflow.com/questions/35031139/double-convert-to-fraction
     public static String doubleConvertToFraction(double doubleVal) {
         double negligibleRatio = 0.01;
         for(int i=1; ; i++){

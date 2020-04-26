@@ -1,11 +1,15 @@
 package mainPages;
 
+
+import org.openqa.selenium.Dimension;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Step;
  
 public class calculatorUIPage extends basePage{
@@ -67,11 +71,37 @@ public class calculatorUIPage extends basePage{
     System.out.println("Test Status: calculator number pad is shown");
   }
   
+  @Step ("Verify each Google Calculator number buttons.")
+  public void verify_calculator_number_pad() {
+    for (int loopDigit = 0; loopDigit < 10; loopDigit++) {
+      mDigitNumber = loopDigit;
+      MobileElement digit_pad = mobiledriver.findElement(DigitButtons);
+  	  Assert.assertTrue(digit_pad.isDisplayed());
+      System.out.println("Test Status: verified number pad: " + mDigitNumber);
+    }
+    System.out.println("Test Status: calculator number pad verified");
+  }
+  
   @Step ("Check the Google Calculator operator is shown.")
   public void calculator_operator_is_shown() {
 	MobileElement operator = mobiledriver.findElement(CalculatorPadOperator);
   	Assert.assertTrue(operator.isDisplayed());
     System.out.println("Test Status: calculator operator is shown");
+  }
+  
+  @Step ("Check the Google Calculator operator is shown.")
+  public void verify_pad_basic_and_advanced_is_shown() {
+	MobileElement pad_basic = mobiledriver.findElement(CalculatorPadBasic);
+  	Assert.assertTrue(pad_basic.isDisplayed());
+    System.out.println("Test Status: pad basic is active");
+    Dimension size = mobiledriver.manage().window().getSize();
+    int point_to_tap_height = (int) (size.getHeight() * 0.65);
+    int point_to_tap_width = (int) (size.getWidth() * 0.95);
+    new TouchAction<>(mobiledriver).tap(PointOption.point(point_to_tap_width, point_to_tap_height)).perform();
+    System.out.println("Test Status: xOffset: '" + point_to_tap_width + "' yOffset: '" + point_to_tap_height +"'");
+	MobileElement pad_advanced = mobiledriver.findElement(CalculatorPadAdvanced);
+  	Assert.assertTrue(pad_advanced.isDisplayed());
+    System.out.println("Test Status: pad advanced is active");
   }
   
   @Step ("Android calculator UI test is loaded.")

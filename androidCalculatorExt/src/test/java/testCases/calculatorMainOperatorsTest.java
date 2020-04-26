@@ -29,7 +29,9 @@ public class calculatorMainOperatorsTest extends baseTest{
 		androidCalculatorTest.verify_more_options();
 		androidCalculatorTest.click_on_device_back_button();
 		androidCalculatorTest.calculator_number_pad_is_shown();
+		androidCalculatorTest.verify_calculator_number_pad();
 		androidCalculatorTest.calculator_operator_is_shown();
+		androidCalculatorTest.verify_pad_basic_and_advanced_is_shown();
 		androidCalculatorTest.afterTest();
     }
 	
@@ -44,11 +46,6 @@ public class calculatorMainOperatorsTest extends baseTest{
  
         //*************PAGE METHODS********************
 		operatorSubtractTest.beforeTest();
-		operatorSubtractTest.input_first_value();
-		operatorSubtractTest.tap_on_operator_minus();
-		operatorSubtractTest.input_second_value();
-		operatorSubtractTest.tap_on_equal_button();
-		operatorSubtractTest.verify_total_value();
 		operatorSubtractTest.afterTest();
     }
 	
@@ -63,12 +60,6 @@ public class calculatorMainOperatorsTest extends baseTest{
  
         //*************PAGE METHODS********************
 		operatorDivideTest.beforeTest();
-		operatorDivideTest.input_first_value();
-		operatorDivideTest.tap_on_operator_divide();
-		operatorDivideTest.input_second_value();
-		operatorDivideTest.tap_on_equal_button();
-		operatorDivideTest.verify_total_value_one();
-		operatorDivideTest.verify_total_value_two();
 		operatorDivideTest.afterTest();
     }
 }
