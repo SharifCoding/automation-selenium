@@ -1,21 +1,18 @@
 package mainPages;
 
 
-import org.openqa.selenium.Dimension;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Step;
  
-public class calculatorUIPage extends basePage{
+public class calculatorBasicUIPage extends basePage{
     
   //*********Web Page Class Constructor*********
-  public calculatorUIPage(AndroidDriver<MobileElement> mobiledriver) {
+  public calculatorBasicUIPage(AndroidDriver<MobileElement> mobiledriver) {
 	basePage.mobiledriver = mobiledriver;
   }
 
@@ -89,30 +86,16 @@ public class calculatorUIPage extends basePage{
     System.out.println("Test Status: calculator operator is shown");
   }
   
-  @Step ("Check the Google Calculator operator is shown.")
-  public void verify_pad_basic_and_advanced_is_shown() {
-	MobileElement pad_basic = mobiledriver.findElement(CalculatorPadBasic);
-  	Assert.assertTrue(pad_basic.isDisplayed());
-    System.out.println("Test Status: pad basic is active");
-    Dimension size = mobiledriver.manage().window().getSize();
-    int xOffset_pad_advanced = (int) (size.getWidth() * 0.95);
-    int yOffset_pad_advanced = (int) (size.getHeight() * 0.65);
-    new TouchAction<>(mobiledriver).tap(PointOption.point(xOffset_pad_advanced, yOffset_pad_advanced)).perform();
-    System.out.println("Test Status: xOffset: '" + xOffset_pad_advanced + "' yOffset: '" + yOffset_pad_advanced +"'");
-	MobileElement pad_advanced = mobiledriver.findElement(CalculatorPadAdvanced);
-  	Assert.assertTrue(pad_advanced.isDisplayed());
-    System.out.println("Test Status: pad advanced is active");
-  }
-  
-  @Step ("Android calculator UI test is loaded.")
+  @Step ("Android calculator basic UI test is loaded.")
   @BeforeTest
   public void beforeTest() {
-	System.out.println("Test Case: android calculator UI test loaded");
+	mobiledriver.resetApp() ;
+	System.out.println("Test Case: android calculator basic UI test loaded");
   }
 
-  @Step ("Android calculator UI test completed.")
+  @Step ("Android calculator basic UI test completed.")
   @AfterTest
   public void afterTest() {
-    System.out.println("Test Case: android calculator UI test completed");
+    System.out.println("Test Case: android calculator basic UI test completed");
   }
 }
