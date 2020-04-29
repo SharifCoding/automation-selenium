@@ -21,6 +21,8 @@ public class calculatorTrigonometryTest extends baseTest{
  
         //*************PAGE METHODS********************
 		calculatorTrigonometryTest.beforeTest();
+		calculatorTrigonometryTest.open_pad_advanced();
+		calculatorTrigonometryTest.execute_trigonometry_on_app();
 		calculatorTrigonometryTest.basic_trigonometry_value();
 		calculatorTrigonometryTest.afterTest();
     }

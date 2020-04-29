@@ -2,10 +2,8 @@
   {
     "testData":{
       "_testNGFile":"testng.xml",
-		  "subtractSumOne":8,
-		  "subtractSumTwo":4,
-		  "divideSumOne":5,
-		  "divideSumTwo":9
+		  "selectSinCosTan":"sin",
+		  "degreesValue":5
     }
   }
 ]

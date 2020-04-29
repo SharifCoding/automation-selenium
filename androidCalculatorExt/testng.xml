@@ -6,6 +6,7 @@
       <class name="testCases.baseTest" />
       <class name="testCases.calculatorBasicUITest"/>
       <class name="testCases.calculatorAdvancedUITest"/>
+      <class name="testCases.calculatorTrigonometryTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

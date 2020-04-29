@@ -22,10 +22,8 @@ public class basePage {
 	public static AndroidDriver<MobileElement> mobiledriver;
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
 	Integer mDigitNumber = 0;
-	public static Long mSubtractSumOne;
-	public static Long mSubtractSumTwo;
-	public static Long mDivideSumOne;
-	public static Long mDivideSumTwo;
+	public static String mSelectSinCosTan;
+	public static Long mDegreesValue;
 	
 	//*********Container Mobile Elements*********
 	By CalculatorToolbar = By.id("com.google.android.calculator:id/toolbar");
@@ -111,10 +109,8 @@ public class basePage {
     	{
     		JSONObject dataBlock = (JSONObject) dataInfo.get(i);
     		JSONObject data = (JSONObject) dataBlock.get("testData");
-    		mSubtractSumOne = (Long) data.get("subtractSumOne");
-    		mSubtractSumTwo = (Long) data.get("subtractSumTwo");
-    		mDivideSumOne = (Long) data.get("divideSumOne");
-    		mDivideSumTwo = (Long) data.get("divideSumTwo");
+    		mSelectSinCosTan = (String) data.get("selectSinCosTan");
+    		mDegreesValue = (Long) data.get("degreesValue");
     	}
     	System.out.println("JSONParser: Ready");
     }
