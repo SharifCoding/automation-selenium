@@ -48,7 +48,8 @@ public class basePage {
 	By OperatorDivideButton = By.id("com.google.android.calculator:id/op_div");
 	By DecimalPointButton = By.id("com.google.android.calculator:id/dec_point");
 	By EqualButton = By.id("com.google.android.calculator:id/eq");
-	By DigitButtons = By.id("com.google.android.calculator:id/digit_" + Integer.toString(mDigitNumber));
+	By DigitButtonsOne = By.id("com.google.android.calculator:id/digit_" + Integer.toString(mDigitNumber));
+	By DigitButtonsTwo = By.id("com.google.android.calculator:id/digit_" + Long.toString(mDegreesValue));
 	
 	//*********More Options Elements*********
 	By MoreOptionsButton = By.xpath("//android.widget.ImageView[@content-desc=\"More options\"]");

@@ -72,7 +72,7 @@ public class calculatorBasicUIPage extends basePage{
   public void verify_calculator_number_pad() {
     for (int loopDigit = 0; loopDigit < 10; loopDigit++) {
       mDigitNumber = loopDigit;
-      MobileElement digit_pad = mobiledriver.findElement(DigitButtons);
+      MobileElement digit_pad = mobiledriver.findElement(DigitButtonsOne);
   	  Assert.assertTrue(digit_pad.isDisplayed());
       System.out.println("Test Status: verified number pad: " + mDigitNumber);
     }
