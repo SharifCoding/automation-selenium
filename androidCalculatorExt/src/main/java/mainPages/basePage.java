@@ -21,9 +21,14 @@ public class basePage {
 	
 	public static AndroidDriver<MobileElement> mobiledriver;
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
-	Integer mDigitNumber = 0;
 	public static String mSelectSinCosTan;
+	public static String mSelectDegreesRadians;
 	public static Long mDegreesValue;
+	public static Long mRadiansValue;
+	Integer mDigitNumber = 0;
+	String mActualTotalValue = "";
+	String mExpectedDegressValue = "";
+	String mExpectedRadiansValue = "";
 	
 	//*********Container Mobile Elements*********
 	By CalculatorToolbar = By.id("com.google.android.calculator:id/toolbar");
@@ -111,7 +116,9 @@ public class basePage {
     		JSONObject dataBlock = (JSONObject) dataInfo.get(i);
     		JSONObject data = (JSONObject) dataBlock.get("testData");
     		mSelectSinCosTan = (String) data.get("selectSinCosTan");
+    		mSelectDegreesRadians = (String) data.get("selectDegreesRadians");
     		mDegreesValue = (Long) data.get("degreesValue");
+    		mDegreesValue = (Long) data.get("radiansValue");
     	}
     	System.out.println("JSONParser: Ready");
     }

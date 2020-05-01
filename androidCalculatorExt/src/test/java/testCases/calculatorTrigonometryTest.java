@@ -22,10 +22,12 @@ public class calculatorTrigonometryTest extends baseTest{
         //*************PAGE METHODS********************
 		calculatorTrigonometryTest.beforeTest();
 		calculatorTrigonometryTest.open_pad_advanced();
+		calculatorTrigonometryTest.select_either_degress_or_radians();
 		calculatorTrigonometryTest.input_first_trigonometry_value();
 		calculatorTrigonometryTest.close_pad_advanced();
 		calculatorTrigonometryTest.input_second_trigonometry_value_and_execute();
 		calculatorTrigonometryTest.basic_trigonometry_value();
+		calculatorTrigonometryTest.verify_trigonometry_actual_and_expected_value();
 		calculatorTrigonometryTest.afterTest();
     }
 }

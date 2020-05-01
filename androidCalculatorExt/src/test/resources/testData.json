@@ -3,7 +3,9 @@
     "testData":{
       "_testNGFile":"testng.xml",
 		  "selectSinCosTan":"sin",
-		  "degreesValue":5
+		  "selectDegreesRadians":"DEG",
+		  "degreesValue":5,
+		  "radiansValue":5
     }
   }
 ]
