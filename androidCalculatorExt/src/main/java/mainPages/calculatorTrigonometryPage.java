@@ -87,7 +87,9 @@ public class calculatorTrigonometryPage extends basePage{
 	Assert.assertTrue(equal_button.isDisplayed());
 	equal_button.click();
 	MobileElement get_formula = mobiledriver.findElement(DisplayResultFinal);
-	mActualTotalValue = String.format("%.8f", Double.parseDouble(get_formula.getText()));
+	String positiveString = get_formula.getText();
+	positiveString = positiveString.replaceAll("[^\\d.]", "");
+	mActualTotalValue = String.format("%.8f", Double.parseDouble(positiveString));
     System.out.println("Test Status: " + mSelectSinCosTan + "(" + mDegreesValue + ") = " + mActualTotalValue);
   }
   
@@ -115,8 +117,9 @@ public class calculatorTrigonometryPage extends basePage{
 	      double cosValue = Math.cos(radiansCos);
 	      // prints the cosine value
 	      mExpectedDegressValue = String.format("%.8f", cosValue);
+	      mExpectedRadiansValue = String.format("%.8f", Math.cos(degrees));
 	      System.out.println("degrees: cos(" + degrees + ") = " + mExpectedDegressValue);
-	      System.out.println("radians: cos(" + degrees + ") = " + Math.cos(degrees)); 
+	      System.out.println("radians: cos(" + degrees + ") = " + mExpectedRadiansValue); 
 	      break;
 		case "tan":
 		  // convert degrees to radians 
@@ -125,8 +128,9 @@ public class calculatorTrigonometryPage extends basePage{
 	      double tanValue = Math.tan(radiansTan);
 	      // prints the tangent value
 	      mExpectedDegressValue = String.format("%.8f", tanValue);
+	      mExpectedRadiansValue = String.format("%.8f", Math.tan(degrees));
 	      System.out.println("degrees: tan(" + degrees + ") = " + mExpectedDegressValue);
-	      System.out.println("radians: tan(" + degrees + ") = " + Math.tan(degrees)); 
+	      System.out.println("radians: tan(" + degrees + ") = " + mExpectedRadiansValue); 
 	      break;
 		default :
 	      System.out.println("invalid value"); 
