@@ -2,10 +2,9 @@
   {
     "testData":{
       "_testNGFile":"testng.xml",
-		  "selectSinCosTan":"sin",
-		  "selectDegreesRadians":"DEG",
-		  "degreesValue":5,
-		  "radiansValue":5
+		  "selectSinCosTan":"tan",
+		  "selectDegreesRadians":"RAD",
+		  "degreesRadiansValue":5
     }
   }
 ]

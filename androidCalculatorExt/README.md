@@ -17,6 +17,23 @@ To run the test;
 - install Google Calculator .apk to either Android Emulator or Android Device.
 - right click the __testNG.xml__ file, and then select __Run As > TestNG Suite__.
 
+### Basic Trigonometry Calculation
+```java
+// https://stackoverflow.com/questions/33840516/calculator-in-java-sin-cos-tan-cot
+double degrees = mDegreesRadiansValue.doubleValue();
+if (mSelectSinCosTan.equals("sin") || mSelectSinCosTan.equals("cos") || mSelectSinCosTan.equals("tan")){
+    switch(mSelectSinCosTan){
+        case "sin":
+            // convert degrees to radians 
+            double radiansSin = Math.toRadians(degrees);
+            // sin() method to get the sine value 
+            double sinValue = Math.sin(radiansSin);
+            // set number after decimal place
+            mExpectedDegressValue = String.format("%.8f", sinValue);
+            mExpectedRadiansValue = String.format("%.8f", Math.sin(degrees));
+...
+```
+
 ### Note
 Following error message <b>may</b> appear when attempting to open the calculator advanced menu:
 ```json

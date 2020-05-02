@@ -82,7 +82,7 @@ public class calculatorTrigonometryPage extends basePage{
 	MobileElement digit_pad = mobiledriver.findElement(DigitButtonsTwo);
 	Assert.assertTrue(digit_pad.isDisplayed());
   	digit_pad.click();
-    System.out.println("Test Status: clicked on number pad: " + mDegreesValue);
+    System.out.println("Test Status: clicked on number pad: " + mDegreesRadiansValue);
 	MobileElement equal_button = mobiledriver.findElement(EqualButton);
 	Assert.assertTrue(equal_button.isDisplayed());
 	equal_button.click();
@@ -90,47 +90,37 @@ public class calculatorTrigonometryPage extends basePage{
 	String positiveString = get_formula.getText();
 	positiveString = positiveString.replaceAll("[^\\d.]", "");
 	mActualTotalValue = String.format("%.8f", Double.parseDouble(positiveString));
-    System.out.println("Test Status: " + mSelectSinCosTan + "(" + mDegreesValue + ") = " + mActualTotalValue);
+    System.out.println("Test Status: " + mSelectSinCosTan + "(" + mDegreesRadiansValue + ") = " + mActualTotalValue);
   }
   
   @Step ("Execute basic the trigonometry test via console.")
   public void basic_trigonometry_value() {
-	// https://stackoverflow.com/questions/33840516/calculator-in-java-sin-cos-tan-cot
-	double degrees = mDegreesValue.doubleValue();
+	double degrees = mDegreesRadiansValue.doubleValue();
 	if (mSelectSinCosTan.equals("sin") || mSelectSinCosTan.equals("cos") || mSelectSinCosTan.equals("tan")){
       switch(mSelectSinCosTan){
 	  	case "sin":
-		  // convert degrees to radians 
 	      double radiansSin = Math.toRadians(degrees);
-		  // sin() method to get the sine value 
 	      double sinValue = Math.sin(radiansSin);
-	      // prints the sine value
 	      mExpectedDegressValue = String.format("%.8f", sinValue);
 	      mExpectedRadiansValue = String.format("%.8f", Math.sin(degrees));
-	      System.out.println("degrees: sin(" + degrees + ") = " + mExpectedDegressValue); 
-	      System.out.println("radians: sin(" + degrees + ") = " + mExpectedRadiansValue); 
+	      System.out.println("degrees > sin(" + degrees + ") = " + mExpectedDegressValue); 
+	      System.out.println("radians > sin(" + degrees + ") = " + mExpectedRadiansValue); 
 	      break;
 	  	case "cos":
-		  // convert degrees to radians 
 	      double radiansCos = Math.toRadians(degrees);
-		  // cosine() method to get the cosine value 
 	      double cosValue = Math.cos(radiansCos);
-	      // prints the cosine value
 	      mExpectedDegressValue = String.format("%.8f", cosValue);
 	      mExpectedRadiansValue = String.format("%.8f", Math.cos(degrees));
-	      System.out.println("degrees: cos(" + degrees + ") = " + mExpectedDegressValue);
-	      System.out.println("radians: cos(" + degrees + ") = " + mExpectedRadiansValue); 
+	      System.out.println("degrees > cos(" + degrees + ") = " + mExpectedDegressValue);
+	      System.out.println("radians > cos(" + degrees + ") = " + mExpectedRadiansValue); 
 	      break;
 		case "tan":
-		  // convert degrees to radians 
 	      double radiansTan = Math.toRadians(degrees);
-		  // tangent() method to get the tangent value 
 	      double tanValue = Math.tan(radiansTan);
-	      // prints the tangent value
 	      mExpectedDegressValue = String.format("%.8f", tanValue);
 	      mExpectedRadiansValue = String.format("%.8f", Math.tan(degrees));
-	      System.out.println("degrees: tan(" + degrees + ") = " + mExpectedDegressValue);
-	      System.out.println("radians: tan(" + degrees + ") = " + mExpectedRadiansValue); 
+	      System.out.println("degrees > tan(" + degrees + ") = " + mExpectedDegressValue);
+	      System.out.println("radians > tan(" + degrees + ") = " + mExpectedRadiansValue); 
 	      break;
 		default :
 	      System.out.println("invalid value"); 

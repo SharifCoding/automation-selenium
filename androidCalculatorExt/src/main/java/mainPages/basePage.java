@@ -23,8 +23,7 @@ public class basePage {
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
 	public static String mSelectSinCosTan;
 	public static String mSelectDegreesRadians;
-	public static Long mDegreesValue;
-	public static Long mRadiansValue;
+	public static Long mDegreesRadiansValue;
 	Integer mDigitNumber = 0;
 	String mActualTotalValue = "";
 	String mExpectedDegressValue = "";
@@ -54,7 +53,7 @@ public class basePage {
 	By DecimalPointButton = By.id("com.google.android.calculator:id/dec_point");
 	By EqualButton = By.id("com.google.android.calculator:id/eq");
 	By DigitButtonsOne = By.id("com.google.android.calculator:id/digit_" + Integer.toString(mDigitNumber));
-	By DigitButtonsTwo = By.id("com.google.android.calculator:id/digit_" + Long.toString(mDegreesValue));
+	By DigitButtonsTwo = By.id("com.google.android.calculator:id/digit_" + Long.toString(mDegreesRadiansValue));
 	
 	//*********More Options Elements*********
 	By MoreOptionsButton = By.xpath("//android.widget.ImageView[@content-desc=\"More options\"]");
@@ -117,8 +116,7 @@ public class basePage {
     		JSONObject data = (JSONObject) dataBlock.get("testData");
     		mSelectSinCosTan = (String) data.get("selectSinCosTan");
     		mSelectDegreesRadians = (String) data.get("selectDegreesRadians");
-    		mDegreesValue = (Long) data.get("degreesValue");
-    		mDegreesValue = (Long) data.get("radiansValue");
+    		mDegreesRadiansValue = (Long) data.get("degreesRadiansValue");
     	}
     	System.out.println("JSONParser: Ready");
     }
