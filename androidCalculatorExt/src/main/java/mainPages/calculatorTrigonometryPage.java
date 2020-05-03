@@ -1,5 +1,6 @@
 package mainPages;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -79,10 +80,14 @@ public class calculatorTrigonometryPage extends basePage{
   
   @Step ("Input second value for trigonometry formula.")
   public void input_second_trigonometry_value_and_execute() {
-	MobileElement digit_pad = mobiledriver.findElement(DigitButtonsTwo);
-	Assert.assertTrue(digit_pad.isDisplayed());
-  	digit_pad.click();
-    System.out.println("Test Status: clicked on number pad: " + mDegreesRadiansValue);
+	// split an integer into individual digits
+	for (char ch : Long.toString(mDegreesRadiansValue).toCharArray()) {
+      int digit = ch - '0';
+	  MobileElement digit_pad = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + digit));
+	  Assert.assertTrue(digit_pad.isDisplayed());
+	  digit_pad.click();
+	}
+    System.out.println("Test Status: inputted second value: " + mDegreesRadiansValue);
 	MobileElement equal_button = mobiledriver.findElement(EqualButton);
 	Assert.assertTrue(equal_button.isDisplayed());
 	equal_button.click();
@@ -90,7 +95,7 @@ public class calculatorTrigonometryPage extends basePage{
 	String positiveString = get_formula.getText();
 	positiveString = positiveString.replaceAll("[^\\d.]", "");
 	mActualTotalValue = String.format("%.8f", Double.parseDouble(positiveString));
-    System.out.println("Test Status: " + mSelectSinCosTan + "(" + mDegreesRadiansValue + ") = " + mActualTotalValue);
+    System.out.println("Test Status: " + mSelectSinCosTan + "(" + mDegreesRadiansValue + ".0) = " + mActualTotalValue);
   }
   
   @Step ("Execute basic the trigonometry test via console.")

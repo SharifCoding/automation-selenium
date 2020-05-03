@@ -1,6 +1,7 @@
 package mainPages;
 
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -71,10 +72,9 @@ public class calculatorBasicUIPage extends basePage{
   @Step ("Verify each Google Calculator number buttons.")
   public void verify_calculator_number_pad() {
     for (int loopDigit = 0; loopDigit < 10; loopDigit++) {
-      mDigitNumber = loopDigit;
-      MobileElement digit_pad = mobiledriver.findElement(DigitButtonsOne);
+      MobileElement digit_pad = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + loopDigit));
   	  Assert.assertTrue(digit_pad.isDisplayed());
-      System.out.println("Test Status: verified number pad: " + mDigitNumber);
+      System.out.println("Test Status: verified number pad: " + loopDigit);
     }
     System.out.println("Test Status: calculator number pad verified");
   }

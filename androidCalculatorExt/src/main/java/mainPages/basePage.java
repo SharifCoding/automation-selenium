@@ -24,7 +24,6 @@ public class basePage {
 	public static String mSelectSinCosTan;
 	public static String mSelectDegreesRadians;
 	public static Long mDegreesRadiansValue;
-	Integer mDigitNumber = 0;
 	String mActualTotalValue = "";
 	String mExpectedDegressValue = "";
 	String mExpectedRadiansValue = "";
@@ -52,8 +51,6 @@ public class basePage {
 	By OperatorDivideButton = By.id("com.google.android.calculator:id/op_div");
 	By DecimalPointButton = By.id("com.google.android.calculator:id/dec_point");
 	By EqualButton = By.id("com.google.android.calculator:id/eq");
-	By DigitButtonsOne = By.id("com.google.android.calculator:id/digit_" + Integer.toString(mDigitNumber));
-	By DigitButtonsTwo = By.id("com.google.android.calculator:id/digit_" + Long.toString(mDegreesRadiansValue));
 	
 	//*********More Options Elements*********
 	By MoreOptionsButton = By.xpath("//android.widget.ImageView[@content-desc=\"More options\"]");
