@@ -2,6 +2,7 @@ package mainPages;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Random;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -24,6 +25,8 @@ public class basePage {
 	public static String mSelectSinCosTan;
 	public static String mSelectDegreesRadians;
 	public static Long mDegreesRadiansValue;
+	Integer mRandomValue  = randomInteger(0, 180);
+	String mRandomSinCosTanValue = "";
 	String mActualTotalValue = "";
 	String mExpectedDegressValue = "";
 	String mExpectedRadiansValue = "";
@@ -100,6 +103,11 @@ public class basePage {
     	return min + (int)(Math.random() * ((max - min) + 1));
 	}
     
+	public static String randomSinCosTan() {
+		String[] mRandomSinCosTan = {"sin","cos","tan"};
+    	return (mRandomSinCosTan[new Random().nextInt(mRandomSinCosTan.length)]);
+	}
+	
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
     	System.out.println("JSONParser: Initiating...");
       	JSONParser jsonParser = new JSONParser();

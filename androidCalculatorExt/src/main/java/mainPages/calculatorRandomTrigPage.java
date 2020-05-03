@@ -9,10 +9,10 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
  
-public class calculatorTrigonometryPage extends basePage{
+public class calculatorRandomTrigPage extends basePage{
     
   //*********Web Page Class Constructor*********
-  public calculatorTrigonometryPage(AndroidDriver<MobileElement> mobiledriver) {
+  public calculatorRandomTrigPage(AndroidDriver<MobileElement> mobiledriver) {
 	basePage.mobiledriver = mobiledriver;
   }
 
@@ -49,25 +49,26 @@ public class calculatorTrigonometryPage extends basePage{
 	}
   }
   
-  @Step ("Input first value for trigonometry formula.")
-  public void input_first_trigonometry_value() {
-	if (mSelectSinCosTan.equals("sin")) {
+  @Step ("Input first random value for trigonometry formula.")
+  public void random_first_trigonometry_value() {
+	mRandomSinCosTanValue = randomSinCosTan();
+	if (mRandomSinCosTanValue.equals("sin")) {
 	  MobileElement sine_button = mobiledriver.findElement(SineButton);
 	  Assert.assertTrue(sine_button.isDisplayed());
 	  sine_button.click();
 	  System.out.println("Test Status: sine button is clicked");
-	} else if (mSelectSinCosTan.equals("cos")){
+	} else if (mRandomSinCosTanValue.equals("cos")){
 	  MobileElement cosine_button = mobiledriver.findElement(CosineButton);
 	  Assert.assertTrue(cosine_button.isDisplayed());
 	  cosine_button.click();
 	  System.out.println("Test Status: cosine button is clicked");
-	} else if (mSelectSinCosTan.equals("tan")){
+	} else if (mRandomSinCosTanValue.equals("tan")){
 	  MobileElement tangent_button = mobiledriver.findElement(TangentButton);
 	  Assert.assertTrue(tangent_button.isDisplayed());
 	  tangent_button.click();
 	  System.out.println("Test Status: tangent button is clicked");
 	} else {
-	  System.out.println("invalid value: " + mSelectSinCosTan);
+	  System.out.println("invalid value: " + mRandomSinCosTanValue);
 	}
   }
   
@@ -78,16 +79,15 @@ public class calculatorTrigonometryPage extends basePage{
     System.out.println("Test Status: closed pad advanced");
   }
   
-  @Step ("Input second value for trigonometry formula.")
-  public void input_second_trigonometry_value_and_execute() {
-	// split an integer into individual digits
-	for (char ch : Long.toString(mDegreesRadiansValue).toCharArray()) {
+  @Step ("Input second random value for trigonometry formula.")
+  public void random_second_trigonometry_value_and_execute() {
+	for (char ch : Integer.toString(mRandomValue).toCharArray()) {
       int digit = ch - '0';
 	  MobileElement digit_pad = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + digit));
 	  Assert.assertTrue(digit_pad.isDisplayed());
 	  digit_pad.click();
 	}
-    System.out.println("Test Status: inputted second value: " + mDegreesRadiansValue);
+    System.out.println("Test Status: inputted second value: " + mRandomValue);
 	MobileElement equal_button = mobiledriver.findElement(EqualButton);
 	Assert.assertTrue(equal_button.isDisplayed());
 	equal_button.click();
@@ -95,14 +95,14 @@ public class calculatorTrigonometryPage extends basePage{
 	String positiveString = get_formula.getText();
 	positiveString = positiveString.replaceAll("[^\\d.]", "");
 	mActualTotalValue = String.format("%.8f", Double.parseDouble(positiveString));
-    System.out.println("Test Status: " + mSelectSinCosTan + "(" + mDegreesRadiansValue + ".0) = " + mActualTotalValue);
+    System.out.println("Test Status: " + mSelectSinCosTan + "(" + mRandomValue + ".0) = " + mActualTotalValue);
   }
   
   @Step ("Execute basic the trigonometry test via console.")
   public void basic_trigonometry_value() {
-	double degrees = mDegreesRadiansValue.doubleValue();
-	if (mSelectSinCosTan.equals("sin") || mSelectSinCosTan.equals("cos") || mSelectSinCosTan.equals("tan")){
-      switch(mSelectSinCosTan){
+	double degrees = mRandomValue.doubleValue();
+	if (mRandomSinCosTanValue.equals("sin") || mRandomSinCosTanValue.equals("cos") || mRandomSinCosTanValue.equals("tan")){
+      switch(mRandomSinCosTanValue){
 	  	case "sin":
 	      double radiansSin = Math.toRadians(degrees);
 	      double sinValue = Math.sin(radiansSin);
@@ -145,16 +145,16 @@ public class calculatorTrigonometryPage extends basePage{
 	}
   }
   
-  @Step ("Android calculator trigonometry test is loaded.")
+  @Step ("Android calculator random trigonometry test is loaded.")
   @BeforeTest
   public void beforeTest() {
 	mobiledriver.resetApp() ;
-	System.out.println("Test Case: android calculator trigonometry test loaded");
+	System.out.println("Test Case: android calculator random trigonometry test loaded");
   }
 
-  @Step ("Android calculator trigonometry test completed.")
+  @Step ("Android calculator random trigonometry test completed.")
   @AfterTest
   public void afterTest() {
-    System.out.println("Test Case: android calculator trigonometry test completed");
+    System.out.println("Test Case: android calculator random trigonometry test completed");
   }
 }
