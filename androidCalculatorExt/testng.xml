@@ -4,8 +4,6 @@
   <test thread-count="5" name="Android_Calcutor_Ext_Test">
     <classes>
       <class name="testCases.baseTest" />
-      <class name="testCases.calculatorBasicUITest"/>
-      <class name="testCases.calculatorAdvancedUITest"/>
       <class name="testCases.calculatorTrigonometryTest"/>
     </classes>
   </test> <!-- Test -->
