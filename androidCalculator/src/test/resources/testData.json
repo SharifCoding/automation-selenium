@@ -3,10 +3,10 @@
     "testData":{
       "_testNGFile":"testng.xml",
 		  "addSumOne":3,
-		  "addSumTwo":6,
+		  "addSumTwo":16,
 		  "subtractSumOne":8,
 		  "subtractSumTwo":4,
-		  "multiplySumOne":2,
+		  "multiplySumOne":25,
 		  "multiplySumTwo":7,
 		  "divideSumOne":5,
 		  "divideSumTwo":9

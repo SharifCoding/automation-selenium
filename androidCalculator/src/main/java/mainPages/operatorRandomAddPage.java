@@ -18,10 +18,13 @@ public class operatorRandomAddPage extends basePage{
 
   //*********Page Methods*********	
   @Step ("Input and check on first random value on the Google Calculator number display.")
-  public void input_first_random_value() { 
-	MobileElement first_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + mAddRandomOne));
-  	Assert.assertTrue(first_input.isDisplayed());
-  	first_input.click();
+  public void input_first_random_value() {
+	for (char ch : Long.toString(mAddRandomOne).toCharArray()) {
+      int digit = ch - '0';
+	  MobileElement first_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + digit));
+	  Assert.assertTrue(first_input.isDisplayed());
+	  first_input.click();
+	}
 	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
 	String expected_value = String.valueOf(mAddRandomOne);
     Assert.assertEquals(get_formula.getText(), expected_value, "Test Status: getText assertion failed!");
@@ -38,9 +41,12 @@ public class operatorRandomAddPage extends basePage{
   
   @Step ("Input and check on second random value on the Google Calculator number display.")
   public void input_second_random_value() {
-	MobileElement second_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + mAddRandomTwo));
-  	Assert.assertTrue(second_input.isDisplayed());
-  	second_input.click();
+	for (char ch : Long.toString(mAddRandomTwo).toCharArray()) {
+      int digit = ch - '0';
+	  MobileElement second_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + digit));
+	  Assert.assertTrue(second_input.isDisplayed());
+	  second_input.click();
+	}
   	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
 	String expected_value = String.valueOf(mAddRandomTwo);
     Assert.assertTrue(get_formula.getText().contains(expected_value));

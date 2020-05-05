@@ -49,12 +49,12 @@ public class basePage {
 	public static Long mMultiplySumTwo;
 	public static Long mDivideSumOne;
 	public static Long mDivideSumTwo;
-	Integer mAddRandomOne = randomInteger(0, 9);
-	Integer mAddRandomTwo = randomInteger(0, 9);
+	Integer mAddRandomOne = randomInteger(0, 99);
+	Integer mAddRandomTwo = randomInteger(0, 99);
 	Integer mSubtractRandomOne = randomInteger(5, 9);
 	Integer mSubtractRandomTwo = randomInteger(0, 5);
-	Integer mMultiplyRandomOne = randomInteger(0, 9);
-	Integer mMultiplyRandomTwo = randomInteger(0, 9);
+	Integer mMultiplyRandomOne = randomInteger(0, 99);
+	Integer mMultiplyRandomTwo = randomInteger(0, 99);
 	Integer mDivideRandomOne = randomInteger(1, 5);
 	Integer mDivideRandomTwo = randomInteger(5, 9);
 

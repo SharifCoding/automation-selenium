@@ -19,9 +19,12 @@ public class operatorMultiplyPage extends basePage{
   //*********Page Methods*********	
   @Step ("Input and check on first value on the Google Calculator number display.")
   public void input_first_value() {
-	MobileElement first_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + mMultiplySumOne));
-  	Assert.assertTrue(first_input.isDisplayed());
-  	first_input.click();
+	for (char ch : Long.toString(mMultiplySumOne).toCharArray()) {
+      int digit = ch - '0';
+	  MobileElement first_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + digit));
+	  Assert.assertTrue(first_input.isDisplayed());
+	  first_input.click();
+	}
 	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
 	String expected_value = Long.toString(mMultiplySumOne);
     Assert.assertEquals(get_formula.getText(), expected_value, "Test Status: getText assertion failed!");
@@ -38,9 +41,12 @@ public class operatorMultiplyPage extends basePage{
   
   @Step ("Input and check on second value on the Google Calculator number display.")
   public void input_second_value() {
-	MobileElement second_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + mMultiplySumTwo));
-  	Assert.assertTrue(second_input.isDisplayed());
-  	second_input.click();
+	for (char ch : Long.toString(mMultiplySumTwo).toCharArray()) {
+      int digit = ch - '0';
+	  MobileElement second_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + digit));
+	  Assert.assertTrue(second_input.isDisplayed());
+	  second_input.click();
+	}
   	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
 	String expected_value = Long.toString(mMultiplySumTwo);
     Assert.assertTrue(get_formula.getText().contains(expected_value));
