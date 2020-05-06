@@ -55,8 +55,8 @@ public class basePage {
 	Integer mSubtractRandomTwo = randomInteger(0, 99);
 	Integer mMultiplyRandomOne = randomInteger(0, 99);
 	Integer mMultiplyRandomTwo = randomInteger(0, 99);
-	Integer mDivideRandomOne = randomInteger(1, 5);
-	Integer mDivideRandomTwo = randomInteger(5, 9);
+	Integer mDivideRandomOne = randomInteger(0, 99);
+	Integer mDivideRandomTwo = randomInteger(0, 99);
 
     public static void waitForElement(By id, int time) {
     	new WebDriverWait(mobiledriver, 30).until(ExpectedConditions.elementToBeClickable(id));

@@ -19,9 +19,12 @@ public class operatorDividePage extends basePage{
   //*********Page Methods*********	
   @Step ("Input and check on first value on the Google Calculator number display.")
   public void input_first_value() {
-	MobileElement first_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + mDivideSumOne));
-  	Assert.assertTrue(first_input.isDisplayed());
-  	first_input.click();
+	for (char ch : Long.toString(mDivideSumOne).toCharArray()) {
+      int digit = ch - '0';
+	  MobileElement digit_pad = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + digit));
+	  Assert.assertTrue(digit_pad.isDisplayed());
+	  digit_pad.click();
+	}
 	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
 	String expected_value = Long.toString(mDivideSumOne);
     Assert.assertEquals(get_formula.getText(), expected_value, "Test Status: getText assertion failed!");
@@ -38,9 +41,12 @@ public class operatorDividePage extends basePage{
   
   @Step ("Input and check on second value on the Google Calculator number display.")
   public void input_second_value() {
-	MobileElement second_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + mDivideSumTwo));
-  	Assert.assertTrue(second_input.isDisplayed());
-  	second_input.click();
+	for (char ch : Long.toString(mDivideSumTwo).toCharArray()) {
+      int digit = ch - '0';
+	  MobileElement digit_pad = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + digit));
+	  Assert.assertTrue(digit_pad.isDisplayed());
+	  digit_pad.click();
+	}
   	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
 	String expected_value = Long.toString(mDivideSumTwo);
     Assert.assertTrue(get_formula.getText().contains(expected_value));
@@ -60,7 +66,9 @@ public class operatorDividePage extends basePage{
 	MobileElement get_formula = mobiledriver.findElement(DisplayResultFinal);
 	String expected_value = Double.toString(mDivideSumOne.doubleValue() / mDivideSumTwo.doubleValue());
     System.out.println("Test Status: " + mDivideSumOne + " / " + mDivideSumTwo + " = " + expected_value);
-	Assert.assertTrue(expected_value.contains(get_formula.getText()));
+	String positiveString = get_formula.getText();
+	positiveString = positiveString.replaceAll("[^\\d.]", "");			
+    Assert.assertTrue(expected_value.contains(positiveString));    
     System.out.println("Test Status: total value verified");
   }
   
