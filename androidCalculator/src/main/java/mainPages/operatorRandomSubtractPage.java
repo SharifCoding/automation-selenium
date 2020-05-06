@@ -19,9 +19,12 @@ public class operatorRandomSubtractPage extends basePage{
   //*********Page Methods*********	
   @Step ("Input and check on first random value on the Google Calculator number display.")
   public void input_first_random_value() { 
-	MobileElement first_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + mSubtractRandomOne));
-  	Assert.assertTrue(first_input.isDisplayed());
-  	first_input.click();
+	for (char ch : Long.toString(mSubtractRandomOne).toCharArray()) {
+      int digit = ch - '0';
+	  MobileElement digit_pad = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + digit));
+	  Assert.assertTrue(digit_pad.isDisplayed());
+	  digit_pad.click();
+	}
 	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
 	String expected_value = String.valueOf(mSubtractRandomOne);
     Assert.assertEquals(get_formula.getText(), expected_value, "Test Status: getText assertion failed!");
@@ -38,13 +41,16 @@ public class operatorRandomSubtractPage extends basePage{
   
   @Step ("Input and check on second random value on the Google Calculator number display.")
   public void input_second_random_value() {
-	MobileElement second_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + mSubtractRandomTwo));
-  	Assert.assertTrue(second_input.isDisplayed());
-  	second_input.click();
+	for (char ch : Long.toString(mSubtractRandomTwo).toCharArray()) {
+      int digit = ch - '0';
+	  MobileElement digit_pad = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + digit));
+	  Assert.assertTrue(digit_pad.isDisplayed());
+	  digit_pad.click();
+	}
   	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
 	String expected_value = String.valueOf(mSubtractRandomTwo);
     Assert.assertTrue(get_formula.getText().contains(expected_value));
-    System.out.println("Test Status: input second value: " + get_formula.getText());
+    System.out.println("Test Status: inputed first and second values: " + get_formula.getText());
   }
   
   @Step ("Check and tap on the Google Calculator operator equal button.")
@@ -59,9 +65,10 @@ public class operatorRandomSubtractPage extends basePage{
   public void verify_total_value() {
 	MobileElement get_formula = mobiledriver.findElement(DisplayResultFinal);
     System.out.println("Test Status: " + mSubtractRandomOne + " - " + mSubtractRandomTwo + " = " + (mSubtractRandomOne - mSubtractRandomTwo));
-    String actual_value = get_formula.getText();
-    String expected_value = Integer.toString(mSubtractRandomOne - mSubtractRandomTwo);
-    Assert.assertEquals(actual_value, expected_value, "Test Status: getText assertion failed!");
+	String expected_value = Long.toString(mSubtractRandomOne - mSubtractRandomTwo);
+	String positiveString = get_formula.getText();
+	positiveString = positiveString.replaceAll("[^\\d.]", "");			
+    Assert.assertTrue(expected_value.contains(positiveString));  
     System.out.println("Test Status: total value verified");
   }
   

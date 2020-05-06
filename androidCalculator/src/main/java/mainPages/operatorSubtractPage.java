@@ -19,9 +19,12 @@ public class operatorSubtractPage extends basePage{
   //*********Page Methods*********	
   @Step ("Input and check on first value on the Google Calculator number display.")
   public void input_first_value() {
-	MobileElement first_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + mSubtractSumOne));
-  	Assert.assertTrue(first_input.isDisplayed());
-  	first_input.click();
+	for (char ch : Long.toString(mSubtractSumOne).toCharArray()) {
+      int digit = ch - '0';
+	  MobileElement digit_pad = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + digit));
+	  Assert.assertTrue(digit_pad.isDisplayed());
+	  digit_pad.click();
+	}
 	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
 	String expected_value = Long.toString(mSubtractSumOne);
     Assert.assertEquals(get_formula.getText(), expected_value, "Test Status: getText assertion failed!");
@@ -37,14 +40,17 @@ public class operatorSubtractPage extends basePage{
   }
   
   @Step ("Input and check on second value on the Google Calculator number display.")
-  public void input_second_value() {
-	MobileElement second_input = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + mSubtractSumTwo));
-  	Assert.assertTrue(second_input.isDisplayed());
-  	second_input.click();
-  	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
+  public void input_second_value() {	  
+	for (char ch : Long.toString(mSubtractSumTwo).toCharArray()) {
+      int digit = ch - '0';
+	  MobileElement digit_pad = mobiledriver.findElement(By.id("com.google.android.calculator:id/digit_" + digit));
+	  Assert.assertTrue(digit_pad.isDisplayed());
+	  digit_pad.click();
+	}
+	MobileElement get_formula = mobiledriver.findElement(DisplayFormula);
 	String expected_value = Long.toString(mSubtractSumTwo);
     Assert.assertTrue(get_formula.getText().contains(expected_value));
-    System.out.println("Test Status: input second value: " + get_formula.getText());
+    System.out.println("Test Status: inputed first and second values: " + get_formula.getText());
   }
   
   @Step ("Check and tap on the Google Calculator operator equal button.")
@@ -60,7 +66,9 @@ public class operatorSubtractPage extends basePage{
 	MobileElement get_formula = mobiledriver.findElement(DisplayResultFinal);
     System.out.println("Test Status: " + mSubtractSumOne + " - " + mSubtractSumTwo + " = " + (mSubtractSumOne - mSubtractSumTwo));
 	String expected_value = Long.toString(mSubtractSumOne - mSubtractSumTwo);
-    Assert.assertEquals(get_formula.getText(), expected_value, "Test Status: getText assertion failed!");
+	String positiveString = get_formula.getText();
+	positiveString = positiveString.replaceAll("[^\\d.]", "");			
+    Assert.assertTrue(expected_value.contains(positiveString));    
     System.out.println("Test Status: total value verified");
   }
   
