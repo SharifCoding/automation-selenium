@@ -39,6 +39,28 @@ public class readerUIPage extends basePage{
     System.out.println("Test Status: app is loaded");
   }
   
+  @Step ("Check the Title on the top UI, once the R2 Reader app has loaded.")
+  public void check_title_of_the_app() {
+    MobileElement app_title = mobiledriver.findElement(r2reader_action_bar_title);
+	Assert.assertEquals(app_title.getText(), mAppTitle, "Test Status: getText assertion failed!");
+    System.out.println("Test Status: expected app title: " + app_title.getText());
+  }
+  
+  @Step ("Check the App version number via the More Options UI.")
+  public void check_app_version_via_more_options() {
+    MobileElement more_options = mobiledriver.findElement(r2reader_more_options);
+    more_options.click();
+    System.out.println("Test Status: clicked on more options");
+	MobileElement about_r2_reader = mobiledriver.findElement(r2reader_about_r2_reader);
+  	Assert.assertTrue(about_r2_reader.isDisplayed());
+	MobileElement opds_feeds = mobiledriver.findElement(r2reader_opds_feeds);
+  	Assert.assertTrue(opds_feeds.isDisplayed());
+  	about_r2_reader.click();
+	MobileElement app_version = mobiledriver.findElement(r2reader_app_version);
+	Assert.assertEquals(app_version.getText(), mAppVersion, "Test Status: getText assertion failed!");
+    System.out.println("Test Status: expected app version: " + app_version.getText());
+  }
+  
   @Step ("R2 Reader app basic UI test is loaded.")
   @BeforeTest
   public void beforeTest() {

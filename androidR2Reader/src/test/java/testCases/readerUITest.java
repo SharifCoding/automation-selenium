@@ -23,6 +23,8 @@ public class readerUITest extends baseTest{
 		readerUITest.beforeTest();
 		readerUITest.android_storage_permission();
 		readerUITest.first_launch_of_the_app();
+		readerUITest.check_title_of_the_app();
+		readerUITest.check_app_version_via_more_options();
 		readerUITest.afterTest();
     }
 }

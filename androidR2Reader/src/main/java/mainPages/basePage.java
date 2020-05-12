@@ -29,11 +29,17 @@ public class basePage {
 	//*********R2 Reader Mobile Elements*********
 	By r2reader_decor_content_parent = By.id("org.readium.r2reader:id/decor_content_parent");
 	By r2reader_action_bar_container = By.id("org.readium.r2reader:id/action_bar_container");
+	By r2reader_action_bar_title = By.xpath("//android.widget.TextView[@index=0]");
 	By r2reader_action_bar = By.id("org.readium.r2reader:id/action_bar");
 	By r2reader_more_options = By.xpath("//android.widget.ImageView[@content-desc=\"More options\"]");
 	By r2reader_content = By.id("android:id/content");
 	By r2reader_card_view = By.id("org.readium.r2reader:id/card_view");
 	By r2reader_add_book = By.xpath("//android.widget.ImageButton[@content-desc=\"Add a Book\"]");
+	
+	//*********R2 More Options Mobile Elements*********
+	By r2reader_about_r2_reader = By.xpath("//android.widget.TextView[@text=\"About R2 Reader\"]");
+	By r2reader_opds_feeds = By.xpath("//android.widget.TextView[@text=\"OPDS Feeds\"]");
+	By r2reader_app_version = By.xpath("//android.widget.TextView[@index=1]");
 	
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
     	System.out.println("JSONParser: Initiating...");
