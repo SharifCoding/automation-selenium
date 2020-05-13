@@ -25,6 +25,7 @@ public class readerUITest extends baseTest{
 		readerUITest.first_launch_of_the_app();
 		readerUITest.check_title_of_the_app();
 		readerUITest.check_app_version_via_more_options();
+		readerUITest.tap_device_back_button();
 		readerUITest.afterTest();
     }
 }

@@ -61,6 +61,15 @@ public class readerUIPage extends basePage{
     System.out.println("Test Status: expected app version: " + app_version.getText());
   }
   
+  @Step ("Tap on the Android back button to close the More Opions page.")
+  public void tap_device_back_button() {
+    mobiledriver.navigate().back();
+    System.out.println("Test Status: clicked on the device back button");
+	MobileElement r2reader_container = mobiledriver.findElement(r2reader_action_bar_container);
+  	Assert.assertTrue(r2reader_container.isDisplayed());
+    System.out.println("Test Status: back to app main page");
+  }
+  
   @Step ("R2 Reader app basic UI test is loaded.")
   @BeforeTest
   public void beforeTest() {

@@ -2,6 +2,7 @@ package mainPages;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.Duration;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -10,7 +11,10 @@ import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
  
 public class basePage {
 	
@@ -56,5 +60,17 @@ public class basePage {
     		mAppVersion = (String) data.get("appVersion");
     	}
     	System.out.println("JSONParser: Ready");
+    }
+    
+    // https://stackoverflow.com/questions/51018055/how-to-scroll-up-in-android-appium
+    public void scrollToBottom() {
+        int startX = mobiledriver.manage().window().getSize().width / 2;
+        int startY = (int) (mobiledriver.manage().window().getSize().height * 0.7);
+        int endY = (int) (mobiledriver.manage().window().getSize().height * 0.3);
+        new TouchAction<>(mobiledriver)
+	      .press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+	      .moveTo(PointOption.point(startX, endY))
+	      .release()
+          .perform();
     }
 }
