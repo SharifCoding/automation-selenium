@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
@@ -45,6 +46,7 @@ public class basePage {
 	By r2reader_opds_feeds = By.xpath("//android.widget.TextView[@text=\"OPDS Feeds\"]");
 	By r2reader_app_version = By.xpath("//android.widget.TextView[@index=1]");
 	
+	//*********Read JSON Function*********
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
     	System.out.println("JSONParser: Initiating...");
       	JSONParser jsonParser = new JSONParser();
@@ -62,15 +64,71 @@ public class basePage {
     	System.out.println("JSONParser: Ready");
     }
     
-    // https://stackoverflow.com/questions/51018055/how-to-scroll-up-in-android-appium
-    public void scrollToBottom() {
-        int startX = mobiledriver.manage().window().getSize().width / 2;
-        int startY = (int) (mobiledriver.manage().window().getSize().height * 0.7);
-        int endY = (int) (mobiledriver.manage().window().getSize().height * 0.3);
-        new TouchAction<>(mobiledriver)
-	      .press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-	      .moveTo(PointOption.point(startX, endY))
-	      .release()
-          .perform();
-    }
+	//*********Declare Swipe Direction*********
+	public enum DIRECTION{
+		UP,
+		DOWN,
+		LEFT,
+		RIGHT
+	}
+	
+	//*********Swipe From and To Function*********
+	public static void swipe(DIRECTION direction){
+	    Dimension size = mobiledriver.manage().window().getSize();
+		int startX = 0;
+	    int endX = 0;
+	    int startY = 0;
+	    int endY = 0;
+	    
+		try {
+			switch(direction){
+			case UP:
+		        startX = (int) (size.width / 2);
+		        startY = (int) (size.height * 0.3);
+		        endY = (int) (size.height * 0.7);
+		        new TouchAction<>(mobiledriver)
+		        	.press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+		        	.moveTo(PointOption.point(startX, endY))
+		        	.release()
+		        	.perform();
+		        System.out.println("Swipe Status: swiped from bottom to top");
+		        break;
+			case DOWN:
+		        startX = (int) (size.width / 2);
+		        startY = (int) (size.height * 0.7);
+		        endY = (int) (size.height * 0.3);
+		        new TouchAction<>(mobiledriver)
+		        	.press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+		        	.moveTo(PointOption.point(startX, endY))
+		        	.release()
+		        	.perform();
+		        System.out.println("Swipe Status: swiped from top to bottom");
+				break;
+			case LEFT:
+				startY = (int) (mobiledriver.manage().window().getSize().height / 2);
+	            startX = (int) (mobiledriver.manage().window().getSize().width * 0.1);
+	            endX = (int) (mobiledriver.manage().window().getSize().width * 0.9);
+		        new TouchAction<>(mobiledriver)
+		        	.press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+				    .moveTo(PointOption.point(endX, startY))
+	                .release()
+	                .perform();
+		        System.out.println("Swipe Status: swiped from right to left");
+				break;
+			case RIGHT:
+				startY = (int) (mobiledriver.manage().window().getSize().height / 2);
+	            startX = (int) (mobiledriver.manage().window().getSize().width * 0.9);
+	            endX = (int) (mobiledriver.manage().window().getSize().width * 0.1);
+		        new TouchAction<>(mobiledriver)
+		        	.press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+				    .moveTo(PointOption.point(endX, startY))
+	                .release()
+	                .perform();
+		        System.out.println("Swipe Status: swiped from left to right");
+				break;
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

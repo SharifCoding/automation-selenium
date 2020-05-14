@@ -23,6 +23,7 @@ public class readerContentTest extends baseTest{
 		readerContentTest.beforeTest();
 		readerContentTest.first_launch_of_the_app();
 		readerContentTest.add_book_button_is_displayed();
+		readerContentTest.swipe_down_and_up_content();
 		readerContentTest.afterTest();
     }
 }

@@ -34,7 +34,11 @@ public class readerContentPage extends basePage{
 	MobileElement add_book = mobiledriver.findElement(r2reader_add_book);
   	Assert.assertTrue(add_book.isDisplayed());
     System.out.println("Test Status: add book button is displayed");
-    scrollToBottom();
+  }
+  
+  public void swipe_down_and_up_content() {
+    swipe(DIRECTION.DOWN);
+    swipe(DIRECTION.UP);
   }
   
   @Step ("R2 Reader app content test is loaded.")
