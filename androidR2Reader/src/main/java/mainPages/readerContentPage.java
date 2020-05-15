@@ -1,5 +1,7 @@
 package mainPages;
 
+import java.util.List;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -34,6 +36,25 @@ public class readerContentPage extends basePage{
 	MobileElement add_book = mobiledriver.findElement(r2reader_add_book);
   	Assert.assertTrue(add_book.isDisplayed());
     System.out.println("Test Status: add book button is displayed");
+  }
+  
+  public void check_all_content() {
+	MobileElement content_container = mobiledriver.findElement(r2reader_content);
+  	Assert.assertTrue(content_container.isDisplayed());
+    System.out.println("Test Status: content container is displayed");
+	MobileElement card_view = mobiledriver.findElement(r2reader_card_view);
+  	Assert.assertTrue(card_view.isDisplayed());
+    System.out.println("Test Status: card view is displayed");
+    // Find all the elements on the page
+    List<MobileElement> list = mobiledriver.findElements(r2reader_all_textViews);
+    Assert.assertTrue(list.size()>0) ;
+    for(int i=0;i<list.size();i++)
+    { if (list.get(i).getText()!= null)
+      {
+        String SeenText = list.get(i).getText();
+        System.out.println("Test Status: getText[" + i + "]: " + SeenText);
+      }
+    }
   }
   
   public void swipe_down_and_up_content() {
