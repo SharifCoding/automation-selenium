@@ -51,6 +51,9 @@ public class basePage {
 	By r2reader_content = By.id("android:id/content");
 	By r2reader_card_view = By.id("org.readium.r2reader:id/card_view");
 	By r2reader_all_textViews = By.className("android.widget.TextView");
+	By r2reader_decor_content = By.id("org.readium.r2reader:id/decor_content_parent");
+
+	
 		
 	//*********Read JSON Function*********
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
@@ -72,16 +75,29 @@ public class basePage {
     }
     
 	//*********Get TextView Function*********
-    public static void getAllText(By id, String searchText) {
+    public static void getAllText(By id) {
         List<MobileElement> list = mobiledriver.findElements(id);
-        Assert.assertTrue(list.size()>0) ;
-        for(int i=0;i<list.size();i++)
-        { if (list.get(i).getText()!= null)
-          {
-            String SeenText = list.get(i).getText();
-            System.out.println("Test Status: getText[" + i + "]: " + SeenText);
-          }
+        Assert.assertTrue(list.size()>0);
+        for(int i = 0;i < list.size();i++) {
+	        if (list.get(i).getText()!= null) {
+		        String SeenText = list.get(i).getText();
+		        System.out.println("Test Status: getText[" + i + "]: " + SeenText);
+	        }
         }
+    }
+    
+	//*********Search & Click on Element Function*********
+    public static void searchAndClick(String searchText) {
+    	MobileElement element = mobiledriver.findElement(By.xpath("//android.widget.TextView[@text=\"" + searchText + "\"]"));
+    	if(element.isDisplayed()){
+    	    element.click();
+    	    try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	}
     }
     
 	//*********Declare Swipe Direction*********

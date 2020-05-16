@@ -25,6 +25,7 @@ public class readerContentTest extends baseTest{
 		readerContentTest.add_book_button_is_displayed();
 		readerContentTest.check_all_content();
 		readerContentTest.swipe_down_and_up_content();
+		readerContentTest.click_on_the_first_content();
 		readerContentTest.afterTest();
     }
 }

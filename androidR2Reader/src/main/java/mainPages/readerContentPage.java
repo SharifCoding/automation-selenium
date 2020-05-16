@@ -43,12 +43,19 @@ public class readerContentPage extends basePage{
 	MobileElement card_view = mobiledriver.findElement(r2reader_card_view);
   	Assert.assertTrue(card_view.isDisplayed());
     System.out.println("Test Status: card view is displayed");
-    getAllText(r2reader_all_textViews, basePage.mFirstContent);
+    getAllText(r2reader_all_textViews);
   }
   
   public void swipe_down_and_up_content() {
     swipe(DIRECTION.DOWN);
     swipe(DIRECTION.UP);
+  }
+  
+  public void click_on_the_first_content() {
+    searchAndClick(basePage.mFirstContent);
+	MobileElement content_container = mobiledriver.findElement(r2reader_decor_content);
+  	Assert.assertTrue(content_container.isDisplayed());
+    System.out.println("Test Status: first content is loaded");
   }
   
   @Step ("R2 Reader app content test is loaded.")
