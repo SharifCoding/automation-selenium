@@ -1,7 +1,5 @@
 package mainPages;
 
-import java.util.List;
-
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -45,16 +43,7 @@ public class readerContentPage extends basePage{
 	MobileElement card_view = mobiledriver.findElement(r2reader_card_view);
   	Assert.assertTrue(card_view.isDisplayed());
     System.out.println("Test Status: card view is displayed");
-    // Find all the elements on the page
-    List<MobileElement> list = mobiledriver.findElements(r2reader_all_textViews);
-    Assert.assertTrue(list.size()>0) ;
-    for(int i=0;i<list.size();i++)
-    { if (list.get(i).getText()!= null)
-      {
-        String SeenText = list.get(i).getText();
-        System.out.println("Test Status: getText[" + i + "]: " + SeenText);
-      }
-    }
+    getAllText(r2reader_all_textViews, basePage.mFirstContent);
   }
   
   public void swipe_down_and_up_content() {

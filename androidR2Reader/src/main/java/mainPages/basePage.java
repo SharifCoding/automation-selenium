@@ -3,6 +3,7 @@ package mainPages;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -10,6 +11,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.testng.Assert;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
@@ -23,6 +25,7 @@ public class basePage {
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
 	public static String mAppTitle;
 	public static String mAppVersion;
+	public static String mFirstContent;
 	String mActualTotalValue = "";
 	String mExpectedValue = "";
 	
@@ -63,8 +66,22 @@ public class basePage {
     		JSONObject data = (JSONObject) dataBlock.get("testData");
     		mAppTitle = (String) data.get("appTitle");
     		mAppVersion = (String) data.get("appVersion");
+    		mFirstContent = (String) data.get("firstContent");
     	}
     	System.out.println("JSONParser: Ready");
+    }
+    
+	//*********Get TextView Function*********
+    public static void getAllText(By id, String searchText) {
+        List<MobileElement> list = mobiledriver.findElements(id);
+        Assert.assertTrue(list.size()>0) ;
+        for(int i=0;i<list.size();i++)
+        { if (list.get(i).getText()!= null)
+          {
+            String SeenText = list.get(i).getText();
+            System.out.println("Test Status: getText[" + i + "]: " + SeenText);
+          }
+        }
     }
     
 	//*********Declare Swipe Direction*********

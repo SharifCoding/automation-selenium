@@ -3,7 +3,8 @@
     "testData":{
       "_testNGFile":"testng.xml",
 		  "appTitle":"R2 Reader",
-		  "appVersion":"2.1.0"
+		  "appVersion":"2.1.0",
+		  "firstContent":"Metropolis"
     }
   }
 ]
