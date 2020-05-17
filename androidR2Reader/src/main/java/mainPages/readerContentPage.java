@@ -44,6 +44,7 @@ public class readerContentPage extends basePage{
   	Assert.assertTrue(card_view.isDisplayed());
     System.out.println("Test Status: card view is displayed");
     getAllText(r2reader_all_textViews);
+    isElementPresent(r2reader_card_view_search);
   }
   
   public void swipe_down_and_up_content() {

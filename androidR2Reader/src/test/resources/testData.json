@@ -4,7 +4,13 @@
       "_testNGFile":"testng.xml",
 		  "appTitle":"R2 Reader",
 		  "appVersion":"2.1.0",
-		  "firstContent":"Metropolis"
+		  "appAddBurron":"publication added to your library",
+		  "firstContent":"Metropolis",
+		  "secondContent":"The Red Badge of Courage",
+		  "thirdContent":"Treasure Island",
+		  "fourthContent":"Dead Souls",
+		  "fifthContent":"Moby-Dick",
+		  "sixthContent":"The Dark World"
     }
   }
 ]

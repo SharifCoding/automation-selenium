@@ -52,8 +52,7 @@ public class basePage {
 	By r2reader_card_view = By.id("org.readium.r2reader:id/card_view");
 	By r2reader_all_textViews = By.className("android.widget.TextView");
 	By r2reader_decor_content = By.id("org.readium.r2reader:id/decor_content_parent");
-
-	
+	By r2reader_card_view_search = By.xpath("//android.widget.TextView[@text=\"" + mFirstContent + "\"]");
 		
 	//*********Read JSON Function*********
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
@@ -74,6 +73,10 @@ public class basePage {
     	System.out.println("JSONParser: Ready");
     }
     
+	public static boolean isElementPresent(By id) {
+	    return ((mobiledriver.findElements(id).size() > 0) ? true : false);
+	}
+	
 	//*********Get TextView Function*********
     public static void getAllText(By id) {
         List<MobileElement> list = mobiledriver.findElements(id);
