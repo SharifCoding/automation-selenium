@@ -25,7 +25,7 @@ public class basePage {
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
 	public static String mAppTitle;
 	public static String mAppVersion;
-	public static String mFirstContent;
+	public static String[] mAllContent = new String[6];
 	String mActualTotalValue = "";
 	String mExpectedValue = "";
 	
@@ -51,8 +51,8 @@ public class basePage {
 	By r2reader_content = By.id("android:id/content");
 	By r2reader_card_view = By.id("org.readium.r2reader:id/card_view");
 	By r2reader_all_textViews = By.className("android.widget.TextView");
-	By r2reader_decor_content = By.id("org.readium.r2reader:id/decor_content_parent");
-	By r2reader_card_view_search = By.xpath("//android.widget.TextView[@text=\"" + mFirstContent + "\"]");
+	By r2reader_resource_pager = By.id("org.readium.r2reader:id/resourcePager");
+	By r2reader_card_view_search = By.xpath("//android.widget.TextView[@text=\"" + mAllContent[0] + "\"]");
 		
 	//*********Read JSON Function*********
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
@@ -68,7 +68,12 @@ public class basePage {
     		JSONObject data = (JSONObject) dataBlock.get("testData");
     		mAppTitle = (String) data.get("appTitle");
     		mAppVersion = (String) data.get("appVersion");
-    		mFirstContent = (String) data.get("firstContent");
+    		mAllContent[0] = (String) data.get("firstContent");
+    		mAllContent[1] = (String) data.get("secondContent");
+    		mAllContent[2] = (String) data.get("thirdContent");
+    		mAllContent[3] = (String) data.get("fourthContent");
+    		mAllContent[4] = (String) data.get("fifthContent");
+    		mAllContent[5] = (String) data.get("sixthContent");
     	}
     	System.out.println("JSONParser: Ready");
     }
