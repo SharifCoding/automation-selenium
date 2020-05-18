@@ -36,27 +36,19 @@ public class readerContentPage extends basePage{
     System.out.println("Test Status: add book button is displayed");
   }
   
-  public void check_all_content() {
+  public void output_all_content() {
 	MobileElement content_container = mobiledriver.findElement(r2reader_content);
   	Assert.assertTrue(content_container.isDisplayed());
     System.out.println("Test Status: content container is displayed");
 	MobileElement card_view = mobiledriver.findElement(r2reader_card_view);
   	Assert.assertTrue(card_view.isDisplayed());
     System.out.println("Test Status: card view is displayed");
-    getAllText(r2reader_all_textViews);
-    isElementPresent(r2reader_card_view_search);
+    getAndCheckContentTitle(r2reader_all_textViews);
   }
   
   public void swipe_down_and_up_content() {
     swipe(DIRECTION.DOWN);
     swipe(DIRECTION.UP);
-  }
-  
-  public void click_on_the_first_content() {
-    searchAndClick(basePage.mAllContent[0]);
-	MobileElement decor_content = mobiledriver.findElement(r2reader_resource_pager);
-  	Assert.assertTrue(decor_content.isDisplayed());
-    System.out.println("Test Status: first content is loaded");
   }
   
   @Step ("R2 Reader app content test is loaded.")

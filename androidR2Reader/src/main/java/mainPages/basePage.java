@@ -25,7 +25,7 @@ public class basePage {
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
 	public static String mAppTitle;
 	public static String mAppVersion;
-	public static String[] mAllContent = new String[6];
+	public static String[] mAllContent = new String[8];
 	String mActualTotalValue = "";
 	String mExpectedValue = "";
 	
@@ -52,7 +52,6 @@ public class basePage {
 	By r2reader_card_view = By.id("org.readium.r2reader:id/card_view");
 	By r2reader_all_textViews = By.className("android.widget.TextView");
 	By r2reader_resource_pager = By.id("org.readium.r2reader:id/resourcePager");
-	By r2reader_card_view_search = By.xpath("//android.widget.TextView[@text=\"" + mAllContent[0] + "\"]");
 		
 	//*********Read JSON Function*********
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
@@ -68,45 +67,60 @@ public class basePage {
     		JSONObject data = (JSONObject) dataBlock.get("testData");
     		mAppTitle = (String) data.get("appTitle");
     		mAppVersion = (String) data.get("appVersion");
-    		mAllContent[0] = (String) data.get("firstContent");
-    		mAllContent[1] = (String) data.get("secondContent");
-    		mAllContent[2] = (String) data.get("thirdContent");
-    		mAllContent[3] = (String) data.get("fourthContent");
-    		mAllContent[4] = (String) data.get("fifthContent");
-    		mAllContent[5] = (String) data.get("sixthContent");
+    		mAllContent[0] = (String) data.get("appTitle");
+    		mAllContent[1] = (String) data.get("firstContent");
+    		mAllContent[2] = (String) data.get("secondContent");
+    		mAllContent[3] = (String) data.get("thirdContent");
+    		mAllContent[4] = (String) data.get("fourthContent");
+    		mAllContent[5] = (String) data.get("fifthContent");
+    		mAllContent[6] = (String) data.get("sixthContent");
+    		mAllContent[7] = (String) data.get("appAddBurron");
     	}
     	System.out.println("JSONParser: Ready");
     }
-    
-	public static boolean isElementPresent(By id) {
-	    return ((mobiledriver.findElements(id).size() > 0) ? true : false);
-	}
 	
 	//*********Get TextView Function*********
-    public static void getAllText(By id) {
+    public static void getAndCheckContentTitle(By id) {
         List<MobileElement> list = mobiledriver.findElements(id);
         Assert.assertTrue(list.size()>0);
-        for(int i = 0;i < list.size();i++) {
+        for(int i = 1;i < 7;i++) {
 	        if (list.get(i).getText()!= null) {
 		        String SeenText = list.get(i).getText();
-		        System.out.println("Test Status: getText[" + i + "]: " + SeenText);
+	        	Assert.assertEquals(SeenText, mAllContent[i], "Test Status: getText assertion failed!");
 	        }
         }
     }
     
+	//*********Boolean isElementPresent Function*********
+	public static boolean isElementPresent(By id) {
+	    return ((mobiledriver.findElements(id).size() > 0) ? true : false);
+	}
+	
 	//*********Search & Click on Element Function*********
     public static void searchAndClick(String searchText) {
     	MobileElement element = mobiledriver.findElement(By.xpath("//android.widget.TextView[@text=\"" + searchText + "\"]"));
     	if(element.isDisplayed()){
     	    element.click();
     	    try {
-				Thread.sleep(1000);
+				Thread.sleep(2000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
     	}
     }
+    
+	//*********Tap Centre of Display Function*********
+    public static void coordinateTouchAction(double width, double height) {
+        Dimension size = mobiledriver.manage().window().getSize();
+        int xOffset_pad_advanced = (int) (size.getWidth() * width);
+        int yOffset_pad_advanced = (int) (size.getHeight() * height);
+        new TouchAction<>(mobiledriver).tap(PointOption.point(xOffset_pad_advanced, yOffset_pad_advanced)).perform();
+        try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
     
 	//*********Declare Swipe Direction*********
 	public enum DIRECTION{

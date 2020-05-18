@@ -13,7 +13,7 @@ public class readerContentTest extends baseTest{
 	@Test (priority = 0)
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Google R2 Reader App")
-	@Description ("The R2 Reader app is content is checked with expected titles via the JSON file.")
+	@Description ("The R2 Reader app is launched with content displayed.")
     public void androidR2ReaderBasicUI () {
  
         //*************PAGE INSTANTIATIONS*************
@@ -23,9 +23,8 @@ public class readerContentTest extends baseTest{
 		readerContentTest.beforeTest();
 		readerContentTest.first_launch_of_the_app();
 		readerContentTest.add_book_button_is_displayed();
-		readerContentTest.check_all_content();
+		readerContentTest.output_all_content();
 		readerContentTest.swipe_down_and_up_content();
-		readerContentTest.click_on_the_first_content();
 		readerContentTest.afterTest();
     }
 }
