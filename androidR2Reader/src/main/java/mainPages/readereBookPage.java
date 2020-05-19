@@ -1,0 +1,61 @@
+package mainPages;
+
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.qameta.allure.Step;
+ 
+public class readereBookPage extends basePage{
+    
+  //*********Web Page Class Constructor*********
+  public readereBookPage(AndroidDriver<MobileElement> mobiledriver) {
+	basePage.mobiledriver = mobiledriver;
+  }
+
+  //*********Page Methods*********	
+  @Step ("Allow the device storage permission, and the R2 Reader app is loaded.")
+  public void first_launch_of_the_app() {
+	MobileElement content_container = mobiledriver.findElement(permission_content_container);
+  	Assert.assertTrue(content_container.isDisplayed());
+	MobileElement allow_button = mobiledriver.findElement(permission_allow_button);
+  	Assert.assertTrue(allow_button.isDisplayed());
+	MobileElement deny_button = mobiledriver.findElement(permission_deny_button);
+  	Assert.assertTrue(deny_button.isDisplayed());
+  	allow_button.click();
+	MobileElement r2reader_container = mobiledriver.findElement(r2reader_action_bar_container);
+  	Assert.assertTrue(r2reader_container.isDisplayed());
+    System.out.println("Test Status: app is loaded");
+  }
+  
+  public void click_on_the_first_content() {
+    searchAndClick(basePage.mAllContent[0]);
+	MobileElement decor_content = mobiledriver.findElement(r2reader_resource_pager);
+  	Assert.assertTrue(decor_content.isDisplayed());
+    System.out.println("Test Status: first content is loaded");
+  }
+  
+  public void close_readium_ereader() {
+	coordinateTouchAction(0.5, 0.5);
+    System.out.println("Test Status: tapped middle of display");
+    mobiledriver.navigate().back();
+    MobileElement r2reader_container = mobiledriver.findElement(r2reader_action_bar_container);
+  	Assert.assertTrue(r2reader_container.isDisplayed());
+    System.out.println("Test Status: closed the ereader");
+  }
+
+@Step ("R2 Reader app eBook test is loaded.")
+  @BeforeTest
+  public void beforeTest() {
+	mobiledriver.resetApp() ;
+	System.out.println("Test Case: reader ebook test loaded");
+  }
+
+  @Step ("R2 Reader app eBook test completed.")
+  @AfterTest
+  public void afterTest() {
+    System.out.println("Test Case: reader ebook test completed");
+  }
+}
