@@ -11,6 +11,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import io.appium.java_client.MobileElement;
@@ -40,6 +42,7 @@ public class basePage {
 	By r2reader_action_bar_title = By.xpath("//android.widget.TextView[@index=0]");
 	By r2reader_action_bar = By.id("org.readium.r2reader:id/action_bar");
 	By r2reader_add_book = By.xpath("//android.widget.ImageButton[@content-desc=\"Add a Book\"]");
+	By r2reader_add_button_text = By.xpath("//android.widget.TextView[@text=\"" + mAllContent[7] + "\"]");
 	
 	//*********R2 More Options Mobile Elements*********
 	By r2reader_more_options = By.xpath("//android.widget.ImageView[@content-desc=\"More options\"]");
@@ -96,6 +99,11 @@ public class basePage {
 	    return ((mobiledriver.findElements(id).size() > 0) ? true : false);
 	}
 	
+	//*********invisibilityOfElementLocated Function*********
+    public static void waitElementNotPresent(By id, int time) {
+    	new WebDriverWait(mobiledriver, time).until(ExpectedConditions.invisibilityOfElementLocated(id));
+    }
+    
 	//*********Search & Click on Element Function*********
     public static void searchAndClick(String searchText) {
     	MobileElement element = mobiledriver.findElement(By.xpath("//android.widget.TextView[@text=\"" + searchText + "\"]"));

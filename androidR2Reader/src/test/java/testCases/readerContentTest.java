@@ -14,7 +14,7 @@ public class readerContentTest extends baseTest{
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Google R2 Reader App")
 	@Description ("The R2 Reader app is launched with content displayed.")
-    public void androidR2ReaderBasicUI () {
+    public void androidR2ReaderContent () {
  
         //*************PAGE INSTANTIATIONS*************
 		readerContentPage readerContentTest = new readerContentPage(mobiledriver);

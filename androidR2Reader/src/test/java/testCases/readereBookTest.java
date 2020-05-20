@@ -14,7 +14,7 @@ public class readereBookTest extends baseTest{
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Google R2 Reader App")
 	@Description ("Tap on the chosen eBook to open in eReader.")
-    public void androidR2ReaderBasicUI () {
+    public void androidR2ReaderBook () {
  
         //*************PAGE INSTANTIATIONS*************
 		readereBookPage readereBookTest = new readereBookPage(mobiledriver);

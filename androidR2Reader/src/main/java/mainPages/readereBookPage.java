@@ -31,7 +31,7 @@ public class readereBookPage extends basePage{
   }
   
   public void click_on_the_first_content() {
-    searchAndClick(basePage.mAllContent[0]);
+	searchAndClick(basePage.mAllContent[1]);
 	MobileElement decor_content = mobiledriver.findElement(r2reader_resource_pager);
   	Assert.assertTrue(decor_content.isDisplayed());
     System.out.println("Test Status: first content is loaded");
