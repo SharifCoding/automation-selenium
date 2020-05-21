@@ -23,6 +23,7 @@ public class readereBookTest extends baseTest{
 		readereBookTest.beforeTest();
 		readereBookTest.first_launch_of_the_app();
 		readereBookTest.click_on_the_first_content();
+		readereBookTest.swipe_few_pages_left_and_right();
 		readereBookTest.close_readium_ereader();
 		readereBookTest.afterTest();
     }

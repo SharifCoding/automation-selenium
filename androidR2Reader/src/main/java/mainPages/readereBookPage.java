@@ -37,9 +37,17 @@ public class readereBookPage extends basePage{
     System.out.println("Test Status: first content is loaded");
   }
   
-  public void close_readium_ereader() {
+  public void swipe_few_pages_left_and_right() {
 	coordinateTouchAction(0.5, 0.5);
-    System.out.println("Test Status: tapped middle of display");
+    System.out.println("Test Status: tapped to open ereader UI");
+    swipe(DIRECTION.RIGHT);
+    swipe(DIRECTION.RIGHT);
+    swipe(DIRECTION.LEFT);
+	coordinateTouchAction(0.5, 0.5);
+    System.out.println("Test Status: tapped to close ereader UI");
+  }
+  
+  public void close_readium_ereader() {
     mobiledriver.navigate().back();
     MobileElement r2reader_container = mobiledriver.findElement(r2reader_action_bar_container);
   	Assert.assertTrue(r2reader_container.isDisplayed());
