@@ -17,4 +17,7 @@ To run the test;
 - install R2 Reader .apk to either Android Emulator or Android Device.
 - right click the __testNG.xml__ file, and then select __Run As > TestNG Suite__.
 
+### Results of Allure Report
+<img src="allureReporting.png" width="800">
+
 #### [Return: Automation Selenium README](../README.md)

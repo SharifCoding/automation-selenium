@@ -30,12 +30,14 @@ public class readerContentPage extends basePage{
     System.out.println("Test Status: app is loaded");
   }
   
+  @Step ("Check the add book button is shown.")
   public void add_book_button_is_displayed() {
 	MobileElement add_book = mobiledriver.findElement(r2reader_add_book);
   	Assert.assertTrue(add_book.isDisplayed());
     System.out.println("Test Status: add book button is displayed");
   }
   
+  @Step ("Check and validate all eBook title within the app.")
   public void output_all_content() {
 	MobileElement content_container = mobiledriver.findElement(r2reader_content);
   	Assert.assertTrue(content_container.isDisplayed());
@@ -46,6 +48,7 @@ public class readerContentPage extends basePage{
     getAndCheckContentTitle(r2reader_all_textViews);
   }
   
+  @Step ("Check the swipe direction down and up is applied to the app.")
   public void swipe_down_and_up_content() {
     swipe(DIRECTION.DOWN);
     swipe(DIRECTION.UP);

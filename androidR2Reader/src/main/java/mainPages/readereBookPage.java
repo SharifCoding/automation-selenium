@@ -30,6 +30,7 @@ public class readereBookPage extends basePage{
     System.out.println("Test Status: app is loaded");
   }
   
+  @Step ("Search and click on the first content to open in the Readium eReader.")
   public void click_on_the_first_content() {
 	searchAndClick(basePage.mAllContent[1]);
 	MobileElement decor_content = mobiledriver.findElement(r2reader_resource_pager);
@@ -37,13 +38,15 @@ public class readereBookPage extends basePage{
     System.out.println("Test Status: first content is loaded");
   }
   
-  public void swipe_few_pages_left_and_right() {
+  @Step ("Swipe a few pages and then swipe from bottom to open the eReader UI.")
+  public void swipe_few_pages_and_openui() {
     swipe(DIRECTION.RIGHT);
     swipe(DIRECTION.RIGHT);
     swipe(DIRECTION.LEFT);
     swipe(DIRECTION.OPENUI);
   }
   
+  @Step ("Close the Readium eReader and return to the app.")
   public void close_readium_ereader() {
     mobiledriver.navigate().back();
     MobileElement r2reader_container = mobiledriver.findElement(r2reader_action_bar_container);
