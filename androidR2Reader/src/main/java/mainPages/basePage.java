@@ -135,7 +135,8 @@ public class basePage {
 		UP,
 		DOWN,
 		LEFT,
-		RIGHT
+		RIGHT,
+		OPENUI
 	}
 	
 	//*********Swipe From and To Function*********
@@ -192,6 +193,17 @@ public class basePage {
 	                .perform();
 		        System.out.println("Swipe Status: swiped from left to right");
 				break;
+			case OPENUI:
+		        startX = (int) (size.width / 2);
+		        startY = (int) (size.height * 0.01);
+		        endY = (int) (size.height * 0.1);
+		        new TouchAction<>(mobiledriver)
+		        	.press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+		        	.moveTo(PointOption.point(startX, endY))
+		        	.release()
+		        	.perform();
+		        System.out.println("Swipe Status: swiped to open ereader UI");
+		        break;
 			}
 		}catch (Exception e) {
 			e.printStackTrace();

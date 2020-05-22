@@ -38,13 +38,10 @@ public class readereBookPage extends basePage{
   }
   
   public void swipe_few_pages_left_and_right() {
-	coordinateTouchAction(0.5, 0.5);
-    System.out.println("Test Status: tapped to open ereader UI");
     swipe(DIRECTION.RIGHT);
     swipe(DIRECTION.RIGHT);
     swipe(DIRECTION.LEFT);
-	coordinateTouchAction(0.5, 0.5);
-    System.out.println("Test Status: tapped to close ereader UI");
+    swipe(DIRECTION.OPENUI);
   }
   
   public void close_readium_ereader() {
