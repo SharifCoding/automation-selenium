@@ -4,9 +4,7 @@
   <test thread-count="5" name="Android_R2_Reader_App_Test">
     <classes>
       <class name="testCases.baseTest" />
-      <class name="testCases.readerUITest"/>
-      <class name="testCases.readerContentTest"/>
-      <class name="testCases.readereBookTest"/>
+      <class name="testCases.readerInitialContentTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

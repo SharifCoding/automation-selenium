@@ -28,8 +28,6 @@ public class basePage {
 	public static String mAppTitle;
 	public static String mAppVersion;
 	public static String[] mAllContent = new String[8];
-	String mActualTotalValue = "";
-	String mExpectedValue = "";
 	
 	//*********Android Permission Mobile Elements*********
 	By permission_content_container = By.id("com.android.permissioncontroller:id/content_container");
