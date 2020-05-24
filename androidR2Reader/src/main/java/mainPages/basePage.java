@@ -29,6 +29,7 @@ public class basePage {
 	public static String mAppTitle;
 	public static String mAppVersion;
 	public static String[] mAllContent = new String[8];
+	public static String mPushContent;
 	
 	//*********Android Permission Mobile Elements*********
 	By permission_content_container = By.id("com.android.permissioncontroller:id/content_container");
@@ -77,6 +78,7 @@ public class basePage {
     		mAllContent[5] = (String) data.get("fifthContent");
     		mAllContent[6] = (String) data.get("sixthContent");
     		mAllContent[7] = (String) data.get("appAddBurron");
+    		mPushContent = (String) data.get("pushContent");
     	}
     	System.out.println("JSONParser: Ready");
     }
@@ -106,7 +108,7 @@ public class basePage {
 	//*********Push Content to Device Function*********
     public static void pushContentToDevice() {
     	try {
-			mobiledriver.pushFile("/sdcard/download/monumental_java.epub", new File("/Users/macbook/Documents/GitHub/learnSelenium/androidR2Reader/src/main/resources/monumental_java.epub"));
+			mobiledriver.pushFile("/sdcard/download/" + mPushContent, new File(myPath + "androidR2Reader/src/main/resources/" + mPushContent));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
