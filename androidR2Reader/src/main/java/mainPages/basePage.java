@@ -1,5 +1,6 @@
 package mainPages;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
@@ -62,7 +63,7 @@ public class basePage {
       	Object obj = jsonParser.parse(reader);
       	JSONArray dataInfo = (JSONArray) obj;
       	System.out.println("JSONParser: entire json --> " + dataInfo);
-    	for(int i=0 ; i < dataInfo.size(); i++) 
+    	for(int i=0; i < dataInfo.size(); i++) 
     	{
     		JSONObject dataBlock = (JSONObject) dataInfo.get(i);
     		JSONObject data = (JSONObject) dataBlock.get("testData");
@@ -100,6 +101,16 @@ public class basePage {
 	//*********invisibilityOfElementLocated Function*********
     public static void waitElementNotPresent(By id, int time) {
     	new WebDriverWait(mobiledriver, time).until(ExpectedConditions.invisibilityOfElementLocated(id));
+    }
+    
+	//*********Push Content to Device Function*********
+    public static void pushContentToDevice() {
+    	try {
+			mobiledriver.pushFile("/sdcard/download/monumental_java.epub", new File("/Users/macbook/Documents/GitHub/learnSelenium/androidR2Reader/src/main/resources/monumental_java.epub"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        System.out.println("Test Status: pushed content to device");
     }
     
 	//*********Search & Click on Element Function*********
