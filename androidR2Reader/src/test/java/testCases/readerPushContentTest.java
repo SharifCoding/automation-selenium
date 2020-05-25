@@ -25,6 +25,8 @@ public class readerPushContentTest extends baseTest{
 		readerPushContentTest.beforeTest();
 		readerPushContentTest.first_launch_of_the_app();
 		readerPushContentTest.push_content_to_device();
+		readerPushContentTest.search_the_pushed_content();
+		readerPushContentTest.add_pushed_content_return_to_the_app();
 		readerPushContentTest.afterTest();
     }
 }

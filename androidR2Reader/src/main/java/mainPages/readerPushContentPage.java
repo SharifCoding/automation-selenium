@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeTest;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.qameta.allure.Step;
  
 public class readerPushContentPage extends basePage{
@@ -30,16 +32,47 @@ public class readerPushContentPage extends basePage{
     System.out.println("Test Status: app is loaded");
   }
   
-  @Step ("Push content to device, and then add to the app.")
+  @Step ("Push content to device, and then navigate to device document folder.")
   public void push_content_to_device() {
 	pushContentToDevice();
 	MobileElement add_book = mobiledriver.findElement(r2reader_add_book);
   	Assert.assertTrue(add_book.isDisplayed());
-    System.out.println("Test Status: add book button is displayed");
     add_book.click();
+    System.out.println("Test Status: clicked on the add book button");
 	MobileElement add_content_device = mobiledriver.findElement(r2reader_add_content_device);
   	Assert.assertTrue(add_content_device.isDisplayed());
-    System.out.println("Test Status: select from your device button is displayed");
+  	add_content_device.click();
+    System.out.println("Test Status: clicked on select from your device button");
+  }
+  
+  @Step ("Search the pushed content on the device via the document folder.")
+  public void search_the_pushed_content() {
+	MobileElement document_list = mobiledriver.findElement(android_document_list);
+  	Assert.assertTrue(document_list.isDisplayed());
+    System.out.println("Test Status: android document folder is loaded");
+	MobileElement document_search = mobiledriver.findElement(android_document_search);
+  	Assert.assertTrue(document_search.isDisplayed());
+  	document_search.click();
+    System.out.println("Test Status: clicked on the search icon");
+	MobileElement document_search_text = mobiledriver.findElement(android_document_search_text);
+  	Assert.assertTrue(document_search_text.isDisplayed());
+  	document_search_text.sendKeys(mPushContent);
+    ((AndroidDriver<MobileElement>) mobiledriver).pressKey(new KeyEvent(AndroidKey.ENTER));
+    System.out.println("Test Status: searched: " + mPushContent);
+  }
+  
+  @Step ("Add the pushed content, and then return to the app.")
+  public void add_pushed_content_return_to_the_app() {
+	MobileElement document_returned_search = mobiledriver.findElement(android_document_item_root);
+  	Assert.assertTrue(document_returned_search.isDisplayed());
+    System.out.println("Test Status: returned search value");
+	MobileElement document_returned_expected = mobiledriver.findElement(android_document_expected);
+  	Assert.assertTrue(document_returned_expected.isDisplayed());
+  	document_returned_expected.click();
+    System.out.println("Test Status: clicked on the expected search value");
+	MobileElement r2reader_container = mobiledriver.findElement(r2reader_action_bar_container);
+  	Assert.assertTrue(r2reader_container.isDisplayed());
+    System.out.println("Test Status: returned to the app");
   }
   
   @Step ("R2 Reader push content test is loaded.")

@@ -63,6 +63,13 @@ public class basePage {
 	By r2reader_add_content_title = By.id("android:id/message");
 	By r2reader_add_content_device = By.xpath("//android.widget.Button[@text=\"" + mAddContentDevice + "\"]");
 	By r2reader_add_content_url = By.xpath("//android.widget.Button[@text=\"" + mAddContentURL + "\"]");
+	
+	//*********Android Document Mobile Elements*********
+	By android_document_list = By.id("com.android.documentsui:id/dir_list");
+	By android_document_search = By.id("com.android.documentsui:id/option_menu_search");
+	By android_document_search_text = By.id("com.android.documentsui:id/search_src_text");
+	By android_document_item_root = By.id("com.android.documentsui:id/item_root");
+	By android_document_expected = By.xpath("//android.widget.TextView[@text=\"" + mPushContent + "\"]");
 		
 	//*********Read JSON Function*********
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
