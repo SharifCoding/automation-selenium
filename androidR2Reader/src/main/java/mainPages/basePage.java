@@ -30,6 +30,9 @@ public class basePage {
 	public static String mAppVersion;
 	public static String[] mAllContent = new String[8];
 	public static String mPushContent;
+	public static String mAddContentTitle;
+	public static String mAddContentDevice;
+	public static String mAddContentURL;
 	
 	//*********Android Permission Mobile Elements*********
 	By permission_content_container = By.id("com.android.permissioncontroller:id/content_container");
@@ -55,6 +58,11 @@ public class basePage {
 	By r2reader_card_view = By.id("org.readium.r2reader:id/card_view");
 	By r2reader_all_textViews = By.className("android.widget.TextView");
 	By r2reader_resource_pager = By.id("org.readium.r2reader:id/resourcePager");
+	
+	//*********R2 Add Content Mobile Elements*********
+	By r2reader_add_content_title = By.id("android:id/message");
+	By r2reader_add_content_device = By.xpath("//android.widget.Button[@text=\"" + mAddContentDevice + "\"]");
+	By r2reader_add_content_url = By.xpath("//android.widget.Button[@text=\"" + mAddContentURL + "\"]");
 		
 	//*********Read JSON Function*********
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
@@ -79,6 +87,9 @@ public class basePage {
     		mAllContent[6] = (String) data.get("sixthContent");
     		mAllContent[7] = (String) data.get("appAddBurron");
     		mPushContent = (String) data.get("pushContent");
+    		mAddContentTitle = (String) data.get("addContentTitle");
+    		mAddContentDevice = (String) data.get("addContentDevice");
+    		mAddContentURL = (String) data.get("addContentURL");
     	}
     	System.out.println("JSONParser: Ready");
     }

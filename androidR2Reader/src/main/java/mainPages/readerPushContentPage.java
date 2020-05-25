@@ -36,7 +36,10 @@ public class readerPushContentPage extends basePage{
 	MobileElement add_book = mobiledriver.findElement(r2reader_add_book);
   	Assert.assertTrue(add_book.isDisplayed());
     System.out.println("Test Status: add book button is displayed");
-    //add_book.click();
+    add_book.click();
+	MobileElement add_content_device = mobiledriver.findElement(r2reader_add_content_device);
+  	Assert.assertTrue(add_content_device.isDisplayed());
+    System.out.println("Test Status: select from your device button is displayed");
   }
   
   @Step ("R2 Reader push content test is loaded.")

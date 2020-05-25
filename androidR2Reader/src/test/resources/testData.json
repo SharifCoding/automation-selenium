@@ -11,7 +11,10 @@
 		  "fourthContent":"Dead Souls",
 		  "fifthContent":"Moby-Dick",
 		  "sixthContent":"The Dark World",
-		  "pushContent":"monumental_java.epub"
+		  "pushContent":"monumental_java.epub",
+		  "addContentTitle":"Add a publication to your library",
+		  "addContentDevice":"SELECT FROM YOUR DEVICE",
+		  "addContentURL":"DOWNLOAD FROM A URL"
     }
   }
 ]
