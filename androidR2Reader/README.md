@@ -20,4 +20,25 @@ To run the test;
 ### Results of Allure Report
 <img src="allureReporting.png" width="800">
 
+### String Formatter Function
+```java
+...
+public static String capitaliseWord(String str){
+  // remove file extension ".epub"
+  String str2 = str.replaceAll("(_|.epub)", " ");
+    // split string into individual string value
+    String words[] = str2.split("\\s");  
+    String capitaliseWord = "";
+    // apply uppercase to first string value
+    for(String w:words){  
+        String first = w.substring(0,1);  
+        String afterfirst = w.substring(1);  
+        capitaliseWord += first.toUpperCase() + afterfirst + " ";  
+    }
+    // retunr split string value as one
+    return capitaliseWord.trim();  
+}
+...
+```
+
 #### [Return: Automation Selenium README](../README.md)

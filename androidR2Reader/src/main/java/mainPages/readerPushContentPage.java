@@ -57,7 +57,7 @@ public class readerPushContentPage extends basePage{
 	MobileElement document_search_text = mobiledriver.findElement(android_document_search_text);
   	Assert.assertTrue(document_search_text.isDisplayed());
   	document_search_text.sendKeys(mPushContent);
-    ((AndroidDriver<MobileElement>) mobiledriver).pressKey(new KeyEvent(AndroidKey.ENTER));
+    mobiledriver.pressKey(new KeyEvent(AndroidKey.ENTER));
     System.out.println("Test Status: searched: " + mPushContent);
   }
   
@@ -73,6 +73,13 @@ public class readerPushContentPage extends basePage{
 	MobileElement r2reader_container = mobiledriver.findElement(r2reader_action_bar_container);
   	Assert.assertTrue(r2reader_container.isDisplayed());
     System.out.println("Test Status: returned to the app");
+  }
+  
+  @Step ("Verify the pushed content on the app.")
+  public void verify_added_content() {
+	MobileElement new_content_added = mobiledriver.findElement(r2reader_new_content_added);
+  	Assert.assertTrue(new_content_added.isDisplayed());
+    System.out.println("Test Status: added content is verifed: " + capitaliseWord(mPushContent));
   }
   
   @Step ("R2 Reader push content test is loaded.")

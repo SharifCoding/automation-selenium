@@ -63,6 +63,7 @@ public class basePage {
 	By r2reader_add_content_title = By.id("android:id/message");
 	By r2reader_add_content_device = By.xpath("//android.widget.Button[@text=\"" + mAddContentDevice + "\"]");
 	By r2reader_add_content_url = By.xpath("//android.widget.Button[@text=\"" + mAddContentURL + "\"]");
+	By r2reader_new_content_added = By.xpath("//*[contains(@text, '" + capitaliseWord(mPushContent) + "')]");
 	
 	//*********Android Document Mobile Elements*********
 	By android_document_list = By.id("com.android.documentsui:id/dir_list");
@@ -131,6 +132,19 @@ public class basePage {
 			e.printStackTrace();
 		}
         System.out.println("Test Status: pushed content to device");
+    }
+    
+	//*********String Formatter Function*********
+    public static String capitaliseWord(String str){
+    	String str2 = str.replaceAll("(_|.epub)", " ");
+        String words[] = str2.split("\\s");  
+        String capitaliseWord = "";  
+        for(String w:words){  
+            String first = w.substring(0,1);  
+            String afterfirst = w.substring(1);  
+            capitaliseWord += first.toUpperCase() + afterfirst + " ";  
+        }  
+        return capitaliseWord.trim();  
     }
     
 	//*********Search & Click on Element Function*********
