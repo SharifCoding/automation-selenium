@@ -5,6 +5,7 @@
     <classes>
       <class name="testCases.baseTest" />
       <class name="testCases.readerInitialContentTest"/>
+      <class name="testCases.readerPushContentTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

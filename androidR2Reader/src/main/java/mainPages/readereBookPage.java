@@ -11,7 +11,7 @@ import io.qameta.allure.Step;
 public class readereBookPage extends basePage{
     
   //*********Web Page Class Constructor*********
-  public readereBookPage(AndroidDriver<MobileElement> mobiledriver) {
+  public readereBookPage(AndroidDriver<MobileElement>mobiledriver) {
 	basePage.mobiledriver = mobiledriver;
   }
 
@@ -32,7 +32,7 @@ public class readereBookPage extends basePage{
   
   @Step ("Search and click on the first content to open in the Readium eReader.")
   public void click_on_the_first_content() {
-	searchAndClick(basePage.mAllContent[1]);
+	searchAndClick(mAllContent[1]);
 	MobileElement decor_content = mobiledriver.findElement(r2reader_resource_pager);
   	Assert.assertTrue(decor_content.isDisplayed());
     System.out.println("Test Status: first content is loaded");

@@ -28,6 +28,9 @@ public class readerPushContentTest extends baseTest{
 		readerPushContentTest.search_the_pushed_content();
 		readerPushContentTest.add_pushed_content_return_to_the_app();
 		readerPushContentTest.verify_added_content();
+		readerPushContentTest.click_on_the_added_content();
+		readerPushContentTest.swipe_few_pages_and_openui();
+		readerPushContentTest.close_readium_ereader();
 		readerPushContentTest.afterTest();
     }
 }

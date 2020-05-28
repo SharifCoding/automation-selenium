@@ -13,7 +13,7 @@ import io.qameta.allure.Step;
 public class readerPushContentPage extends basePage{
     
   //*********Web Page Class Constructor*********
-  public readerPushContentPage(AndroidDriver<MobileElement> mobiledriver) {
+  public readerPushContentPage(AndroidDriver<MobileElement>mobiledriver) {
 	basePage.mobiledriver = mobiledriver;
   }
 
@@ -80,6 +80,30 @@ public class readerPushContentPage extends basePage{
 	MobileElement new_content_added = mobiledriver.findElement(r2reader_new_content_added);
   	Assert.assertTrue(new_content_added.isDisplayed());
     System.out.println("Test Status: added content is verifed: " + capitaliseWord(mPushContent));
+  }
+  
+  @Step ("Search and click on the added content to open in the Readium eReader.")
+  public void click_on_the_added_content() {
+	searchAndClick(capitaliseWord(mPushContent));
+	MobileElement decor_content = mobiledriver.findElement(r2reader_resource_pager);
+  	Assert.assertTrue(decor_content.isDisplayed());
+    System.out.println("Test Status: added content is loaded");
+  }
+  
+  @Step ("Swipe a few pages and then swipe from bottom to open the eReader UI.")
+  public void swipe_few_pages_and_openui() {
+    swipe(DIRECTION.RIGHT);
+    swipe(DIRECTION.RIGHT);
+    swipe(DIRECTION.LEFT);
+    swipe(DIRECTION.OPENUI);
+  }
+  
+  @Step ("Close the Readium eReader and return to the app.")
+  public void close_readium_ereader() {
+    mobiledriver.navigate().back();
+    MobileElement r2reader_container = mobiledriver.findElement(r2reader_action_bar_container);
+  	Assert.assertTrue(r2reader_container.isDisplayed());
+    System.out.println("Test Status: closed the ereader");
   }
   
   @Step ("R2 Reader push content test is loaded.")
