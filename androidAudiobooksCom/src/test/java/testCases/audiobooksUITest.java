@@ -23,6 +23,7 @@ public class audiobooksUITest extends baseTest{
 		audiobooksUITest.beforeTest();
 		audiobooksUITest.first_launch_of_the_app();
 		audiobooksUITest.check_title_of_the_app();
+		audiobooksUITest.scroll_down_and_click_settings();
 		audiobooksUITest.check_app_version_via_menu();
 		audiobooksUITest.afterTest();
     }

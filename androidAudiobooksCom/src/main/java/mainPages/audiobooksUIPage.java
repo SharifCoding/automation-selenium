@@ -11,7 +11,7 @@ import io.qameta.allure.Step;
 public class audiobooksUIPage extends basePage{
     
   //*********Web Page Class Constructor*********
-  public audiobooksUIPage(AndroidDriver<MobileElement> mobiledriver) {
+  public audiobooksUIPage(AndroidDriver<MobileElement>mobiledriver) {
 	basePage.mobiledriver = mobiledriver;
   }
 
@@ -37,6 +37,17 @@ public class audiobooksUIPage extends basePage{
     MobileElement audiobooks_titles = mobiledriver.findElement(audiobooks_menu_audiobooks_titles);
   	Assert.assertTrue(audiobooks_titles.isDisplayed());
     System.out.println("Test Status: audiobooks title is shown");
+  }
+  
+  @Step ("Scroll to the bottom of the Menu, and tap on the Settings option.")
+  public void scroll_down_and_click_settings() {
+    mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+    	+ ".resourceId(\"com.audiobooks.androidapp:id/menu_layout\")).scrollIntoView("+ "new UiSelector()"
+    	+ ".resourceId(\"com.audiobooks.androidapp:id/customer_service_menu_item\"))");
+    System.out.println("Test Step: scroll to bottom of menu");
+    MobileElement menu_settings = mobiledriver.findElement(audiobooks_settings_menu_item);
+    menu_settings.click();
+    System.out.println("Test Status: clicked on menu settings");
   }
   
   @Step ("Check the app version number via the Menu UI.")
