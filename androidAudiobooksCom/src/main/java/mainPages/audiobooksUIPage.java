@@ -26,13 +26,24 @@ public class audiobooksUIPage extends basePage{
     System.out.println("Test Status: app main toolbar is shown");
   }
   
-  @Step ("Check the Title on the top UI, once the audiobooks.com app has loaded.")
+  @Step ("Check the Featured title on the top UI, and then the Audiobooks title after opening the menu.")
   public void check_title_of_the_app() {
+    MobileElement featured_titles = mobiledriver.findElement(audiobooks_featured_titles);
+  	Assert.assertTrue(featured_titles.isDisplayed());
+    System.out.println("Test Status: featured title is shown");
+    MobileElement menu_open = mobiledriver.findElement(audiobooks_menu_open);
+    menu_open.click();
+    System.out.println("Test Status: clicked on menu to open");
+    MobileElement audiobooks_titles = mobiledriver.findElement(audiobooks_menu_audiobooks_titles);
+  	Assert.assertTrue(audiobooks_titles.isDisplayed());
+    System.out.println("Test Status: audiobooks title is shown");
   }
   
-  @Step ("Check the App version number via the More Options UI.")
-  public void check_app_version_via_more_options() {
-    System.out.println("Test Status: expected app version: ");
+  @Step ("Check the app version number via the Menu UI.")
+  public void check_app_version_via_menu() {
+	MobileElement menu_open = mobiledriver.findElement(audiobooks_menu_open);
+    menu_open.click();
+    System.out.println("Test Status: clicked on menu to close");
   }
   
   @Step ("audiobooks.com app basic UI test is loaded.")

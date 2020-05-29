@@ -26,9 +26,12 @@ public class basePage {
 	public static String mAppTitle;
 	public static String mAppVersion;
 
-	//*********R2 Reader Mobile Elements*********
+	//*********Audiobooks Mobile Elements*********
 	By audiobooks_main_content = By.id("android:id/content");
 	By audiobooks_main_toolbar = By.id("com.audiobooks.androidapp:id/main_toolbar");
+	By audiobooks_featured_titles = By.xpath("//android.widget.TextView[@text=\"Featured Titles\"]");
+	By audiobooks_menu_open = By.xpath("//android.widget.ImageButton[@content-desc=\"Menu Open\"]");
+	By audiobooks_menu_audiobooks_titles = By.xpath("//android.widget.TextView[@text=\"Audiobooks\"]");
 		
 	//*********Read JSON Function*********
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {

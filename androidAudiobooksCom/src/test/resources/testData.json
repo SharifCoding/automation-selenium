@@ -2,8 +2,8 @@
   {
     "testData":{
       "_testNGFile":"testng.xml",
-		  "appTitle":"R2 Reader",
-		  "appVersion":"2.1.0"
+		  "appTitle":"Audiobooks",
+		  "appVersion":"7.6.7"
     }
   }
 ]
