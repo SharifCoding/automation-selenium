@@ -52,9 +52,28 @@ public class audiobooksUIPage extends basePage{
   
   @Step ("Check the app version number via the Menu UI.")
   public void check_app_version_via_menu() {
+    MobileElement audiobooks_titles = mobiledriver.findElement(audiobooks_menu_settings_titles);
+  	Assert.assertTrue(audiobooks_titles.isDisplayed());
+    System.out.println("Test Status: settings title is shown");
+	MobileElement app_version = mobiledriver.findElement(audiobooks_txt_version);
+	Assert.assertEquals(app_version.getText(), "Version " + mAppVersion, "Test Status: getText assertion failed!");
+    System.out.println("Test Status: actual app version: " + app_version.getText());
+  }
+  
+  @Step ("Check the app version number via the Menu UI.")
+  public void return_to_featured_page() {
 	MobileElement menu_open = mobiledriver.findElement(audiobooks_menu_open);
     menu_open.click();
-    System.out.println("Test Status: clicked on menu to close");
+    mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+    	+ ".resourceId(\"com.audiobooks.androidapp:id/menu_layout\")).scrollIntoView("+ "new UiSelector()"
+    	+ ".resourceId(\"com.audiobooks.androidapp:id/featured_menu_item\"))");
+    System.out.println("Test Step: scroll to top of menu");
+    MobileElement menu_settings = mobiledriver.findElement(audiobooks_featured_menu_item);
+    menu_settings.click();
+    System.out.println("Test Status: clicked on menu featured");
+    MobileElement featured_titles = mobiledriver.findElement(audiobooks_featured_titles);
+  	Assert.assertTrue(featured_titles.isDisplayed());
+    System.out.println("Test Status: featured page is loaded");
   }
   
   @Step ("audiobooks.com app basic UI test is loaded.")

@@ -25,6 +25,7 @@ public class audiobooksUITest extends baseTest{
 		audiobooksUITest.check_title_of_the_app();
 		audiobooksUITest.scroll_down_and_click_settings();
 		audiobooksUITest.check_app_version_via_menu();
+		audiobooksUITest.return_to_featured_page();
 		audiobooksUITest.afterTest();
     }
 }

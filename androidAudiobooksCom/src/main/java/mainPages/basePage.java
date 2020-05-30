@@ -33,7 +33,11 @@ public class basePage {
 	By audiobooks_menu_open = By.xpath("//android.widget.ImageButton[@content-desc=\"Menu Open\"]");
 	By audiobooks_menu_audiobooks_titles = By.xpath("//android.widget.TextView[@text=\"Audiobooks\"]");
 	By audiobooks_settings_menu_item = By.id("com.audiobooks.androidapp:id/settings_menu_item");
-		
+	By audiobooks_menu_settings_titles = By.xpath("//android.widget.TextView[@text=\"Settings\"]");
+	By audiobooks_txt_version = By.id("com.audiobooks.androidapp:id/txt_version");
+	By audiobooks_featured_menu_item = By.id("com.audiobooks.androidapp:id/featured_menu_item");
+
+			
 	//*********Read JSON Function*********
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
     	System.out.println("JSONParser: Initiating...");
