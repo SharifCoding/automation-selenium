@@ -8,6 +8,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,10 +19,10 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
- 
+
 public class basePage {
 	
-	public static AndroidDriver<MobileElement> mobiledriver;
+	public static AndroidDriver<MobileElement>mobiledriver;
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
 	public static String mAppTitle;
 	public static String mAppVersion;
@@ -67,19 +68,14 @@ public class basePage {
     }
     
 	//*********Search & Click on Element Function*********
-    public static void searchAndClick(String searchText) {
-    	MobileElement element = mobiledriver.findElement(By.xpath("//android.widget.TextView[@text=\"" + searchText + "\"]"));
-    	if(element.isDisplayed()){
-    	    element.click();
-    	    try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-    	}
+    public static void scrollMenu(String scrollIntoView) {
+        mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+           	+ ".resourceId(\"com.audiobooks.androidapp:id/menu_layout\")).scrollIntoView("+ "new UiSelector()"
+            + ".resourceId(\"com.audiobooks.androidapp:id/" + scrollIntoView + "\"))");
+        System.out.println("Test Step: scrollIntoView: " + scrollIntoView);
     }
     
-	//*********Tap Centre of Display Function*********
+	//*********Provided Coordinate Tap Function*********
     public static void coordinateTouchAction(double width, double height) {
         Dimension size = mobiledriver.manage().window().getSize();
         int xOffset_pad_advanced = (int) (size.getWidth() * width);

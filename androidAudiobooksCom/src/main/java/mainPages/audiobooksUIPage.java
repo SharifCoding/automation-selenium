@@ -39,12 +39,9 @@ public class audiobooksUIPage extends basePage{
     System.out.println("Test Status: audiobooks title is shown");
   }
   
-  @Step ("Scroll to the bottom of the Menu, and tap on the Settings option.")
+  @Step ("Scroll to the bottom of the Menu, and tap on the Settings.")
   public void scroll_down_and_click_settings() {
-    mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
-    	+ ".resourceId(\"com.audiobooks.androidapp:id/menu_layout\")).scrollIntoView("+ "new UiSelector()"
-    	+ ".resourceId(\"com.audiobooks.androidapp:id/customer_service_menu_item\"))");
-    System.out.println("Test Step: scroll to bottom of menu");
+	scrollMenu("customer_service_menu_item");
     MobileElement menu_settings = mobiledriver.findElement(audiobooks_settings_menu_item);
     menu_settings.click();
     System.out.println("Test Status: clicked on menu settings");
@@ -60,14 +57,11 @@ public class audiobooksUIPage extends basePage{
     System.out.println("Test Status: actual app version: " + app_version.getText());
   }
   
-  @Step ("Check the app version number via the Menu UI.")
+  @Step ("Scroll to the top of the Menu, and return to the Featured page.")
   public void return_to_featured_page() {
 	MobileElement menu_open = mobiledriver.findElement(audiobooks_menu_open);
     menu_open.click();
-    mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
-    	+ ".resourceId(\"com.audiobooks.androidapp:id/menu_layout\")).scrollIntoView("+ "new UiSelector()"
-    	+ ".resourceId(\"com.audiobooks.androidapp:id/featured_menu_item\"))");
-    System.out.println("Test Step: scroll to top of menu");
+    scrollMenu("featured_menu_item");
     MobileElement menu_settings = mobiledriver.findElement(audiobooks_featured_menu_item);
     menu_settings.click();
     System.out.println("Test Status: clicked on menu featured");
