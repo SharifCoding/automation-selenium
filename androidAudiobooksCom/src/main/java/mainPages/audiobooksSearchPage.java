@@ -28,11 +28,22 @@ public class audiobooksSearchPage extends basePage{
   
   @Step ("The search input field is active with device keyboard open.")
   public void tap_on_the_search_icon() {
+	MobileElement search_icon = mobiledriver.findElement(audiobooks_main_search_icon_one);
+  	Assert.assertTrue(search_icon.isDisplayed());
+  	search_icon.click();
+	MobileElement search_field = mobiledriver.findElement(audiobooks_main_search_field);
+  	Assert.assertTrue(search_field.isDisplayed());
     System.out.println("Test Status: search input field is active");
   }
   
   @Step ("The JSON string value is inputted to the search field and excuted.")
   public void execute_string_search() {
+	MobileElement input_search = mobiledriver.findElement(audiobooks_main_search_empty);
+  	Assert.assertTrue(input_search.isDisplayed());
+  	input_search.sendKeys(mSearchString);
+	MobileElement search_icon = mobiledriver.findElement(audiobooks_main_search_icon_two);
+  	Assert.assertTrue(search_icon.isDisplayed());
+  	search_icon.click();
     System.out.println("Test Status: string search executed");
   }
   
