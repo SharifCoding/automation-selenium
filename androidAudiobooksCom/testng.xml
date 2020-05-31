@@ -5,6 +5,7 @@
     <classes>
       <class name="testCases.baseTest" />
       <class name="testCases.audiobooksUITest"/>
+      <class name="testCases.audiobooksSearchTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

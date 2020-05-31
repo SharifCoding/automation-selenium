@@ -14,7 +14,7 @@ public class audiobooksUITest extends baseTest{
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("audiobooks.com app basic UI")
 	@Description ("The audiobooks.com app is launched, and the basic UI are verified.")
-    public void androidR2ReaderBasicUI () {
+    public void androidAudiobooksBasicUI () {
  
         //*************PAGE INSTANTIATIONS*************
 		audiobooksUIPage audiobooksUITest = new audiobooksUIPage(mobiledriver);

@@ -3,7 +3,8 @@
     "testData":{
       "_testNGFile":"testng.xml",
 		  "appTitle":"Audiobooks",
-		  "appVersion":"7.6.7 (337)"
+		  "appVersion":"7.6.7 (337)",
+		  "searchString":"Animals"
     }
   }
 ]

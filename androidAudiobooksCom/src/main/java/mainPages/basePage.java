@@ -26,19 +26,21 @@ public class basePage {
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
 	public static String mAppTitle;
 	public static String mAppVersion;
+	public static String mSearchString;
 
-	//*********Audiobooks Mobile Elements*********
+	//*********Audiobooks Main Mobile Elements*********
 	By audiobooks_main_content = By.id("android:id/content");
 	By audiobooks_main_toolbar = By.id("com.audiobooks.androidapp:id/main_toolbar");
 	By audiobooks_featured_titles = By.xpath("//android.widget.TextView[@text=\"Featured Titles\"]");
+	By audiobooks_txt_version = By.id("com.audiobooks.androidapp:id/txt_version");
+
+	//*********Audiobooks Menu Mobile Elements*********
 	By audiobooks_menu_open = By.xpath("//android.widget.ImageButton[@content-desc=\"Menu Open\"]");
 	By audiobooks_menu_audiobooks_titles = By.xpath("//android.widget.TextView[@text=\"Audiobooks\"]");
 	By audiobooks_settings_menu_item = By.id("com.audiobooks.androidapp:id/settings_menu_item");
 	By audiobooks_menu_settings_titles = By.xpath("//android.widget.TextView[@text=\"Settings\"]");
-	By audiobooks_txt_version = By.id("com.audiobooks.androidapp:id/txt_version");
 	By audiobooks_featured_menu_item = By.id("com.audiobooks.androidapp:id/featured_menu_item");
-
-			
+	
 	//*********Read JSON Function*********
     public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
     	System.out.println("JSONParser: Initiating...");
@@ -53,6 +55,7 @@ public class basePage {
     		JSONObject data = (JSONObject) dataBlock.get("testData");
     		mAppTitle = (String) data.get("appTitle");
     		mAppVersion = (String) data.get("appVersion");
+    		mSearchString = (String) data.get("searchString");
     	}
     	System.out.println("JSONParser: Ready");
     }
@@ -72,7 +75,7 @@ public class basePage {
         mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
            	+ ".resourceId(\"com.audiobooks.androidapp:id/menu_layout\")).scrollIntoView("+ "new UiSelector()"
             + ".resourceId(\"com.audiobooks.androidapp:id/" + scrollIntoView + "\"))");
-        System.out.println("Test Step: scrollIntoView: " + scrollIntoView);
+        System.out.println("Test Status: scrollIntoView: " + scrollIntoView);
     }
     
 	//*********Provided Coordinate Tap Function*********
