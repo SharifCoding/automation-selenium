@@ -22,6 +22,11 @@ public class audiobooksSearchTest extends baseTest{
         //*************PAGE METHODS********************
 		audiobooksSearchTest.beforeTest();
 		audiobooksSearchTest.first_launch_of_the_app();
+		audiobooksSearchTest.tap_on_the_search_icon();
+		audiobooksSearchTest.execute_string_search();
+		audiobooksSearchTest.tap_on_the_play_icon();
+		audiobooksSearchTest.navigate_to_my_books();
+		audiobooksSearchTest.remove_the_added_audiobook();
 		audiobooksSearchTest.afterTest();
     }
 }
