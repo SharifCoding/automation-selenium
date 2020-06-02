@@ -61,6 +61,7 @@ public class audiobooksSearchPage extends basePage{
 		MobileElement book_list_item = mobiledriver.findElement(audiobooks_book_list_item_layout);
 		Assert.assertTrue(book_list_item.isDisplayed());
 		book_list_item.click();
+		System.out.println("Test Status: clicked on art cover");
 		MobileElement search_result_title = mobiledriver.findElement(audiobooks_title);
 		Assert.assertTrue(mSearchString.contains(search_result_title.getText()));
 		MobileElement play_icon = mobiledriver.findElement(audiobooks_book_play_icon);
@@ -71,7 +72,16 @@ public class audiobooksSearchPage extends basePage{
   
 	@Step ("Validate the searched title, and the audiobook player.")
 	public void validate_audiobook_player() {
-		System.out.println("Test Status: validated audiobook player");
+		MobileElement now_playing_panel = mobiledriver.findElement(audiobooks_now_playing_panel);
+		Assert.assertTrue(now_playing_panel.isDisplayed());
+		System.out.println("Test Status: now playing panel is shown");
+		MobileElement now_playing_title = mobiledriver.findElement(audiobooks_now_playing_title);
+		Assert.assertTrue(now_playing_title.isDisplayed());
+		Assert.assertTrue(mSearchString.contains(now_playing_title.getText()));
+		System.out.println("Test Status: validated audiobook title");
+		MobileElement book_nav_controls = mobiledriver.findElement(audiobooks_book_nav_controls);
+		Assert.assertTrue(book_nav_controls.isDisplayed());
+		System.out.println("Test Status: audio player control is shown");
 	}
   
 	@Step ("Navigate to the My Books page where the played audiobook is added.")
@@ -81,7 +91,7 @@ public class audiobooksSearchPage extends basePage{
   
 	@Step ("Remove the added audiobook from the My Books page.")
 	public void remove_the_added_audiobook() {
-		System.out.println("Test Status: search audiobook is playing");
+		System.out.println("Test Status: searched audiobook is removed");
 	}
   
 	@Step ("audiobooks.com app search string test is loaded.")

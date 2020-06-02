@@ -53,6 +53,11 @@ public class basePage {
 	//*********Audiobooks Details Mobile Elements*********
 	By audiobooks_book_details_view = By.id("com.audiobooks.androidapp:id/bookDetailsView");
 	By audiobooks_book_play_icon = By.id("com.audiobooks.androidapp:id/play_image");
+	
+	//*********Audiobooks Player Mobile Elements*********
+	By audiobooks_now_playing_panel = By.id("com.audiobooks.androidapp:id/now_playing_panel");
+	By audiobooks_now_playing_title = By.id("com.audiobooks.androidapp:id/now_playing_title");
+	By audiobooks_book_nav_controls = By.id("com.audiobooks.androidapp:id/book_nav_controls");
 
 	//*********Read JSON Function*********
 	public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
