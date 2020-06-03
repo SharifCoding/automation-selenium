@@ -27,8 +27,7 @@ public class audiobooksSearchTest extends baseTest{
 		audiobooksSearchTest.validate_search_return();
 		audiobooksSearchTest.tap_on_the_play_icon();
 		audiobooksSearchTest.validate_audiobook_player();
-		audiobooksSearchTest.navigate_to_my_books();
-		audiobooksSearchTest.remove_the_added_audiobook();
+		audiobooksSearchTest.press_android_back_button();
 		audiobooksSearchTest.afterTest();
 	}
 }

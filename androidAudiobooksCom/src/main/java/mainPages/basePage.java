@@ -57,7 +57,9 @@ public class basePage {
 	//*********Audiobooks Player Mobile Elements*********
 	By audiobooks_now_playing_panel = By.id("com.audiobooks.androidapp:id/now_playing_panel");
 	By audiobooks_now_playing_title = By.id("com.audiobooks.androidapp:id/now_playing_title");
+	By audiobooks_now_playing_button = By.id("com.audiobooks.androidapp:id/now_playing_button");
 	By audiobooks_book_nav_controls = By.id("com.audiobooks.androidapp:id/book_nav_controls");
+	By audiobooks_play_pause_layout = By.id("com.audiobooks.androidapp:id/play_pause_layout");
 
 	//*********Read JSON Function*********
 	public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
@@ -81,6 +83,11 @@ public class basePage {
 	//*********Boolean isElementPresent Function*********
 	public static boolean isElementPresent(By id) {
 		return ((mobiledriver.findElements(id).size() > 0) ? true : false);
+	}
+	
+	//*********presenceOfElementLocated Function*********
+	public static void waitElementPresent(By id, int time) {
+		new WebDriverWait(mobiledriver, time).until(ExpectedConditions.presenceOfElementLocated(id));
 	}
 	
 	//*********invisibilityOfElementLocated Function*********
