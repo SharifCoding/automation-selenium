@@ -11,8 +11,6 @@ import org.json.simple.parser.ParseException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
@@ -80,19 +78,13 @@ public class basePage {
 		System.out.println("JSONParser: Ready");
 	}
     
-	//*********Boolean isElementPresent Function*********
-	public static boolean isElementPresent(By id) {
-		return ((mobiledriver.findElements(id).size() > 0) ? true : false);
-	}
-	
-	//*********presenceOfElementLocated Function*********
-	public static void waitElementPresent(By id, int time) {
-		new WebDriverWait(mobiledriver, time).until(ExpectedConditions.presenceOfElementLocated(id));
-	}
-	
-	//*********invisibilityOfElementLocated Function*********
-	public static void waitElementNotPresent(By id, int time) {
-		new WebDriverWait(mobiledriver, time).until(ExpectedConditions.invisibilityOfElementLocated(id));
+	//*********Scroll & Click on Element Function*********
+	public void scrollAndClick(String visibleText) {
+		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+			+ ".scrollable(true).instance(0)).scrollIntoView(new UiSelector()"
+			+ ".textContains(\"" + visibleText + "\").instance(0))").click();
+		System.out.println("Test Status: scrollAndClick: " + visibleText);
+
 	}
     
 	//*********Search & Click on Element Function*********
