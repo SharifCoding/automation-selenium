@@ -35,21 +35,23 @@ public class audiobooksFeaturedPage extends basePage{
 	  
 	@Step ("Scroll down to each Featured shelves and click.")
 	public void scroll_and_click_each_shelve() {
-		scrollAndClick("Featured Free Fiction Audiobooks");
-		scrollAndClick("Featured Free Non-Fiction Audiobooks");
-		scrollAndClick("Featured Free Kids Audiobooks");
+		swipe(DIRECTION.FIRST_SHELVE);
+		scrollToShelve("Featured Free Fiction Audiobooks");
+		scrollHorizontal("Mysterious Island");
+		scrollToShelve("Featured Free Non-Fiction Audiobooks");
+		scrollToShelve("Featured Free Kids Audiobooks");
 	}
 	  
-	@Step ("audiobooks.com app basic UI test is loaded.")
+	@Step ("audiobooks.com app featured test is loaded.")
 	@BeforeTest
 	public void beforeTest() {
 		mobiledriver.resetApp() ;
-		System.out.println("Test Case: audiobooks.com basic UI test loaded");
+		System.out.println("Test Case: audiobooks.com featured test loaded");
 	}
 	
-	@Step ("audiobooks.com app basic UI test completed.")
+	@Step ("audiobooks.com app featured test completed.")
 	@AfterTest
 	public void afterTest() {
-		System.out.println("Test Case: audiobooks.com basic UI test completed");
+		System.out.println("Test Case: audiobooks.com featured test completed");
 	}
 }

@@ -78,16 +78,7 @@ public class basePage {
 		System.out.println("JSONParser: Ready");
 	}
     
-	//*********Scroll & Click on Element Function*********
-	public void scrollAndClick(String visibleText) {
-		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
-			+ ".scrollable(true).instance(0)).scrollIntoView(new UiSelector()"
-			+ ".textContains(\"" + visibleText + "\").instance(0))").click();
-		System.out.println("Test Status: scrollAndClick: " + visibleText);
-
-	}
-    
-	//*********Search & Click on Element Function*********
+	//*********Scroll and Search Menu Function*********
 	public static void scrollMenu(String scrollIntoView) {
 		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
 			+ ".resourceId(\"com.audiobooks.androidapp:id/menu_layout\")).scrollIntoView("+ "new UiSelector()"
@@ -95,6 +86,21 @@ public class basePage {
 		System.out.println("Test Status: scrollIntoView: " + scrollIntoView);
 	}
     
+	//*********Scroll to Shelve Function*********
+	public void scrollToShelve(String visibleText) {
+		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+			+ ".scrollable(true).instance(0)).scrollIntoView(new UiSelector()"
+			+ ".textContains(\"" + visibleText + "\").instance(0))");
+		System.out.println("Test Status: scrolled to shelve: " + visibleText);
+	}
+	
+	//*********Scroll Shelve Horizontal Function*********
+	public void scrollHorizontal(String visibleText) {
+		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)."
+			+ "resourceId(\"com.audiobooks.androidapp:id/list\"))"
+	        + ".setAsHorizontalList().scrollIntoView(new UiSelector().textContains(\"" + visibleText + "\"))");
+	}
+
 	//*********Provided Coordinate Tap Function*********
 	public static void coordinateTouchAction(double width, double height) {
 		Dimension size = mobiledriver.manage().window().getSize();
@@ -112,7 +118,7 @@ public class basePage {
 	public enum DIRECTION{
 		UP,
 		DOWN,
-		LEFT,
+		FIRST_SHELVE,
 		RIGHT
 	}
 	
@@ -148,16 +154,16 @@ public class basePage {
 					.perform();
 				System.out.println("Swipe Status: swiped from top to bottom");
 				break;
-			case LEFT:
-				startY = (int) (mobiledriver.manage().window().getSize().height / 2);
-				startX = (int) (mobiledriver.manage().window().getSize().width * 0.1);
-				endX = (int) (mobiledriver.manage().window().getSize().width * 0.9);
+			case FIRST_SHELVE:
+				startX = (int) (size.width / 2);
+				startY = (int) (size.height * 0.7);
+				endY = (int) (size.height * 0.3);
 				new TouchAction<>(mobiledriver)
 					.press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-					.moveTo(PointOption.point(endX, startY))
+					.moveTo(PointOption.point(startX, endY))
 					.release()
 					.perform();
-				System.out.println("Swipe Status: swiped from right to left");
+				System.out.println("Swipe Status: swiped pass featured image");
 				break;
 			case RIGHT:
 				startY = (int) (mobiledriver.manage().window().getSize().height / 2);

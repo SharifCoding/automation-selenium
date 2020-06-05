@@ -3,9 +3,10 @@
 <suite name="Suite_Android_Appium">
   <test thread-count="5" name="Android_R2_Reader_App_Test">
     <classes>
-      <class name="testCases.baseTest" />
+      <class name="testCases.baseTest"/>
       <class name="testCases.audiobooksUITest"/>
       <class name="testCases.audiobooksSearchTest"/>
+      <class name="testCases.audiobooksFeaturedTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
