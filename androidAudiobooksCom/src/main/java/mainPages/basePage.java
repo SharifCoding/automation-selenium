@@ -2,7 +2,6 @@ package mainPages;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.Duration;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -10,13 +9,9 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
 
 public class basePage {
 	
@@ -81,104 +76,32 @@ public class basePage {
 	//*********Scroll and Search Menu Function*********
 	public static void scrollMenu(String scrollIntoView) {
 		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
-			+ ".resourceId(\"com.audiobooks.androidapp:id/menu_layout\")).scrollIntoView("+ "new UiSelector()"
+			+ ".resourceId(\"com.audiobooks.androidapp:id/menu_layout\")).scrollIntoView(new UiSelector()"
 			+ ".resourceId(\"com.audiobooks.androidapp:id/" + scrollIntoView + "\"))");
 		System.out.println("Test Status: scrollIntoView: " + scrollIntoView);
 	}
-    
-	//*********Scroll to Shelve Function*********
-	public void scrollToShelve(String visibleText) {
-		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+	
+	//*********Scroll Vertical Function*********
+	public void scrollToShelveInstance(String instanceNumber) {
+		MobileElement element = mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
 			+ ".scrollable(true).instance(0)).scrollIntoView(new UiSelector()"
-			+ ".textContains(\"" + visibleText + "\").instance(0))");
+			+ ".resourceId(\"com.audiobooks.androidapp:id/txt_title\").instance(" + instanceNumber + "))");
+		//Perform the action on the element
+		System.out.println(element.getAttribute("text")); //This line should print Recommended for You
+	}
+	
+	//*********Scroll Vertical Function*********
+	public void scrollToShelve(String visibleText) {
+		mobiledriver.findElementByAndroidUIAutomator(
+			"new UiScrollable(new UiSelector().scrollable(true).instance(0))"
+			+ ".scrollIntoView(new UiSelector().textContains(\"" + visibleText + "\").instance(0))");
 		System.out.println("Test Status: scrolled to shelve: " + visibleText);
 	}
 	
-	//*********Scroll Shelve Horizontal Function*********
+	//*********Scroll Horizontal Function*********
 	public void scrollHorizontal(String visibleText) {
-		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)."
-			+ "resourceId(\"com.audiobooks.androidapp:id/list\"))"
+		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)"
+			+ ".resourceId(\"com.audiobooks.androidapp:id/list\"))"
 	        + ".setAsHorizontalList().scrollIntoView(new UiSelector().textContains(\"" + visibleText + "\"))");
-	}
-
-	//*********Provided Coordinate Tap Function*********
-	public static void coordinateTouchAction(double width, double height) {
-		Dimension size = mobiledriver.manage().window().getSize();
-		int xOffset_pad_advanced = (int) (size.getWidth() * width);
-		int yOffset_pad_advanced = (int) (size.getHeight() * height);
-		new TouchAction<>(mobiledriver).tap(PointOption.point(xOffset_pad_advanced, yOffset_pad_advanced)).perform();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-    
-	//*********Declare Swipe Direction*********
-	public enum DIRECTION{
-		UP,
-		DOWN,
-		FIRST_SHELVE,
-		RIGHT
-	}
-	
-	//*********Swipe From and To Function*********
-	public static void swipe(DIRECTION direction){
-		Dimension size = mobiledriver.manage().window().getSize();
-		int startX = 0;
-		int endX = 0;
-		int startY = 0;
-		int endY = 0;
-	    
-		try {
-			switch(direction){
-			case UP:
-				startX = (int) (size.width / 2);
-				startY = (int) (size.height * 0.3);
-				endY = (int) (size.height * 0.7);
-				new TouchAction<>(mobiledriver)
-					.press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-					.moveTo(PointOption.point(startX, endY))
-					.release()
-					.perform();
-				System.out.println("Swipe Status: swiped from bottom to top");
-				break;
-			case DOWN:
-				startX = (int) (size.width / 2);
-				startY = (int) (size.height * 0.7);
-				endY = (int) (size.height * 0.3);
-				new TouchAction<>(mobiledriver)
-					.press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-					.moveTo(PointOption.point(startX, endY))
-					.release()
-					.perform();
-				System.out.println("Swipe Status: swiped from top to bottom");
-				break;
-			case FIRST_SHELVE:
-				startX = (int) (size.width / 2);
-				startY = (int) (size.height * 0.7);
-				endY = (int) (size.height * 0.3);
-				new TouchAction<>(mobiledriver)
-					.press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-					.moveTo(PointOption.point(startX, endY))
-					.release()
-					.perform();
-				System.out.println("Swipe Status: swiped pass featured image");
-				break;
-			case RIGHT:
-				startY = (int) (mobiledriver.manage().window().getSize().height / 2);
-				startX = (int) (mobiledriver.manage().window().getSize().width * 0.9);
-				endX = (int) (mobiledriver.manage().window().getSize().width * 0.1);
-				new TouchAction<>(mobiledriver)
-					.press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-					.moveTo(PointOption.point(endX, startY))
-					.release()
-					.perform();
-				System.out.println("Swipe Status: swiped from left to right");
-				break;
-			}
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 }

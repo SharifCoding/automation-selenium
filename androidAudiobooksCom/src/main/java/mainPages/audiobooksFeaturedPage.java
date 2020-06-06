@@ -33,12 +33,21 @@ public class audiobooksFeaturedPage extends basePage{
 		System.out.println("Test Status: featured title is shown");
 	}
 	  
-	@Step ("Scroll down to each Featured shelves and click.")
-	public void scroll_and_click_each_shelve() {
-		swipe(DIRECTION.FIRST_SHELVE);
+	@Step ("Scroll down the first shelve and verify content.")
+	public void scroll_and_verify_shelve_one() {
 		scrollToShelve("Featured Free Fiction Audiobooks");
-		scrollHorizontal("Mysterious Island");
+		scrollHorizontal("Space Prison");
+	}
+	
+	@Step ("Scroll down the second shelve and verify content.")
+	public void scroll_and_verify_shelve_two() {
 		scrollToShelve("Featured Free Non-Fiction Audiobooks");
+		scrollToShelveInstance("1");
+		//scrollHorizontal("Wealth of Nations");
+	}
+	
+	@Step ("Scroll down shelves pass the first two with additional offset swipe.")
+	public void scroll_and_verify_shelve_three() {
 		scrollToShelve("Featured Free Kids Audiobooks");
 	}
 	  
