@@ -4,7 +4,9 @@
       "_testNGFile":"testng.xml",
 		  "appTitle":"Audiobooks",
 		  "appVersion":"7.6.7 (337)",
-		  "searchString":"The Garden of Lost Secrets"
+		  "searchString":"The Garden of Lost Secrets",
+		  "firstShelveTitle":"Featured Free Fiction Audiobooks",
+		  "secondShelveTitle":"Featured Free Non-Fiction Audiobooks"
     }
   }
 ]

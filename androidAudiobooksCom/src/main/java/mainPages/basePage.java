@@ -2,6 +2,7 @@ package mainPages;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.Duration;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -9,9 +10,13 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class basePage {
 	
@@ -20,6 +25,8 @@ public class basePage {
 	public static String mAppTitle;
 	public static String mAppVersion;
 	public static String mSearchString;
+	public static String mFirstShelveTitle;
+	public static String mSecondShelveTitle;
 
 	//*********Audiobooks Main Mobile Elements*********
 	By audiobooks_main_content = By.id("android:id/content");
@@ -69,6 +76,8 @@ public class basePage {
 			mAppTitle = (String) data.get("appTitle");
 			mAppVersion = (String) data.get("appVersion");
 			mSearchString = (String) data.get("searchString");
+			mFirstShelveTitle = (String) data.get("firstShelveTitle");
+			mSecondShelveTitle = (String) data.get("secondShelveTitle");
 		}
 		System.out.println("JSONParser: Ready");
 	}
@@ -82,20 +91,19 @@ public class basePage {
 	}
 	
 	//*********Scroll Vertical Function*********
-	public void scrollToShelveInstance(String instanceNumber) {
-		MobileElement element = mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+	public void scrollToShelve(String visibleText) {
+		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
 			+ ".scrollable(true).instance(0)).scrollIntoView(new UiSelector()"
-			+ ".resourceId(\"com.audiobooks.androidapp:id/txt_title\").instance(" + instanceNumber + "))");
-		//Perform the action on the element
-		System.out.println(element.getAttribute("text")); //This line should print Recommended for You
+			+ ".textContains(\"" + visibleText + "\").instance(0))");
+		System.out.println("Test Status: scrolled to shelve: " + visibleText);
 	}
 	
 	//*********Scroll Vertical Function*********
-	public void scrollToShelve(String visibleText) {
-		mobiledriver.findElementByAndroidUIAutomator(
-			"new UiScrollable(new UiSelector().scrollable(true).instance(0))"
-			+ ".scrollIntoView(new UiSelector().textContains(\"" + visibleText + "\").instance(0))");
-		System.out.println("Test Status: scrolled to shelve: " + visibleText);
+	public MobileElement scrollToShelveInstance(String instanceNumber) {
+		MobileElement element = mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+			+ ".scrollable(true).instance(0)).scrollIntoView(new UiSelector()"
+			+ ".resourceId(\"com.audiobooks.androidapp:id/txt_title\").instance(" + instanceNumber + "))");
+		return element;
 	}
 	
 	//*********Scroll Horizontal Function*********
@@ -104,4 +112,43 @@ public class basePage {
 			+ ".resourceId(\"com.audiobooks.androidapp:id/list\"))"
 	        + ".setAsHorizontalList().scrollIntoView(new UiSelector().textContains(\"" + visibleText + "\"))");
 	}
+	
+	//*********Scroll Horizontal Function*********
+	public void scrollHorizontalInstance(String instanceNumber, String visibleText) {
+		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)"
+			+ ".resourceId(\"com.audiobooks.androidapp:id/list\").instance(" + instanceNumber + "))"
+	        + ".setAsHorizontalList().scrollIntoView(new UiSelector().textContains(\"" + visibleText + "\"))");
+	}
+	
+	//*********Declare Swipe Direction*********
+		public enum DIRECTION{
+			DOWN
+		}
+		
+		//*********Swipe From and To Function*********
+		public static void swipe(DIRECTION direction){
+		    Dimension size = mobiledriver.manage().window().getSize();
+			int startX = 0;
+//		    int endX = 0;
+		    int startY = 0;
+		    int endY = 0;
+		    
+			try {
+				switch(direction){
+				case DOWN:
+			        startX = (int) (size.width / 2);
+			        startY = (int) (size.height * 0.6);
+			        endY = (int) (size.height * 0.4);
+			        new TouchAction<>(mobiledriver)
+			        	.press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+			        	.moveTo(PointOption.point(startX, endY))
+			        	.release()
+			        	.perform();
+			        System.out.println("Swipe Status: swiped from top to bottom");
+					break;
+				}
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 }

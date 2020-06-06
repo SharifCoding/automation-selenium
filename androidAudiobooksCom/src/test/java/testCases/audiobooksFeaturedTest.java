@@ -13,8 +13,8 @@ public class audiobooksFeaturedTest extends baseTest{
 	@Test (priority = 0)
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("audiobooks.com app basic UI")
-	@Description ("The audiobooks.com app is launched, and the basic UI are verified.")
-    public void androidAudiobooksBasicUI () {
+	@Description ("The audiobooks.com app is launched, and the Featured page is verified.")
+    public void androidAudiobooksFeatured () {
  
         //*************PAGE INSTANTIATIONS*************
 		audiobooksFeaturedPage audiobooksFeaturedTest = new audiobooksFeaturedPage(mobiledriver);
@@ -23,9 +23,8 @@ public class audiobooksFeaturedTest extends baseTest{
 		audiobooksFeaturedTest.beforeTest();
 		audiobooksFeaturedTest.first_launch_of_the_app();
 		audiobooksFeaturedTest.check_title_of_the_app();
-		audiobooksFeaturedTest.scroll_and_verify_shelve_one();
-		audiobooksFeaturedTest.scroll_and_verify_shelve_two();
-		audiobooksFeaturedTest.scroll_and_verify_shelve_three();
+		audiobooksFeaturedTest.scroll_and_verify_first_shelve();
+		audiobooksFeaturedTest.scroll_and_verify_second_shelve();
 		audiobooksFeaturedTest.afterTest();
     }
 }

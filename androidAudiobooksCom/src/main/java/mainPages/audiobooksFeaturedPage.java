@@ -33,22 +33,21 @@ public class audiobooksFeaturedPage extends basePage{
 		System.out.println("Test Status: featured title is shown");
 	}
 	  
-	@Step ("Scroll down the first shelve and verify content.")
-	public void scroll_and_verify_shelve_one() {
-		scrollToShelve("Featured Free Fiction Audiobooks");
-		scrollHorizontal("Space Prison");
+	@Step ("Scroll down to the first shelve and verify title.")
+	public void scroll_and_verify_first_shelve() {
+		String expected_title = scrollToShelveInstance("0").getAttribute("text");
+		Assert.assertEquals(expected_title, mFirstShelveTitle, "Test Status: getText assertion failed!");
+		System.out.println("Test Status: expected first featured shelve");
+		scrollHorizontalInstance("0", "Space Prison");
 	}
 	
-	@Step ("Scroll down the second shelve and verify content.")
-	public void scroll_and_verify_shelve_two() {
-		scrollToShelve("Featured Free Non-Fiction Audiobooks");
-		scrollToShelveInstance("1");
-		//scrollHorizontal("Wealth of Nations");
-	}
-	
-	@Step ("Scroll down shelves pass the first two with additional offset swipe.")
-	public void scroll_and_verify_shelve_three() {
-		scrollToShelve("Featured Free Kids Audiobooks");
+	@Step ("Scroll down to the second shelve and verify title.")
+	public void scroll_and_verify_second_shelve() {
+		swipe(DIRECTION.DOWN);
+		String expected_title = scrollToShelveInstance("1").getAttribute("text");
+		Assert.assertEquals(expected_title, mSecondShelveTitle, "Test Status: getText assertion failed!");
+		System.out.println("Test Status: expected second featured shelve");
+//		scrollHorizontalInstance("1", "Wealth of Nations");
 	}
 	  
 	@Step ("audiobooks.com app featured test is loaded.")
