@@ -26,12 +26,15 @@ public class basePage {
 	public static String mAppVersion;
 	public static String mSearchString;
 	public static String mFirstShelveTitle;
+	public static String mFirstShelveContent;
 	public static String mSecondShelveTitle;
+	public static String mSecondShelveContent;
 
 	//*********Audiobooks Main Mobile Elements*********
 	By audiobooks_main_content = By.id("android:id/content");
 	By audiobooks_main_toolbar = By.id("com.audiobooks.androidapp:id/main_toolbar");
 	By audiobooks_featured_titles = By.xpath("//android.widget.TextView[@text=\"Featured Titles\"]");
+
 	By audiobooks_txt_version = By.id("com.audiobooks.androidapp:id/txt_version");
 
 	//*********Audiobooks Menu Mobile Elements*********
@@ -77,7 +80,9 @@ public class basePage {
 			mAppVersion = (String) data.get("appVersion");
 			mSearchString = (String) data.get("searchString");
 			mFirstShelveTitle = (String) data.get("firstShelveTitle");
+			mFirstShelveContent = (String) data.get("firstShelveContent");
 			mSecondShelveTitle = (String) data.get("secondShelveTitle");
+			mSecondShelveContent = (String) data.get("secondShelveContent");
 		}
 		System.out.println("JSONParser: Ready");
 	}
@@ -106,6 +111,19 @@ public class basePage {
 		return element;
 	}
 	
+	public static MobileElement scrollAndCheckShelve(String instanceNumber) {
+		try {
+		    String scrollableList="com.audiobooks.androidapp:id/txt_title";
+			MobileElement element = mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+					+ ".scrollable(true).instance(0)).scrollIntoView(new UiSelector()"
+					+ ".resourceId(\"" + scrollableList + "\").instance(" + instanceNumber + "))");
+			return element;
+		 }catch (Exception e){
+			System.out.println("Test Status: shelve not found");
+			return null;
+		}
+	}
+	
 	//*********Scroll Horizontal Function*********
 	public void scrollHorizontal(String visibleText) {
 		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)"
@@ -113,29 +131,34 @@ public class basePage {
 	        + ".setAsHorizontalList().scrollIntoView(new UiSelector().textContains(\"" + visibleText + "\"))");
 	}
 	
-	//*********Scroll Horizontal Function*********
-	public void scrollHorizontalInstance(String instanceNumber, String visibleText) {
-		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)"
-			+ ".resourceId(\"com.audiobooks.androidapp:id/list\").instance(" + instanceNumber + "))"
-	        + ".setAsHorizontalList().scrollIntoView(new UiSelector().textContains(\"" + visibleText + "\"))");
+	//*********Scroll and Check Content Function*********
+	public static void scrollAndCheckContent(String instanceNumber, String visibleText) {
+		try {
+		    String scrollableList="com.audiobooks.androidapp:id/list";
+		    mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)"
+					+ ".resourceId(\"" + scrollableList + "\").instance(" + instanceNumber + "))"
+			        + ".setAsHorizontalList().scrollIntoView(new UiSelector().textContains(\"" + visibleText + "\"))");
+			System.out.println("Test Status: expected content found: " + visibleText);
+		 }catch (Exception e){
+			System.out.println("Test Status: content not found: " + visibleText);
+		}
 	}
-	
+	  
 	//*********Declare Swipe Direction*********
 		public enum DIRECTION{
-			DOWN
+			Quick_Swipe_Down
 		}
 		
 		//*********Swipe From and To Function*********
 		public static void swipe(DIRECTION direction){
 		    Dimension size = mobiledriver.manage().window().getSize();
 			int startX = 0;
-//		    int endX = 0;
 		    int startY = 0;
 		    int endY = 0;
 		    
 			try {
 				switch(direction){
-				case DOWN:
+				case Quick_Swipe_Down:
 			        startX = (int) (size.width / 2);
 			        startY = (int) (size.height * 0.6);
 			        endY = (int) (size.height * 0.4);
@@ -144,7 +167,7 @@ public class basePage {
 			        	.moveTo(PointOption.point(startX, endY))
 			        	.release()
 			        	.perform();
-			        System.out.println("Swipe Status: swiped from top to bottom");
+			        System.out.println("Test Status: quickly swiped to top of screen");
 					break;
 				}
 			}catch (Exception e) {

@@ -35,19 +35,19 @@ public class audiobooksFeaturedPage extends basePage{
 	  
 	@Step ("Scroll down to the first shelve and verify title.")
 	public void scroll_and_verify_first_shelve() {
-		String expected_title = scrollToShelveInstance("0").getAttribute("text");
+		String expected_title = scrollAndCheckShelve("0").getAttribute("text");
 		Assert.assertEquals(expected_title, mFirstShelveTitle, "Test Status: getText assertion failed!");
 		System.out.println("Test Status: expected first featured shelve");
-		scrollHorizontalInstance("0", "Space Prison");
+		scrollAndCheckContent("0", mFirstShelveContent);
 	}
 	
 	@Step ("Scroll down to the second shelve and verify title.")
 	public void scroll_and_verify_second_shelve() {
-		swipe(DIRECTION.DOWN);
-		String expected_title = scrollToShelveInstance("1").getAttribute("text");
+		swipe(DIRECTION.Quick_Swipe_Down);
+		String expected_title = scrollAndCheckShelve("1").getAttribute("text");
 		Assert.assertEquals(expected_title, mSecondShelveTitle, "Test Status: getText assertion failed!");
 		System.out.println("Test Status: expected second featured shelve");
-//		scrollHorizontalInstance("1", "Wealth of Nations");
+		scrollAndCheckContent("1", mSecondShelveContent);
 	}
 	  
 	@Step ("audiobooks.com app featured test is loaded.")
