@@ -49,6 +49,12 @@ public class audiobooksFeaturedPage extends basePage{
 		System.out.println("Test Status: expected second featured shelve");
 		scrollAndCheckContent("1", mSecondShelveContent);
 	}
+	
+	@Step ("Scroll to the top of the Featured page, and then to the thirs shelve")
+	public void scroll_to_third_shelve() {
+		swipe(DIRECTION.Swipe_Up);
+		scrollToShelve(mThirdShelveTitle);
+	}
 	  
 	@Step ("audiobooks.com app featured test is loaded.")
 	@BeforeTest

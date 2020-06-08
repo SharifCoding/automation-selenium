@@ -29,6 +29,7 @@ public class basePage {
 	public static String mFirstShelveContent;
 	public static String mSecondShelveTitle;
 	public static String mSecondShelveContent;
+	public static String mThirdShelveTitle;
 
 	//*********Audiobooks Main Mobile Elements*********
 	By audiobooks_main_content = By.id("android:id/content");
@@ -83,6 +84,7 @@ public class basePage {
 			mFirstShelveContent = (String) data.get("firstShelveContent");
 			mSecondShelveTitle = (String) data.get("secondShelveTitle");
 			mSecondShelveContent = (String) data.get("secondShelveContent");
+			mThirdShelveTitle = (String) data.get("thirdShelveTitle");
 		}
 		System.out.println("JSONParser: Ready");
 	}
@@ -95,22 +97,19 @@ public class basePage {
 		System.out.println("Test Status: scrollIntoView: " + scrollIntoView);
 	}
 	
-	//*********Scroll Vertical Function*********
+	//*********Scroll Vertical To Text Function*********
 	public void scrollToShelve(String visibleText) {
-		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
-			+ ".scrollable(true).instance(0)).scrollIntoView(new UiSelector()"
-			+ ".textContains(\"" + visibleText + "\").instance(0))");
-		System.out.println("Test Status: scrolled to shelve: " + visibleText);
+		try {
+			mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+				+ ".scrollable(true).instance(0)).scrollIntoView(new UiSelector()"
+				+ ".textContains(\"" + visibleText + "\").instance(0))");
+			System.out.println("Test Status: scrolled to shelve: " + visibleText);
+		 }catch (Exception e){
+			System.out.println("Test Status: shelve not found");
+		}
 	}
 	
-	//*********Scroll Vertical Function*********
-	public MobileElement scrollToShelveInstance(String instanceNumber) {
-		MobileElement element = mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
-			+ ".scrollable(true).instance(0)).scrollIntoView(new UiSelector()"
-			+ ".resourceId(\"com.audiobooks.androidapp:id/txt_title\").instance(" + instanceNumber + "))");
-		return element;
-	}
-	
+	//*********Scroll Vertical To Instance Function*********	
 	public static MobileElement scrollAndCheckShelve(String instanceNumber) {
 		try {
 		    String scrollableList="com.audiobooks.androidapp:id/txt_title";
@@ -146,7 +145,8 @@ public class basePage {
 	  
 	//*********Declare Swipe Direction*********
 		public enum DIRECTION{
-			Quick_Swipe_Down
+			Quick_Swipe_Down,
+			Swipe_Up
 		}
 		
 		//*********Swipe From and To Function*********
@@ -167,7 +167,18 @@ public class basePage {
 			        	.moveTo(PointOption.point(startX, endY))
 			        	.release()
 			        	.perform();
-			        System.out.println("Test Status: quickly swiped to top of screen");
+			        System.out.println("Test Status: quickly swiped down");
+					break;
+				case Swipe_Up:
+			        startX = (int) (size.width / 2);
+			        startY = (int) (size.height * 0.3);
+			        endY = (int) (size.height * 0.7);
+			        new TouchAction<>(mobiledriver)
+			        	.press(PointOption.point(startX,startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+			        	.moveTo(PointOption.point(startX, endY))
+			        	.release()
+			        	.perform();
+			        System.out.println("Test Status: quickly swiped up");
 					break;
 				}
 			}catch (Exception e) {
