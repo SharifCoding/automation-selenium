@@ -25,7 +25,7 @@ public class audiobooksFeaturedTest extends baseTest{
 		audiobooksFeaturedTest.check_title_of_the_app();
 		audiobooksFeaturedTest.scroll_and_verify_first_shelve();
 		audiobooksFeaturedTest.scroll_and_verify_second_shelve();
-		audiobooksFeaturedTest.scroll_to_third_shelve();
+		audiobooksFeaturedTest.scroll_and_verify_third_shelve();
 		audiobooksFeaturedTest.afterTest();
     }
 }

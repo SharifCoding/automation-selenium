@@ -17,4 +17,24 @@ To run the test;
 - install R2 Reader .apk to either Android Emulator or Android Device.
 - right click the __testNG.xml__ file, and then select __Run As > TestNG Suite__.
 
+### scrollIntoView Shelve Function
+```java
+// initial scrollIntoView function
+mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+	+ ".scrollable(true).instance(0)).scrollIntoView(new UiSelector()"
+	+ ".textContains(\"Featured Free Fiction Audiobooks\").instance(0))");
+	
+// failsafe added to the scrollIntoView function
+public void scrollToShelve() {
+	try {
+		mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+			+ ".scrollable(true).instance(0)).scrollIntoView(new UiSelector()"
+			+ ".textContains(\"Featured Free Fiction Audiobooks\").instance(0))");
+		System.out.println("Test Status: scrolled to shelve");
+	 }catch (Exception e){
+		System.out.println("Test Status: shelve not found");
+	}
+}
+```
+
 #### [Return: Automation Selenium README](../README.md)

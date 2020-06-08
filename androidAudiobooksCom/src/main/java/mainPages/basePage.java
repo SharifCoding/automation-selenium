@@ -30,6 +30,7 @@ public class basePage {
 	public static String mSecondShelveTitle;
 	public static String mSecondShelveContent;
 	public static String mThirdShelveTitle;
+	public static String mThirdShelveContent;
 
 	//*********Audiobooks Main Mobile Elements*********
 	By audiobooks_main_content = By.id("android:id/content");
@@ -85,6 +86,7 @@ public class basePage {
 			mSecondShelveTitle = (String) data.get("secondShelveTitle");
 			mSecondShelveContent = (String) data.get("secondShelveContent");
 			mThirdShelveTitle = (String) data.get("thirdShelveTitle");
+			mThirdShelveContent = (String) data.get("thirdShelveContent");
 		}
 		System.out.println("JSONParser: Ready");
 	}

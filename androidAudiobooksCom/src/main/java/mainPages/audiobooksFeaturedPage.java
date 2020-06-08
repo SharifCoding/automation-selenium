@@ -50,10 +50,11 @@ public class audiobooksFeaturedPage extends basePage{
 		scrollAndCheckContent("1", mSecondShelveContent);
 	}
 	
-	@Step ("Scroll to the top of the Featured page, and then to the thirs shelve")
-	public void scroll_to_third_shelve() {
-		swipe(DIRECTION.Swipe_Up);
+	@Step ("Scroll down to the third shelve and verify title.")
+	public void scroll_and_verify_third_shelve() {
 		scrollToShelve(mThirdShelveTitle);
+		swipe(DIRECTION.Quick_Swipe_Down);
+		scrollAndCheckContent("1", mThirdShelveContent);
 	}
 	  
 	@Step ("audiobooks.com app featured test is loaded.")
