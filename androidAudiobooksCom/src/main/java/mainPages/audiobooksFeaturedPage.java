@@ -57,6 +57,13 @@ public class audiobooksFeaturedPage extends basePage{
 		scrollAndCheckContent("1", mThirdShelveContent);
 	}
 	  
+	@Step ("Scroll down to a random shelve and verify title.")
+	public void scroll_and_verify_random_shelve() {
+		scrollToShelve(mRandomShelveTitle);
+		swipe(DIRECTION.Quick_Swipe_Down);
+		scrollAndCheckContent("1", mRandomShelveContent);
+	}
+	
 	@Step ("audiobooks.com app featured test is loaded.")
 	@BeforeTest
 	public void beforeTest() {

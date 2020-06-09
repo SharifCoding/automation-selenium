@@ -31,12 +31,13 @@ public class basePage {
 	public static String mSecondShelveContent;
 	public static String mThirdShelveTitle;
 	public static String mThirdShelveContent;
+	public static String mRandomShelveTitle;
+	public static String mRandomShelveContent;
 
 	//*********Audiobooks Main Mobile Elements*********
 	By audiobooks_main_content = By.id("android:id/content");
 	By audiobooks_main_toolbar = By.id("com.audiobooks.androidapp:id/main_toolbar");
 	By audiobooks_featured_titles = By.xpath("//android.widget.TextView[@text=\"Featured Titles\"]");
-
 	By audiobooks_txt_version = By.id("com.audiobooks.androidapp:id/txt_version");
 
 	//*********Audiobooks Menu Mobile Elements*********
@@ -87,6 +88,8 @@ public class basePage {
 			mSecondShelveContent = (String) data.get("secondShelveContent");
 			mThirdShelveTitle = (String) data.get("thirdShelveTitle");
 			mThirdShelveContent = (String) data.get("thirdShelveContent");
+			mRandomShelveTitle = (String) data.get("randomShelveTitle");
+			mRandomShelveContent = (String) data.get("randomShelveContent");
 		}
 		System.out.println("JSONParser: Ready");
 	}
