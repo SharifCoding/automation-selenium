@@ -38,6 +38,7 @@ public class basePage {
 	By audiobooks_main_content = By.id("android:id/content");
 	By audiobooks_main_toolbar = By.id("com.audiobooks.androidapp:id/main_toolbar");
 	By audiobooks_featured_titles = By.xpath("//android.widget.TextView[@text=\"Featured Titles\"]");
+	By audiobooks_browse_titles = By.xpath("//android.widget.TextView[@text=\"Browse Books\"]");
 	By audiobooks_txt_version = By.id("com.audiobooks.androidapp:id/txt_version");
 
 	//*********Audiobooks Menu Mobile Elements*********
@@ -46,6 +47,7 @@ public class basePage {
 	By audiobooks_settings_menu_item = By.id("com.audiobooks.androidapp:id/settings_menu_item");
 	By audiobooks_menu_settings_titles = By.xpath("//android.widget.TextView[@text=\"Settings\"]");
 	By audiobooks_featured_menu_item = By.id("com.audiobooks.androidapp:id/featured_menu_item");
+	By audiobooks_browse_menu_item = By.id("com.audiobooks.androidapp:id/browse_menu_item");
 	
 	//*********Audiobooks Search Mobile Elements*********
 	By audiobooks_search_icon_one = By.xpath("//android.widget.TextView[@content-desc=\"Search\"]");
