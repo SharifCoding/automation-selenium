@@ -17,11 +17,11 @@ public class readerPushContentTest extends baseTest{
 	@Feature ("R2 Reader Push Content")
 	@Description ("The R2 Reader app is launched, and new content is added to the app.")
     public void androidR2ReaderPushContent () throws IOException {
- 
-        //*************PAGE INSTANTIATIONS*************
+
+		//*************PAGE INSTANTIATIONS*************
 		readerPushContentPage readerPushContentTest = new readerPushContentPage(mobiledriver);
- 
-        //*************PAGE METHODS********************
+		
+		//*************PAGE METHODS********************
 		readerPushContentTest.beforeTest();
 		readerPushContentTest.first_launch_of_the_app();
 		readerPushContentTest.push_content_to_device();
@@ -32,5 +32,5 @@ public class readerPushContentTest extends baseTest{
 		readerPushContentTest.swipe_few_pages_and_openui();
 		readerPushContentTest.close_readium_ereader();
 		readerPushContentTest.afterTest();
-    }
+	}
 }

@@ -44,17 +44,17 @@ public class baseTest
 			System.out.println(e.getMessage());
 		}
 		mobiledriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	    Capabilities cap = ((RemoteWebDriver) mobiledriver).getCapabilities();
-	    String appName = mainPages.basePage.mAppTitle;
-	    String os = cap.getPlatform().toString();
-	    String appVersion = mainPages.basePage.mAppVersion;
+		Capabilities cap = ((RemoteWebDriver) mobiledriver).getCapabilities();
+		String appName = mainPages.basePage.mAppTitle;
+		String os = cap.getPlatform().toString();
+		String appVersion = mainPages.basePage.mAppVersion;
 		allureEnvironmentWriter(
-	        ImmutableMap.<String, String>builder()
-	        .put("App Name", appName)
-	        .put("App Version", appVersion)
-	        .put("Operating System", os)
-	        .build(), System.getProperty("user.dir")
-	        + "/allure-results/");
+			ImmutableMap.<String, String>builder()
+			.put("App Name", appName)
+			.put("App Version", appVersion)
+			.put("Operating System", os)
+			.build(), System.getProperty("user.dir")
+			+ "/allure-results/");
 	}
 
 	@AfterSuite
