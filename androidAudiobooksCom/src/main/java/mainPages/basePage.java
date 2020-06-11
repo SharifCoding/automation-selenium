@@ -33,6 +33,7 @@ public class basePage {
 	public static String mThirdShelveContent;
 	public static String mRandomShelveTitle;
 	public static String mRandomShelveContent;
+	public static String mRandomBrowseOption;
 
 	//*********Audiobooks Main Mobile Elements*********
 	By audiobooks_main_content = By.id("android:id/content");
@@ -68,6 +69,9 @@ public class basePage {
 	By audiobooks_now_playing_button = By.id("com.audiobooks.androidapp:id/now_playing_button");
 	By audiobooks_book_nav_controls = By.id("com.audiobooks.androidapp:id/book_nav_controls");
 	By audiobooks_play_pause_layout = By.id("com.audiobooks.androidapp:id/play_pause_layout");
+	
+	//*********Audiobooks Browse Mobile Elements*********
+	By audiobooks_menu_browse_option = By.xpath("//android.widget.TextView[@text=\"" + mRandomBrowseOption + "\"]");
 
 	//*********Read JSON Function*********
 	public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
@@ -92,6 +96,7 @@ public class basePage {
 			mThirdShelveContent = (String) data.get("thirdShelveContent");
 			mRandomShelveTitle = (String) data.get("randomShelveTitle");
 			mRandomShelveContent = (String) data.get("randomShelveContent");
+			mRandomBrowseOption = (String) data.get("randomBrowseOption");
 		}
 		System.out.println("JSONParser: Ready");
 	}

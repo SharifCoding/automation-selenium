@@ -50,6 +50,15 @@ public class audiobooksBrowsePage extends basePage{
 		System.out.println("Test Status: browse title is shown");
 	}
 	
+	@Step ("Scroll down to a random browse option and click.")
+	public void scroll_to_random_browse_option() {
+		scrollToShelve(mRandomBrowseOption);
+		MobileElement browse_option = mobiledriver.findElement(audiobooks_menu_browse_option);
+		browse_option.click();
+		MobileElement browse_title = mobiledriver.findElement(audiobooks_menu_browse_option);
+		Assert.assertTrue(browse_title.isDisplayed());
+	}
+	
 	@Step ("audiobooks.com app featured test is loaded.")
 	@BeforeTest
 	public void beforeTest() {
