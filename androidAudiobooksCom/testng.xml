@@ -7,6 +7,7 @@
       <class name="testCases.audiobooksUITest"/>
       <class name="testCases.audiobooksSearchTest"/>
       <class name="testCases.audiobooksFeaturedTest"/>
+      <class name="testCases.audiobooksBrowseTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

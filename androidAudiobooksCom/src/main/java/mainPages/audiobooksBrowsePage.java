@@ -52,11 +52,11 @@ public class audiobooksBrowsePage extends basePage{
 	
 	@Step ("Scroll down to a random browse option and click.")
 	public void scroll_to_random_browse_option() {
-		scrollToShelve(mRandomBrowseOption);
-		MobileElement browse_option = mobiledriver.findElement(audiobooks_menu_browse_option);
-		browse_option.click();
-		MobileElement browse_title = mobiledriver.findElement(audiobooks_menu_browse_option);
-		Assert.assertTrue(browse_title.isDisplayed());
+		MobileElement browse_option = scrollToBrowseOption(mRandomBrowseOption);
+		browse_option.click();		
+		MobileElement browse_option_title = mobiledriver.findElement(audiobooks_menu_title);
+		Assert.assertEquals(browse_option_title.getText(), mRandomBrowseOption, "Test Status: getText assertion failed!");
+		System.out.println("Test Status: expected browse page is loaded: " + mRandomBrowseOption);
 	}
 	
 	@Step ("audiobooks.com app featured test is loaded.")

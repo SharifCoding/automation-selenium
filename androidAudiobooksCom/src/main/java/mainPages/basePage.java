@@ -38,6 +38,7 @@ public class basePage {
 	//*********Audiobooks Main Mobile Elements*********
 	By audiobooks_main_content = By.id("android:id/content");
 	By audiobooks_main_toolbar = By.id("com.audiobooks.androidapp:id/main_toolbar");
+	By audiobooks_menu_title = By.xpath("//android.widget.TextView[@index='2']");
 	By audiobooks_featured_titles = By.xpath("//android.widget.TextView[@text=\"Featured Titles\"]");
 	By audiobooks_browse_titles = By.xpath("//android.widget.TextView[@text=\"Browse Books\"]");
 	By audiobooks_txt_version = By.id("com.audiobooks.androidapp:id/txt_version");
@@ -70,9 +71,6 @@ public class basePage {
 	By audiobooks_book_nav_controls = By.id("com.audiobooks.androidapp:id/book_nav_controls");
 	By audiobooks_play_pause_layout = By.id("com.audiobooks.androidapp:id/play_pause_layout");
 	
-	//*********Audiobooks Browse Mobile Elements*********
-	By audiobooks_menu_browse_option = By.xpath("//android.widget.TextView[@text=\"" + mRandomBrowseOption + "\"]");
-
 	//*********Read JSON Function*********
 	public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
 		System.out.println("JSONParser: Initiating...");
@@ -154,7 +152,21 @@ public class basePage {
 			System.out.println("Test Status: content not found: " + visibleText);
 		}
 	}
-	  
+
+	//*********Scroll To Browse Option Function*********
+	public MobileElement scrollToBrowseOption(String visibleText) {
+		try {
+			MobileElement element = mobiledriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+				+ ".scrollable(true).instance(0)).scrollIntoView(new UiSelector()"
+				+ ".textContains(\"" + visibleText + "\").instance(0))");
+			System.out.println("Test Status: scrolled to browse option: " + visibleText);
+			return element;
+		 }catch (Exception e){
+			System.out.println("Test Status: browse option not found");
+		}
+		return null;
+	}
+	
 	//*********Declare Swipe Direction*********
 		public enum DIRECTION{
 			Quick_Swipe_Down,
