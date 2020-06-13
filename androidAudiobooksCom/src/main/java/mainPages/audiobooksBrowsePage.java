@@ -104,6 +104,16 @@ public class audiobooksBrowsePage extends basePage{
 		System.out.println("Test Status: each sort options are verified");
 	}
 	
+	@Step ("Tap on one of the sort sort option, and validate the retrun page.")
+	public void select_sort_option() {	
+		MobileElement sort_text1_five = mobiledriver.findElement(audiobooks_sort_text1_five);
+		Assert.assertTrue(sort_text1_five.isDisplayed());
+		sort_text1_five.click();
+		MobileElement txtResultsLabel = mobiledriver.findElement(audiobooks_txtResultsLabel);
+		Assert.assertEquals(txtResultsLabel.getText(), "Sorted By: Book Title [A-Z]", "Test Status: getText assertion failed!");
+		System.out.println("Test Status: selected sort option is verified");
+	}
+	
 	@Step ("audiobooks.com app browse test is loaded.")
 	@BeforeTest
 	public void beforeTest() {
