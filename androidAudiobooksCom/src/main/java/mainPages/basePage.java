@@ -34,11 +34,11 @@ public class basePage {
 	public static String mRandomShelveTitle;
 	public static String mRandomShelveContent;
 	public static String mRandomBrowseOption;
+	public static String mRandomBrowseSubOption;
 
 	//*********Audiobooks Main Mobile Elements*********
 	By audiobooks_main_content = By.id("android:id/content");
 	By audiobooks_main_toolbar = By.id("com.audiobooks.androidapp:id/main_toolbar");
-	By audiobooks_menu_title = By.xpath("//android.widget.TextView[@index='2']");
 	By audiobooks_featured_titles = By.xpath("//android.widget.TextView[@text=\"Featured Titles\"]");
 	By audiobooks_browse_titles = By.xpath("//android.widget.TextView[@text=\"Browse Books\"]");
 	By audiobooks_txt_version = By.id("com.audiobooks.androidapp:id/txt_version");
@@ -59,6 +59,11 @@ public class basePage {
 	By audiobooks_search_result_text = By.id("com.audiobooks.androidapp:id/search_result_text");
 	By audiobooks_title = By.id("com.audiobooks.androidapp:id/title");
 	By audiobooks_book_list_item_layout = By.id("com.audiobooks.androidapp:id/book_list_item_layout");
+	
+	//*********Audiobooks Browse Mobile Elements*********
+	By audiobooks_browse_menu_title = By.xpath("//android.widget.TextView[@index='2']");
+	By audiobooks_sort_container = By.id("com.audiobooks.androidapp:id/sort_container");
+	By audiobooks_txtResultsLabel = By.id("com.audiobooks.androidapp:id/txtResultsLabel");
 	
 	//*********Audiobooks Details Mobile Elements*********
 	By audiobooks_book_details_view = By.id("com.audiobooks.androidapp:id/bookDetailsView");
@@ -95,6 +100,7 @@ public class basePage {
 			mRandomShelveTitle = (String) data.get("randomShelveTitle");
 			mRandomShelveContent = (String) data.get("randomShelveContent");
 			mRandomBrowseOption = (String) data.get("randomBrowseOption");
+			mRandomBrowseSubOption = (String) data.get("randomBrowseSubOption");
 		}
 		System.out.println("JSONParser: Ready");
 	}

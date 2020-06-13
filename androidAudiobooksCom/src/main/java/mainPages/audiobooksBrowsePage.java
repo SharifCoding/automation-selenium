@@ -50,25 +50,43 @@ public class audiobooksBrowsePage extends basePage{
 		System.out.println("Test Status: browse title is shown");
 	}
 	
-	@Step ("Scroll down to a random browse option and click.")
-	public void scroll_to_random_browse_option() {
+	@Step ("Scroll down to the chosen browse option and click.")
+	public void scroll_to_chosen_browse_option() {
 		MobileElement browse_option = scrollToBrowseOption(mRandomBrowseOption);
 		browse_option.click();		
-		MobileElement browse_option_title = mobiledriver.findElement(audiobooks_menu_title);
+		MobileElement browse_option_title = mobiledriver.findElement(audiobooks_browse_menu_title);
 		Assert.assertEquals(browse_option_title.getText(), mRandomBrowseOption, "Test Status: getText assertion failed!");
 		System.out.println("Test Status: expected browse page is loaded: " + mRandomBrowseOption);
 	}
 	
-	@Step ("audiobooks.com app featured test is loaded.")
+	@Step ("Scroll down to the chosen browse sub option and click.")
+	public void scroll_to_chosen_browse_sub_option() {
+		MobileElement browse_option = scrollToBrowseOption(mRandomBrowseSubOption);
+		browse_option.click();		
+		MobileElement browse_option_title = mobiledriver.findElement(audiobooks_browse_menu_title);
+		Assert.assertEquals(browse_option_title.getText(), mRandomBrowseSubOption, "Test Status: getText assertion failed!");
+		System.out.println("Test Status: expected browse page is loaded: " + mRandomBrowseOption + " > " + mRandomBrowseSubOption);
+	}
+	
+	@Step ("Verify the sort default options and the sort button.")
+	public void verify_sort_container() {	
+		MobileElement sort_container = mobiledriver.findElement(audiobooks_sort_container);
+		Assert.assertTrue(sort_container.isDisplayed());
+		MobileElement txtResultsLabel = mobiledriver.findElement(audiobooks_txtResultsLabel);
+		Assert.assertEquals(txtResultsLabel.getText(), "Sorted By: Best Selling this Month", "Test Status: getText assertion failed!");
+		System.out.println("Test Status: default sort option is verifed");
+	}
+	
+	@Step ("audiobooks.com app browse test is loaded.")
 	@BeforeTest
 	public void beforeTest() {
 		mobiledriver.resetApp() ;
-		System.out.println("Test Case: audiobooks.com featured test loaded");
+		System.out.println("Test Case: audiobooks.com browse test loaded");
 	}
 	
-	@Step ("audiobooks.com app featured test completed.")
+	@Step ("audiobooks.com app browse test completed.")
 	@AfterTest
 	public void afterTest() {
-		System.out.println("Test Case: audiobooks.com featured test completed");
+		System.out.println("Test Case: audiobooks.com browse test completed");
 	}
 }

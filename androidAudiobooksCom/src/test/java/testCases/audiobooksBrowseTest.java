@@ -25,7 +25,9 @@ public class audiobooksBrowseTest extends baseTest{
 		audiobooksBrowseTest.check_title_of_the_app();
 		audiobooksBrowseTest.open_menu_and_click_browse();
 		audiobooksBrowseTest.check_title_of_browse_page();
-		audiobooksBrowseTest.scroll_to_random_browse_option();
+		audiobooksBrowseTest.scroll_to_chosen_browse_option();
+		audiobooksBrowseTest.scroll_to_chosen_browse_sub_option();
+		audiobooksBrowseTest.verify_sort_container();
 		audiobooksBrowseTest.afterTest();
     }
 }
