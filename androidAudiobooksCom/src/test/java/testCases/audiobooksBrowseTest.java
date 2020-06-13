@@ -28,6 +28,8 @@ public class audiobooksBrowseTest extends baseTest{
 		audiobooksBrowseTest.scroll_to_chosen_browse_option();
 		audiobooksBrowseTest.scroll_to_chosen_browse_sub_option();
 		audiobooksBrowseTest.verify_sort_container();
+		audiobooksBrowseTest.click_on_the_sort_option();
+		audiobooksBrowseTest.validate_each_sort_option();
 		audiobooksBrowseTest.afterTest();
     }
 }

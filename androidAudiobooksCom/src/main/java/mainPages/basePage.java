@@ -64,6 +64,14 @@ public class basePage {
 	By audiobooks_browse_menu_title = By.xpath("//android.widget.TextView[@index='2']");
 	By audiobooks_sort_container = By.id("com.audiobooks.androidapp:id/sort_container");
 	By audiobooks_txtResultsLabel = By.id("com.audiobooks.androidapp:id/txtResultsLabel");
+	By audiobooks_sortBtn = By.id("com.audiobooks.androidapp:id/sortBtn");
+	By audiobooks_select_dialog_listview = By.id("com.audiobooks.androidapp:id/select_dialog_listview");
+	By audiobooks_sort_text1_one = By.xpath("//android.widget.CheckedTextView[@index='0']");
+	By audiobooks_sort_text1_two = By.xpath("//android.widget.CheckedTextView[@index='1']");
+	By audiobooks_sort_text1_three = By.xpath("//android.widget.CheckedTextView[@index='2']");
+	By audiobooks_sort_text1_four = By.xpath("//android.widget.CheckedTextView[@index='3']");
+	By audiobooks_sort_text1_five = By.xpath("//android.widget.CheckedTextView[@index='4']");
+	By audiobooks_sort_text1_six = By.xpath("//android.widget.CheckedTextView[@index='5']");
 	
 	//*********Audiobooks Details Mobile Elements*********
 	By audiobooks_book_details_view = By.id("com.audiobooks.androidapp:id/bookDetailsView");

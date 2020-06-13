@@ -74,7 +74,34 @@ public class audiobooksBrowsePage extends basePage{
 		Assert.assertTrue(sort_container.isDisplayed());
 		MobileElement txtResultsLabel = mobiledriver.findElement(audiobooks_txtResultsLabel);
 		Assert.assertEquals(txtResultsLabel.getText(), "Sorted By: Best Selling this Month", "Test Status: getText assertion failed!");
-		System.out.println("Test Status: default sort option is verifed");
+		System.out.println("Test Status: default sort option is verified");
+	}
+	
+	@Step ("Tap on the sort button to open available sort options.")
+	public void click_on_the_sort_option() {	
+		MobileElement sortBtn = mobiledriver.findElement(audiobooks_sortBtn);
+		Assert.assertTrue(sortBtn.isDisplayed());
+		sortBtn.click();
+		MobileElement select_dialog_listview = mobiledriver.findElement(audiobooks_select_dialog_listview);
+		Assert.assertTrue(select_dialog_listview.isDisplayed());
+		System.out.println("Test Status: tapped on the sort button");
+	}
+	
+	@Step ("Validate each available sort options.")
+	public void validate_each_sort_option() {	
+		MobileElement sort_text1_one = mobiledriver.findElement(audiobooks_sort_text1_one);
+		Assert.assertEquals(sort_text1_one.getText(), "Publication Date", "Test Status: getText assertion failed!");
+		MobileElement sort_text1_two = mobiledriver.findElement(audiobooks_sort_text1_two);
+		Assert.assertEquals(sort_text1_two.getText(), "Recently Added", "Test Status: getText assertion failed!");
+		MobileElement sort_text1_three = mobiledriver.findElement(audiobooks_sort_text1_three);
+		Assert.assertEquals(sort_text1_three.getText(), "Highest Rated", "Test Status: getText assertion failed!");
+		MobileElement sort_text1_four = mobiledriver.findElement(audiobooks_sort_text1_four);
+		Assert.assertEquals(sort_text1_four.getText(), "Best Selling this Month", "Test Status: getText assertion failed!");
+		MobileElement sort_text1_five = mobiledriver.findElement(audiobooks_sort_text1_five);
+		Assert.assertEquals(sort_text1_five.getText(), "Book Title [A-Z]", "Test Status: getText assertion failed!");
+		MobileElement sort_text1_six = mobiledriver.findElement(audiobooks_sort_text1_six);
+		Assert.assertEquals(sort_text1_six.getText(), "Book Title [Z-A]", "Test Status: getText assertion failed!");
+		System.out.println("Test Status: each sort options are verified");
 	}
 	
 	@Step ("audiobooks.com app browse test is loaded.")
