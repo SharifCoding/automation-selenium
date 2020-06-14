@@ -37,4 +37,41 @@ public void scrollToShelve() {
 }
 ```
 
+### Cleanup with "Assert.assertEquals" for sort options
+```java
+// initial Assert.assertEquals
+MobileElement sort_text1_one = mobiledriver.findElement(audiobooks_sort_text1_one);
+Assert.assertEquals(sort_text1_one.getText(), "Publication Date", "Test Status: getText assertion failed!");
+MobileElement sort_text1_two = mobiledriver.findElement(audiobooks_sort_text1_two);
+Assert.assertEquals(sort_text1_two.getText(), "Recently Added", "Test Status: getText assertion failed!");
+MobileElement sort_text1_three = mobiledriver.findElement(audiobooks_sort_text1_three);
+Assert.assertEquals(sort_text1_three.getText(), "Highest Rated", "Test Status: getText assertion failed!");
+MobileElement sort_text1_four = mobiledriver.findElement(audiobooks_sort_text1_four);
+Assert.assertEquals(sort_text1_four.getText(), "Best Selling this Month", "Test Status: getText assertion failed!");
+MobileElement sort_text1_five = mobiledriver.findElement(audiobooks_sort_text1_five);
+Assert.assertEquals(sort_text1_five.getText(), "Book Title [A-Z]", "Test Status: getText assertion failed!");
+MobileElement sort_text1_six = mobiledriver.findElement(audiobooks_sort_text1_six);
+Assert.assertEquals(sort_text1_six.getText(), "Book Title [Z-A]", "Test Status: getText assertion failed!");
+	
+// cleanup Assert.assertEquals
+WebElement arrayMobileElements [] = {
+	mobiledriver.findElement(audiobooks_sort_text1_one),
+	mobiledriver.findElement(audiobooks_sort_text1_two),
+	mobiledriver.findElement(audiobooks_sort_text1_three),
+	mobiledriver.findElement(audiobooks_sort_text1_four),
+	mobiledriver.findElement(audiobooks_sort_text1_five),
+	mobiledriver.findElement(audiobooks_sort_text1_six),
+};
+	    
+String arrayExpectedValues [] = {
+	"Publication Date",	"Recently Added",	"Highest Rated",
+	"Best Selling this Month",	"Book Title [A-Z]",	"Book Title [Z-A]",
+};
+	    
+for(int i = 0; i <= arrayMobileElements.length-1; i++)
+{
+	Assert.assertEquals(arrayMobileElements[i].getText(), arrayExpectedValues[i], "Test Status: getText assertion failed!");
+}  
+```
+
 #### [Return: Automation Selenium README](../README.md)
