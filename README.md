@@ -13,10 +13,11 @@
 - [Automation with JSON parameters](./simpleJSON/README.md)
 - [Adding Page Object Model](./firstPageObject/README.md)
 - [Adding Allure Reporting to Automation](./allureReporting/README.md)
+- [First Android Appium Automation](./androidFirstAppium/README.md)
+- [First iOS Appium Automation](./iOSFirstAppium/README.md)
 
 ## Personal Projects
 - [Personal Github Pages Automation](./githubPageTest/README.md)
-- [First Android Appium Automation](./androidFirstAppium/README.md)
 - [Android Appium Web Automation](./androidAppiumTest/README.md)
 - [R2 Reader App Automation](./androidR2Reader/README.md)
 - [Audiobook.com App Automation](./androidAudiobooksCom/README.md)
