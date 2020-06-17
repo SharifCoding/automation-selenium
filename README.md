@@ -19,6 +19,7 @@
 ## Personal Projects
 - [Personal Github Pages Automation](./githubPageTest/README.md)
 - [Android Appium Web Automation](./androidAppiumTest/README.md)
+- [iOS Appium Web Automation](./iOSAppiumTest/README.md)
 - [R2 Reader App Automation](./androidR2Reader/README.md)
 - [Audiobook.com App Automation](./androidAudiobooksCom/README.md)
 - [Google Calcultor App -  Part 1](./androidCalculator/README.md)
