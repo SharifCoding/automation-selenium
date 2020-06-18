@@ -18,7 +18,7 @@ import org.testng.annotations.BeforeSuite;
 
 public class baseTest
 {
-	protected IOSDriver<WebElement> mobiledriver;
+	protected IOSDriver<WebElement>mobiledriver;
 		
 	@BeforeSuite
 	public void beforeSuite( ) throws MalformedURLException {

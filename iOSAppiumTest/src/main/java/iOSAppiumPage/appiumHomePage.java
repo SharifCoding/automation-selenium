@@ -11,7 +11,7 @@ import io.qameta.allure.Step;
 public class appiumHomePage extends basePage{
     
 	//*********Web Page Class Constructor*********
-	public appiumHomePage(IOSDriver<WebElement> mobiledriver) {
+	public appiumHomePage(IOSDriver<WebElement>mobiledriver) {
 		basePage.mobiledriver = mobiledriver;
 	}
 	

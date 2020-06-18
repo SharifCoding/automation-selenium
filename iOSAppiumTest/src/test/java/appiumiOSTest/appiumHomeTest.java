@@ -1,17 +1,16 @@
 package appiumiOSTest;
- 
-import org.testng.annotations.Test;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 
+import org.testng.annotations.Test;
 import iOSAppiumPage.appiumHomePage;
  
 public class appiumHomeTest extends baseTest{
 	
-	@Test (priority = 0)
+	@Test
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Appium Home Page")
 	@Description ("The Appium Home Page is loaded.")
