@@ -21,7 +21,7 @@ public class baseTest
 	protected IOSDriver<WebElement> mobiledriver;
 		
 	@BeforeSuite
-	public void beforeTest( ) throws MalformedURLException {
+	public void beforeSuite( ) throws MalformedURLException {
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("deviceName", "iPhone 6");
 		caps.setCapability("platformName", "iOS");
@@ -41,8 +41,8 @@ public class baseTest
 	    String browserName = cap.getBrowserName().toLowerCase();
 	    String os = cap.getPlatform().toString();
 	    String browserVersion = cap.getVersion().toString();
-			// Java library which allows to write environment.xml file into allure-results directory
-			allureEnvironmentWriter(
+	    // Java library which allows to write environment.xml file into allure-results directory
+	    allureEnvironmentWriter(
 	        ImmutableMap.<String, String>builder()
 	        .put("Browser Name", browserName)
 	        .put("Browser Version", browserVersion)
@@ -52,7 +52,7 @@ public class baseTest
 	}
 
 	@AfterSuite
-	public void afterTest( ) {
+	public void afterSuite( ) {
 		try {
 			// closing the browser
 			mobiledriver.close();

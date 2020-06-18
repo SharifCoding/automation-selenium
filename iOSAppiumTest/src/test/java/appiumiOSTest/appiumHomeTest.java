@@ -17,11 +17,13 @@ public class appiumHomeTest extends baseTest{
 	@Description ("The Appium Home Page is loaded.")
     public void appiumHomePageIsLoaded () {
  
-        //*************PAGE INSTANTIATIONS*************
+		//*************PAGE INSTANTIATIONS*************
 		appiumHomePage appiumHomeTest = new appiumHomePage(mobiledriver);
- 
-        //*************PAGE METHODS********************
+		 
+		//*************PAGE METHODS********************
+		appiumHomeTest.beforeTest();
 		appiumHomeTest.launch_appium_home_page();
 		appiumHomeTest.check_title_of_page();
+		appiumHomeTest.afterTest();
     }
 }
