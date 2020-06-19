@@ -25,7 +25,7 @@ public class appiumUITest extends baseTest{
 		appiumUITest.check_title_of_page();
 		appiumUITest.appium_menu_toolbar_is_shown();
 		appiumUITest.click_on_hamburger_icon_to_expand();
-//		appiumUITest.hover_over_each_hamburger_menu_option();
+		appiumUITest.verify_each_hamburger_menu_option();
 		appiumUITest.click_on_hamburger_icon_to_close();
 		appiumUITest.appium_download_button_is_shown();
 		appiumUITest.afterTest();

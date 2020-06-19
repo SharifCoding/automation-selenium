@@ -1,6 +1,5 @@
 package iOSAppiumPage;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -10,19 +9,6 @@ import io.appium.java_client.ios.IOSDriver;
 import io.qameta.allure.Step;
  
 public class appiumUIPage extends basePage{
- 
-	//*********Web Elements*********
-	By DownloadButton = By.id("downloadLink");
-	By AppiumNavbar = By.className("navbar-brand");
-	By HamburgerIcon = By.className("navbar-toggle");
-	By HamburgerMenu = By.id("bs-example-navbar-collapse-1");
-	By DropdownHome = By.xpath("//*[contains(text(), 'Home')]");
-	By DropdownIntroduction = By.xpath("//*[contains(text(), 'Introduction')]");
-	By DropdownGetStarted = By.xpath("//*[contains(text(), 'Get started')]");
-	By DropdownHistory = By.xpath("//*[contains(text(), 'History')]");
-	By DropdownGetInvolved = By.xpath("//*[contains(text(), 'Get Involved!')]");
-	By DropdownDocumentation = By.xpath("//*[contains(text(), 'Documentation')]");
-	By DropdownBooksResources = By.xpath("//*[contains(text(), 'Books & Resources')]");
 
 	//*********Web Page Class Constructor*********
 	public appiumUIPage(IOSDriver<WebElement>mobiledriver) {
@@ -46,6 +32,7 @@ public class appiumUIPage extends basePage{
 	
 	@Step ("Appium menu is shown.")
 	public void appium_menu_toolbar_is_shown() {
+//		System.out.println(mobiledriver.getPageSource());
 		waitForElement(AppiumNavbar, 30);
 		String actualString = mobiledriver.findElement(AppiumNavbar).getText();
 		Assert.assertEquals(actualString, "Appium", "Test Status: getText assertion failed!");
@@ -61,7 +48,7 @@ public class appiumUIPage extends basePage{
 	}
 
 	@Step ("Verify hamburger menu.")
-	public void hover_over_each_hamburger_menu_option() throws InterruptedException {
+	public void verify_each_hamburger_menu_option() throws InterruptedException {
 			WebElement array [] = {
 				mobiledriver.findElement(DropdownHome),
 				mobiledriver.findElement(DropdownIntroduction),
@@ -73,8 +60,7 @@ public class appiumUIPage extends basePage{
 		};
 		for(int i = 0; i <= array.length-1; i++)
 		{
-			hoverOverElement(array[i]);
-			System.out.println("Test Status: hoverOverElement.getText \"" + array[i].getText() + "\"");
+			System.out.println("Test Status: getText \"" + array[i].getText() + "\"");
 		}
 	}
 
