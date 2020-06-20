@@ -90,6 +90,7 @@ public class appiumUIPage extends basePage{
   
 	@BeforeTest
 	public void beforeTest( ) {
+		mobiledriver.resetApp() ;
 		System.out.println("Test Status: appiumUIPage is loaded");
 	}
 		

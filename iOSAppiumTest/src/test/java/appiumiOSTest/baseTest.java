@@ -46,6 +46,7 @@ public class baseTest
 	        ImmutableMap.<String, String>builder()
 	        .put("Browser Name", browserName)
 	        .put("Browser Version", browserVersion)
+	        .put("automationName", "XCUITest")
 	        .put("Operating System", os)
 	        .build(), System.getProperty("user.dir")
 	        + "/allure-results/");
@@ -54,10 +55,10 @@ public class baseTest
 	@AfterSuite
 	public void afterSuite( ) {
 		try {
+			// clear cookies on the browser
+			mobiledriver.manage().deleteAllCookies();
 			// closing the browser
 			mobiledriver.close();
-			// closing the WebDriver
-			mobiledriver.quit();
 			System.out.println("Test Status: Closing web driver");
 		} catch (Exception e) { }	
 			System.out.println("Allure Report: Execute \"allure serve allure-results\" from terminal");

@@ -5,8 +5,8 @@ import java.util.List;
 import io.appium.java_client.ios.IOSDriver;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -29,29 +29,28 @@ public class basePage {
 	By DropdownGetInvolved = By.xpath("//a[@data-localize=\"get-involved-nav-link\"]");
 	By DropdownDocumentation = By.xpath("//a[@data-localize=\"docs-nav-link\"]");
 	By DropdownBooksResources = By.xpath("//a[@data-localize=\"docs-nav-resources\"]");
+	By IntroducingAppium = By.id("introducing-appium");
+	By MarketingByline = By.className("marketing-byline");
+	By WatchVideosButton = By.xpath("//*[contains(text(), 'Watch the Videos')]");
+	By ShowDemoVideo = By.id("show-demo-video");
+	By DemoVideoElements = By.xpath("//*[@id='show-demo-video']//iframe");
+	By EasySetupProcess = By.xpath("//*[@data-localize='easy-setup']");
 	
 	//*********Functions*********
     public static void waitForElement(By id, int time) {
-    	// Wait so that the app loads completely BEFORE starting with element identification
     	new WebDriverWait(mobiledriver, 30).until(ExpectedConditions.elementToBeClickable(id));
     }
     
     public static void scrollToElement(By id) {
-    	// use the org.openqa.selenium.interactions.Actions class to move to an element.
-    	Actions actions = new Actions(mobiledriver);
-    	actions.moveToElement(mobiledriver.findElement(id)).perform();
+		JavascriptExecutor js = (JavascriptExecutor) mobiledriver;
+		js.executeScript("arguments[0].scrollIntoView(true);", mobiledriver.findElement(id));
     }
     
     public static void checkListAttribute(By id, String providedAttribute) {
-        // To catch all web elements into list
         List<WebElement> myList=mobiledriver.findElements(id);
-        // myList contains all the web elements
-        // To get all elements href into array list
         List<String> all_elements_attribute=new ArrayList<>();
         for(int i=0; i<myList.size(); i++){
-            // Loading href of each element in to array all_elements_href
         	all_elements_attribute.add(myList.get(i).getAttribute(providedAttribute));
-            // Asserts that an object isn't null. If it is, an AssertionError is thrown.
             Assert.assertNotNull(myList.get(i).getAttribute(providedAttribute));
         }
         array_list = all_elements_attribute;

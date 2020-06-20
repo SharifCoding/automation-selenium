@@ -32,6 +32,7 @@ public class appiumHomePage extends basePage{
 	  
 	@BeforeTest
 	public void beforeTest( ) {
+		mobiledriver.resetApp() ;
 		System.out.println("Test Status: appiumHomePage is loaded");
 	}
 		
