@@ -22,13 +22,13 @@ public class basePage {
 	By AppiumNavbar = By.className("navbar-brand");
 	By HamburgerIcon = By.className("navbar-toggle");
 	By HamburgerMenu = By.id("bs-example-navbar-collapse-1");
-	By DropdownHome = By.xpath("//*[contains(text(), 'Home')]");
-	By DropdownIntroduction = By.xpath("//*[contains(text(), 'Introduction')]");
-	By DropdownGetStarted = By.xpath("//*[contains(text(), 'Get started')]");
-	By DropdownHistory = By.xpath("//*[contains(text(), 'History')]");
-	By DropdownGetInvolved = By.xpath("//*[contains(text(), 'Get Involved!')]");
-	By DropdownDocumentation = By.xpath("//*[contains(text(), 'Documentation')]");
-	By DropdownBooksResources = By.xpath("//*[contains(text(), 'Books & Resources')]");
+	By DropdownHome = By.xpath("//a[@data-localize=\"home-nav-link\"]");
+	By DropdownIntroduction = By.xpath("//a[@data-localize=\"intro-nav-link\"]");
+	By DropdownGetStarted = By.xpath("//a[@data-localize=\"getting-started-nav-link\"]");
+	By DropdownHistory = By.xpath("//a[@data-localize=\"history-nav-link\"]");
+	By DropdownGetInvolved = By.xpath("//a[@data-localize=\"get-involved-nav-link\"]");
+	By DropdownDocumentation = By.xpath("//a[@data-localize=\"docs-nav-link\"]");
+	By DropdownBooksResources = By.xpath("//a[@data-localize=\"docs-nav-resources\"]");
 	
 	//*********Functions*********
     public static void waitForElement(By id, int time) {

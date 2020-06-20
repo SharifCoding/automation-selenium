@@ -48,20 +48,30 @@ public class appiumUIPage extends basePage{
 	}
 
 	@Step ("Verify hamburger menu.")
-	public void verify_each_hamburger_menu_option() throws InterruptedException {
-			WebElement array [] = {
-				mobiledriver.findElement(DropdownHome),
-				mobiledriver.findElement(DropdownIntroduction),
-				mobiledriver.findElement(DropdownGetStarted),
-				mobiledriver.findElement(DropdownHistory),
-				mobiledriver.findElement(DropdownGetInvolved),
-				mobiledriver.findElement(DropdownDocumentation),
-				mobiledriver.findElement(DropdownBooksResources),
+	public void verify_each_hamburger_menu_option() {
+		WebElement webArray [] = {
+			mobiledriver.findElement(DropdownHome),
+			mobiledriver.findElement(DropdownIntroduction),
+			mobiledriver.findElement(DropdownGetStarted),
+			mobiledriver.findElement(DropdownHistory),
+			mobiledriver.findElement(DropdownGetInvolved),
+			mobiledriver.findElement(DropdownDocumentation),
+			mobiledriver.findElement(DropdownBooksResources)
 		};
-		for(int i = 0; i <= array.length-1; i++)
+		String stringArray [] = {
+			"Home",
+			"Introduction",
+			"Get started",
+			"History",
+			"Get Involved!",
+			"Documentation",
+			"Books & Resources",
+		};
+		for(int i = 0; i <= webArray.length-1; i++)
 		{
-			System.out.println("Test Status: getText \"" + array[i].getText() + "\"");
+			Assert.assertTrue(webArray[i].getText().contains(stringArray[i]));
 		}
+		System.out.println("Test Status: appium hamburger menu verified");
 	}
 
 	@Step ("Close hamburger menu.")
