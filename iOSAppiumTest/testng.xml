@@ -3,9 +3,7 @@
 <suite name="iOSAppiumSuite">
   <test thread-count="5" name="iOSAppiumTest">
     <classes>
-<!-- 			<class name="appiumiOSTest.appiumHomeTest"/>
-			<class name="appiumiOSTest.appiumUITest"/> -->
-			<class name="appiumiOSTest.appiumNavigateTest"/>
+			<class name="appiumiOSTest.appiumSafariTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

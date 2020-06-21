@@ -1,4 +1,4 @@
-package iOSAppiumPage;
+package appiumiOSPage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,7 @@ public class basePage {
 	public static IOSDriver<WebElement> mobiledriver;
     static List<String> array_list = new ArrayList<>();
     public static String mURL = "http://appium.io/";
+    public static String mTitle = "Appium: Mobile App Automation Made Awesome.";
     
 	//*********Web Elements*********
 	By DownloadButton = By.id("downloadLink");

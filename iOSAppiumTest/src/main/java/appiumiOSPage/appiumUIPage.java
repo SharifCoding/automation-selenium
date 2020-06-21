@@ -1,4 +1,4 @@
-package iOSAppiumPage;
+package appiumiOSPage;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -16,23 +16,15 @@ public class appiumUIPage extends basePage{
 	}
 
 	//*********Page Methods*********
-	@Step ("Launch Appium home page.")
-	public void launch_appium_home_page() {
-		mobiledriver.get(basePage.mURL);
-		System.out.println("Test Status: url loaded: "+ basePage.mURL);
-	}
-		
 	@Step ("Check title once Appium home page is loaded.")
-	public void check_title_of_page() {
-		String title = mobiledriver.getTitle();
-		System.out.println("Test Status: page title \"" + title + "\"");
-		Assert.assertEquals(mobiledriver.getCurrentUrl(), basePage.mURL, "URL Mismatch");
-		Assert.assertEquals(mobiledriver.getTitle(), "Appium: Mobile App Automation Made Awesome.", "Title Mismatch");
+	public void launch_appium_home_page() {
+		mobiledriver.get(mURL);
+		Assert.assertEquals(mobiledriver.getCurrentUrl(), mURL, "URL Mismatch");
+		Assert.assertEquals(mobiledriver.getTitle(), mTitle, "Title Mismatch");
 	}
 	
 	@Step ("Appium menu is shown.")
 	public void appium_menu_toolbar_is_shown() {
-//		System.out.println(mobiledriver.getPageSource());
 		waitForElement(AppiumNavbar, 30);
 		String actualString = mobiledriver.findElement(AppiumNavbar).getText();
 		Assert.assertEquals(actualString, "Appium", "Test Status: getText assertion failed!");
@@ -88,6 +80,7 @@ public class appiumUIPage extends basePage{
 		System.out.println("Test Status: button \"" + actualString + "\" is shown");
 	}
   
+	//*********Pre & Post Tests*********
 	@BeforeTest
 	public void beforeTest( ) {
 		mobiledriver.resetApp() ;
