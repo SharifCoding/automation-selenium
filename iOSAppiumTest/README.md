@@ -16,4 +16,7 @@ To run the test;
 - launch Appium GUI and click on the Start Server button.
 - right click the __testNG.xml__ file, and then select __Run As > TestNG Suite__.
 
+### Allure Report for Appium Test
+<img src="iOSAppiumResult.jpg">
+
 #### [Return: Automation Selenium README](../README.md)
