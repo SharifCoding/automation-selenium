@@ -1,17 +1,17 @@
 package appiumiOSPage;
 
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
 import io.qameta.allure.Step;
  
 public class appiumHomePage extends basePage{
     
 	//*********Web Page Class Constructor*********
-	public appiumHomePage(IOSDriver<WebElement>mobiledriver) {
+	public appiumHomePage(IOSDriver<IOSElement>mobiledriver) {
 		basePage.mobiledriver = mobiledriver;
 	}
 	

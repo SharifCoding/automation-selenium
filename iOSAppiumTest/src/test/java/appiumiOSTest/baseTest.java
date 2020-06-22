@@ -3,13 +3,13 @@ package appiumiOSTest;
 import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -18,7 +18,7 @@ import org.testng.annotations.BeforeSuite;
 
 public class baseTest
 {
-	protected IOSDriver<WebElement>mobiledriver;
+	protected IOSDriver<IOSElement>mobiledriver;
 		
 	@BeforeSuite
 	public void beforeSuite( ) throws MalformedURLException {
@@ -31,7 +31,7 @@ public class baseTest
 		caps.setCapability("newCommandTimeout", 2000);
 		// Instantiate Appium Driver
 		try {
-			mobiledriver = new IOSDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+			mobiledriver = new IOSDriver<IOSElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
 		} catch (MalformedURLException e) {
 			System.out.println(e.getMessage());
 		}

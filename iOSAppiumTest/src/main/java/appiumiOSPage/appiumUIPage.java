@@ -1,17 +1,17 @@
 package appiumiOSPage;
 
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
 import io.qameta.allure.Step;
  
 public class appiumUIPage extends basePage{
 
 	//*********Web Page Class Constructor*********
-	public appiumUIPage(IOSDriver<WebElement>mobiledriver) {
+	public appiumUIPage(IOSDriver<IOSElement>mobiledriver) {
 		basePage.mobiledriver = mobiledriver;
 	}
 
@@ -41,7 +41,7 @@ public class appiumUIPage extends basePage{
 
 	@Step ("Verify hamburger menu.")
 	public void verify_each_hamburger_menu_option() {
-		WebElement webArray [] = {
+		IOSElement webArray [] = {
 			mobiledriver.findElement(DropdownHome),
 			mobiledriver.findElement(DropdownIntroduction),
 			mobiledriver.findElement(DropdownGetStarted),

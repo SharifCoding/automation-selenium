@@ -3,17 +3,17 @@ package appiumiOSPage;
 import java.util.ArrayList;
 import java.util.List;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
  
 public class basePage {
 
-	public static IOSDriver<WebElement> mobiledriver;
+	public static IOSDriver<IOSElement> mobiledriver;
     static List<String> array_list = new ArrayList<>();
     public static String mURL = "http://appium.io/";
     public static String mTitle = "Appium: Mobile App Automation Made Awesome.";
@@ -48,7 +48,7 @@ public class basePage {
     }
     
     public static void checkListAttribute(By id, String providedAttribute) {
-        List<WebElement> myList=mobiledriver.findElements(id);
+        List<IOSElement> myList=mobiledriver.findElements(id);
         List<String> all_elements_attribute=new ArrayList<>();
         for(int i=0; i<myList.size(); i++){
         	all_elements_attribute.add(myList.get(i).getAttribute(providedAttribute));
