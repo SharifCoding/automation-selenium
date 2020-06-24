@@ -18,39 +18,46 @@ public class AppLaunchPage extends BasePage{
 	
 	//*********Page Methods*********
 	@Step ("Launch the facebook integration iOS app.")
-	public void launch_already_installed_app() {
-		System.out.println(mobiledriver.getPageSource());
-		MobileElement display = mobiledriver.findElementByXPath("//XCUIElementTypeOther[@name=\"MainView\"]");
-	  	Assert.assertTrue(display.isDisplayed());
+	public void launch_app_installed_via_xcode() {
+//		System.out.println(mobiledriver.getPageSource());
+		MobileElement main_view = mobiledriver.findElement(OtherMainView);
+	  	Assert.assertTrue(main_view.isDisplayed());
 		System.out.println("Test Status: launched app verified");
 	}
 	
 	@Step ("Verify the integration app buttons on launch.")
-	public void check_the_available_buttons() {
-		MobileElement display = mobiledriver.findElementByXPath("//XCUIElementTypeNavigationBar[@name=\"View\"]");
-	  	Assert.assertTrue(display.isDisplayed());
+	public void check_navigation_bar() {
+		MobileElement navigation_bar = mobiledriver.findElement(NavigationBarView);
+	  	Assert.assertTrue(navigation_bar.isDisplayed());
 		System.out.println("Test Status: navigation bar is shown");
-		MobileElement button_alerts = mobiledriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Alerts\"]");
+	}
+
+	@Step ("Verify the integration app buttons on launch.")
+	public void check_available_buttons() {
+		MobileElement button_alerts = mobiledriver.findElement(ButtonAlerts);
 	  	Assert.assertTrue(button_alerts.isDisplayed());
 		System.out.println("Test Status: button_alerts is shown");
-		MobileElement button_deadlock_app = mobiledriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Deadlock app\"]");
+		MobileElement button_deadlock_app = mobiledriver.findElement(ButtonDeadlock);
 	  	Assert.assertTrue(button_deadlock_app.isDisplayed());
 		System.out.println("Test Status: button_deadlock_app is shown");
-		MobileElement button_attributes = mobiledriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Attributes\"]");
+		MobileElement button_attributes = mobiledriver.findElement(ButtonAttributes);
 	  	Assert.assertTrue(button_attributes.isDisplayed());
 		System.out.println("Test Status: button_attributes is shown");
-		MobileElement button_scrolling = mobiledriver.findElementByXPath("//XCUIElementTypeButton[@name=\"Scrolling\"]");
+		MobileElement button_scrolling = mobiledriver.findElement(ButtonScrolling);
 	  	Assert.assertTrue(button_scrolling.isDisplayed());
 		System.out.println("Test Status: button_scrolling is shown");
-		MobileElement text_portrait = mobiledriver.findElementByXPath("//XCUIElementTypeStaticText[@name=\"Portrait\"]");
+	}
+	
+	@Step ("Verify the integration app buttons on launch.")
+	public void check_text_portrait() {
+		MobileElement text_portrait = mobiledriver.findElement(TextPortrait);
 	  	Assert.assertTrue(text_portrait.isDisplayed());
 		System.out.println("Test Status: text_portrait is shown");
 	}
-
+	
 	//*********Pre & Post Tests*********
 	@BeforeTest
 	public void beforeTest( ) {
-		mobiledriver.resetApp() ;
 		System.out.println("Test Status: AppLaunchPage is loaded");
 	}
 		

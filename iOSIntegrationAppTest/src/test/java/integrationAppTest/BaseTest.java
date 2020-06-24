@@ -28,7 +28,7 @@ public class BaseTest
 		caps.setCapability("platformVersion", "12.4");
 		caps.setCapability("bundleId", "com.facebook.IntegrationApp"); 
 		caps.setCapability("automationName", "XCUITest");
-		caps.setCapability("noReset", "true");
+		caps.setCapability("noReset", true);
 		caps.setCapability("newCommandTimeout", 2000);
 		try {
 			mobiledriver = new IOSDriver<IOSElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);

@@ -15,7 +15,13 @@ public class BasePage {
     public static String mTitle = "Appium/welcome";
     
 	//*********Web Elements*********
-	By CalendarButton = By.id("Calendars");
+	By OtherMainView = By.xpath("//XCUIElementTypeOther[@name=\"MainView\"]");
+	By NavigationBarView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"View\"]");
+	By ButtonAlerts = By.xpath("//XCUIElementTypeButton[@name=\"Alerts\"]");
+	By ButtonDeadlock = By.xpath("//XCUIElementTypeButton[@name=\"Deadlock app\"]");
+	By ButtonAttributes = By.xpath("//XCUIElementTypeButton[@name=\"Attributes\"]");
+	By ButtonScrolling = By.xpath("//XCUIElementTypeButton[@name=\"Scrolling\"]");
+	By TextPortrait = By.xpath("//XCUIElementTypeStaticText[@name=\"Portrait\"]");
 	
 	//*********Functions*********
     public static void waitForElement(By id, int time) {
