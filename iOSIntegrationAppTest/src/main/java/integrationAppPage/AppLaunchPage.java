@@ -18,8 +18,8 @@ public class AppLaunchPage extends BasePage{
 	}
 	
 	//*********Page Methods*********
-	@Step ("Launch the facebook integration iOS app.")
-	public void launch_app_installed_via_xcode() {
+	@Step ("Validate the launched Facebook integration iOS app.")
+	public void validate_installed_app_via_xcode() {
 //		System.out.println(mobiledriver.getPageSource());
 		MobileElement main_view = mobiledriver.findElement(OtherMainView);
 	  	Assert.assertTrue(main_view.isDisplayed());
@@ -50,7 +50,7 @@ public class AppLaunchPage extends BasePage{
 	}
 	
 	@Step ("Verify the expected text depending on the device orientation.")
-	public void check_text_portrait() {
+	public void check_orientation_text() {
 		Assert.assertEquals(ScreenOrientation.PORTRAIT, mobiledriver.getOrientation());
 		MobileElement text_portrait = mobiledriver.findElement(TextPortrait);
 	  	Assert.assertTrue(text_portrait.isDisplayed());
@@ -65,12 +65,12 @@ public class AppLaunchPage extends BasePage{
 	//*********Pre & Post Tests*********
 	@BeforeTest
 	public void beforeTest( ) {
-		System.out.println("Test Status: AppLaunchPage is loaded");
+		System.out.println("Test Status: app launch test is loaded");
 	}
 		
 	@AfterTest
 	public void afterTest( ) {
 		mobiledriver.closeApp();
-		System.out.println("Test Status: AppLaunchPage completed");
+		System.out.println("Test Status: app launch test is completed");
 	}
 }

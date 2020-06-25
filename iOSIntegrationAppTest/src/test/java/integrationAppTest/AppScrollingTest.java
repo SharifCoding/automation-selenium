@@ -7,9 +7,9 @@ import io.qameta.allure.SeverityLevel;
 
 import org.testng.annotations.Test;
 
-import integrationAppPage.AppLaunchPage;
+import integrationAppPage.AppScrollingPage;
  
-public class AppLaunchTest extends BaseTest{
+public class AppScrollingTest extends BaseTest{
 	
 	@Test (priority = 0)
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
@@ -18,14 +18,12 @@ public class AppLaunchTest extends BaseTest{
     public void facebookIntegrationAppIsLoaded () {
  
 		//*************PAGE INSTANTIATIONS*************
-		AppLaunchPage appLaunchTest = new AppLaunchPage(mobiledriver);
+		AppScrollingPage appScrollingTest = new AppScrollingPage(mobiledriver);
 		 
 		//*************PAGE METHODS********************
-		appLaunchTest.beforeTest();
-		appLaunchTest.validate_installed_app_via_xcode();
-		appLaunchTest.check_navigation_bar();
-		appLaunchTest.check_available_buttons();
-		appLaunchTest.check_orientation_text();
-		appLaunchTest.afterTest();
+		appScrollingTest.beforeTest();
+		appScrollingTest.validate_installed_app_via_xcode();
+		appScrollingTest.click_on_the_scroll_button();
+		appScrollingTest.afterTest();
     }
 }

@@ -23,6 +23,8 @@ public class BasePage {
 	By ButtonScrolling = By.xpath("//XCUIElementTypeButton[@name=\"Scrolling\"]");
 	By TextPortrait = By.xpath("//XCUIElementTypeStaticText[@name=\"Portrait\"]");
 	By TextLandscape = By.xpath("//XCUIElementTypeStaticText[@name=\"LandscapeRight\"]");
+	By NavigationBarUIView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"UIView\"]");
+	By ButtonBack = By.xpath("//XCUIElementTypeButton[@name=\"Back\"]");
 	
 	//*********Functions*********
     public static void waitForElement(By id, int time) {

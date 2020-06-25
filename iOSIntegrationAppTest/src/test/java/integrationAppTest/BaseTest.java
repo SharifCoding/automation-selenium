@@ -27,6 +27,7 @@ public class BaseTest
 		caps.setCapability("platformName", "iOS");
 		caps.setCapability("platformVersion", "12.4");
 		caps.setCapability("bundleId", "com.facebook.IntegrationApp"); 
+		caps.setCapability("orientation", "PORTRAIT");
 		caps.setCapability("automationName", "XCUITest");
 		caps.setCapability("noReset", true);
 		caps.setCapability("newCommandTimeout", 2000);
