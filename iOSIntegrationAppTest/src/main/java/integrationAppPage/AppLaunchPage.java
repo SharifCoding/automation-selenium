@@ -70,7 +70,6 @@ public class AppLaunchPage extends BasePage{
 		
 	@AfterTest
 	public void afterTest( ) {
-		mobiledriver.closeApp();
 		System.out.println("Test Status: app launch test is completed");
 	}
 }

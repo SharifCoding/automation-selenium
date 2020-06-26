@@ -50,6 +50,7 @@ public class BaseTest
 
 	@AfterSuite
 	public void afterSuite( ) {
+		mobiledriver.closeApp();
 		try {
 			mobiledriver.close();
 			System.out.println("Test Status: Closing iOS driver");

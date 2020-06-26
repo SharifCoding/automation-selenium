@@ -25,6 +25,9 @@ public class BasePage {
 	By TextLandscape = By.xpath("//XCUIElementTypeStaticText[@name=\"LandscapeRight\"]");
 	By NavigationBarUIView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"UIView\"]");
 	By ButtonBack = By.xpath("//XCUIElementTypeButton[@name=\"Back\"]");
+	By ButtonTableView = By.xpath("//XCUIElementTypeButton[@name=\"TableView\"]");
+	By ButtonScrollView = By.xpath("//XCUIElementTypeButton[@name=\"ScrollView\"]");
+	By NavigationBarUITableView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"UITableView\"]");
 	
 	//*********Functions*********
     public static void waitForElement(By id, int time) {
