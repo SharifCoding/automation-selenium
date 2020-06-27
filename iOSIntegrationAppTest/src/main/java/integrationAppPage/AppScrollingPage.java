@@ -55,6 +55,12 @@ public class AppScrollingPage extends BasePage{
 		System.out.println("Test Status: table_view page is loaded");
 	}
 	
+	@Step ("Scroll down to a value on the TableView.")
+	public void navigate_to_table_view_value() {
+		scrollToElement("29");
+		System.out.println("Test Status: scrolled to a value in tableview");
+	}
+	
 	@Step ("Return and validate the previous scrolling page.")
 	public void return_to_scrolling_page_one() {
 		MobileElement button_back = mobiledriver.findElement(ButtonBack);

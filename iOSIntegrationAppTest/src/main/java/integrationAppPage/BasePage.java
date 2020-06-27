@@ -3,6 +3,8 @@ package integrationAppPage;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 
+import java.util.HashMap;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,6 +30,7 @@ public class BasePage {
 	By ButtonTableView = By.xpath("//XCUIElementTypeButton[@name=\"TableView\"]");
 	By ButtonScrollView = By.xpath("//XCUIElementTypeButton[@name=\"ScrollView\"]");
 	By NavigationBarUITableView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"UITableView\"]");
+	By UITableViewValue = By.xpath("//XCUIElementTypeStaticText[@name=\"2\"]");
 	By NavigationBarFBScrollView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"FBScrollView\"]");
 	
 	//*********Functions*********
@@ -35,8 +38,11 @@ public class BasePage {
     	new WebDriverWait(mobiledriver, 30).until(ExpectedConditions.elementToBeClickable(id));
     }
     
-    public static void scrollToElement(By id) {
-		JavascriptExecutor js = (JavascriptExecutor) mobiledriver;
-		js.executeScript("arguments[0].scrollIntoView(true);", mobiledriver.findElement(id));
+    public static void scrollToElement(String Value) {
+    	JavascriptExecutor js = (JavascriptExecutor) mobiledriver;
+    	HashMap<String, String> scrollObject = new HashMap<String, String>();
+    	scrollObject.put("direction", "down");
+    	scrollObject.put("value", Value);
+    	js.executeScript("mobile: scroll", scrollObject);
     }
 }
