@@ -28,6 +28,7 @@ public class BasePage {
 	By ButtonTableView = By.xpath("//XCUIElementTypeButton[@name=\"TableView\"]");
 	By ButtonScrollView = By.xpath("//XCUIElementTypeButton[@name=\"ScrollView\"]");
 	By NavigationBarUITableView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"UITableView\"]");
+	By NavigationBarFBScrollView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"FBScrollView\"]");
 	
 	//*********Functions*********
     public static void waitForElement(By id, int time) {

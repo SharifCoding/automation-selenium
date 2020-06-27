@@ -56,14 +56,36 @@ public class AppScrollingPage extends BasePage{
 	}
 	
 	@Step ("Return and validate the previous scrolling page.")
-	public void return_to_scrolling_page() {
+	public void return_to_scrolling_page_one() {
 		MobileElement button_back = mobiledriver.findElement(ButtonBack);
 	  	Assert.assertTrue(button_back.isDisplayed());
 	  	button_back.click();
 		System.out.println("Test Status: clicked on the button_back");
 		MobileElement button_table_view = mobiledriver.findElement(ButtonTableView);
 	  	Assert.assertTrue(button_table_view.isDisplayed());
-		System.out.println("Test Status: returned to scrolling page");
+		System.out.println("Test Status: returned to scrolling page (1)");
+	}
+	
+	@Step ("Click on the scrollView button and validate.")
+	public void click_on_the_scroll_view_button() {
+		MobileElement button_scroll_view = mobiledriver.findElement(ButtonScrollView);
+	  	Assert.assertTrue(button_scroll_view.isDisplayed());
+	  	button_scroll_view.click();
+		System.out.println("Test Status: clicked on the scroll_view button");
+		MobileElement table_scroll_view = mobiledriver.findElement(NavigationBarFBScrollView);
+	  	Assert.assertTrue(table_scroll_view.isDisplayed());
+		System.out.println("Test Status: scroll_view page is loaded");
+	}
+	
+	@Step ("Return and validate the previous scrolling page.")
+	public void return_to_scrolling_page_two() {
+		MobileElement button_back = mobiledriver.findElement(ButtonBack);
+	  	Assert.assertTrue(button_back.isDisplayed());
+	  	button_back.click();
+		System.out.println("Test Status: clicked on the button_back");
+		MobileElement button_scroll_view = mobiledriver.findElement(ButtonScrollView);
+	  	Assert.assertTrue(button_scroll_view.isDisplayed());
+		System.out.println("Test Status: returned to scrolling page (2)");
 	}
 	
 	//*********Pre & Post Tests*********

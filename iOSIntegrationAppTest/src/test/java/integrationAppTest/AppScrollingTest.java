@@ -26,7 +26,9 @@ public class AppScrollingTest extends BaseTest{
 		appScrollingTest.click_on_the_scroll_button();
 		appScrollingTest.validate_scrolling_page();
 		appScrollingTest.click_on_the_table_view_button();
-		appScrollingTest.return_to_scrolling_page();
+		appScrollingTest.return_to_scrolling_page_one();
+		appScrollingTest.click_on_the_scroll_view_button();
+		appScrollingTest.return_to_scrolling_page_two();
 		appScrollingTest.afterTest();
     }
 }
