@@ -38,10 +38,9 @@ public class AppScrollingPage extends BasePage{
 	public void validate_scrolling_page() {
 		MobileElement navigation_bar_view = mobiledriver.findElement(NavigationBarUIView);
 	  	Assert.assertTrue(navigation_bar_view.isDisplayed());
-		System.out.println("Test Status: scrolling navigation bar is shown");
 		MobileElement button_back = mobiledriver.findElement(ButtonBack);
 	  	Assert.assertTrue(button_back.isDisplayed());
-		System.out.println("Test Status: button_back is shown");
+		System.out.println("Test Status: scrolling navigation bar is shown");
 	}
 	
 	@Step ("Click on the tableView button and validate.")
@@ -57,7 +56,9 @@ public class AppScrollingPage extends BasePage{
 	
 	@Step ("Scroll down to a value on the TableView.")
 	public void navigate_to_table_view_value() {
-		scrollToElement("29");
+		scrollToElement();
+		MobileElement table_table_value = mobiledriver.findElement(UITableViewValue);
+	  	Assert.assertTrue(table_table_value.isDisplayed());
 		System.out.println("Test Status: scrolled to a value in tableview");
 	}
 	
@@ -66,7 +67,7 @@ public class AppScrollingPage extends BasePage{
 		MobileElement button_back = mobiledriver.findElement(ButtonBack);
 	  	Assert.assertTrue(button_back.isDisplayed());
 	  	button_back.click();
-		System.out.println("Test Status: clicked on the button_back");
+		System.out.println("Test Status: clicked on the button_back (1)");
 		MobileElement button_table_view = mobiledriver.findElement(ButtonTableView);
 	  	Assert.assertTrue(button_table_view.isDisplayed());
 		System.out.println("Test Status: returned to scrolling page (1)");
@@ -88,7 +89,7 @@ public class AppScrollingPage extends BasePage{
 		MobileElement button_back = mobiledriver.findElement(ButtonBack);
 	  	Assert.assertTrue(button_back.isDisplayed());
 	  	button_back.click();
-		System.out.println("Test Status: clicked on the button_back");
+		System.out.println("Test Status: clicked on the button_back (2)");
 		MobileElement button_scroll_view = mobiledriver.findElement(ButtonScrollView);
 	  	Assert.assertTrue(button_scroll_view.isDisplayed());
 		System.out.println("Test Status: returned to scrolling page (2)");

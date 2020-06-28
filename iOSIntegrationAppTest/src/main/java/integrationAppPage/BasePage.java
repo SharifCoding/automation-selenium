@@ -4,11 +4,8 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 
 import java.util.HashMap;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.remote.RemoteWebElement;
  
 public class BasePage {
 
@@ -30,19 +27,17 @@ public class BasePage {
 	By ButtonTableView = By.xpath("//XCUIElementTypeButton[@name=\"TableView\"]");
 	By ButtonScrollView = By.xpath("//XCUIElementTypeButton[@name=\"ScrollView\"]");
 	By NavigationBarUITableView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"UITableView\"]");
-	By UITableViewValue = By.xpath("//XCUIElementTypeStaticText[@name=\"2\"]");
+	By UITableViewValue = By.xpath("//XCUIElementTypeStaticText[@name=\"49\"]");
 	By NavigationBarFBScrollView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"FBScrollView\"]");
 	
 	//*********Functions*********
-    public static void waitForElement(By id, int time) {
-    	new WebDriverWait(mobiledriver, 30).until(ExpectedConditions.elementToBeClickable(id));
-    }
-    
-    public static void scrollToElement(String Value) {
-    	JavascriptExecutor js = (JavascriptExecutor) mobiledriver;
-    	HashMap<String, String> scrollObject = new HashMap<String, String>();
-    	scrollObject.put("direction", "down");
-    	scrollObject.put("value", Value);
-    	js.executeScript("mobile: scroll", scrollObject);
-    }
+	public static void scrollToElement() {
+		// https://developers.perfectomobile.com/pages/viewpage.action?pageId=25199704
+        RemoteWebElement element = (RemoteWebElement)mobiledriver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"49\"]"));
+        String elementID = element.getId();
+        HashMap<String, String> scrollObject = new HashMap<String, String>();
+        scrollObject.put("element", elementID);
+        scrollObject.put("toVisible", "not an empty string");
+        mobiledriver.executeScript("mobile:scroll", scrollObject);
+	}
 }
