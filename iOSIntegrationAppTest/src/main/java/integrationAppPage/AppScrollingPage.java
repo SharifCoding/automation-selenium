@@ -74,7 +74,7 @@ public class AppScrollingPage extends BasePage{
 		System.out.println("Test Status: returned to scrolling page (1)");
 	}
 	
-	@Step ("Click on the scrollView button and validate.")
+	@Step ("Click on the ScrollView button and validate.")
 	public void click_on_the_scroll_view_button() {
 		MobileElement button_scroll_view = mobiledriver.findElement(ButtonScrollView);
 	  	Assert.assertTrue(button_scroll_view.isDisplayed());
@@ -83,6 +83,15 @@ public class AppScrollingPage extends BasePage{
 		MobileElement table_scroll_view = mobiledriver.findElement(NavigationBarFBScrollView);
 	  	Assert.assertTrue(table_scroll_view.isDisplayed());
 		System.out.println("Test Status: scroll_view page is loaded");
+	}
+	
+	@Step ("Scroll down to a value on the ScrollView.")
+	public void navigate_to_scroll_view_value() {
+		System.out.println("Test Status: executing scrollToElement function");
+		scrollToElement(UIScrollViewValue);
+		MobileElement table_table_value = mobiledriver.findElement(UIScrollViewValue);
+	  	Assert.assertTrue(table_table_value.isDisplayed());
+		System.out.println("Test Status: scrolled and verified value: " + mScrollValue);
 	}
 	
 	@Step ("Return and validate the previous scrolling page.")

@@ -11,6 +11,7 @@ public class BasePage {
 
 	public static IOSDriver<IOSElement>mobiledriver;
     public static String mTableValue = "49";
+    public static String mScrollValue = "49";
     
 	//*********Mobile Elements*********
 	By OtherMainView = By.xpath("//XCUIElementTypeOther[@name=\"MainView\"]");
@@ -28,6 +29,7 @@ public class BasePage {
 	By NavigationBarUITableView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"UITableView\"]");
 	By UITableViewValue = By.xpath("//XCUIElementTypeStaticText[@name=\""+ mTableValue +"\"]");
 	By NavigationBarFBScrollView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"FBScrollView\"]");
+	By UIScrollViewValue = By.xpath("//XCUIElementTypeStaticText[@name=\""+ mScrollValue +"\"]");
 	
 	//*********Functions*********
 	public static void scrollToElement(By mobileElement) {
