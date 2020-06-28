@@ -10,10 +10,9 @@ import org.openqa.selenium.remote.RemoteWebElement;
 public class BasePage {
 
 	public static IOSDriver<IOSElement>mobiledriver;
-    public static String mURL = "calshow://";
-    public static String mTitle = "Appium/welcome";
+    public static String mTableValue = "49";
     
-	//*********Web Elements*********
+	//*********Mobile Elements*********
 	By OtherMainView = By.xpath("//XCUIElementTypeOther[@name=\"MainView\"]");
 	By NavigationBarView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"View\"]");
 	By ButtonAlerts = By.xpath("//XCUIElementTypeButton[@name=\"Alerts\"]");
@@ -27,13 +26,13 @@ public class BasePage {
 	By ButtonTableView = By.xpath("//XCUIElementTypeButton[@name=\"TableView\"]");
 	By ButtonScrollView = By.xpath("//XCUIElementTypeButton[@name=\"ScrollView\"]");
 	By NavigationBarUITableView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"UITableView\"]");
-	By UITableViewValue = By.xpath("//XCUIElementTypeStaticText[@name=\"49\"]");
+	By UITableViewValue = By.xpath("//XCUIElementTypeStaticText[@name=\""+ mTableValue +"\"]");
 	By NavigationBarFBScrollView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"FBScrollView\"]");
 	
 	//*********Functions*********
-	public static void scrollToElement() {
+	public static void scrollToElement(By mobileElement) {
 		// https://developers.perfectomobile.com/pages/viewpage.action?pageId=25199704
-        RemoteWebElement element = (RemoteWebElement)mobiledriver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"49\"]"));
+        RemoteWebElement element = (RemoteWebElement)mobiledriver.findElement(mobileElement);
         String elementID = element.getId();
         HashMap<String, String> scrollObject = new HashMap<String, String>();
         scrollObject.put("element", elementID);

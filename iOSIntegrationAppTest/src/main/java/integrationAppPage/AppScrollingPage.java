@@ -56,10 +56,11 @@ public class AppScrollingPage extends BasePage{
 	
 	@Step ("Scroll down to a value on the TableView.")
 	public void navigate_to_table_view_value() {
-		scrollToElement();
+		System.out.println("Test Status: executing scrollToElement function");
+		scrollToElement(UITableViewValue);
 		MobileElement table_table_value = mobiledriver.findElement(UITableViewValue);
 	  	Assert.assertTrue(table_table_value.isDisplayed());
-		System.out.println("Test Status: scrolled to a value in tableview");
+		System.out.println("Test Status: scrolled and verified value: " + mTableValue);
 	}
 	
 	@Step ("Return and validate the previous scrolling page.")
