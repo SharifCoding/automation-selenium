@@ -1,5 +1,6 @@
 package integrationAppPage;
 
+import org.openqa.selenium.ScreenOrientation;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -87,6 +88,9 @@ public class AppScrollingPage extends BasePage{
 	
 	@Step ("Scroll down to a value on the ScrollView.")
 	public void navigate_to_scroll_view_value() {
+		mobiledriver.rotate(ScreenOrientation.PORTRAIT);
+		Assert.assertEquals(ScreenOrientation.PORTRAIT, mobiledriver.getOrientation());
+		System.out.println("Test Status: screen orientation set to portrait");
 		System.out.println("Test Status: executing scrollToElement function");
 		scrollToElement(UIScrollViewValue);
 		MobileElement table_table_value = mobiledriver.findElement(UIScrollViewValue);

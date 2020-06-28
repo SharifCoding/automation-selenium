@@ -33,7 +33,6 @@ public class BasePage {
 	
 	//*********Functions*********
 	public static void scrollToElement(By mobileElement) {
-		// https://developers.perfectomobile.com/pages/viewpage.action?pageId=25199704
 		RemoteWebElement element = (RemoteWebElement)mobiledriver.findElement(mobileElement);
 		String elementID = element.getId();
 		HashMap<String, String> scrollObject = new HashMap<String, String>();
