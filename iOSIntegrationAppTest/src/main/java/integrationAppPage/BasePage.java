@@ -10,8 +10,8 @@ import org.openqa.selenium.remote.RemoteWebElement;
 public class BasePage {
 
 	public static IOSDriver<IOSElement>mobiledriver;
-    public static String mTableValue = "49";
-    public static String mScrollValue = "49";
+	public static String mTableValue = "49";
+	public static String mScrollValue = "49";
     
 	//*********Mobile Elements*********
 	By OtherMainView = By.xpath("//XCUIElementTypeOther[@name=\"MainView\"]");
@@ -34,11 +34,11 @@ public class BasePage {
 	//*********Functions*********
 	public static void scrollToElement(By mobileElement) {
 		// https://developers.perfectomobile.com/pages/viewpage.action?pageId=25199704
-        RemoteWebElement element = (RemoteWebElement)mobiledriver.findElement(mobileElement);
-        String elementID = element.getId();
-        HashMap<String, String> scrollObject = new HashMap<String, String>();
-        scrollObject.put("element", elementID);
-        scrollObject.put("toVisible", "not an empty string");
-        mobiledriver.executeScript("mobile:scroll", scrollObject);
+		RemoteWebElement element = (RemoteWebElement)mobiledriver.findElement(mobileElement);
+		String elementID = element.getId();
+		HashMap<String, String> scrollObject = new HashMap<String, String>();
+		scrollObject.put("element", elementID);
+		scrollObject.put("toVisible", "not an empty string");
+		mobiledriver.executeScript("mobile:scroll", scrollObject);
 	}
 }

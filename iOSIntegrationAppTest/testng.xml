@@ -3,7 +3,7 @@
 <suite name="iOSAppiumSuite">
   <test thread-count="5" name="iOSAppiumTest">
     <classes>
-			<class name="integrationAppTest.AppLaunchTest"/>
+			<class name="integrationAppTest.AppIntegrationTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
