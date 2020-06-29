@@ -3,15 +3,23 @@ package integrationAppPage;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.RemoteWebElement;
  
 public class BasePage {
 
 	public static IOSDriver<IOSElement>mobiledriver;
-	public static String mTableValue = "49";
-	public static String mScrollValue = "49";
+	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
+	public static String mTableValue = "";
+	public static String mScrollValue = "";
     
 	//*********Mobile Elements*********
 	By OtherMainView = By.xpath("//XCUIElementTypeOther[@name=\"MainView\"]");
@@ -31,7 +39,25 @@ public class BasePage {
 	By NavigationBarFBScrollView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"FBScrollView\"]");
 	By UIScrollViewValue = By.xpath("//XCUIElementTypeStaticText[@name=\""+ mScrollValue +"\"]");
 	
-	//*********Functions*********
+	//*********Read JSON Function*********
+	public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
+		System.out.println("JSONParser: Initiating...");
+		JSONParser jsonParser = new JSONParser();
+		FileReader reader = new FileReader(myPath + "iOSIntegrationAppTest/src/test/resources/testData.json");
+		Object obj = jsonParser.parse(reader);
+		JSONArray dataInfo = (JSONArray) obj;
+		System.out.println("JSONParser: entire json --> " + dataInfo);
+		for(int i=0; i < dataInfo.size(); i++) 
+		{
+			JSONObject dataBlock = (JSONObject) dataInfo.get(i);
+			JSONObject data = (JSONObject) dataBlock.get("testData");
+			mTableValue = (String) data.get("tableValue");
+			mScrollValue = (String) data.get("scrollValue");
+		}
+		System.out.println("JSONParser: Ready");
+	}
+	
+	//*********Scroll to Element Function*********
 	public static void scrollToElement(By mobileElement) {
 		RemoteWebElement element = (RemoteWebElement)mobiledriver.findElement(mobileElement);
 		String elementID = element.getId();

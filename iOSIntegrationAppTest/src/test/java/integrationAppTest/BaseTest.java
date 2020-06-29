@@ -4,11 +4,14 @@ import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnviro
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
+import integrationAppPage.BasePage;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.json.simple.parser.ParseException;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -21,7 +24,9 @@ public class BaseTest
 	protected IOSDriver<IOSElement>mobiledriver;
 		
 	@BeforeSuite
-	public void beforeSuite( ) throws MalformedURLException {
+	public void beforeSuite( ) throws InterruptedException, IOException, ParseException {
+		System.out.println("Welcome to Appium mobile automation");
+		BasePage.readWriteJSON();
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("deviceName", "iPhone 6");
 		caps.setCapability("platformName", "iOS");

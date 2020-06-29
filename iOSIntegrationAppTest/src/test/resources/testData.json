@@ -1,0 +1,9 @@
+[
+  {
+    "testData":{
+      "_testNGFile":"testng.xml",
+		  "tableValue":"19",
+		  "scrollValue":"29"
+    }
+  }
+]
