@@ -56,10 +56,10 @@ public class AppScrollViewPage extends BasePage{
 		MobileElement button_table_view = mobiledriver.findElement(ButtonScrollView);
 	  	Assert.assertTrue(button_table_view.isDisplayed());
 	  	button_table_view.click();
-		System.out.println("Test Status: clicked on the table_view button");
-		MobileElement table_table_view = mobiledriver.findElement(NavigationBarUITableView);
-	  	Assert.assertTrue(table_table_view.isDisplayed());
-		System.out.println("Test Status: table_view page is loaded");
+		System.out.println("Test Status: clicked on the scroll_view button");
+		MobileElement scroll_view = mobiledriver.findElement(NavigationBarFBScrollView);
+	  	Assert.assertTrue(scroll_view.isDisplayed());
+		System.out.println("Test Status: scroll_view page is loaded");
 	}
 	
 	@Step ("Scroll down to a value on the scrollView.")
@@ -67,7 +67,7 @@ public class AppScrollViewPage extends BasePage{
 		System.out.println("Test Status: executing scrollToElement function");
 		scrollToElement(UIScrollViewValue);
 		MobileElement scroll_view_value = mobiledriver.findElement(UIScrollViewValue);
-	  	Assert.assertTrue(scroll_view_value.isDisplayed());
+		Assert.assertEquals(scroll_view_value.getText(), mScrollValue);
 		System.out.println("Test Status: scrolled and verified value: " + scroll_view_value.getText());
 	}
 	
@@ -94,11 +94,11 @@ public class AppScrollViewPage extends BasePage{
 	//*********Pre & Post Tests*********
 	@BeforeTest
 	public void beforeTest( ) {
-		System.out.println("Test Status: app table view test is loaded");
+		System.out.println("Test Status: app scroll view test is loaded");
 	}
 		
 	@AfterTest
 	public void afterTest( ) {
-		System.out.println("Test Status: app table view test is completed");
+		System.out.println("Test Status: app scroll view test is completed");
 	}
 }

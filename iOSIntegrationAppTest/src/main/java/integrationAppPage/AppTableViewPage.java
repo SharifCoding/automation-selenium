@@ -49,8 +49,8 @@ public class AppTableViewPage extends BasePage{
 	  	Assert.assertTrue(button_table_view.isDisplayed());
 	  	button_table_view.click();
 		System.out.println("Test Status: clicked on the table_view button");
-		MobileElement table_table_view = mobiledriver.findElement(NavigationBarUITableView);
-	  	Assert.assertTrue(table_table_view.isDisplayed());
+		MobileElement table_view = mobiledriver.findElement(NavigationBarUITableView);
+	  	Assert.assertTrue(table_view.isDisplayed());
 		System.out.println("Test Status: table_view page is loaded");
 	}
 	
@@ -58,9 +58,9 @@ public class AppTableViewPage extends BasePage{
 	public void navigate_to_table_view_value() {
 		System.out.println("Test Status: executing scrollToElement function");
 		scrollToElement(UITableViewValue);
-		MobileElement table_table_value = mobiledriver.findElement(UITableViewValue);
-	  	Assert.assertTrue(table_table_value.isDisplayed());
-		System.out.println("Test Status: scrolled and verified value: " + table_table_value.getText());
+		MobileElement table_value = mobiledriver.findElement(UITableViewValue);
+		Assert.assertEquals(table_value.getText(), mTableValue);
+		System.out.println("Test Status: scrolled and verified value: " + table_value.getText());
 	}
 	
 	@Step ("Return and validate the previous scrolling page.")

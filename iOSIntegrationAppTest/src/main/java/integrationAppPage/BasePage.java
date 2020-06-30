@@ -21,7 +21,7 @@ public class BasePage {
 	public static String mTableValue = "";
 	public static String mScrollValue = "";
     
-	//*********Mobile Elements*********
+	//*********Main Mobile Elements*********
 	By OtherMainView = By.xpath("//XCUIElementTypeOther[@name=\"MainView\"]");
 	By NavigationBarView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"View\"]");
 	By ButtonAlerts = By.xpath("//XCUIElementTypeButton[@name=\"Alerts\"]");
@@ -32,6 +32,8 @@ public class BasePage {
 	By TextLandscape = By.xpath("//XCUIElementTypeStaticText[@name=\"LandscapeRight\"]");
 	By NavigationBarUIView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"UIView\"]");
 	By ButtonBack = By.xpath("//XCUIElementTypeButton[@name=\"Back\"]");
+	
+	//*********Scrolling Mobile Elements*********
 	By ButtonTableView = By.xpath("//XCUIElementTypeButton[@name=\"TableView\"]");
 	By ButtonScrollView = By.xpath("//XCUIElementTypeButton[@name=\"ScrollView\"]");
 	By NavigationBarUITableView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"UITableView\"]");
