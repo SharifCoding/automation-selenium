@@ -8,7 +8,8 @@ import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
 
 import integrationAppPage.AppLaunchPage;
-import integrationAppPage.AppScrollingPage;
+import integrationAppPage.AppTableViewPage;
+import integrationAppPage.AppScrollViewPage;
  
 public class AppIntegrationTest extends BaseTest{
 	
@@ -33,23 +34,43 @@ public class AppIntegrationTest extends BaseTest{
 	@Test (priority = 1)
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Facebook Integration App")
-	@Description ("The Facebook Integration App is launched, and scrolled on the loaded scrolling pages.")
-	public void facebookIntegrationAppScrolling () {
+	@Description ("The Facebook Integration App is launched, and validate on the loaded table view page.")
+	public void facebookIntegrationAppTableView () {
  
 		//*************PAGE INSTANTIATIONS*************
-		AppScrollingPage appScrollingTest = new AppScrollingPage(mobiledriver);
+		AppTableViewPage appTableViewTest = new AppTableViewPage(mobiledriver);
 		 
 		//*************PAGE METHODS********************
-		appScrollingTest.beforeTest();
-		appScrollingTest.validate_installed_app_via_xcode();
-		appScrollingTest.click_on_the_scroll_button();
-		appScrollingTest.validate_scrolling_page();
-		appScrollingTest.click_on_the_table_view_button();
-		appScrollingTest.navigate_to_table_view_value();
-		appScrollingTest.return_to_scrolling_page_one();
-		appScrollingTest.click_on_the_scroll_view_button();
-		appScrollingTest.navigate_to_scroll_view_value();
-		appScrollingTest.return_to_scrolling_page_two();
-		appScrollingTest.afterTest();
+		appTableViewTest.beforeTest();
+		appTableViewTest.validate_installed_app_via_xcode();
+		appTableViewTest.click_on_the_scroll_button();
+		appTableViewTest.validate_scrolling_page();
+		appTableViewTest.click_on_the_table_view_button();
+		appTableViewTest.navigate_to_table_view_value();
+		appTableViewTest.return_to_scrolling_page();
+		appTableViewTest.return_to_main_page();
+		appTableViewTest.afterTest();
+	}
+	
+	@Test (priority = 2)
+	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
+	@Feature ("Facebook Integration App")
+	@Description ("The Facebook Integration App is launched, and validate on the loaded scroll view page.")
+	public void facebookIntegrationAppScrollView () {
+ 
+		//*************PAGE INSTANTIATIONS*************
+		AppScrollViewPage appScrollViewTest = new AppScrollViewPage(mobiledriver);
+		 
+		//*************PAGE METHODS********************
+		appScrollViewTest.beforeTest();
+		appScrollViewTest.validate_installed_app_via_xcode();
+		appScrollViewTest.click_on_the_scroll_button();
+		appScrollViewTest.validate_scrolling_page();
+		appScrollViewTest.change_screen_orientation();
+		appScrollViewTest.click_on_the_scroll_view_button();
+		appScrollViewTest.navigate_to_scroll_view_value();
+		appScrollViewTest.return_to_scrolling_page();
+		appScrollViewTest.return_to_main_page();
+		appScrollViewTest.afterTest();
 	}
 }
