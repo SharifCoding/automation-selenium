@@ -86,11 +86,11 @@ public class AppTableViewPage extends BasePage{
 	//*********Pre & Post Tests*********
 	@BeforeTest
 	public void beforeTest( ) {
-		System.out.println("Test Status: app table view test is loaded");
+		System.out.println("Test Case: table view test case loaded");
 	}
 		
 	@AfterTest
 	public void afterTest( ) {
-		System.out.println("Test Status: app table view test is completed");
+		System.out.println("Test Case: table view test case completed");
 	}
 }

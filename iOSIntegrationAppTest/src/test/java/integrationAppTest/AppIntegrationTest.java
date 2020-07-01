@@ -85,10 +85,11 @@ public class AppIntegrationTest extends BaseTest{
 		appScrollViewTest.validate_installed_app_via_xcode();
 		appScrollViewTest.click_on_the_scroll_button();
 		appScrollViewTest.validate_scrolling_page();
-		appScrollViewTest.change_screen_orientation();
+		appScrollViewTest.set_screen_orientation_to_landscape();
 		appScrollViewTest.click_on_the_scroll_view_button();
 		appScrollViewTest.navigate_to_scroll_view_value();
 		appScrollViewTest.return_to_scrolling_page();
+		appScrollViewTest.set_screen_orientation_to_portrait();
 		appScrollViewTest.return_to_main_page();
 		appScrollViewTest.afterTest();
 	}

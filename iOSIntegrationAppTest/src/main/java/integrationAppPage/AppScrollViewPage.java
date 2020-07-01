@@ -44,11 +44,11 @@ public class AppScrollViewPage extends BasePage{
 		System.out.println("Test Status: scrolling navigation bar is shown");
 	}
 	
-	@Step ("Rotate and verify the device portrait orientation.")
-	public void change_screen_orientation() {
-		mobiledriver.rotate(ScreenOrientation.PORTRAIT);
-		Assert.assertEquals(ScreenOrientation.PORTRAIT, mobiledriver.getOrientation());
-		System.out.println("Test Status: device orientation set to portrait");
+	@Step ("Rotate and verify the device landscape orientation.")
+	public void set_screen_orientation_to_landscape() {
+		mobiledriver.rotate(ScreenOrientation.LANDSCAPE);
+		Assert.assertEquals(ScreenOrientation.LANDSCAPE, mobiledriver.getOrientation());
+		System.out.println("Test Status: device orientation set to landscape");
 	}
 	
 	@Step ("Click on the scrollView button and validate.")
@@ -81,6 +81,13 @@ public class AppScrollViewPage extends BasePage{
 		System.out.println("Test Status: returned to scrolling page (1)");
 	}
 	
+	@Step ("Rotate and verify the device portrait orientation.")
+	public void set_screen_orientation_to_portrait() {
+		mobiledriver.rotate(ScreenOrientation.PORTRAIT);
+		Assert.assertEquals(ScreenOrientation.PORTRAIT, mobiledriver.getOrientation());
+		System.out.println("Test Status: device orientation set to portrait");
+	}
+	
 	@Step ("Return and validate the main page.")
 	public void return_to_main_page() {
 		MobileElement button_back = mobiledriver.findElement(ButtonBack);
@@ -94,11 +101,11 @@ public class AppScrollViewPage extends BasePage{
 	//*********Pre & Post Tests*********
 	@BeforeTest
 	public void beforeTest( ) {
-		System.out.println("Test Status: app scroll view test is loaded");
+		System.out.println("Test Case: scroll view test case loaded");
 	}
 		
 	@AfterTest
 	public void afterTest( ) {
-		System.out.println("Test Status: app scroll view test is completed");
+		System.out.println("Test Case: scroll view test case completed");
 	}
 }

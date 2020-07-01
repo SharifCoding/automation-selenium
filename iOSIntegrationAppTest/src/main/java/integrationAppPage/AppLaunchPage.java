@@ -60,16 +60,19 @@ public class AppLaunchPage extends BasePage{
 		MobileElement text_landscape = mobiledriver.findElement(TextLandscape);
 	  	Assert.assertTrue(text_landscape.isDisplayed());
 		System.out.println("Test Status: text_landscape is shown");
+		mobiledriver.rotate(ScreenOrientation.PORTRAIT);
+		Assert.assertEquals(ScreenOrientation.PORTRAIT, mobiledriver.getOrientation());
+	  	Assert.assertTrue(text_portrait.isDisplayed());
 	}
 	
 	//*********Pre & Post Tests*********
 	@BeforeTest
 	public void beforeTest( ) {
-		System.out.println("Test Status: app launch test is loaded");
+		System.out.println("Test Case: launch test case loaded");
 	}
 		
 	@AfterTest
 	public void afterTest( ) {
-		System.out.println("Test Status: app launch test is completed");
+		System.out.println("Test Case: launch test case completed");
 	}
 }

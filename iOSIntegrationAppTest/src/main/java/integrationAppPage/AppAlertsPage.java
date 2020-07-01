@@ -56,11 +56,11 @@ public class AppAlertsPage extends BasePage{
 	//*********Pre & Post Tests*********
 	@BeforeTest
 	public void beforeTest( ) {
-		System.out.println("Test Status: app alerts test is loaded");
+		System.out.println("Test Case: alerts test case loaded");
 	}
 		
 	@AfterTest
 	public void afterTest( ) {
-		System.out.println("Test Status: app alerts test is completed");
+		System.out.println("Test Case: alerts test case completed");
 	}
 }
