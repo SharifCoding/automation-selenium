@@ -8,12 +8,13 @@ import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
 
 import integrationAppPage.AppLaunchPage;
+import integrationAppPage.AppAlertsPage;
 import integrationAppPage.AppTableViewPage;
 import integrationAppPage.AppScrollViewPage;
  
 public class AppIntegrationTest extends BaseTest{
 	
-	@Test (priority = 0)
+	@Test (priority = 0, enabled = true)
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Facebook Integration App")
 	@Description ("The Facebook Integration App is launched, and the expected options are shown.")
@@ -31,7 +32,25 @@ public class AppIntegrationTest extends BaseTest{
 		appLaunchTest.afterTest();
 	}
 	
-	@Test (priority = 1)
+	@Test (priority = 1, enabled = true)
+	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
+	@Feature ("Facebook Integration App")
+	@Description ("The Facebook Integration App is launched, and validate on the loaded alerts page.")
+	public void facebookIntegrationAlerts () {
+ 
+		//*************PAGE INSTANTIATIONS*************
+		AppAlertsPage appAlertsTest = new AppAlertsPage(mobiledriver);
+		 
+		//*************PAGE METHODS********************
+		appAlertsTest.beforeTest();
+		appAlertsTest.validate_installed_app_via_xcode();
+		appAlertsTest.click_on_the_alerts_button();
+		appAlertsTest.validate_alerts_page();
+		appAlertsTest.return_to_main_page();
+		appAlertsTest.afterTest();
+	}
+	
+	@Test (priority = 2, enabled = true)
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Facebook Integration App")
 	@Description ("The Facebook Integration App is launched, and validate on the loaded table view page.")
@@ -52,7 +71,7 @@ public class AppIntegrationTest extends BaseTest{
 		appTableViewTest.afterTest();
 	}
 	
-	@Test (priority = 2)
+	@Test (priority = 3, enabled = true)
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Facebook Integration App")
 	@Description ("The Facebook Integration App is launched, and validate on the loaded scroll view page.")

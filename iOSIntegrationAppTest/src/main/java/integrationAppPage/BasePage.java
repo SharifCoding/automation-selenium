@@ -33,6 +33,9 @@ public class BasePage {
 	By NavigationBarUIView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"UIView\"]");
 	By ButtonBack = By.xpath("//XCUIElementTypeButton[@name=\"Back\"]");
 	
+	//*********Alerts Mobile Elements*********
+	By NavigationBarFBAlertView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"FBAlertView\"]");
+	
 	//*********Scrolling Mobile Elements*********
 	By ButtonTableView = By.xpath("//XCUIElementTypeButton[@name=\"TableView\"]");
 	By ButtonScrollView = By.xpath("//XCUIElementTypeButton[@name=\"ScrollView\"]");
