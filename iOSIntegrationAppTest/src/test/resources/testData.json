@@ -2,6 +2,7 @@
   {
     "testData":{
       "_testNGFile":"testng.xml",
+      "stringValue":"HelloWorld",
 		  "tableValue":"19",
 		  "scrollValue":"29"
     }

@@ -43,6 +43,15 @@ public class AppAlertsPage extends BasePage{
 		System.out.println("Test Status: alerts navigation bar is shown");
 	}
 	
+	@Step ("Input and validate the inputted string in the textbox.")
+	public void input_validate_textbox() {
+		MobileElement text_field = mobiledriver.findElement(TextField);
+	  	Assert.assertTrue(text_field.isDisplayed());
+	  	text_field.sendKeys(mStringValue);
+		Assert.assertEquals(text_field.getText(), mStringValue);
+		System.out.println("Test Status: inputted and validated string value: " + text_field.getText());
+	}
+	
 	@Step ("Return and validate the main page.")
 	public void return_to_main_page() {
 		MobileElement button_back = mobiledriver.findElement(ButtonBack);

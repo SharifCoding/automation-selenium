@@ -20,6 +20,7 @@ public class BasePage {
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
 	public static String mTableValue = "";
 	public static String mScrollValue = "";
+	public static String mStringValue = "";
     
 	//*********Main Mobile Elements*********
 	By OtherMainView = By.xpath("//XCUIElementTypeOther[@name=\"MainView\"]");
@@ -35,6 +36,7 @@ public class BasePage {
 	
 	//*********Alerts Mobile Elements*********
 	By NavigationBarFBAlertView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"FBAlertView\"]");
+	By TextField = By.xpath("//XCUIElementTypeTextField[@name=\"textField\"]");
 	
 	//*********Scrolling Mobile Elements*********
 	By ButtonTableView = By.xpath("//XCUIElementTypeButton[@name=\"TableView\"]");
@@ -56,6 +58,7 @@ public class BasePage {
 		{
 			JSONObject dataBlock = (JSONObject) dataInfo.get(i);
 			JSONObject data = (JSONObject) dataBlock.get("testData");
+			mStringValue = (String) data.get("stringValue");
 			mTableValue = (String) data.get("tableValue");
 			mScrollValue = (String) data.get("scrollValue");
 		}
