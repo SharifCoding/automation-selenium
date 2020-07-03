@@ -1,10 +1,10 @@
 [
   {
     "testData":{
-      "_testNGFile":"testng.xml",
-      "stringValue":"HelloWorld",
-		  "tableValue":"19",
-		  "scrollValue":"29"
+			"_testNGFile":"testng.xml",
+			"stringValue":"HelloWorld",
+			"tableValue":"19",
+			"scrollValue":"29"
     }
   }
 ]

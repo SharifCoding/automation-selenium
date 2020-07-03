@@ -37,6 +37,9 @@ public class BasePage {
 	//*********Alerts Mobile Elements*********
 	By NavigationBarFBAlertView = By.xpath("//XCUIElementTypeNavigationBar[@name=\"FBAlertView\"]");
 	By TextField = By.xpath("//XCUIElementTypeTextField[@name=\"textField\"]");
+	By ButtonCreateAppAlert = By.xpath("//XCUIElementTypeButton[@name=\"Create App Alert\"]");
+	By TextMagic = By.xpath("//XCUIElementTypeStaticText[@name=\"Magic\"]");
+	By ButtonWillDo = By.xpath("//XCUIElementTypeButton[@name=\"Will do\"]");
 	
 	//*********Scrolling Mobile Elements*********
 	By ButtonTableView = By.xpath("//XCUIElementTypeButton[@name=\"TableView\"]");

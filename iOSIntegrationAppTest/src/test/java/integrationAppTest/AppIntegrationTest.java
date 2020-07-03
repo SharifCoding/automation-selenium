@@ -47,6 +47,7 @@ public class AppIntegrationTest extends BaseTest{
 		appAlertsTest.click_on_the_alerts_button();
 		appAlertsTest.validate_alerts_page();
 		appAlertsTest.input_validate_textbox();
+		appAlertsTest.click_and_validate_alert();
 		appAlertsTest.return_to_main_page();
 		appAlertsTest.afterTest();
 	}

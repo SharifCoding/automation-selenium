@@ -52,6 +52,20 @@ public class AppAlertsPage extends BasePage{
 		System.out.println("Test Status: inputted and validated string value: " + text_field.getText());
 	}
 	
+	@Step ("Click and validate the trigger iOS alert popup.")
+	public void click_and_validate_alert() {
+		MobileElement create_app_alert = mobiledriver.findElement(ButtonCreateAppAlert);
+	  	Assert.assertTrue(create_app_alert.isDisplayed());
+	  	create_app_alert.click();
+	  	MobileElement text_magic = mobiledriver.findElement(TextMagic);
+	  	Assert.assertTrue(text_magic.isDisplayed());
+		System.out.println("Test Status: validated text magic");
+		MobileElement will_do = mobiledriver.findElement(ButtonWillDo);
+	  	Assert.assertTrue(will_do.isDisplayed());
+	  	will_do.click();
+		System.out.println("Test Status: acknowledge the triggered alert");
+	}
+	
 	@Step ("Return and validate the main page.")
 	public void return_to_main_page() {
 		MobileElement button_back = mobiledriver.findElement(ButtonBack);
