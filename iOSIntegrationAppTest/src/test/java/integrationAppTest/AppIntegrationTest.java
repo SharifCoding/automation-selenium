@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import integrationAppPage.AppLaunchPage;
 import integrationAppPage.AppAlertsPage;
+import integrationAppPage.AppAttributesPage;
 import integrationAppPage.AppTableViewPage;
 import integrationAppPage.AppScrollViewPage;
  
@@ -32,7 +33,7 @@ public class AppIntegrationTest extends BaseTest{
 		appLaunchTest.afterTest();
 	}
 	
-	@Test (priority = 1, enabled = true)
+	@Test (priority = 1, enabled = false)
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Facebook Integration App")
 	@Description ("The Facebook Integration App is launched, and validate on the loaded alerts page.")
@@ -52,7 +53,25 @@ public class AppIntegrationTest extends BaseTest{
 		appAlertsTest.afterTest();
 	}
 	
-	@Test (priority = 2, enabled = false)
+	@Test (priority = 2, enabled = true)
+	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
+	@Feature ("Facebook Integration App")
+	@Description ("The Facebook Integration App is launched, and execute various attributes check.")
+	public void facebookIntegrationAttributes () {
+ 
+		//*************PAGE INSTANTIATIONS*************
+		AppAttributesPage appAttributesTest = new AppAttributesPage(mobiledriver);
+		 
+		//*************PAGE METHODS********************
+		appAttributesTest.beforeTest();
+		appAttributesTest.validate_installed_app_via_xcode();
+		appAttributesTest.click_on_the_attributes_button();
+		appAttributesTest.validate_attributes_page();
+		appAttributesTest.return_to_main_page();
+		appAttributesTest.afterTest();
+	}
+	
+	@Test (priority = 3, enabled = false)
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Facebook Integration App")
 	@Description ("The Facebook Integration App is launched, and validate on the loaded table view page.")
@@ -73,7 +92,7 @@ public class AppIntegrationTest extends BaseTest{
 		appTableViewTest.afterTest();
 	}
 	
-	@Test (priority = 3, enabled = false)
+	@Test (priority = 4, enabled = false)
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Facebook Integration App")
 	@Description ("The Facebook Integration App is launched, and validate on the loaded scroll view page.")

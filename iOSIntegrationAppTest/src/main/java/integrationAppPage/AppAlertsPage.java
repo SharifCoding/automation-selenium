@@ -26,7 +26,7 @@ public class AppAlertsPage extends BasePage{
 		System.out.println("Test Status: launched app verified");
 	}
 	
-	@Step ("Validate and click on the Scrolling button.")
+	@Step ("Validate and click on the Alerts button.")
 	public void click_on_the_alerts_button() {
 		MobileElement button_alerts = mobiledriver.findElement(ButtonAlerts);
 	  	Assert.assertTrue(button_alerts.isDisplayed());

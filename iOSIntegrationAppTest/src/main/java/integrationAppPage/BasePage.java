@@ -41,6 +41,9 @@ public class BasePage {
 	By TextMagic = By.xpath("//XCUIElementTypeStaticText[@name=\"Magic\"]");
 	By ButtonWillDo = By.xpath("//XCUIElementTypeButton[@name=\"Will do\"]");
 	
+	//*********Alerts Mobile Elements*********
+	By TextaIdentifier = By.xpath("//XCUIElementTypeTextField[@name=\"aIdentifier\"]");
+	
 	//*********Scrolling Mobile Elements*********
 	By ButtonTableView = By.xpath("//XCUIElementTypeButton[@name=\"TableView\"]");
 	By ButtonScrollView = By.xpath("//XCUIElementTypeButton[@name=\"ScrollView\"]");
