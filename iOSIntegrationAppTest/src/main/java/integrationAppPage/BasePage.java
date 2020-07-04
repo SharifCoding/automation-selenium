@@ -21,6 +21,7 @@ public class BasePage {
 	public static String mTableValue = "";
 	public static String mScrollValue = "";
 	public static String mStringValue = "";
+	public static String mPlaceholderString = "Value";
     
 	//*********Main Mobile Elements*********
 	By OtherMainView = By.xpath("//XCUIElementTypeOther[@name=\"MainView\"]");
@@ -42,6 +43,7 @@ public class BasePage {
 	By ButtonWillDo = By.xpath("//XCUIElementTypeButton[@name=\"Will do\"]");
 	
 	//*********Alerts Mobile Elements*********
+	By TextValue = By.xpath("//XCUIElementTypeTextField[@value=\"Value\"]");
 	By TextaIdentifier = By.xpath("//XCUIElementTypeTextField[@name=\"aIdentifier\"]");
 	
 	//*********Scrolling Mobile Elements*********

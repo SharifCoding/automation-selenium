@@ -67,6 +67,7 @@ public class AppIntegrationTest extends BaseTest{
 		appAttributesTest.validate_installed_app_via_xcode();
 		appAttributesTest.click_on_the_attributes_button();
 		appAttributesTest.validate_attributes_page();
+		appAttributesTest.input_validate_first_textbox();
 		appAttributesTest.return_to_main_page();
 		appAttributesTest.afterTest();
 	}

@@ -43,6 +43,18 @@ public class AppAttributesPage extends BasePage{
 		System.out.println("Test Status: attributes page is loaded");
 	}
 	
+	@Step ("Validate the first textbox will the placeholder string, clear the placeholder string, and then input the new string value.")
+	public void input_validate_first_textbox() {
+		MobileElement text_value = mobiledriver.findElement(TextValue);
+	  	Assert.assertTrue(text_value.isDisplayed());
+	  	text_value.click();
+		Assert.assertEquals(text_value.getText(), mPlaceholderString);
+	  	text_value.clear();
+	  	text_value.sendKeys(mStringValue);
+		Assert.assertEquals(text_value.getText(), mStringValue);
+		System.out.println("Test Status: cleared and validated new value: " + text_value.getText());
+	}
+	
 	@Step ("Return and validate the main page.")
 	public void return_to_main_page() {
 		MobileElement button_back = mobiledriver.findElement(ButtonBack);
