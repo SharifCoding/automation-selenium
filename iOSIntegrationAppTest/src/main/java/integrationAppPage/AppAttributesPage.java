@@ -53,24 +53,19 @@ public class AppAttributesPage extends BasePage{
 		String timeStampMinute = new SimpleDateFormat("mm").format(new Date());
 		String timeStamp12Hour = new SimpleDateFormat("a").format(new Date());
 		System.out.println("Test Status: internet timestamp: " + timeStampHour + ":" + timeStampMinute + " " + timeStamp12Hour);
-		
 		MobileElement date_picker = mobiledriver.findElement(DatePicker);
-	  	Assert.assertTrue(date_picker.isDisplayed());
 		MobileElement picker_wheel_hour = mobiledriver.findElement(PickerWheelHour);
-	  	Assert.assertTrue(picker_wheel_hour.isDisplayed());
 		MobileElement picker_wheel_minute = mobiledriver.findElement(PickerWheelMinute);
-	  	Assert.assertTrue(picker_wheel_minute.isDisplayed());
 		MobileElement picker_wheel_12_hour = mobiledriver.findElement(PickerWheel12Hour);
+	  	Assert.assertTrue(date_picker.isDisplayed());
+	  	Assert.assertTrue(picker_wheel_hour.isDisplayed());
+	  	Assert.assertTrue(picker_wheel_minute.isDisplayed());
 	  	Assert.assertTrue(picker_wheel_12_hour.isDisplayed());
-
-		String partString1[] = picker_wheel_hour.getText().split(" ");
-		String parseHour = partString1[0];
-		String partString2[] = picker_wheel_minute.getText().split(" ");
-		String parseMinute = partString2[0];
-		System.out.println("Test Status: app timestamp: " + parseHour + ":" + parseMinute + " " + picker_wheel_12_hour.getText());
-		
-		Assert.assertTrue(picker_wheel_hour.getText().contains(timeStampHour));
-		Assert.assertTrue(picker_wheel_minute.getText().contains(timeStampMinute));
+		String parseHour[] = picker_wheel_hour.getText().split(" ");
+		String parseMinute[] = picker_wheel_minute.getText().split(" ");
+		System.out.println("Test Status: app timestamp: " + parseHour[0] + ":" + parseMinute[0] + " " + picker_wheel_12_hour.getText());
+		Assert.assertEquals(parseHour[0], timeStampHour);
+		Assert.assertEquals(parseMinute[0], timeStampMinute);
 		Assert.assertEquals(picker_wheel_12_hour.getText(), timeStamp12Hour);
 		System.out.println("Test Status: validated app timestamp");
 	}
