@@ -34,7 +34,7 @@ public class AppIntegrationTest extends BaseTest{
 	}
 	
 	@Test (priority = 1, enabled = false)
-	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
+	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Facebook Integration App")
 	@Description ("The Facebook Integration App is launched, and validate on the loaded alerts page.")
 	public void facebookIntegrationAlerts () {
@@ -54,7 +54,7 @@ public class AppIntegrationTest extends BaseTest{
 	}
 	
 	@Test (priority = 2, enabled = true)
-	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
+	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Facebook Integration App")
 	@Description ("The Facebook Integration App is launched, and execute various attributes check.")
 	public void facebookIntegrationAttributes () {
@@ -67,6 +67,7 @@ public class AppIntegrationTest extends BaseTest{
 		appAttributesTest.validate_installed_app_via_xcode();
 		appAttributesTest.click_on_the_attributes_button();
 		appAttributesTest.validate_attributes_page();
+		appAttributesTest.validate_app_timestamp();
 		appAttributesTest.input_validate_first_textbox();
 		appAttributesTest.return_to_main_page();
 		appAttributesTest.afterTest();

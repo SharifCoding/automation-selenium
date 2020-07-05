@@ -42,9 +42,12 @@ public class BasePage {
 	By TextMagic = By.xpath("//XCUIElementTypeStaticText[@name=\"Magic\"]");
 	By ButtonWillDo = By.xpath("//XCUIElementTypeButton[@name=\"Will do\"]");
 	
-	//*********Alerts Mobile Elements*********
+	//*********Attributes Mobile Elements*********
 	By TextValue = By.xpath("//XCUIElementTypeTextField[@value=\"Value\"]");
 	By TextaIdentifier = By.xpath("//XCUIElementTypeTextField[@name=\"aIdentifier\"]");
+	By DatePicker = By.xpath("//XCUIElementTypeDatePicker[@enabled=\"true\"]");
+	By PickerWheelHour = By.xpath("//XCUIElementTypePickerWheel[@enabled=\"true\"][2]");
+	By PickerWheelMinute = By.xpath("//XCUIElementTypePickerWheel[@enabled=\"true\"][3]");
 	
 	//*********Scrolling Mobile Elements*********
 	By ButtonTableView = By.xpath("//XCUIElementTypeButton[@name=\"TableView\"]");

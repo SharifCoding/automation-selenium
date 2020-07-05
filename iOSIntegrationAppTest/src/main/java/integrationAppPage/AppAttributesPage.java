@@ -1,5 +1,8 @@
 package integrationAppPage;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -26,7 +29,7 @@ public class AppAttributesPage extends BasePage{
 		System.out.println("Test Status: launched app verified");
 	}
 	
-	@Step ("Validate and click on the Attributes button.")
+	@Step ("Click on the Attributes button.")
 	public void click_on_the_attributes_button() {
 		MobileElement button_attributes = mobiledriver.findElement(ButtonAttributes);
 	  	Assert.assertTrue(button_attributes.isDisplayed());
@@ -41,6 +44,25 @@ public class AppAttributesPage extends BasePage{
 		MobileElement button_back = mobiledriver.findElement(ButtonBack);
 	  	Assert.assertTrue(button_back.isDisplayed());
 		System.out.println("Test Status: attributes page is loaded");
+	}
+	
+	@Step ("Get internet timestamp and validate with the app.")
+	public void validate_app_timestamp() {
+		String timeStampHour = new SimpleDateFormat("HH").format(new Date());
+		String timeStampMinute = new SimpleDateFormat("mm").format(new Date());
+		String timeStamp12Hour = new SimpleDateFormat("a").format(new Date());
+		System.out.println("Test Status: internet timestamp: " + timeStampHour + ":" + timeStampMinute + " " + timeStamp12Hour);
+		MobileElement date_picker = mobiledriver.findElement(DatePicker);
+	  	Assert.assertTrue(date_picker.isDisplayed());
+		System.out.println("Test Status: date picker is shown");
+		MobileElement picker_wheel_hour = mobiledriver.findElement(PickerWheelHour);
+	  	Assert.assertTrue(picker_wheel_hour.isDisplayed());
+		System.out.println("Test Status: picker_wheel_hour");
+		MobileElement picker_wheel_minute = mobiledriver.findElement(PickerWheelMinute);
+	  	Assert.assertTrue(picker_wheel_minute.isDisplayed());
+		System.out.println("Test Status: picker_wheel_hour");
+		System.out.println(picker_wheel_hour.getText());
+		System.out.println(picker_wheel_minute.getText());
 	}
 	
 	@Step ("Validate the first textbox will the placeholder string, clear the placeholder string, and then input the new string value.")
