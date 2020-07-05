@@ -48,21 +48,31 @@ public class AppAttributesPage extends BasePage{
 	
 	@Step ("Get internet timestamp and validate with the app.")
 	public void validate_app_timestamp() {
-		String timeStampHour = new SimpleDateFormat("HH").format(new Date());
+		// https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+		String timeStampHour = new SimpleDateFormat("h").format(new Date());
 		String timeStampMinute = new SimpleDateFormat("mm").format(new Date());
 		String timeStamp12Hour = new SimpleDateFormat("a").format(new Date());
 		System.out.println("Test Status: internet timestamp: " + timeStampHour + ":" + timeStampMinute + " " + timeStamp12Hour);
+		
 		MobileElement date_picker = mobiledriver.findElement(DatePicker);
 	  	Assert.assertTrue(date_picker.isDisplayed());
-		System.out.println("Test Status: date picker is shown");
 		MobileElement picker_wheel_hour = mobiledriver.findElement(PickerWheelHour);
 	  	Assert.assertTrue(picker_wheel_hour.isDisplayed());
-		System.out.println("Test Status: picker_wheel_hour");
 		MobileElement picker_wheel_minute = mobiledriver.findElement(PickerWheelMinute);
 	  	Assert.assertTrue(picker_wheel_minute.isDisplayed());
-		System.out.println("Test Status: picker_wheel_hour");
-		System.out.println(picker_wheel_hour.getText());
-		System.out.println(picker_wheel_minute.getText());
+		MobileElement picker_wheel_12_hour = mobiledriver.findElement(PickerWheel12Hour);
+	  	Assert.assertTrue(picker_wheel_12_hour.isDisplayed());
+
+		String partString1[] = picker_wheel_hour.getText().split(" ");
+		String parseHour = partString1[0];
+		String partString2[] = picker_wheel_minute.getText().split(" ");
+		String parseMinute = partString2[0];
+		System.out.println("Test Status: app timestamp: " + parseHour + ":" + parseMinute + " " + picker_wheel_12_hour.getText());
+		
+		Assert.assertTrue(picker_wheel_hour.getText().contains(timeStampHour));
+		Assert.assertTrue(picker_wheel_minute.getText().contains(timeStampMinute));
+		Assert.assertEquals(picker_wheel_12_hour.getText(), timeStamp12Hour);
+		System.out.println("Test Status: validated app timestamp");
 	}
 	
 	@Step ("Validate the first textbox will the placeholder string, clear the placeholder string, and then input the new string value.")

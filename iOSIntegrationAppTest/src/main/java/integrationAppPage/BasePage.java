@@ -48,6 +48,7 @@ public class BasePage {
 	By DatePicker = By.xpath("//XCUIElementTypeDatePicker[@enabled=\"true\"]");
 	By PickerWheelHour = By.xpath("//XCUIElementTypePickerWheel[@enabled=\"true\"][2]");
 	By PickerWheelMinute = By.xpath("//XCUIElementTypePickerWheel[@enabled=\"true\"][3]");
+	By PickerWheel12Hour = By.xpath("//XCUIElementTypePickerWheel[@enabled=\"true\"][4]");
 	
 	//*********Scrolling Mobile Elements*********
 	By ButtonTableView = By.xpath("//XCUIElementTypeButton[@name=\"TableView\"]");
