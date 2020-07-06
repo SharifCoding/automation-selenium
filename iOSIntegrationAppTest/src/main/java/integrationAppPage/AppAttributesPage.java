@@ -58,9 +58,6 @@ public class AppAttributesPage extends BasePage{
 		MobileElement picker_wheel_minute = mobiledriver.findElement(PickerWheelMinute);
 		MobileElement picker_wheel_12_hour = mobiledriver.findElement(PickerWheel12Hour);
 	  	Assert.assertTrue(date_picker.isDisplayed());
-	  	Assert.assertTrue(picker_wheel_hour.isDisplayed());
-	  	Assert.assertTrue(picker_wheel_minute.isDisplayed());
-	  	Assert.assertTrue(picker_wheel_12_hour.isDisplayed());
 		String parseHour[] = picker_wheel_hour.getText().split(" ");
 		String parseMinute[] = picker_wheel_minute.getText().split(" ");
 		System.out.println("Test Status: app timestamp: " + parseHour[0] + ":" + parseMinute[0] + " " + picker_wheel_12_hour.getText());
@@ -68,6 +65,18 @@ public class AppAttributesPage extends BasePage{
 		Assert.assertEquals(parseMinute[0], timeStampMinute);
 		Assert.assertEquals(picker_wheel_12_hour.getText(), timeStamp12Hour);
 		System.out.println("Test Status: validated app timestamp");
+	}
+	
+	@Step ("Input a new time value, and validate.")
+	public void input_new_time_value() {
+		// https://appiumpro.com/editions/59-how-to-automate-picker-wheel-controls
+		MobileElement picker_wheel_hour2 = mobiledriver.findElement(PickerWheelHour);
+		MobileElement picker_wheel_minute2 = mobiledriver.findElement(PickerWheelMinute);
+		MobileElement picker_wheel_12_hour2 = mobiledriver.findElement(PickerWheel12Hour);
+		picker_wheel_hour2.sendKeys("6");
+		picker_wheel_minute2.sendKeys("55");
+		picker_wheel_12_hour2.sendKeys("AM");
+		System.out.println("Test Status: inputted new time value");
 	}
 	
 	@Step ("Validate the first textbox will the placeholder string, clear the placeholder string, and then input the new string value.")
