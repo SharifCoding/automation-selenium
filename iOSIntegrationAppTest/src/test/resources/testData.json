@@ -2,9 +2,12 @@
   {
     "testData":{
 			"_testNGFile":"testng.xml",
+			"newHourValue":"10",
+			"newMinuteValue":"55",
+			"new12FormatValue":"AM",
 			"stringValue":"HelloWorld",
-			"tableValue":"19",
-			"scrollValue":"29"
+			"tableValue":"29",
+			"scrollValue":"19"
     }
   }
 ]

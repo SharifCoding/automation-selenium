@@ -48,7 +48,6 @@ public class AppAttributesPage extends BasePage{
 	
 	@Step ("Get internet timestamp and validate with the app.")
 	public void validate_app_timestamp() {
-		// https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
 		String timeStampHour = new SimpleDateFormat("h").format(new Date());
 		String timeStampMinute = new SimpleDateFormat("mm").format(new Date());
 		String timeStamp12Hour = new SimpleDateFormat("a").format(new Date());
@@ -60,7 +59,7 @@ public class AppAttributesPage extends BasePage{
 	  	Assert.assertTrue(date_picker.isDisplayed());
 		String parseHour[] = picker_wheel_hour.getText().split(" ");
 		String parseMinute[] = picker_wheel_minute.getText().split(" ");
-		System.out.println("Test Status: app timestamp: " + parseHour[0] + ":" + parseMinute[0] + " " + picker_wheel_12_hour.getText());
+		System.out.println("Test Status: app time: " + parseHour[0] + ":" + parseMinute[0] + " " + picker_wheel_12_hour.getText());
 		Assert.assertEquals(parseHour[0], timeStampHour);
 		Assert.assertEquals(parseMinute[0], timeStampMinute);
 		Assert.assertEquals(picker_wheel_12_hour.getText(), timeStamp12Hour);
@@ -69,14 +68,16 @@ public class AppAttributesPage extends BasePage{
 	
 	@Step ("Input a new time value, and validate.")
 	public void input_new_time_value() {
-		// https://appiumpro.com/editions/59-how-to-automate-picker-wheel-controls
-		MobileElement picker_wheel_hour2 = mobiledriver.findElement(PickerWheelHour);
-		MobileElement picker_wheel_minute2 = mobiledriver.findElement(PickerWheelMinute);
-		MobileElement picker_wheel_12_hour2 = mobiledriver.findElement(PickerWheel12Hour);
-		picker_wheel_hour2.sendKeys("6");
-		picker_wheel_minute2.sendKeys("55");
-		picker_wheel_12_hour2.sendKeys("AM");
+		MobileElement picker_wheel_hour = mobiledriver.findElement(PickerWheelHour);
+		MobileElement picker_wheel_minute = mobiledriver.findElement(PickerWheelMinute);
+		MobileElement picker_wheel_12_hour = mobiledriver.findElement(PickerWheel12Hour);
+		picker_wheel_hour.sendKeys(mHourValue);
+		picker_wheel_minute.sendKeys(mMinuteValue);
+		picker_wheel_12_hour.sendKeys(m12FormatValue);
 		System.out.println("Test Status: inputted new time value");
+		String parseHour[] = picker_wheel_hour.getText().split(" ");
+		String parseMinute[] = picker_wheel_minute.getText().split(" ");
+		System.out.println("Test Status: new app time: " + parseHour[0] + ":" + parseMinute[0] + " " + picker_wheel_12_hour.getText());
 	}
 	
 	@Step ("Validate the first textbox will the placeholder string, clear the placeholder string, and then input the new string value.")
@@ -104,11 +105,11 @@ public class AppAttributesPage extends BasePage{
 	//*********Pre & Post Tests*********
 	@BeforeTest
 	public void beforeTest( ) {
-		System.out.println("Test Case: alerts test case loaded");
+		System.out.println("Test Case: attributes test case loaded");
 	}
 		
 	@AfterTest
 	public void afterTest( ) {
-		System.out.println("Test Case: alerts test case completed");
+		System.out.println("Test Case: attributes test case completed");
 	}
 }

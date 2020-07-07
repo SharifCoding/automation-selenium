@@ -18,10 +18,13 @@ public class BasePage {
 
 	public static IOSDriver<IOSElement>mobiledriver;
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
+	public static String mPlaceholderString = "Value";
+	public static String mStringValue = "";
+	public static String mHourValue = "";
+	public static String mMinuteValue = "";
+	public static String m12FormatValue = "";
 	public static String mTableValue = "";
 	public static String mScrollValue = "";
-	public static String mStringValue = "";
-	public static String mPlaceholderString = "Value";
     
 	//*********Main Mobile Elements*********
 	By OtherMainView = By.xpath("//XCUIElementTypeOther[@name=\"MainView\"]");
@@ -71,6 +74,9 @@ public class BasePage {
 			JSONObject dataBlock = (JSONObject) dataInfo.get(i);
 			JSONObject data = (JSONObject) dataBlock.get("testData");
 			mStringValue = (String) data.get("stringValue");
+			mHourValue = (String) data.get("newHourValue");
+			mMinuteValue = (String) data.get("newMinuteValue");
+			m12FormatValue = (String) data.get("new12FormatValue");
 			mTableValue = (String) data.get("tableValue");
 			mScrollValue = (String) data.get("scrollValue");
 		}

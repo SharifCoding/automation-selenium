@@ -68,6 +68,7 @@ public class AppIntegrationTest extends BaseTest{
 		appAttributesTest.click_on_the_attributes_button();
 		appAttributesTest.validate_attributes_page();
 		appAttributesTest.validate_app_timestamp();
+		appAttributesTest.input_new_time_value();
 		appAttributesTest.input_validate_first_textbox();
 		appAttributesTest.return_to_main_page();
 		appAttributesTest.afterTest();
