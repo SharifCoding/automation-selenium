@@ -46,12 +46,15 @@ public class AppAttributesPage extends BasePage{
 		System.out.println("Test Status: attributes page is loaded");
 	}
 	
-	@Step ("Get internet timestamp and validate with the app.")
+	@Step ("Get internet time and validate with the time on the app.")
 	public void validate_app_timestamp() {
 		String timeStampHour = new SimpleDateFormat("h").format(new Date());
 		String timeStampMinute = new SimpleDateFormat("mm").format(new Date());
 		String timeStamp12Hour = new SimpleDateFormat("a").format(new Date());
-		System.out.println("Test Status: internet timestamp: " + timeStampHour + ":" + timeStampMinute + " " + timeStamp12Hour);
+		System.out.println("Test Status: internet time: "
+				+ timeStampHour + ":"
+				+ timeStampMinute + " "
+				+ timeStamp12Hour);
 		MobileElement date_picker = mobiledriver.findElement(DatePicker);
 		MobileElement picker_wheel_hour = mobiledriver.findElement(PickerWheelHour);
 		MobileElement picker_wheel_minute = mobiledriver.findElement(PickerWheelMinute);
@@ -59,11 +62,14 @@ public class AppAttributesPage extends BasePage{
 	  	Assert.assertTrue(date_picker.isDisplayed());
 		String parseHour[] = picker_wheel_hour.getText().split(" ");
 		String parseMinute[] = picker_wheel_minute.getText().split(" ");
-		System.out.println("Test Status: app time: " + parseHour[0] + ":" + parseMinute[0] + " " + picker_wheel_12_hour.getText());
+		System.out.println("Test Status: app time: " 
+				+ parseHour[0] + ":"
+				+ parseMinute[0] + " "
+				+ picker_wheel_12_hour.getText());
 		Assert.assertEquals(parseHour[0], timeStampHour);
 		Assert.assertEquals(parseMinute[0], timeStampMinute);
 		Assert.assertEquals(picker_wheel_12_hour.getText(), timeStamp12Hour);
-		System.out.println("Test Status: validated app timestamp");
+		System.out.println("Test Status: validated app time");
 	}
 	
 	@Step ("Input a new time value, and validate.")
@@ -74,10 +80,31 @@ public class AppAttributesPage extends BasePage{
 		picker_wheel_hour.sendKeys(mHourValue);
 		picker_wheel_minute.sendKeys(mMinuteValue);
 		picker_wheel_12_hour.sendKeys(m12FormatValue);
-		System.out.println("Test Status: inputted new time value");
+		System.out.println("Test Status: inputted new time value: "
+				+ mHourValue + ":"
+				+ mMinuteValue + " "
+				+ m12FormatValue);
 		String parseHour[] = picker_wheel_hour.getText().split(" ");
 		String parseMinute[] = picker_wheel_minute.getText().split(" ");
-		System.out.println("Test Status: new app time: " + parseHour[0] + ":" + parseMinute[0] + " " + picker_wheel_12_hour.getText());
+		System.out.println("Test Status: new app time: "
+				+ parseHour[0] + ":"
+				+ parseMinute[0]+ " "
+				+ picker_wheel_12_hour.getText());
+		Assert.assertEquals(parseHour[0], mHourValue);
+		Assert.assertEquals(parseMinute[0], mMinuteValue);
+		Assert.assertEquals(picker_wheel_12_hour.getText(), m12FormatValue);
+		System.out.println("Test Status: validated inputted time");
+	}
+	
+	@Step ("Get internet date and validate with the app.")
+	public void validate_app_timestamp_date() {
+		String timeStampDayName = new SimpleDateFormat("E").format(new Date());
+		String timeStampMonthInYear = new SimpleDateFormat("MMM").format(new Date());		
+		String timeStampDayInMonth = new SimpleDateFormat("d").format(new Date());
+		System.out.println("Test Status: internet date: "
+				+ timeStampDayName + " "
+				+ timeStampMonthInYear + " "
+				+ timeStampDayInMonth);
 	}
 	
 	@Step ("Validate the first textbox will the placeholder string, clear the placeholder string, and then input the new string value.")
