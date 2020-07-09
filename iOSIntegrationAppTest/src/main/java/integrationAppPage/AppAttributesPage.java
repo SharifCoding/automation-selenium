@@ -77,9 +77,9 @@ public class AppAttributesPage extends BasePage{
 		MobileElement picker_wheel_hour = mobiledriver.findElement(PickerWheelHour);
 		MobileElement picker_wheel_minute = mobiledriver.findElement(PickerWheelMinute);
 		MobileElement picker_wheel_12_hour = mobiledriver.findElement(PickerWheel12Hour);
-		picker_wheel_hour.sendKeys(mHourValue);
-		picker_wheel_minute.sendKeys(mMinuteValue);
-		picker_wheel_12_hour.sendKeys(m12FormatValue);
+		picker_wheel_hour.setValue(mHourValue);
+		picker_wheel_minute.setValue(mMinuteValue);
+		picker_wheel_12_hour.setValue(m12FormatValue);
 		System.out.println("Test Status: inputted new time value: "
 				+ mHourValue + ":"
 				+ mMinuteValue + " "
@@ -105,6 +105,10 @@ public class AppAttributesPage extends BasePage{
 				+ timeStampDayName + " "
 				+ timeStampMonthInYear + " "
 				+ timeStampDayInMonth);
+		MobileElement picker_wheel_hour = mobiledriver.findElement(PickerWheelDate);
+		System.out.println(picker_wheel_hour.getText());
+		swipeToElement();
+		System.out.println(picker_wheel_hour.getText());
 	}
 	
 	@Step ("Validate the first textbox will the placeholder string, clear the placeholder string, and then input the new string value.")

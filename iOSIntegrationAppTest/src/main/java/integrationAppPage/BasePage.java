@@ -12,6 +12,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.RemoteWebElement;
  
 public class BasePage {
@@ -49,6 +50,7 @@ public class BasePage {
 	By TextValue = By.xpath("//XCUIElementTypeTextField[@value=\"Value\"]");
 	By TextaIdentifier = By.xpath("//XCUIElementTypeTextField[@name=\"aIdentifier\"]");
 	By DatePicker = By.xpath("//XCUIElementTypeDatePicker[@enabled=\"true\"]");
+	By PickerWheelDate = By.xpath("//XCUIElementTypePickerWheel[@enabled=\"true\"][1]");
 	By PickerWheelHour = By.xpath("//XCUIElementTypePickerWheel[@enabled=\"true\"][2]");
 	By PickerWheelMinute = By.xpath("//XCUIElementTypePickerWheel[@enabled=\"true\"][3]");
 	By PickerWheel12Hour = By.xpath("//XCUIElementTypePickerWheel[@enabled=\"true\"][4]");
@@ -91,5 +93,15 @@ public class BasePage {
 		scrollObject.put("element", elementID);
 		scrollObject.put("toVisible", "not an empty string");
 		mobiledriver.executeScript("mobile:scroll", scrollObject);
+	}
+	
+	public static void swipeToElement() {	
+		JavascriptExecutor js = (JavascriptExecutor) mobiledriver; 
+		HashMap<String, String> scrollObject = new HashMap<String, String>();
+		scrollObject.put("direction", "up"); 
+		scrollObject.put("xpath", "//XCUIElementTypePickerWheel[@enabled=\"true\"]");
+		for(int i=0; i<5; i++){
+		    js.executeScript("mobile: swipe", scrollObject);
+		}
 	}
 }
