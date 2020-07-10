@@ -1,7 +1,9 @@
 package integrationAppPage;
 
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
+import io.appium.java_client.touch.offset.PointOption;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,7 +14,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.RemoteWebElement;
  
 public class BasePage {
@@ -95,13 +96,12 @@ public class BasePage {
 		mobiledriver.executeScript("mobile:scroll", scrollObject);
 	}
 	
-	public static void swipeToElement() {	
-		JavascriptExecutor js = (JavascriptExecutor) mobiledriver; 
-		HashMap<String, String> scrollObject = new HashMap<String, String>();
-		scrollObject.put("direction", "up"); 
-		scrollObject.put("xpath", "//XCUIElementTypePickerWheel[@enabled=\"true\"]");
-		for(int i=0; i<5; i++){
-		    js.executeScript("mobile: swipe", scrollObject);
+	public static void tapOnCoordinate(Integer x, Integer y) {
+		new TouchAction<>(mobiledriver).tap(PointOption.point(x,y)).perform();
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 }

@@ -102,12 +102,12 @@ public class AppAttributesPage extends BasePage{
 		String timeStampMonthInYear = new SimpleDateFormat("MMM").format(new Date());		
 		String timeStampDayInMonth = new SimpleDateFormat("d").format(new Date());
 		System.out.println("Test Status: internet date: "
-				+ timeStampDayName + " "
+				+ timeStampDayName + ", "
 				+ timeStampMonthInYear + " "
 				+ timeStampDayInMonth);
 		MobileElement picker_wheel_hour = mobiledriver.findElement(PickerWheelDate);
 		System.out.println(picker_wheel_hour.getText());
-		swipeToElement();
+		tapOnCoordinate(109,364);
 		System.out.println(picker_wheel_hour.getText());
 	}
 	
