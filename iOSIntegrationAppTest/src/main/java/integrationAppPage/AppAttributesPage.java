@@ -1,8 +1,6 @@
 package integrationAppPage;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import org.testng.Assert;
@@ -105,22 +103,11 @@ public class AppAttributesPage extends BasePage{
 		String timeStampDayInMonth = new SimpleDateFormat("d").format(new Date());
 		String timeStampDate = (timeStampDayName + ", " + timeStampMonthInYear + " " + timeStampDayInMonth);
 		System.out.println("Test Status: internet date: " + timeStampDate);
-		
-		// https://stackoverflow.com/questions/428918/how-can-i-increment-a-date-by-one-day-in-java
-		SimpleDateFormat sdf = new SimpleDateFormat("E, MMM d");
-		Calendar c = Calendar.getInstance();
-		try {
-			c.setTime(sdf.parse(timeStampDate));
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		c.add(Calendar.DATE, 1);
-		timeStampDate = sdf.format(c.getTime());
-		System.out.println("Test Status: incremented date by a day: " + timeStampDate);
-
+		String newDate = incrementDayToDate(timeStampDate, 1);
+		System.out.println("Test Status: incremented date by a day: " + newDate);
 		MobileElement picker_wheel_hour = mobiledriver.findElement(PickerWheelDate);
 		tapOnCoordinate(109,422);
-		Assert.assertEquals(picker_wheel_hour.getText(), timeStampDate);
+		Assert.assertEquals(picker_wheel_hour.getText(), newDate);
 		System.out.println("Test Status: validated app date");
 	}
 	

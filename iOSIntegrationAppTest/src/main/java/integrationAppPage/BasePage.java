@@ -7,6 +7,8 @@ import io.appium.java_client.touch.offset.PointOption;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import org.json.simple.JSONArray;
@@ -96,6 +98,7 @@ public class BasePage {
 		mobiledriver.executeScript("mobile:scroll", scrollObject);
 	}
 	
+	//*********Tap on Coordinate Function*********
 	public static void tapOnCoordinate(Integer x, Integer y) {
 		new TouchAction<>(mobiledriver).tap(PointOption.point(x,y)).perform();
 		try {
@@ -103,5 +106,20 @@ public class BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	//*********Increment Date Function*********
+	public static String incrementDayToDate(String date, int days) {
+		// https://stackoverflow.com/questions/428918/how-can-i-increment-a-date-by-one-day-in-java
+		SimpleDateFormat sdf = new SimpleDateFormat("E, MMM d");
+		Calendar c = Calendar.getInstance();
+		try {
+			c.setTime(sdf.parse(date));
+		} catch (java.text.ParseException e) {
+			e.printStackTrace();
+		}
+		c.add(Calendar.DATE, days);
+		date = sdf.format(c.getTime());
+		return date;
 	}
 }
