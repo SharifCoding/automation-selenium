@@ -15,7 +15,7 @@ import integrationAppPage.AppScrollViewPage;
  
 public class AppIntegrationTest extends BaseTest{
 	
-	@Test (priority = 0, enabled = false)
+	@Test (priority = 0, enabled = true)
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Facebook Integration App")
 	@Description ("The Facebook Integration App is launched, and the expected options are shown.")
@@ -33,7 +33,7 @@ public class AppIntegrationTest extends BaseTest{
 		appLaunchTest.afterTest();
 	}
 	
-	@Test (priority = 1, enabled = false)
+	@Test (priority = 1, enabled = true)
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Facebook Integration App")
 	@Description ("The Facebook Integration App is launched, and validate on the loaded alerts page.")
@@ -68,14 +68,14 @@ public class AppIntegrationTest extends BaseTest{
 		appAttributesTest.click_on_the_attributes_button();
 		appAttributesTest.validate_attributes_page();
 		appAttributesTest.validate_app_timestamp();
-		appAttributesTest.input_new_time_value();
+		appAttributesTest.input_and_validate_new_time();
 		appAttributesTest.validate_app_timestamp_date();
 		appAttributesTest.input_validate_first_textbox();
 		appAttributesTest.return_to_main_page();
 		appAttributesTest.afterTest();
 	}
 	
-	@Test (priority = 3, enabled = false)
+	@Test (priority = 3, enabled = true)
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Facebook Integration App")
 	@Description ("The Facebook Integration App is launched, and validate on the loaded table view page.")
@@ -96,7 +96,7 @@ public class AppIntegrationTest extends BaseTest{
 		appTableViewTest.afterTest();
 	}
 	
-	@Test (priority = 4, enabled = false)
+	@Test (priority = 4, enabled = true)
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Facebook Integration App")
 	@Description ("The Facebook Integration App is launched, and validate on the loaded scroll view page.")

@@ -73,7 +73,7 @@ public class AppAttributesPage extends BasePage{
 	}
 	
 	@Step ("Input a new time value, and validate.")
-	public void input_new_time_value() {
+	public void input_and_validate_new_time() {
 		MobileElement picker_wheel_hour = mobiledriver.findElement(PickerWheelHour);
 		MobileElement picker_wheel_minute = mobiledriver.findElement(PickerWheelMinute);
 		MobileElement picker_wheel_12_hour = mobiledriver.findElement(PickerWheel12Hour);
@@ -98,10 +98,9 @@ public class AppAttributesPage extends BasePage{
 	
 	@Step ("Get internet date and validate with the app.")
 	public void validate_app_timestamp_date() {
-		String timeStampDayName = new SimpleDateFormat("E").format(new Date());
-		String timeStampMonthInYear = new SimpleDateFormat("MMM").format(new Date());		
-		String timeStampDayInMonth = new SimpleDateFormat("d").format(new Date());
-		String timeStampDate = (timeStampDayName + ", " + timeStampMonthInYear + " " + timeStampDayInMonth);
+		String timeStampDate = (new SimpleDateFormat("E").format(new Date()) + ", "
+				+ new SimpleDateFormat("MMM").format(new Date()) + " "
+				+ new SimpleDateFormat("d").format(new Date()));
 		System.out.println("Test Status: internet date: " + timeStampDate);
 		String newDate = incrementDayToDate(timeStampDate, 1);
 		System.out.println("Test Status: incremented date by a day: " + newDate);

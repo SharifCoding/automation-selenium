@@ -78,7 +78,7 @@ public class AppScrollViewPage extends BasePage{
 	  	button_back.click();
 		MobileElement button_table_view = mobiledriver.findElement(ButtonTableView);
 	  	Assert.assertTrue(button_table_view.isDisplayed());
-		System.out.println("Test Status: returned to scrolling page (1)");
+		System.out.println("Test Status: returned to scrolling page (2)");
 	}
 	
 	@Step ("Rotate and verify the device portrait orientation.")

@@ -9,8 +9,9 @@ XCUITest driver installs a helper application called WebDriverAgent-Runner onto 
 - [GitHub: appium-xcuitest-driver](https://github.com/appium/appium-xcuitest-driver)
 - [Appium XCUITest Driver Real Device Setup](http://appium.io/docs/en/drivers/ios-xcuitest-real-devices/#appium-xcuitest-driver-real-device-setup)
 - [Scrolling on iOS – Using Appium](https://developers.perfectomobile.com/pages/viewpage.action?pageId=25199704)
-- [Java – SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html)
+- [Java: SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html)
 - [How to Automate Picker Wheel Controls](https://appiumpro.com/editions/59-how-to-automate-picker-wheel-controls)
+- [stackoverflow: How can I increment date by one day?](https://stackoverflow.com/questions/428918/how-can-i-increment-a-date-by-one-day-in-java)
 
 ### Running the Test
 To run the test;

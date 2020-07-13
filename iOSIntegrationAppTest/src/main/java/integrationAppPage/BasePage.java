@@ -110,7 +110,6 @@ public class BasePage {
 	
 	//*********Increment Date Function*********
 	public static String incrementDayToDate(String date, int days) {
-		// https://stackoverflow.com/questions/428918/how-can-i-increment-a-date-by-one-day-in-java
 		SimpleDateFormat sdf = new SimpleDateFormat("E, MMM d");
 		Calendar c = Calendar.getInstance();
 		try {
