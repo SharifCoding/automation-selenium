@@ -21,6 +21,7 @@
 - [Android Appium Web Automation](./androidAppiumTest/README.md)
 - [iOS Appium Web Automation](./iOSAppiumTest/README.md)
 - [R2 Reader App Automation](./androidR2Reader/README.md)
+- [Wikipedia iOS App Automation](./iOSWikipediaTest/README.md)
 - [Audiobook.com App Automation](./androidAudiobooksCom/README.md)
 - [iOS Facebook Integration App Automation](./iOSIntegrationAppTest/README.md)
 - [Google Calcultor App -  Part 1](./androidCalculator/README.md)

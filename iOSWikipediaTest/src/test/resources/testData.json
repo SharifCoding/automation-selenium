@@ -1,0 +1,8 @@
+[
+  {
+    "testData":{
+			"_testNGFile":"testng.xml",
+			"stringValue":"HelloWorld"
+    }
+  }
+]
