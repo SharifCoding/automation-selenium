@@ -22,7 +22,9 @@ public class AppWikipediaTest extends BaseTest{
 		//*************PAGE METHODS********************
 		appLaunchTest.beforeTest();
 		appLaunchTest.validate_installed_app_via_xcode();
+		appLaunchTest.check_buttons_wikipedia_and_settings();
 		appLaunchTest.check_search_field();
+		appLaunchTest.check_navigation_buttons();
 		appLaunchTest.afterTest();
 	}
 }
