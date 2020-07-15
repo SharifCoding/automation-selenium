@@ -19,22 +19,30 @@ public class BasePage {
 	public static IOSDriver<IOSElement>mobiledriver;
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
 	public static String mStringValue = "";
-    
-	//********* Navigation UI Mobile Elements *********
-	By ButtonExplore = By.xpath("//XCUIElementTypeButton[@name=\"Explore\"]");
-	By ButtonPlaces = By.xpath("//XCUIElementTypeButton[@name=\"Places\"]");
-	By ButtonSaved = By.xpath("//XCUIElementTypeButton[@name=\"Saved\"]");
-	By ButtonHistory = By.xpath("//XCUIElementTypeButton[@name=\"History\"]");
-	By ButtonSearch = By.xpath("//XCUIElementTypeButton[@name=\"Search\"]");
-	
+    	
 	//********* Explore Mobile Elements *********
+	By ButtonExplore = By.xpath("//XCUIElementTypeButton[@name=\"Explore\"]");
 	By Toolbar = By.xpath("//XCUIElementTypeToolbar[@name=\"Toolbar\"]/XCUIElementTypeOther/XCUIElementTypeOther");
 	By ButtonWikipedia = By.xpath("//XCUIElementTypeButton[@name=\"wikipedia\"]");
 	By ButtonSettings = By.xpath("//XCUIElementTypeButton[@name=\"Settings\"]");
 	By SearchField = By.xpath("//XCUIElementTypeSearchField[@name=\"Search Wikipedia\"]");
 	
 	//********* Places Mobile Elements *********
+	By ButtonPlaces = By.xpath("//XCUIElementTypeButton[@name=\"Places\"]");
+	By TextPlaces = By.xpath("//XCUIElementTypeStaticText[@name=\"Places\"]");
 	By ButtonFilter = By.xpath("//XCUIElementTypeButton[@name=\"Filter\"]");
+	
+	//********* Saved Mobile Elements *********
+	By ButtonSaved = By.xpath("//XCUIElementTypeButton[@name=\"Saved\"]");
+	By TextSaved = By.xpath("//XCUIElementTypeStaticText[@name=\"Saved\"]");
+	
+	//********* History Mobile Elements *********
+	By ButtonHistory = By.xpath("//XCUIElementTypeButton[@name=\"History\"]");
+	By TextHistory = By.xpath("//XCUIElementTypeStaticText[@name=\"History\"]");
+	
+	//********* Search Mobile Elements *********
+	By ButtonSearch = By.xpath("//XCUIElementTypeButton[@name=\"Search\"]");
+	By TextSearch = By.xpath("//XCUIElementTypeStaticText[@name=\"Search\"]");
 	
 	//*********Read JSON Function*********
 	public static void readWriteJSON() throws InterruptedException, IOException, ParseException {

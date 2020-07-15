@@ -43,6 +43,10 @@ public class AppWikipediaTest extends BaseTest{
 		navigateButtonsTest.validate_installed_app_via_xcode();
 		navigateButtonsTest.check_navigation_buttons();
 		navigateButtonsTest.click_on_button_places();
+		navigateButtonsTest.click_on_button_saved();
+		navigateButtonsTest.click_on_button_history();
+		navigateButtonsTest.click_on_button_search();
+		navigateButtonsTest.click_on_button_explore();
 		navigateButtonsTest.afterTest();
 	}
 }
