@@ -9,10 +9,10 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import io.qameta.allure.Step;
  
-public class AppLaunchPage extends BasePage{
+public class NavigateButtonsPage extends BasePage{
     
 	//*********Web Page Class Constructor*********
-	public AppLaunchPage(IOSDriver<IOSElement>mobiledriver) {
+	public NavigateButtonsPage(IOSDriver<IOSElement>mobiledriver) {
 		BasePage.mobiledriver = mobiledriver;
 	}
 	
@@ -21,24 +21,11 @@ public class AppLaunchPage extends BasePage{
 	public void validate_installed_app_via_xcode() {
 		MobileElement toolbar = mobiledriver.findElement(Toolbar);
 	  	Assert.assertTrue(toolbar.isDisplayed());
-		System.out.println("Test Status: launched app verified");
-	}
-	
-	@Step ("Verify the buttons wikipedia and settings on the top.")
-	public void check_buttons_wikipedia_and_settings() {
 		MobileElement button_wikipedia = mobiledriver.findElement(ButtonWikipedia);
 	  	Assert.assertTrue(button_wikipedia.isDisplayed());
-		System.out.println("Test Status: buttons wikipedia is shown");
 		MobileElement button_settings = mobiledriver.findElement(ButtonSettings);
 	  	Assert.assertTrue(button_settings.isDisplayed());
-		System.out.println("Test Status: button settings is shown");
-	}
-	
-	@Step ("Verify the search field on the Wikipedia app.")
-	public void check_search_field() {
-		MobileElement search_field = mobiledriver.findElement(SearchField);
-	  	Assert.assertTrue(search_field.isDisplayed());
-		System.out.println("Test Status: search field is shown");
+		System.out.println("Test Status: launched app verified");
 	}
 	
 	@Step ("Verify each navigation buttons on the bottom.")
@@ -56,14 +43,24 @@ public class AppLaunchPage extends BasePage{
 		System.out.println("Test Status: navigation buttons are shown");
 	}
 	
+	@Step ("Click on the navigation button; Places.")
+	public void click_on_button_places() {
+		MobileElement button_places = mobiledriver.findElement(ButtonPlaces);
+	  	Assert.assertTrue(button_places.isDisplayed());
+	  	button_places.click();
+		System.out.println("Test Status: places button clicked");
+		MobileElement button_filter = mobiledriver.findElement(ButtonFilter);
+	  	Assert.assertTrue(button_filter.isDisplayed());
+	}
+	
 	//*********Pre & Post Tests*********
 	@BeforeTest
 	public void beforeTest( ) {
-		System.out.println("Test Case: launch app test case loaded");
+		System.out.println("Test Case: navigation buttons test case loaded");
 	}
 		
 	@AfterTest
 	public void afterTest( ) {
-		System.out.println("Test Case: launch app test case completed");
+		System.out.println("Test Case: navigation buttons test case completed");
 	}
 }
