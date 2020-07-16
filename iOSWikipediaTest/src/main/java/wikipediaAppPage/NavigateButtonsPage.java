@@ -57,6 +57,10 @@ public class NavigateButtonsPage extends BasePage{
 	  	Assert.assertTrue(text_places.isDisplayed());
 		MobileElement button_filter = mobiledriver.findElement(ButtonFilter);
 	  	Assert.assertTrue(button_filter.isDisplayed());
+		MobileElement search_places = mobiledriver.findElement(SearchPlaces);
+	  	Assert.assertTrue(search_places.isDisplayed());
+		MobileElement show_as_list = mobiledriver.findElement(ShowAsList);
+	  	Assert.assertTrue(show_as_list.isDisplayed());
 		System.out.println("Test Status: validated places page");
 	}
 	
@@ -72,6 +76,10 @@ public class NavigateButtonsPage extends BasePage{
 	public void validate_category_saved() {
 		MobileElement text_saved = mobiledriver.findElement(TextSaved);
 	  	Assert.assertTrue(text_saved.isDisplayed());
+		MobileElement all_articles = mobiledriver.findElement(AllArticles);
+	  	Assert.assertTrue(all_articles.isDisplayed());
+		MobileElement reading_lists = mobiledriver.findElement(ReadingLists);
+	  	Assert.assertTrue(reading_lists.isDisplayed());
 		System.out.println("Test Status: validated saved page");
 	}
 	
@@ -87,6 +95,8 @@ public class NavigateButtonsPage extends BasePage{
 	public void validate_category_history() {
 		MobileElement text_history = mobiledriver.findElement(TextHistory);
 	  	Assert.assertTrue(text_history.isDisplayed());
+		MobileElement clear = mobiledriver.findElement(ButtonClear);
+	  	Assert.assertTrue(clear.isDisplayed());
 		System.out.println("Test Status: validated history page");
 	}
 	
@@ -102,6 +112,10 @@ public class NavigateButtonsPage extends BasePage{
 	public void validate_category_search() {
 		MobileElement text_search = mobiledriver.findElement(TextSearch);
 	  	Assert.assertTrue(text_search.isDisplayed());
+		MobileElement search_field = mobiledriver.findElement(SearchField);
+	  	Assert.assertTrue(search_field.isDisplayed());
+		MobileElement recently_searched = mobiledriver.findElement(RecentlySearched);
+	  	Assert.assertTrue(recently_searched.isDisplayed());
 		System.out.println("Test Status: validated search page");
 	}
 	

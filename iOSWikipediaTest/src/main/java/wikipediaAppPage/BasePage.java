@@ -31,18 +31,25 @@ public class BasePage {
 	By ButtonPlaces = By.xpath("//XCUIElementTypeButton[@name=\"Places\"]");
 	By TextPlaces = By.xpath("//XCUIElementTypeStaticText[@name=\"Places\"]");
 	By ButtonFilter = By.xpath("//XCUIElementTypeButton[@name=\"Filter\"]");
+	By SearchPlaces = By.xpath("//XCUIElementTypeSearchField[@name=\"Search Places\"]");
+	By ShowAsMap = By.xpath("//XCUIElementTypeButton[@name=\"Show as map\"]");
+	By ShowAsList = By.xpath("//XCUIElementTypeButton[@name=\"Show as list\"]");
 	
 	//********* Saved Mobile Elements *********
 	By ButtonSaved = By.xpath("//XCUIElementTypeButton[@name=\"Saved\"]");
 	By TextSaved = By.xpath("//XCUIElementTypeStaticText[@name=\"Saved\"]");
+	By AllArticles = By.xpath("//XCUIElementTypeButton[@name=\"All articles\"]");
+	By ReadingLists = By.xpath("//XCUIElementTypeButton[@name=\"Reading lists\"]");
 	
 	//********* History Mobile Elements *********
 	By ButtonHistory = By.xpath("//XCUIElementTypeButton[@name=\"History\"]");
 	By TextHistory = By.xpath("//XCUIElementTypeStaticText[@name=\"History\"]");
+	By ButtonClear = By.xpath("///XCUIElementTypeButton[@name=\"Clear\"]");
 	
 	//********* Search Mobile Elements *********
 	By ButtonSearch = By.xpath("//XCUIElementTypeButton[@name=\"Search\"]");
 	By TextSearch = By.xpath("//XCUIElementTypeStaticText[@name=\"Search\"]");
+	By RecentlySearched = By.xpath("//XCUIElementTypeStaticText[@name=\"Recently searched\"]");
 	
 	//*********Read JSON Function*********
 	public static void readWriteJSON() throws InterruptedException, IOException, ParseException {
