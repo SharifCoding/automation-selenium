@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
  
 public class AppWikipediaTest extends BaseTest{
 	
-	@Test (priority = 0, enabled = false)
+	@Test (priority = 0, enabled = true)
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Wikipedia iOS App")
 	@Description ("The Wikipedia iOS is launched, and the home page is shown.")
@@ -43,10 +43,14 @@ public class AppWikipediaTest extends BaseTest{
 		navigateButtonsTest.validate_installed_app_via_xcode();
 		navigateButtonsTest.check_navigation_buttons();
 		navigateButtonsTest.click_on_button_places();
+		navigateButtonsTest.validate_category_places();
 		navigateButtonsTest.click_on_button_saved();
+		navigateButtonsTest.validate_category_saved();
 		navigateButtonsTest.click_on_button_history();
+		navigateButtonsTest.validate_category_history();
 		navigateButtonsTest.click_on_button_search();
-		navigateButtonsTest.click_on_button_explore();
+		navigateButtonsTest.validate_category_search();
+		navigateButtonsTest.return_to_explore_page();
 		navigateButtonsTest.afterTest();
 	}
 }
