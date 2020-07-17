@@ -6,6 +6,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import wikipediaAppPage.AppLaunchPage;
 import wikipediaAppPage.NavigateButtonsPage;
+import wikipediaAppPage.ExploreWikiPage;
 
 import org.testng.annotations.Test;
  
@@ -52,5 +53,23 @@ public class AppWikipediaTest extends BaseTest{
 		navigateButtonsTest.validate_category_search();
 		navigateButtonsTest.return_to_explore_page();
 		navigateButtonsTest.afterTest();
+	}
+	
+	@Test (priority = 2, enabled = true)
+	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
+	@Feature ("Wikipedia iOS App")
+	@Description ("The Wikipedia iOS is launched, and the main Explore page is validated.")
+	public void validateExploreWikipediaPage () {
+ 
+		//*************PAGE INSTANTIATIONS*************
+		ExploreWikiPage exploreWikiTest = new ExploreWikiPage(mobiledriver);
+		 
+		//*************PAGE METHODS********************
+		exploreWikiTest.beforeTest();
+		exploreWikiTest.validate_installed_app_via_xcode();
+		exploreWikiTest.check_buttons_wikipedia_and_settings();
+		exploreWikiTest.check_search_field();
+		exploreWikiTest.check_explore_tab_active();
+		exploreWikiTest.afterTest();
 	}
 }

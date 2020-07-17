@@ -22,6 +22,7 @@ public class BasePage {
     	
 	//********* Explore Mobile Elements *********
 	By ButtonExplore = By.xpath("//XCUIElementTypeButton[@name=\"Explore\"]");
+	By ButtonExploreActive = By.xpath("//XCUIElementTypeButton[@name=\"Explore\"][@value=\"1\"]");
 	By Toolbar = By.xpath("//XCUIElementTypeToolbar[@name=\"Toolbar\"]/XCUIElementTypeOther/XCUIElementTypeOther");
 	By ButtonWikipedia = By.xpath("//XCUIElementTypeButton[@name=\"wikipedia\"]");
 	By ButtonSettings = By.xpath("//XCUIElementTypeButton[@name=\"Settings\"]");
