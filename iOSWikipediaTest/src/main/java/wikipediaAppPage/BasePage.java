@@ -27,6 +27,8 @@ public class BasePage {
 	By ButtonWikipedia = By.xpath("//XCUIElementTypeButton[@name=\"wikipedia\"]");
 	By ButtonSettings = By.xpath("//XCUIElementTypeButton[@name=\"Settings\"]");
 	By SearchField = By.xpath("//XCUIElementTypeSearchField[@name=\"Search Wikipedia\"]");
+	By SearchReturn = By.xpath("//XCUIElementTypeLink[@name=\"Appium\"]");
+	By SearchLoaded = By.xpath("//XCUIElementTypeStaticText[@name=\"Appium\"][1]");
 	
 	//********* Places Mobile Elements *********
 	By ButtonPlaces = By.xpath("//XCUIElementTypeButton[@name=\"Places\"]");

@@ -34,18 +34,33 @@ public class ExploreWikiPage extends BasePage{
 		System.out.println("Test Status: button settings is shown");
 	}
 	
-	@Step ("Verify the search field on the Wikipedia app.")
-	public void check_search_field() {
-		MobileElement search_field = mobiledriver.findElement(SearchField);
-	  	Assert.assertTrue(search_field.isDisplayed());
-		System.out.println("Test Status: search field is shown");
-	}
-	
 	@Step ("Verify the Explore tab is shown as active.")
 	public void check_explore_tab_active() {
 		MobileElement explore_active_button = mobiledriver.findElement(ButtonExploreActive);
 	  	Assert.assertTrue(explore_active_button.isDisplayed());
 		System.out.println("Test Status: explore is tab active");
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Step ("Verify the search field on the Wikipedia app.")
+	public void input_and_execute_search_value() {
+		MobileElement search_field = mobiledriver.findElement(SearchField);
+	  	Assert.assertTrue(search_field.isDisplayed());
+	  	search_field.click();
+		System.out.println("Test Status: clicked on the search field");
+		mobiledriver.getKeyboard().pressKey("Appium");
+		System.out.println("Test Status: input and execute a search value");
+	}
+	
+	@Step ("Load the searched value and validate the returned page.")
+	public void load_and_verify_searched_page() {
+		MobileElement search_return = mobiledriver.findElement(SearchReturn);
+	  	Assert.assertTrue(search_return.isDisplayed());
+	  	search_return.click();
+		System.out.println("Test Status: clicked on a search result");
+		MobileElement search_loaded = mobiledriver.findElement(SearchLoaded);
+	  	Assert.assertTrue(search_loaded.isDisplayed());
+		System.out.println("Test Status: validate loaded search page");
 	}
 	
 	//*********Pre & Post Tests*********
