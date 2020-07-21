@@ -18,7 +18,7 @@ public class BasePage {
 
 	public static IOSDriver<IOSElement>mobiledriver;
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
-	public static String mStringValue = "";
+	public static String mSearchString = "";
     	
 	//********* Explore Mobile Elements *********
 	By ButtonExplore = By.xpath("//XCUIElementTypeButton[@name=\"Explore\"]");
@@ -27,8 +27,8 @@ public class BasePage {
 	By ButtonWikipedia = By.xpath("//XCUIElementTypeButton[@name=\"wikipedia\"]");
 	By ButtonSettings = By.xpath("//XCUIElementTypeButton[@name=\"Settings\"]");
 	By SearchField = By.xpath("//XCUIElementTypeSearchField[@name=\"Search Wikipedia\"]");
-	By SearchReturn = By.xpath("//XCUIElementTypeLink[@name=\"Appium\"]");
-	By SearchLoaded = By.xpath("//XCUIElementTypeStaticText[@name=\"Appium\"][1]");
+	By SearchReturn = By.xpath("//XCUIElementTypeLink[@name=\"" + mSearchString + "\"]");
+	By SearchLoaded = By.xpath("//XCUIElementTypeStaticText[@name=\"" + mSearchString + "\"][1]");
 	
 	//********* Places Mobile Elements *********
 	By ButtonPlaces = By.xpath("//XCUIElementTypeButton[@name=\"Places\"]");
@@ -66,7 +66,7 @@ public class BasePage {
 		{
 			JSONObject dataBlock = (JSONObject) dataInfo.get(i);
 			JSONObject data = (JSONObject) dataBlock.get("testData");
-			mStringValue = (String) data.get("stringValue");
+			mSearchString = (String) data.get("searchString");
 		}
 		System.out.println("JSONParser: Ready");
 	}

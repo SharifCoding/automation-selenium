@@ -41,15 +41,15 @@ public class ExploreWikiPage extends BasePage{
 		System.out.println("Test Status: explore is tab active");
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Step ("Verify the search field on the Wikipedia app.")
 	public void input_and_execute_search_value() {
 		MobileElement search_field = mobiledriver.findElement(SearchField);
 	  	Assert.assertTrue(search_field.isDisplayed());
 	  	search_field.click();
 		System.out.println("Test Status: clicked on the search field");
-		mobiledriver.getKeyboard().pressKey("Appium");
-		System.out.println("Test Status: input and execute a search value");
+		MobileElement search_field_by_id = mobiledriver.findElementByAccessibilityId("Search Wikipedia");
+		search_field_by_id.sendKeys(mSearchString);
+		System.out.println("Test Status: input and execute search value: " + mSearchString);
 	}
 	
 	@Step ("Load the searched value and validate the returned page.")
