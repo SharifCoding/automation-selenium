@@ -68,6 +68,9 @@ public class AppWikipediaTest extends BaseTest{
 		exploreWikiTest.beforeTest();
 		exploreWikiTest.validate_installed_app_via_xcode();
 		exploreWikiTest.check_buttons_wikipedia_and_settings();
+		exploreWikiTest.navigate_to_about_app_via_settings();
+		exploreWikiTest.validate_app_version();
+		exploreWikiTest.close_the_settings_page();
 		exploreWikiTest.check_explore_tab_active();
 		exploreWikiTest.input_and_execute_search_value();
 		exploreWikiTest.load_and_verify_searched_page();

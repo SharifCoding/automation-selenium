@@ -34,6 +34,38 @@ public class ExploreWikiPage extends BasePage{
 		System.out.println("Test Status: button settings is shown");
 	}
 	
+	@Step ("Click on the settings button, scroll down to the About the app option, and then click.")
+	public void navigate_to_about_app_via_settings() {
+		MobileElement button_settings = mobiledriver.findElement(ButtonSettings);
+		button_settings.click();
+		System.out.println("Test Status: clicked on the settings button");
+		MobileElement text_settings = mobiledriver.findElement(TextSettings);
+	  	Assert.assertTrue(text_settings.isDisplayed());
+		System.out.println("Test Status: text settings is shown");
+		scrollToElement(TextAboutTheApp);
+		MobileElement about_app_by_id = mobiledriver.findElementByAccessibilityId("About the app");
+		about_app_by_id.click();
+	}
+	
+	@Step ("Click on cross butoon to close the settings page.")
+	public void validate_app_version() {
+		MobileElement button_about = mobiledriver.findElement(ButtonAbout);
+	  	Assert.assertTrue(button_about.isDisplayed());
+	  	button_about.click();
+		System.out.println("Test Status: clicked on the about button");
+	}
+	
+	@Step ("Click on cross butoon to close the settings page.")
+	public void close_the_settings_page() {
+		MobileElement button_close = mobiledriver.findElement(ButtonClose);
+	  	Assert.assertTrue(button_close.isDisplayed());
+	  	button_close.click();
+		System.out.println("Test Status: clicked on the closed button");
+		MobileElement button_settings = mobiledriver.findElement(ButtonSettings);
+	  	Assert.assertTrue(button_settings.isDisplayed());
+		System.out.println("Test Status: settings page is closed");
+	}
+	
 	@Step ("Verify the Explore tab is shown as active.")
 	public void check_explore_tab_active() {
 		MobileElement explore_active_button = mobiledriver.findElement(ButtonExploreActive);

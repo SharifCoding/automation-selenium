@@ -26,6 +26,10 @@ public class BasePage {
 	By Toolbar = By.xpath("//XCUIElementTypeToolbar[@name=\"Toolbar\"]/XCUIElementTypeOther/XCUIElementTypeOther");
 	By ButtonWikipedia = By.xpath("//XCUIElementTypeButton[@name=\"wikipedia\"]");
 	By ButtonSettings = By.xpath("//XCUIElementTypeButton[@name=\"Settings\"]");
+	By TextSettings = By.xpath("//XCUIElementTypeStaticText[@name=\"Settings\"]");
+	By ButtonClose = By.xpath("//XCUIElementTypeButton[@name=\"Close\"]");
+	By TextAboutTheApp = By.xpath("//XCUIElementTypeStaticText[@name=\"About the app\"]");
+	By ButtonAbout = By.xpath("//XCUIElementTypeButton[@name=\"About\"]");
 	By SearchField = By.xpath("//XCUIElementTypeSearchField[@name=\"Search Wikipedia\"]");
 	By SearchReturn = By.xpath("//XCUIElementTypeLink[@name=\"" + mSearchString + "\"]");
 	By SearchLoaded = By.xpath("//XCUIElementTypeStaticText[@name=\"" + mSearchString + "\"][1]");
