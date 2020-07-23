@@ -49,6 +49,9 @@ public class ExploreWikiPage extends BasePage{
 	
 	@Step ("Click on cross butoon to close the settings page.")
 	public void validate_app_version() {
+		MobileElement app_version_by_id = mobiledriver.findElementByAccessibilityId(mAppVersion);
+		Assert.assertTrue(app_version_by_id.isDisplayed());
+		System.out.println("Test Status: app version verified: " + app_version_by_id.getText());
 		MobileElement button_about = mobiledriver.findElement(ButtonAbout);
 	  	Assert.assertTrue(button_about.isDisplayed());
 	  	button_about.click();
@@ -93,6 +96,23 @@ public class ExploreWikiPage extends BasePage{
 		MobileElement search_loaded = mobiledriver.findElement(SearchLoaded);
 	  	Assert.assertTrue(search_loaded.isDisplayed());
 		System.out.println("Test Status: validate loaded search page");
+	}
+	
+	@Step ("Click on cross button to close the open searched page.")
+	public void return_to_explore_page() {
+		MobileElement button_back = mobiledriver.findElement(ButtonBack);
+	  	Assert.assertTrue(button_back.isDisplayed());
+	  	button_back.click();
+		System.out.println("Test Status: clicked on the back button");
+		MobileElement button_cancel = mobiledriver.findElement(ButtonCancel);
+	  	Assert.assertTrue(button_cancel.isDisplayed());
+	  	button_cancel.click();
+		System.out.println("Test Status: cancelled search result page");
+		MobileElement button_wikipedia = mobiledriver.findElement(ButtonWikipedia);
+	  	Assert.assertTrue(button_wikipedia.isDisplayed());
+		MobileElement button_settings = mobiledriver.findElement(ButtonSettings);
+	  	Assert.assertTrue(button_settings.isDisplayed());
+		System.out.println("Test Status: returned to explore page");
 	}
 	
 	//*********Pre & Post Tests*********

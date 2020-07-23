@@ -18,6 +18,7 @@ public class BasePage {
 
 	public static IOSDriver<IOSElement>mobiledriver;
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
+	public static String mAppVersion = "";
 	public static String mSearchString = "";
     	
 	//********* Explore Mobile Elements *********
@@ -28,11 +29,13 @@ public class BasePage {
 	By ButtonSettings = By.xpath("//XCUIElementTypeButton[@name=\"Settings\"]");
 	By TextSettings = By.xpath("//XCUIElementTypeStaticText[@name=\"Settings\"]");
 	By ButtonClose = By.xpath("//XCUIElementTypeButton[@name=\"Close\"]");
-	By TextAboutTheApp = By.xpath("//XCUIElementTypeStaticText[@name=\"About the app\"]");
+	By TextAboutTheApp = By.xpath("//XCUIElementTypeCell[14]");
 	By ButtonAbout = By.xpath("//XCUIElementTypeButton[@name=\"About\"]");
 	By SearchField = By.xpath("//XCUIElementTypeSearchField[@name=\"Search Wikipedia\"]");
 	By SearchReturn = By.xpath("//XCUIElementTypeLink[@name=\"" + mSearchString + "\"]");
 	By SearchLoaded = By.xpath("//XCUIElementTypeStaticText[@name=\"" + mSearchString + "\"][1]");
+	By ButtonBack = By.xpath("//XCUIElementTypeButton[@name=\"Back\"]");
+	By ButtonCancel = By.xpath("//XCUIElementTypeButton[@name=\"Cancel\"]");
 	
 	//********* Places Mobile Elements *********
 	By ButtonPlaces = By.xpath("//XCUIElementTypeButton[@name=\"Places\"]");
@@ -70,6 +73,7 @@ public class BasePage {
 		{
 			JSONObject dataBlock = (JSONObject) dataInfo.get(i);
 			JSONObject data = (JSONObject) dataBlock.get("testData");
+			mAppVersion = (String) data.get("appVersion");
 			mSearchString = (String) data.get("searchString");
 		}
 		System.out.println("JSONParser: Ready");

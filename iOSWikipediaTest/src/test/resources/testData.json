@@ -2,6 +2,7 @@
   {
     "testData":{
 			"_testNGFile":"testng.xml",
+			"appVersion":"6.7.0 (0)",
 			"searchString":"Appium"
     }
   }

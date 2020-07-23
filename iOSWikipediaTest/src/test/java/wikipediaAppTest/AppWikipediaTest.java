@@ -74,6 +74,7 @@ public class AppWikipediaTest extends BaseTest{
 		exploreWikiTest.check_explore_tab_active();
 		exploreWikiTest.input_and_execute_search_value();
 		exploreWikiTest.load_and_verify_searched_page();
+		exploreWikiTest.return_to_explore_page();
 		exploreWikiTest.afterTest();
 	}
 }
