@@ -20,6 +20,7 @@ public class BasePage {
 	private static String myPath = "/Users/macbook/Documents/GitHub/learnSelenium/";
 	public static String mAppVersion = "";
 	public static String mSearchString = "";
+	public static String mSearchPlace = "";
     	
 	//********* Explore Mobile Elements *********
 	By ButtonExplore = By.xpath("//XCUIElementTypeButton[@name=\"Explore\"]");
@@ -75,6 +76,7 @@ public class BasePage {
 			JSONObject data = (JSONObject) dataBlock.get("testData");
 			mAppVersion = (String) data.get("appVersion");
 			mSearchString = (String) data.get("searchString");
+			mSearchPlace = (String) data.get("searchPlace");
 		}
 		System.out.println("JSONParser: Ready");
 	}

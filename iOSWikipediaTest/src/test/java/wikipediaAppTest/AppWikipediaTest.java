@@ -7,12 +7,13 @@ import io.qameta.allure.SeverityLevel;
 import wikipediaAppPage.AppLaunchPage;
 import wikipediaAppPage.NavigateButtonsPage;
 import wikipediaAppPage.ExploreWikiPage;
+import wikipediaAppPage.PlacesWikiPage;
 
 import org.testng.annotations.Test;
  
 public class AppWikipediaTest extends BaseTest{
 	
-	@Test (priority = 0, enabled = false)
+	@Test (priority = 0, enabled = true)
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Wikipedia iOS App")
 	@Description ("The Wikipedia iOS is launched, and the home page is shown.")
@@ -30,7 +31,7 @@ public class AppWikipediaTest extends BaseTest{
 		appLaunchTest.afterTest();
 	}
 	
-	@Test (priority = 1, enabled = false)
+	@Test (priority = 1, enabled = true)
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Wikipedia iOS App")
 	@Description ("The Wikipedia iOS is launched, and each navigation buttons is validated.")
@@ -58,7 +59,7 @@ public class AppWikipediaTest extends BaseTest{
 	@Test (priority = 2, enabled = true)
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Wikipedia iOS App")
-	@Description ("The Wikipedia iOS is launched, and the main Explore page is validated.")
+	@Description ("The Wikipedia iOS is launched, and the Explore page is validated.")
 	public void validateExploreWikipediaPage () {
  
 		//*************PAGE INSTANTIATIONS*************
@@ -76,5 +77,24 @@ public class AppWikipediaTest extends BaseTest{
 		exploreWikiTest.load_and_verify_searched_page();
 		exploreWikiTest.return_to_explore_page();
 		exploreWikiTest.afterTest();
+	}
+	
+	@Test (priority = 3, enabled = true)
+	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
+	@Feature ("Wikipedia iOS App")
+	@Description ("The Wikipedia iOS is launched, and the Places page is validated.")
+	public void validatePlacesWikipediaPage () {
+ 
+		//*************PAGE INSTANTIATIONS*************
+		PlacesWikiPage placesWikiTest = new PlacesWikiPage(mobiledriver);
+		 
+		//*************PAGE METHODS********************
+		placesWikiTest.beforeTest();
+		placesWikiTest.validate_installed_app_via_xcode();
+		placesWikiTest.check_buttons_wikipedia_and_settings();
+		placesWikiTest.click_on_places_button();
+		placesWikiTest.validate_category_places();
+		placesWikiTest.click_on_explore_button();
+		placesWikiTest.afterTest();
 	}
 }
