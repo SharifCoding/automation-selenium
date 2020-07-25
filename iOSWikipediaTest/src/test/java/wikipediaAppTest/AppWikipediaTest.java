@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
  
 public class AppWikipediaTest extends BaseTest{
 	
-	@Test (priority = 0, enabled = true)
+	@Test (priority = 0, enabled = false)
 	@Severity (SeverityLevel.CRITICAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Wikipedia iOS App")
 	@Description ("The Wikipedia iOS is launched, and the home page is shown.")
@@ -31,7 +31,7 @@ public class AppWikipediaTest extends BaseTest{
 		appLaunchTest.afterTest();
 	}
 	
-	@Test (priority = 1, enabled = true)
+	@Test (priority = 1, enabled = false)
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Wikipedia iOS App")
 	@Description ("The Wikipedia iOS is launched, and each navigation buttons is validated.")
@@ -56,7 +56,7 @@ public class AppWikipediaTest extends BaseTest{
 		navigateButtonsTest.afterTest();
 	}
 	
-	@Test (priority = 2, enabled = true)
+	@Test (priority = 2, enabled = false)
 	@Severity (SeverityLevel.NORMAL) // BLOCKER, CRITICAL, NORMAL, MINOR, TRIVIAL
 	@Feature ("Wikipedia iOS App")
 	@Description ("The Wikipedia iOS is launched, and the Explore page is validated.")
@@ -93,7 +93,10 @@ public class AppWikipediaTest extends BaseTest{
 		placesWikiTest.validate_installed_app_via_xcode();
 		placesWikiTest.check_buttons_wikipedia_and_settings();
 		placesWikiTest.click_on_places_button();
+		placesWikiTest.check_places_tab_active();
 		placesWikiTest.validate_category_places();
+		placesWikiTest.input_and_execute_search_value();
+		placesWikiTest.load_and_verify_searched_page();
 		placesWikiTest.click_on_explore_button();
 		placesWikiTest.afterTest();
 	}

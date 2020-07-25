@@ -33,18 +33,20 @@ public class BasePage {
 	By TextAboutTheApp = By.xpath("//XCUIElementTypeCell[14]");
 	By ButtonAbout = By.xpath("//XCUIElementTypeButton[@name=\"About\"]");
 	By SearchField = By.xpath("//XCUIElementTypeSearchField[@name=\"Search Wikipedia\"]");
-	By SearchReturn = By.xpath("//XCUIElementTypeLink[@name=\"" + mSearchString + "\"]");
-	By SearchLoaded = By.xpath("//XCUIElementTypeStaticText[@name=\"" + mSearchString + "\"][1]");
+	By SearchReturnExplore = By.xpath("//XCUIElementTypeLink[@name=\"" + mSearchString + "\"]");
+	By SearchLoadedExplore = By.xpath("//XCUIElementTypeStaticText[@name=\"" + mSearchString + "\"][1]");
 	By ButtonBack = By.xpath("//XCUIElementTypeButton[@name=\"Back\"]");
 	By ButtonCancel = By.xpath("//XCUIElementTypeButton[@name=\"Cancel\"]");
 	
 	//********* Places Mobile Elements *********
 	By ButtonPlaces = By.xpath("//XCUIElementTypeButton[@name=\"Places\"]");
+	By ButtonPlacesActive = By.xpath("//XCUIElementTypeButton[@name=\"Places\"][@value=\"1\"]");
 	By TextPlaces = By.xpath("//XCUIElementTypeStaticText[@name=\"Places\"]");
 	By ButtonFilter = By.xpath("//XCUIElementTypeButton[@name=\"Filter\"]");
 	By SearchPlaces = By.xpath("//XCUIElementTypeSearchField[@name=\"Search Places\"]");
 	By ShowAsMap = By.xpath("//XCUIElementTypeButton[@name=\"Show as map\"]");
 	By ShowAsList = By.xpath("//XCUIElementTypeButton[@name=\"Show as list\"]");
+	By SearchReturnPlaces = By.xpath("//XCUIElementTypeCell[1]");
 	
 	//********* Saved Mobile Elements *********
 	By ButtonSaved = By.xpath("//XCUIElementTypeButton[@name=\"Saved\"]");

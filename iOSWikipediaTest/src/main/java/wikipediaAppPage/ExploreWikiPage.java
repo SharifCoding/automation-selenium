@@ -73,7 +73,7 @@ public class ExploreWikiPage extends BasePage{
 	public void check_explore_tab_active() {
 		MobileElement explore_active_button = mobiledriver.findElement(ButtonExploreActive);
 	  	Assert.assertTrue(explore_active_button.isDisplayed());
-		System.out.println("Test Status: explore is tab active");
+		System.out.println("Test Status: explore tab is active");
 	}
 	
 	@Step ("Verify the search field on the Wikipedia app.")
@@ -89,11 +89,11 @@ public class ExploreWikiPage extends BasePage{
 	
 	@Step ("Load the searched value and validate the returned page.")
 	public void load_and_verify_searched_page() {
-		MobileElement search_return = mobiledriver.findElement(SearchReturn);
+		MobileElement search_return = mobiledriver.findElement(SearchReturnExplore);
 	  	Assert.assertTrue(search_return.isDisplayed());
 	  	search_return.click();
 		System.out.println("Test Status: clicked on a search result");
-		MobileElement search_loaded = mobiledriver.findElement(SearchLoaded);
+		MobileElement search_loaded = mobiledriver.findElement(SearchLoadedExplore);
 	  	Assert.assertTrue(search_loaded.isDisplayed());
 		System.out.println("Test Status: validate loaded search page");
 	}

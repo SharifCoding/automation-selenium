@@ -42,6 +42,13 @@ public class PlacesWikiPage extends BasePage{
 		System.out.println("Test Status: clicked on the places button");
 	}
 	
+	@Step ("Verify the Places tab is shown as active.")
+	public void check_places_tab_active() {
+		MobileElement places_active_button = mobiledriver.findElement(ButtonPlacesActive);
+	  	Assert.assertTrue(places_active_button.isDisplayed());
+		System.out.println("Test Status: places tab is active");
+	}
+	
 	@Step ("Validate category page; Places.")
 	public void validate_category_places() {
 		MobileElement text_places = mobiledriver.findElement(TextPlaces);
@@ -53,6 +60,28 @@ public class PlacesWikiPage extends BasePage{
 		MobileElement show_as_list = mobiledriver.findElement(ShowAsList);
 	  	Assert.assertTrue(show_as_list.isDisplayed());
 		System.out.println("Test Status: validated places page");
+	}
+	
+	@Step ("Verify the search field via the Places page on the Wikipedia app.")
+	public void input_and_execute_search_value() {
+		MobileElement search_places = mobiledriver.findElement(SearchPlaces);
+	  	Assert.assertTrue(search_places.isDisplayed());
+	  	search_places.click();
+		System.out.println("Test Status: clicked on the search field");
+		MobileElement search_places_by_id = mobiledriver.findElementByAccessibilityId("Search Places");
+		search_places_by_id.sendKeys(mSearchPlace);
+		System.out.println("Test Status: input and execute search value: " + mSearchPlace);
+	}
+	
+	@Step ("Load the searched value and validate the returned page.")
+	public void load_and_verify_searched_page() {
+		MobileElement search_return = mobiledriver.findElement(SearchReturnPlaces);
+	  	Assert.assertTrue(search_return.isDisplayed());
+	  	search_return.click();
+		System.out.println("Test Status: clicked on the first search result");
+		MobileElement search_loaded_by_id = mobiledriver.findElementByAccessibilityId(mSearchPlace);
+	  	Assert.assertTrue(search_loaded_by_id.isDisplayed());
+		System.out.println("Test Status: validate loaded search page");
 	}
 	
 	@Step ("Click on the Explore button, and return the home page.")
